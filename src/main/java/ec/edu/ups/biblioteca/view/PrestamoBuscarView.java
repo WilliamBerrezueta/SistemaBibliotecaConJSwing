@@ -8,12 +8,12 @@ package ec.edu.ups.biblioteca.view;
  *
  * @author USER
  */
-public class CatalogoView extends javax.swing.JInternalFrame {
+public class PrestamoBuscarView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CatalogoView
+     * Creates new form PrestamoBuscarView
      */
-    public CatalogoView() {
+    public PrestamoBuscarView() {
         initComponents();
     }
 

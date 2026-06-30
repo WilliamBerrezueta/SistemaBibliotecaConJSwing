@@ -8,12 +8,12 @@ package ec.edu.ups.biblioteca.view;
  *
  * @author USER
  */
-public class LoginView extends javax.swing.JInternalFrame {
+public class LibroEliminarView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form LoginView
+     * Creates new form EliminarLibroView
      */
-    public LoginView() {
+    public LibroEliminarView() {
         initComponents();
     }
 

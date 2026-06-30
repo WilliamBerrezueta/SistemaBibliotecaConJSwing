@@ -10,31 +10,36 @@ import java.util.Objects;
  *
  * @author USER
  */
-public class Autor extends Persona{
-    //
-    private String apellido;
+public class Autor {
+    
+    private String nombre;
+    private int yearDeNacimiento;
     private String nacionalidad;
-
-    public Autor(String apellido, String nacionalidad) {
-        this.apellido = apellido;
-        this.nacionalidad = nacionalidad;
-    }
     
     public Autor(){
+        
     }
 
-    public Autor(String apellido, String nombre, String nacionalidad, int añoDeNacimiento) {
-        super(nombre, añoDeNacimiento);
-        this.apellido = apellido;
+    public Autor(String nombre, int yearDeNacimiento, String nacionalidad) {
+        this.nombre = nombre;
+        this.yearDeNacimiento = yearDeNacimiento;
         this.nacionalidad = nacionalidad;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getYearDeNacimiento() {
+        return yearDeNacimiento;
+    }
+
+    public void setYearDeNacimiento(int yearDeNacimiento) {
+        this.yearDeNacimiento = yearDeNacimiento;
     }
 
     public String getNacionalidad() {
@@ -47,18 +52,15 @@ public class Autor extends Persona{
 
     @Override
     public String toString() {
-        String resultado = super.toString();
-        resultado += "\n" +
-               "\t" +"Apellido=" + apellido + "\n" +
-               "\t" +"Nacionalidad=" + nacionalidad ;
-        return resultado;
+        return "Autor{" + "nombre=" + nombre + ", yearDeNacimiento=" + yearDeNacimiento + ", nacionalidad=" + nacionalidad + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.apellido);
-        hash = 29 * hash + Objects.hashCode(this.nacionalidad);
+        hash = 89 * hash + Objects.hashCode(this.nombre);
+        hash = 89 * hash + this.yearDeNacimiento;
+        hash = 89 * hash + Objects.hashCode(this.nacionalidad);
         return hash;
     }
 
@@ -74,11 +76,13 @@ public class Autor extends Persona{
             return false;
         }
         final Autor other = (Autor) obj;
-        if (!Objects.equals(this.apellido, other.apellido)) {
+        if (this.yearDeNacimiento != other.yearDeNacimiento) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
         return Objects.equals(this.nacionalidad, other.nacionalidad);
     }
-    
     
 }

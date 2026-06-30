@@ -10,60 +10,46 @@ import java.util.Objects;
  *
  * @author USER
  */
-public class Usuario extends Persona{
+public class Usuario {
     
-    private String telefono;
-    
-    private Cuenta cuenta;
-    private Prestamo prestamo;
-
-    public Usuario(String telefono, Cuenta cuenta) {
-        this.telefono = telefono;
-        this.cuenta = cuenta;
-    }
+    private String nombre;
+    private String cedula;
     
     public Usuario(){
+        
     }
 
-    public Usuario(String nombre, int añoDeNacimiento,String telefono,String cuenta,String contraseña) {
-        super(nombre, añoDeNacimiento);
-        this.telefono = telefono;
-        this.cuenta = new Cuenta(cuenta,contraseña);
+    public Usuario(String nombre, String cedula) {
+        this.nombre = nombre;
+        this.cedula = cedula;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Cuenta getCuenta() {
-        return cuenta;
+    public String getCedula() {
+        return cedula;
     }
 
-    public Prestamo getPrestamo() {
-        return prestamo;
-    }
-    
-    //metodo
-
-    public void añadirPrestamo(Prestamo prestamo) {
-        this.prestamo = prestamo;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "telefono=" + telefono + ", cuenta=" + cuenta + ", prestamo=" + prestamo + '}';
+        return "Usuario{" + "nombre=" + nombre + ", cedula=" + cedula + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.telefono);
-        hash = 53 * hash + Objects.hashCode(this.cuenta);
-        hash = 53 * hash + Objects.hashCode(this.prestamo);
+        hash = 59 * hash + Objects.hashCode(this.nombre);
+        hash = 59 * hash + Objects.hashCode(this.cedula);
         return hash;
     }
 
@@ -79,13 +65,10 @@ public class Usuario extends Persona{
             return false;
         }
         final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.telefono, other.telefono)) {
+        if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        if (!Objects.equals(this.cuenta, other.cuenta)) {
-            return false;
-        }
-        return Objects.equals(this.prestamo, other.prestamo);
+        return Objects.equals(this.cedula, other.cedula);
     }
     
 }

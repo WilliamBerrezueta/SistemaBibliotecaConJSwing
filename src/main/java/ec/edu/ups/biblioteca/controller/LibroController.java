@@ -8,6 +8,6 @@ package ec.edu.ups.biblioteca.controller;
  *
  * @author USER
  */
-public class BibliotecaController {
+public class LibroController {
     
 }

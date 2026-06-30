@@ -26,80 +26,130 @@ public class PrincipalView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        menuItemLibro = new javax.swing.JMenu();
+        menuItemLibroCrear = new javax.swing.JMenuItem();
+        menuItemLibroBuscar = new javax.swing.JMenuItem();
+        menuItemLibroActualizar = new javax.swing.JMenuItem();
+        menuItemLibroEliminar = new javax.swing.JMenuItem();
+        menuItemLibroListar = new javax.swing.JMenuItem();
+        menuItemUsuario = new javax.swing.JMenu();
+        menuItemUsuarioCrear = new javax.swing.JMenuItem();
+        menuItemUsuarioBuscar = new javax.swing.JMenuItem();
+        menuItemUsuarioActualizar = new javax.swing.JMenuItem();
+        menuItemUsuarioEliminar = new javax.swing.JMenuItem();
+        menuItemUsuarioListar = new javax.swing.JMenuItem();
+        menuItemPrestamo = new javax.swing.JMenu();
+        menuItemPrestamoCrear = new javax.swing.JMenuItem();
+        menuItemPrestamoBuscar = new javax.swing.JMenuItem();
+        menuItemPrestamoActualizar = new javax.swing.JMenuItem();
+        menuItemPrestamoEliminar = new javax.swing.JMenuItem();
+        menuItemPrestamoListar = new javax.swing.JMenuItem();
+        menuItemIdioma = new javax.swing.JMenu();
+        menuItemIdiomaEspañol = new javax.swing.JMenuItem();
+        menuItemIdiomaIngles = new javax.swing.JMenuItem();
+        menuItemSistema = new javax.swing.JMenu();
+        menuItemSistemaSalir = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        menuItemLibro.setMnemonic('f');
+        menuItemLibro.setText("Libro");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
+        menuItemLibroCrear.setMnemonic('o');
+        menuItemLibroCrear.setText("Crear");
+        menuItemLibro.add(menuItemLibroCrear);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        fileMenu.add(saveMenuItem);
+        menuItemLibroBuscar.setMnemonic('s');
+        menuItemLibroBuscar.setText("Buscar");
+        menuItemLibro.add(menuItemLibroBuscar);
 
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
+        menuItemLibroActualizar.setMnemonic('a');
+        menuItemLibroActualizar.setText("Actualizar");
+        menuItemLibro.add(menuItemLibroActualizar);
 
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(this::exitMenuItemActionPerformed);
-        fileMenu.add(exitMenuItem);
+        menuItemLibroEliminar.setMnemonic('x');
+        menuItemLibroEliminar.setText("Eliminar");
+        menuItemLibroEliminar.addActionListener(this::menuItemLibroEliminarActionPerformed);
+        menuItemLibro.add(menuItemLibroEliminar);
 
-        menuBar.add(fileMenu);
+        menuItemLibroListar.setText("Lista");
+        menuItemLibro.add(menuItemLibroListar);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        menuBar.add(menuItemLibro);
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        menuItemUsuario.setMnemonic('e');
+        menuItemUsuario.setText("Usuario");
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        menuItemUsuarioCrear.setMnemonic('t');
+        menuItemUsuarioCrear.setText("Crear");
+        menuItemUsuario.add(menuItemUsuarioCrear);
 
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
+        menuItemUsuarioBuscar.setMnemonic('y');
+        menuItemUsuarioBuscar.setText("Buscar");
+        menuItemUsuario.add(menuItemUsuarioBuscar);
 
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        menuItemUsuarioActualizar.setMnemonic('p');
+        menuItemUsuarioActualizar.setText("Actualizar");
+        menuItemUsuario.add(menuItemUsuarioActualizar);
 
-        menuBar.add(editMenu);
+        menuItemUsuarioEliminar.setMnemonic('d');
+        menuItemUsuarioEliminar.setText("Eliminar");
+        menuItemUsuario.add(menuItemUsuarioEliminar);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
+        menuItemUsuarioListar.setText("Lista");
+        menuItemUsuario.add(menuItemUsuarioListar);
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
+        menuBar.add(menuItemUsuario);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        menuItemPrestamo.setMnemonic('h');
+        menuItemPrestamo.setText("Prestamo");
 
-        menuBar.add(helpMenu);
+        menuItemPrestamoCrear.setMnemonic('c');
+        menuItemPrestamoCrear.setText("Crear");
+        menuItemPrestamo.add(menuItemPrestamoCrear);
+
+        menuItemPrestamoBuscar.setMnemonic('a');
+        menuItemPrestamoBuscar.setText("Buscar");
+        menuItemPrestamo.add(menuItemPrestamoBuscar);
+
+        menuItemPrestamoActualizar.setText("Actualizar");
+        menuItemPrestamo.add(menuItemPrestamoActualizar);
+
+        menuItemPrestamoEliminar.setText("Eliminar");
+        menuItemPrestamo.add(menuItemPrestamoEliminar);
+
+        menuItemPrestamoListar.setText("Lista");
+        menuItemPrestamo.add(menuItemPrestamoListar);
+
+        menuBar.add(menuItemPrestamo);
+
+        menuItemIdioma.setText("Idioma");
+
+        menuItemIdiomaEspañol.setText("Español");
+        menuItemIdioma.add(menuItemIdiomaEspañol);
+
+        menuItemIdiomaIngles.setText("Ingles");
+        menuItemIdioma.add(menuItemIdiomaIngles);
+
+        menuBar.add(menuItemIdioma);
+
+        menuItemSistema.setText("Sistema");
+
+        menuItemSistemaSalir.setText("Salir");
+        menuItemSistema.add(menuItemSistemaSalir);
+
+        menuBar.add(menuItemSistema);
 
         setJMenuBar(menuBar);
 
@@ -107,19 +157,19 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void menuItemLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroEliminarActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }//GEN-LAST:event_menuItemLibroEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,21 +208,34 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenu menuItemIdioma;
+    private javax.swing.JMenuItem menuItemIdiomaEspañol;
+    private javax.swing.JMenuItem menuItemIdiomaIngles;
+    private javax.swing.JMenu menuItemLibro;
+    private javax.swing.JMenuItem menuItemLibroActualizar;
+    private javax.swing.JMenuItem menuItemLibroBuscar;
+    private javax.swing.JMenuItem menuItemLibroCrear;
+    private javax.swing.JMenuItem menuItemLibroEliminar;
+    private javax.swing.JMenuItem menuItemLibroListar;
+    private javax.swing.JMenu menuItemPrestamo;
+    private javax.swing.JMenuItem menuItemPrestamoActualizar;
+    private javax.swing.JMenuItem menuItemPrestamoBuscar;
+    private javax.swing.JMenuItem menuItemPrestamoCrear;
+    private javax.swing.JMenuItem menuItemPrestamoEliminar;
+    private javax.swing.JMenuItem menuItemPrestamoListar;
+    private javax.swing.JMenu menuItemSistema;
+    private javax.swing.JMenuItem menuItemSistemaSalir;
+    private javax.swing.JMenu menuItemUsuario;
+    private javax.swing.JMenuItem menuItemUsuarioActualizar;
+    private javax.swing.JMenuItem menuItemUsuarioBuscar;
+    private javax.swing.JMenuItem menuItemUsuarioCrear;
+    private javax.swing.JMenuItem menuItemUsuarioEliminar;
+    private javax.swing.JMenuItem menuItemUsuarioListar;
     // End of variables declaration//GEN-END:variables
 
 }

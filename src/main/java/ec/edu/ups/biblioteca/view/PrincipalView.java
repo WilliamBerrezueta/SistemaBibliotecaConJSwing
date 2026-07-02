@@ -4,17 +4,58 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import ec.edu.ups.biblioteca.controller.LibroController;
+import ec.edu.ups.biblioteca.controller.UsuarioController;
+import ec.edu.ups.biblioteca.dao.LibroDao;
+import ec.edu.ups.biblioteca.dao.LibroDaoMemoria;
+import ec.edu.ups.biblioteca.dao.UsuarioDao;
+import ec.edu.ups.biblioteca.dao.UsuarioDaoMemoria;
+
 /**
  *
  * @author USER
  */
 public class PrincipalView extends javax.swing.JFrame {
+    
+    
+    private LibroDao libroDao;
+    private LibroController libroController;
+    private LibroActualizarView libroActualizarView;
+    private LibroBuscarView libroBuscarView;
+    private LibroCrearView libroCrearView;
+    private LibroEliminarView libroEliminarView;
+    private LibroListarView libroListarView;
+    
+    private UsuarioDao usuarioDao;
+    private UsuarioController usuarioController;
+    private UsuarioActualizarView usuarioActualizarView;
+    private UsuarioBuscarView usuarioBuscarView;
+    private UsuarioCrearView usuarioCrearView;
+    private UsuarioEliminarView usuarioEliminarView;
+    private UsuarioListarView usuarioListarView;
 
     /**
      * Creates new form Principal
      */
     public PrincipalView() {
         initComponents();
+        
+        libroActualizarView = new LibroActualizarView();
+        libroBuscarView = new LibroBuscarView();
+        libroCrearView = new LibroCrearView();
+        libroEliminarView = new LibroEliminarView();
+        libroListarView = new LibroListarView();
+        libroDao = new LibroDaoMemoria();
+        libroController = new LibroController(libroActualizarView, libroBuscarView, libroCrearView, libroEliminarView, libroListarView, libroDao);
+        
+        usuarioActualizarView = new UsuarioActualizarView();
+        usuarioBuscarView = new UsuarioBuscarView();
+        usuarioCrearView = new UsuarioCrearView();
+        usuarioEliminarView = new UsuarioEliminarView();
+        usuarioListarView = new UsuarioListarView();
+        usuarioDao = new UsuarioDaoMemoria();
+        usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
+    
     }
 
     /**
@@ -68,14 +109,17 @@ public class PrincipalView extends javax.swing.JFrame {
 
         menuItemLibroCrear.setMnemonic('o');
         menuItemLibroCrear.setText("Crear");
+        menuItemLibroCrear.addActionListener(this::menuItemLibroCrearActionPerformed);
         menuItemLibro.add(menuItemLibroCrear);
 
         menuItemLibroBuscar.setMnemonic('s');
         menuItemLibroBuscar.setText("Buscar");
+        menuItemLibroBuscar.addActionListener(this::menuItemLibroBuscarActionPerformed);
         menuItemLibro.add(menuItemLibroBuscar);
 
         menuItemLibroActualizar.setMnemonic('a');
         menuItemLibroActualizar.setText("Actualizar");
+        menuItemLibroActualizar.addActionListener(this::menuItemLibroActualizarActionPerformed);
         menuItemLibro.add(menuItemLibroActualizar);
 
         menuItemLibroEliminar.setMnemonic('x');
@@ -84,6 +128,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemLibro.add(menuItemLibroEliminar);
 
         menuItemLibroListar.setText("Lista");
+        menuItemLibroListar.addActionListener(this::menuItemLibroListarActionPerformed);
         menuItemLibro.add(menuItemLibroListar);
 
         menuBar.add(menuItemLibro);
@@ -157,19 +202,55 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroEliminarActionPerformed
-        System.exit(0);
+        if(!libroEliminarView.isVisible()){
+            desktopPane.remove(libroEliminarView);
+            libroEliminarView.setVisible(true);
+            desktopPane.add(libroEliminarView);
+        }
     }//GEN-LAST:event_menuItemLibroEliminarActionPerformed
+
+    private void menuItemLibroCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroCrearActionPerformed
+        if(!libroCrearView.isVisible()){
+            desktopPane.remove(libroCrearView);
+            libroCrearView.setVisible(true);
+            desktopPane.add(libroCrearView);
+        }
+    }//GEN-LAST:event_menuItemLibroCrearActionPerformed
+
+    private void menuItemLibroBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroBuscarActionPerformed
+        if(!libroBuscarView.isVisible()){
+            desktopPane.remove(libroBuscarView);
+            libroBuscarView.setVisible(true);
+            desktopPane.add(libroBuscarView);
+        }
+    }//GEN-LAST:event_menuItemLibroBuscarActionPerformed
+
+    private void menuItemLibroActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroActualizarActionPerformed
+        if(!libroActualizarView.isVisible()){
+            desktopPane.remove(libroActualizarView);
+            libroActualizarView.setVisible(true);
+            desktopPane.add(libroActualizarView);
+        }
+    }//GEN-LAST:event_menuItemLibroActualizarActionPerformed
+
+    private void menuItemLibroListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroListarActionPerformed
+        if(!libroListarView.isVisible()){
+            desktopPane.remove(libroListarView);
+            libroListarView.setVisible(true);
+            desktopPane.add(libroListarView);
+        }
+    }//GEN-LAST:event_menuItemLibroListarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,17 +4,45 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
  */
 public class LibroListarView extends javax.swing.JInternalFrame {
+    
+    private DefaultTableModel modelo;
 
     /**
      * Creates new form LibroListarView
      */
     public LibroListarView() {
         initComponents();
+        ConfigurarTabla();
+    }
+    
+    public void ConfigurarTabla(){
+        modelo = new DefaultTableModel();
+        modelo.addColumn("ISBN");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Año de publicación");
+        modelo.addColumn("Género");
+        modelo.addColumn("Editorial");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Disponible");
+        
+        tblListarLibro.setModel(modelo);
+        
+        tblListarLibro.getTableHeader().setReorderingAllowed(false);
+        tblListarLibro.getTableHeader().setResizingAllowed(false);
+        
+        modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
     }
 
     /**
@@ -26,15 +54,42 @@ public class LibroListarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblListarLibro = new javax.swing.JTable();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        tblListarLibro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblListarLibro.setEnabled(false);
+        jScrollPane1.setViewportView(tblListarLibro);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -42,5 +97,7 @@ public class LibroListarView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblListarLibro;
     // End of variables declaration//GEN-END:variables
 }

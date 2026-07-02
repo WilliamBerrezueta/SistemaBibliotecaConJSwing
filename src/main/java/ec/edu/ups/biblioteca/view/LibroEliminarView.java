@@ -26,21 +26,195 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelLibroBuscar = new javax.swing.JPanel();
+        lblIsbnLibroEliminar = new javax.swing.JLabel();
+        txtIsbnLibroEliminar = new javax.swing.JTextField();
+        lblTituloLibroEliminar = new javax.swing.JLabel();
+        lblYearLibroEliminar = new javax.swing.JLabel();
+        lblGeneroLibroEliminar = new javax.swing.JLabel();
+        lblEditorialLibroEliminar = new javax.swing.JLabel();
+        txtTituloLibroEliminar = new javax.swing.JTextField();
+        txtYearLibroEliminar = new javax.swing.JTextField();
+        txtGeneroLibroEliminar = new javax.swing.JTextField();
+        txtEditorialLibroEliminar = new javax.swing.JTextField();
+        btnCrearLibroBuscar = new javax.swing.JButton();
+        btnCancelarLibroEliminar = new javax.swing.JButton();
+        lblAutorLibroEliminar = new javax.swing.JLabel();
+        lblDisponibleLibroEliminar = new javax.swing.JLabel();
+        txtAutorLibroEliminar = new javax.swing.JTextField();
+        rbtnDisponibleLibroEliminar = new javax.swing.JRadioButton();
+        btnLimpiarLibroEliminar = new javax.swing.JButton();
+        btnEliminarLibroEliminar = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        lblIsbnLibroEliminar.setText("ISBN");
+
+        txtIsbnLibroEliminar.addActionListener(this::txtIsbnLibroEliminarActionPerformed);
+
+        lblTituloLibroEliminar.setText("Titulo");
+
+        lblYearLibroEliminar.setText("Año de publicación");
+
+        lblGeneroLibroEliminar.setText("Género");
+
+        lblEditorialLibroEliminar.setText("Editorial");
+
+        txtTituloLibroEliminar.setEnabled(false);
+        txtTituloLibroEliminar.addActionListener(this::txtTituloLibroEliminarActionPerformed);
+
+        txtYearLibroEliminar.setEnabled(false);
+
+        txtGeneroLibroEliminar.setEnabled(false);
+
+        txtEditorialLibroEliminar.setEnabled(false);
+
+        btnCrearLibroBuscar.setText("Buscar");
+        btnCrearLibroBuscar.addActionListener(this::btnCrearLibroBuscarActionPerformed);
+
+        btnCancelarLibroEliminar.setText("Cancelar");
+
+        lblAutorLibroEliminar.setText("Autor");
+
+        lblDisponibleLibroEliminar.setText("Disponible");
+
+        txtAutorLibroEliminar.setEnabled(false);
+
+        rbtnDisponibleLibroEliminar.setEnabled(false);
+
+        btnLimpiarLibroEliminar.setText("Limpiar");
+
+        btnEliminarLibroEliminar.setText("Eliminar");
+
+        javax.swing.GroupLayout panelLibroBuscarLayout = new javax.swing.GroupLayout(panelLibroBuscar);
+        panelLibroBuscar.setLayout(panelLibroBuscarLayout);
+        panelLibroBuscarLayout.setHorizontalGroup(
+            panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblYearLibroEliminar)
+                    .addComponent(lblIsbnLibroEliminar)
+                    .addComponent(lblTituloLibroEliminar)
+                    .addComponent(lblGeneroLibroEliminar)
+                    .addComponent(lblEditorialLibroEliminar)
+                    .addComponent(lblAutorLibroEliminar)
+                    .addComponent(lblDisponibleLibroEliminar))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtIsbnLibroEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(txtTituloLibroEliminar)
+                    .addComponent(txtYearLibroEliminar)
+                    .addComponent(txtGeneroLibroEliminar)
+                    .addComponent(txtEditorialLibroEliminar)
+                    .addComponent(txtAutorLibroEliminar)
+                    .addComponent(rbtnDisponibleLibroEliminar))
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearLibroBuscar)
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEliminarLibroEliminar)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelarLibroEliminar)
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpiarLibroEliminar)
+                .addGap(70, 70, 70))
+        );
+        panelLibroBuscarLayout.setVerticalGroup(
+            panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIsbnLibroEliminar)
+                    .addComponent(txtIsbnLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrearLibroBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloLibroEliminar)
+                    .addComponent(txtTituloLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblYearLibroEliminar)
+                    .addComponent(txtYearLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGeneroLibroEliminar)
+                    .addComponent(txtGeneroLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEditorialLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEditorialLibroEliminar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAutorLibroEliminar)
+                    .addComponent(txtAutorLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDisponibleLibroEliminar)
+                    .addComponent(rbtnDisponibleLibroEliminar))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarLibroEliminar)
+                    .addComponent(btnLimpiarLibroEliminar)
+                    .addComponent(btnEliminarLibroEliminar))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelLibroBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelLibroBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtIsbnLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIsbnLibroEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIsbnLibroEliminarActionPerformed
+
+    private void txtTituloLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloLibroEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTituloLibroEliminarActionPerformed
+
+    private void btnCrearLibroBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearLibroBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearLibroBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelarLibroEliminar;
+    private javax.swing.JButton btnCrearLibroBuscar;
+    private javax.swing.JButton btnEliminarLibroEliminar;
+    private javax.swing.JButton btnLimpiarLibroEliminar;
+    private javax.swing.JLabel lblAutorLibroEliminar;
+    private javax.swing.JLabel lblDisponibleLibroEliminar;
+    private javax.swing.JLabel lblEditorialLibroEliminar;
+    private javax.swing.JLabel lblGeneroLibroEliminar;
+    private javax.swing.JLabel lblIsbnLibroEliminar;
+    private javax.swing.JLabel lblTituloLibroEliminar;
+    private javax.swing.JLabel lblYearLibroEliminar;
+    private javax.swing.JPanel panelLibroBuscar;
+    private javax.swing.JRadioButton rbtnDisponibleLibroEliminar;
+    private javax.swing.JTextField txtAutorLibroEliminar;
+    private javax.swing.JTextField txtEditorialLibroEliminar;
+    private javax.swing.JTextField txtGeneroLibroEliminar;
+    private javax.swing.JTextField txtIsbnLibroEliminar;
+    private javax.swing.JTextField txtTituloLibroEliminar;
+    private javax.swing.JTextField txtYearLibroEliminar;
     // End of variables declaration//GEN-END:variables
 }

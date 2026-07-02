@@ -138,21 +138,26 @@ public class PrincipalView extends javax.swing.JFrame {
 
         menuItemUsuarioCrear.setMnemonic('t');
         menuItemUsuarioCrear.setText("Crear");
+        menuItemUsuarioCrear.addActionListener(this::menuItemUsuarioCrearActionPerformed);
         menuItemUsuario.add(menuItemUsuarioCrear);
 
         menuItemUsuarioBuscar.setMnemonic('y');
         menuItemUsuarioBuscar.setText("Buscar");
+        menuItemUsuarioBuscar.addActionListener(this::menuItemUsuarioBuscarActionPerformed);
         menuItemUsuario.add(menuItemUsuarioBuscar);
 
         menuItemUsuarioActualizar.setMnemonic('p');
         menuItemUsuarioActualizar.setText("Actualizar");
+        menuItemUsuarioActualizar.addActionListener(this::menuItemUsuarioActualizarActionPerformed);
         menuItemUsuario.add(menuItemUsuarioActualizar);
 
         menuItemUsuarioEliminar.setMnemonic('d');
         menuItemUsuarioEliminar.setText("Eliminar");
+        menuItemUsuarioEliminar.addActionListener(this::menuItemUsuarioEliminarActionPerformed);
         menuItemUsuario.add(menuItemUsuarioEliminar);
 
         menuItemUsuarioListar.setText("Lista");
+        menuItemUsuarioListar.addActionListener(this::menuItemUsuarioListarActionPerformed);
         menuItemUsuario.add(menuItemUsuarioListar);
 
         menuBar.add(menuItemUsuario);
@@ -251,6 +256,46 @@ public class PrincipalView extends javax.swing.JFrame {
             desktopPane.add(libroListarView);
         }
     }//GEN-LAST:event_menuItemLibroListarActionPerformed
+
+    private void menuItemUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioCrearActionPerformed
+        if(!usuarioCrearView.isVisible()){
+            desktopPane.remove(usuarioCrearView);
+            usuarioCrearView.setVisible(true);
+            desktopPane.add(usuarioCrearView);
+        }
+    }//GEN-LAST:event_menuItemUsuarioCrearActionPerformed
+
+    private void menuItemUsuarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioBuscarActionPerformed
+        if(!usuarioBuscarView.isVisible()){
+            desktopPane.remove(usuarioBuscarView);
+            usuarioBuscarView.setVisible(true);
+            desktopPane.add(usuarioBuscarView);
+        }
+    }//GEN-LAST:event_menuItemUsuarioBuscarActionPerformed
+
+    private void menuItemUsuarioActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioActualizarActionPerformed
+        if(!usuarioActualizarView.isVisible()){
+            desktopPane.remove(usuarioActualizarView);
+            usuarioActualizarView.setVisible(true);
+            desktopPane.add(usuarioActualizarView);
+        }
+    }//GEN-LAST:event_menuItemUsuarioActualizarActionPerformed
+
+    private void menuItemUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioEliminarActionPerformed
+        if(!usuarioEliminarView.isVisible()){
+            desktopPane.remove(usuarioEliminarView);
+            usuarioEliminarView.setVisible(true);
+            desktopPane.add(usuarioEliminarView);
+        }
+    }//GEN-LAST:event_menuItemUsuarioEliminarActionPerformed
+
+    private void menuItemUsuarioListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioListarActionPerformed
+        if(!usuarioListarView.isVisible()){
+            desktopPane.remove(usuarioListarView);
+            usuarioListarView.setVisible(true);
+            desktopPane.add(usuarioListarView);
+        }
+    }//GEN-LAST:event_menuItemUsuarioListarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,18 +4,46 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
  */
-public class UsuarioListarView extends javax.swing.JInternalFrame {
+  
+
+    public class UsuarioListarView extends javax.swing.JInternalFrame {
+
+        private DefaultTableModel modelo2;
+    
 
     /**
      * Creates new form UsuarioListarView
      */
-    public UsuarioListarView() {
+    public UsuarioListarView(){
         initComponents();
+        configurarTabla();
     }
+
+    public void configurarTabla() {
+
+        modelo2 = new DefaultTableModel();
+        modelo2.addColumn("Nombre");
+        modelo2.addColumn("Cédula");
+
+        tblUsuarioListar.setModel(modelo2);
+
+        tblUsuarioListar.getTableHeader().setReorderingAllowed(false);
+        tblUsuarioListar.getTableHeader().setResizingAllowed(false);
+
+        modelo2 = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,15 +54,42 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUsuarioListar = new javax.swing.JTable();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        tblUsuarioListar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblUsuarioListar.setEnabled(false);
+        jScrollPane1.setViewportView(tblUsuarioListar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -42,5 +97,7 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblUsuarioListar;
     // End of variables declaration//GEN-END:variables
 }

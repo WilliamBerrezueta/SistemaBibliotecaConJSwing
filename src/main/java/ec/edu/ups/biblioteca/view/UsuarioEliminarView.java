@@ -26,21 +26,125 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelUsuarioEliminar = new javax.swing.JPanel();
+        lblNombreUsuarioEliminar = new javax.swing.JLabel();
+        lblCedulaUsuarioEliminar = new javax.swing.JLabel();
+        txtNombreUsuarioEliminar = new javax.swing.JTextField();
+        txtCedulaUsuarioEliminar = new javax.swing.JTextField();
+        btnBuscarUsuarioEliminar = new javax.swing.JButton();
+        btnCancelarUsuarioEliminar = new javax.swing.JButton();
+        btnLimpiarUsuarioEliminar = new javax.swing.JButton();
+        btnEliminarUsuarioEliminar = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        lblNombreUsuarioEliminar.setText("Nombre:");
+
+        lblCedulaUsuarioEliminar.setText("Cédula:");
+
+        txtNombreUsuarioEliminar.setEnabled(false);
+        txtNombreUsuarioEliminar.addActionListener(this::txtNombreUsuarioEliminarActionPerformed);
+
+        txtCedulaUsuarioEliminar.addActionListener(this::txtCedulaUsuarioEliminarActionPerformed);
+
+        btnBuscarUsuarioEliminar.setText("Buscar");
+
+        btnCancelarUsuarioEliminar.setText("Cancelar");
+
+        btnLimpiarUsuarioEliminar.setText("Limpiar");
+
+        btnEliminarUsuarioEliminar.setText("Eliminar");
+
+        javax.swing.GroupLayout panelUsuarioEliminarLayout = new javax.swing.GroupLayout(panelUsuarioEliminar);
+        panelUsuarioEliminar.setLayout(panelUsuarioEliminarLayout);
+        panelUsuarioEliminarLayout.setHorizontalGroup(
+            panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreUsuarioEliminar)
+                    .addComponent(lblCedulaUsuarioEliminar))
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                                .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(btnBuscarUsuarioEliminar))
+                            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(btnEliminarUsuarioEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCancelarUsuarioEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpiarUsuarioEliminar)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioEliminarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        panelUsuarioEliminarLayout.setVerticalGroup(
+            panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedulaUsuarioEliminar)
+                    .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarUsuarioEliminar))
+                .addGap(33, 33, 33)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreUsuarioEliminar)
+                    .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarUsuarioEliminar)
+                    .addComponent(btnLimpiarUsuarioEliminar)
+                    .addComponent(btnEliminarUsuarioEliminar))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtNombreUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUsuarioEliminarActionPerformed
+
+    private void txtCedulaUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaUsuarioEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaUsuarioEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarUsuarioEliminar;
+    private javax.swing.JButton btnCancelarUsuarioEliminar;
+    private javax.swing.JButton btnEliminarUsuarioEliminar;
+    private javax.swing.JButton btnLimpiarUsuarioEliminar;
+    private javax.swing.JLabel lblCedulaUsuarioEliminar;
+    private javax.swing.JLabel lblNombreUsuarioEliminar;
+    private javax.swing.JPanel panelUsuarioEliminar;
+    private javax.swing.JTextField txtCedulaUsuarioEliminar;
+    private javax.swing.JTextField txtNombreUsuarioEliminar;
     // End of variables declaration//GEN-END:variables
 }

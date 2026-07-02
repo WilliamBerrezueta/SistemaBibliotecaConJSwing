@@ -26,21 +26,111 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelUsuarioCrear = new javax.swing.JPanel();
+        lblNombreUsuarioCrear = new javax.swing.JLabel();
+        lblCedulaUsuarioCrear = new javax.swing.JLabel();
+        txtNombreUsuarioCrear = new javax.swing.JTextField();
+        txtCedulaUsuarioCrear = new javax.swing.JTextField();
+        btnCrearUsuarioCrear = new javax.swing.JButton();
+        btnCancelarUsuarioCrear = new javax.swing.JButton();
+        btnLimpiarUsuarioCrear = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        lblNombreUsuarioCrear.setText("Nombre:");
+
+        lblCedulaUsuarioCrear.setText("Cédula:");
+
+        txtNombreUsuarioCrear.addActionListener(this::txtNombreUsuarioCrearActionPerformed);
+
+        txtCedulaUsuarioCrear.addActionListener(this::txtCedulaUsuarioCrearActionPerformed);
+
+        btnCrearUsuarioCrear.setText("Crear");
+
+        btnCancelarUsuarioCrear.setText("Cancelar");
+
+        btnLimpiarUsuarioCrear.setText("Limpiar");
+
+        javax.swing.GroupLayout panelUsuarioCrearLayout = new javax.swing.GroupLayout(panelUsuarioCrear);
+        panelUsuarioCrear.setLayout(panelUsuarioCrearLayout);
+        panelUsuarioCrearLayout.setHorizontalGroup(
+            panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(lblNombreUsuarioCrear)
+                .addGap(18, 18, 18)
+                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
+                        .addComponent(btnCrearUsuarioCrear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarUsuarioCrear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiarUsuarioCrear))
+                    .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
+                        .addComponent(lblCedulaUsuarioCrear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        panelUsuarioCrearLayout.setVerticalGroup(
+            panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreUsuarioCrear)
+                    .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedulaUsuarioCrear)
+                    .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearUsuarioCrear)
+                    .addComponent(btnCancelarUsuarioCrear)
+                    .addComponent(btnLimpiarUsuarioCrear))
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelUsuarioCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelUsuarioCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtNombreUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUsuarioCrearActionPerformed
+
+    private void txtCedulaUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaUsuarioCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaUsuarioCrearActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelarUsuarioCrear;
+    private javax.swing.JButton btnCrearUsuarioCrear;
+    private javax.swing.JButton btnLimpiarUsuarioCrear;
+    private javax.swing.JLabel lblCedulaUsuarioCrear;
+    private javax.swing.JLabel lblNombreUsuarioCrear;
+    private javax.swing.JPanel panelUsuarioCrear;
+    private javax.swing.JTextField txtCedulaUsuarioCrear;
+    private javax.swing.JTextField txtNombreUsuarioCrear;
     // End of variables declaration//GEN-END:variables
 }

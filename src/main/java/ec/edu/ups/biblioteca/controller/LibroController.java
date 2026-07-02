@@ -48,15 +48,23 @@ public class LibroController {
     public void crearLibro(){
         String isbn = libroCrearView.getTxtIsbnLibroCrear().getText();
         String titulo = libroCrearView.getTxtTituloLibroCrear().getText();
-        int año = Integer.parseInt(libroCrearView.getTxtYearLibroCrear().getText());
+        String añoTexto = libroCrearView.getTxtYearLibroCrear().getText();
         String genero = libroCrearView.getTxtGeneroLibroCrear().getText();
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
         String autor = libroCrearView.getTxtAutorLibroCrear().getText();
+        
+        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero.isEmpty() || editorial.isEmpty() || autor.isEmpty()) {
+        libroCrearView.mostarMensaje("Debe llenar todos los campos");
+        return;
+    }
+        else{
+        int año = Integer.parseInt(añoTexto);
         Libro libro = new Libro(isbn,titulo,año,genero,disponible,editorial,autor);
         libroDao.crear(libro);
         listarLibros();
         libroCrearView.mostarMensaje("Se ha creado su libro");
+        }
     }
     
     public void limpiarLibroCrear(){

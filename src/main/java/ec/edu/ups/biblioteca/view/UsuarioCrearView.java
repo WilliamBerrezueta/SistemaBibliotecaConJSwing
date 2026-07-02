@@ -145,15 +145,15 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     public JButton getBtnCancelarUsuarioCrear() {
         return btnCancelarUsuarioCrear;
     }
-
+    
     public JButton getBtnCrearUsuarioCrear() {
         return btnCrearUsuarioCrear;
     }
-
+    
     public JButton getBtnLimpiarUsuarioCrear() {
         return btnLimpiarUsuarioCrear;
     }
-
+    
     public JTextField getTxtCedulaUsuarioCrear() {
         return txtCedulaUsuarioCrear;
     }
@@ -161,15 +161,15 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     public JTextField getTxtNombreUsuarioCrear() {
         return txtNombreUsuarioCrear;
     }
-
+    
     public JTextField getTxtTelefonoUsuarioCrear() {
         return txtTelefonoUsuarioCrear;
     }
-
+    
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarUsuarioCrear;
     private javax.swing.JButton btnCrearUsuarioCrear;

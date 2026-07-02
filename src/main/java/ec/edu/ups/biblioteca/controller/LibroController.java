@@ -52,8 +52,9 @@ public class LibroController {
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
         String autor = libroCrearView.getTxtAutorLibroCrear().getText();
-        
-        Libro libro = new Libro(isbn, autor, año, genero, disponible, editorial, autor);
+        String titulo = libroActualizarView.getTxtTituloLibroActualizar().getText();
+
+        Libro libro = new Libro(isbn,titulo,año,genero,disponible,editorial,autor);
         libroDao.crear(libro);
         listarLibros();
         libroCrearView.mostarMensaje("Se ha creado su libro");
@@ -215,33 +216,30 @@ public class LibroController {
     // METODOS ACTUALIZAR
     
     public void actualizarLibro() {
-        if (libroActualizarView != null) {
-            JTextField codigoJ = libroActualizarView.getTxtIsbnLibroActualizar();
-            String isbn = codigoJ.getText();
-            Libro libroBuscar = libroDao.buscar(isbn);
-            if (libroBuscar != null) {
 
-                libroActualizarView.getTxtTituloLibroActualizar().setText(libroBuscar.getTitulo());
-                libroActualizarView.getTxtAutorLibroActualizar().setText(libroBuscar.getAutor());
-                libroActualizarView.getTxtEditorialLibroActualizar().setText(libroBuscar.getEditorial());
-                libroActualizarView.getTxtGeneroLibroActualizar().setText(libroBuscar.getGenero());
-                libroActualizarView.getTxtYearLibroActualizar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
-                libroActualizarView.getRbtnDisponibleLibroActualizar().setSelected(libroBuscar.isDisponible());
-                
-                String isbnNuevo = libroBuscar.getIsbn();
-                int año = Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText());
-                String genero = libroActualizarView.getTxtGeneroLibroActualizar().getText();
-                boolean disponible = libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected();
-                String editorial = libroActualizarView.getTxtEditorialLibroActualizar().getText();
-                String autor = libroActualizarView.getTxtAutorLibroActualizar().getText();
+    String isbn = libroActualizarView.getTxtIsbnLibroActualizar().getText();
 
-                Libro libro = new Libro(isbn, autor, año, genero, disponible, editorial, autor);
-                libroDao.actualizar(libro);
-                listarLibros();
-                libroActualizarView.mostarMensaje("Se ha actualizado su libro");
-            }
-        }
+    Libro libro = libroDao.buscar(isbn);
+
+    if(libro != null){
+
+        libro.setTitulo(libroActualizarView.getTxtTituloLibroActualizar().getText());
+        libro.setAutor(libroActualizarView.getTxtAutorLibroActualizar().getText());
+        libro.setEditorial(libroActualizarView.getTxtEditorialLibroActualizar().getText());
+        libro.setGenero(libroActualizarView.getTxtGeneroLibroActualizar().getText());
+        libro.setAñoDePublicacion(Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText()));
+        libro.setDisponible(libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected());
+
+        libroDao.actualizar(libro);
+
+        listarLibros();
+
+        libroActualizarView.mostarMensaje("Libro actualizado");
+        
+        
     }
+
+}
 
     public void buscarLibroActualizar() {
         if (libroActualizarView != null) {

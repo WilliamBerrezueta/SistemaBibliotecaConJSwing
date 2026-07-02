@@ -34,6 +34,8 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         btnBuscarUsuarioBuscar = new javax.swing.JButton();
         btnCancelarUsuarioBuscar = new javax.swing.JButton();
         btnLimpiarUsuarioBuscar = new javax.swing.JButton();
+        lblTelefonoUsuarioBuscar = new javax.swing.JLabel();
+        txtTelefonoUsuarioBuscar = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -55,6 +57,10 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
 
         btnLimpiarUsuarioBuscar.setText("Limpiar");
 
+        lblTelefonoUsuarioBuscar.setText("Telefono:");
+
+        txtTelefonoUsuarioBuscar.setEnabled(false);
+
         javax.swing.GroupLayout panelUsuarioBuscarLayout = new javax.swing.GroupLayout(panelUsuarioBuscar);
         panelUsuarioBuscar.setLayout(panelUsuarioBuscarLayout);
         panelUsuarioBuscarLayout.setHorizontalGroup(
@@ -62,26 +68,32 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
             .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreUsuarioBuscar)
-                    .addComponent(lblCedulaUsuarioBuscar))
-                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addComponent(lblTelefonoUsuarioBuscar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
+                        .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreUsuarioBuscar)
+                            .addComponent(lblCedulaUsuarioBuscar))
                         .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(btnCancelarUsuarioBuscar)
-                                .addGap(35, 35, 35)
-                                .addComponent(btnLimpiarUsuarioBuscar))
-                            .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
                                 .addComponent(txtCedulaUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(btnBuscarUsuarioBuscar)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(txtNombreUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                                .addComponent(btnBuscarUsuarioBuscar)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombreUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTelefonoUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))))
+            .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(btnCancelarUsuarioBuscar)
+                .addGap(52, 52, 52)
+                .addComponent(btnLimpiarUsuarioBuscar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelUsuarioBuscarLayout.setVerticalGroup(
             panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,11 +107,15 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreUsuarioBuscar)
                     .addComponent(txtNombreUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoUsuarioBuscar)
+                    .addComponent(txtTelefonoUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarUsuarioBuscar)
                     .addComponent(btnLimpiarUsuarioBuscar))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,8 +152,10 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiarUsuarioBuscar;
     private javax.swing.JLabel lblCedulaUsuarioBuscar;
     private javax.swing.JLabel lblNombreUsuarioBuscar;
+    private javax.swing.JLabel lblTelefonoUsuarioBuscar;
     private javax.swing.JPanel panelUsuarioBuscar;
     private javax.swing.JTextField txtCedulaUsuarioBuscar;
     private javax.swing.JTextField txtNombreUsuarioBuscar;
+    private javax.swing.JTextField txtTelefonoUsuarioBuscar;
     // End of variables declaration//GEN-END:variables
 }

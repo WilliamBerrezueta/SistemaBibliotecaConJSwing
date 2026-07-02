@@ -16,27 +16,19 @@ public class Usuario {
     
     private String nombre;
     private String cedula;
+    private String numero;
     private List<Prestamo> pedidos;
   
     public Usuario(){
         
     }
 
-    public Usuario(String nombre, String cedula, List<Prestamo> pedidos) {
+    public Usuario(String nombre, String cedula,String numero, List<Prestamo> pedidos) {
         this.nombre = nombre;
         this.cedula = cedula;
+        this.numero = numero;
         this.pedidos = new ArrayList<>();
     }
-
-    public List<Prestamo> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<Prestamo> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    
 
     public String getNombre() {
         return nombre;
@@ -54,12 +46,29 @@ public class Usuario {
         this.cedula = cedula;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public List<Prestamo> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Prestamo> pedidos) {
+        this.pedidos = pedidos;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.nombre);
-        hash = 59 * hash + Objects.hashCode(this.cedula);
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.nombre);
+        hash = 83 * hash + Objects.hashCode(this.cedula);
+        hash = 83 * hash + Objects.hashCode(this.numero);
+        hash = 83 * hash + Objects.hashCode(this.pedidos);
         return hash;
     }
 
@@ -78,7 +87,13 @@ public class Usuario {
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        return Objects.equals(this.cedula, other.cedula);
+        if (!Objects.equals(this.cedula, other.cedula)) {
+            return false;
+        }
+        if (!Objects.equals(this.numero, other.numero)) {
+            return false;
+        }
+        return Objects.equals(this.pedidos, other.pedidos);
     }
-    
+
 }

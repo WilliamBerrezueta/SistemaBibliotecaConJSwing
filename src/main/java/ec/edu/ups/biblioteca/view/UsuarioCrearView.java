@@ -34,6 +34,8 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         btnCrearUsuarioCrear = new javax.swing.JButton();
         btnCancelarUsuarioCrear = new javax.swing.JButton();
         btnLimpiarUsuarioCrear = new javax.swing.JButton();
+        lblTelefonoUsuarioCrear = new javax.swing.JLabel();
+        txtTelefonoUsuarioCrear = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -54,27 +56,33 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
 
         btnLimpiarUsuarioCrear.setText("Limpiar");
 
+        lblTelefonoUsuarioCrear.setText("Teléfono:");
+
+        txtTelefonoUsuarioCrear.addActionListener(this::txtTelefonoUsuarioCrearActionPerformed);
+
         javax.swing.GroupLayout panelUsuarioCrearLayout = new javax.swing.GroupLayout(panelUsuarioCrear);
         panelUsuarioCrear.setLayout(panelUsuarioCrearLayout);
         panelUsuarioCrearLayout.setHorizontalGroup(
             panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(lblNombreUsuarioCrear)
+                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreUsuarioCrear)
+                    .addComponent(lblTelefonoUsuarioCrear)
+                    .addComponent(lblCedulaUsuarioCrear))
                 .addGap(18, 18, 18)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
                         .addComponent(btnCrearUsuarioCrear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelarUsuarioCrear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiarUsuarioCrear))
-                    .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
-                        .addComponent(lblCedulaUsuarioCrear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtTelefonoUsuarioCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         panelUsuarioCrearLayout.setVerticalGroup(
             panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,12 +95,16 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCedulaUsuarioCrear)
                     .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
+                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoUsuarioCrear)
+                    .addComponent(txtTelefonoUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearUsuarioCrear)
                     .addComponent(btnCancelarUsuarioCrear)
                     .addComponent(btnLimpiarUsuarioCrear))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,6 +134,10 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaUsuarioCrearActionPerformed
 
+    private void txtTelefonoUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoUsuarioCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoUsuarioCrearActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarUsuarioCrear;
@@ -129,8 +145,10 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiarUsuarioCrear;
     private javax.swing.JLabel lblCedulaUsuarioCrear;
     private javax.swing.JLabel lblNombreUsuarioCrear;
+    private javax.swing.JLabel lblTelefonoUsuarioCrear;
     private javax.swing.JPanel panelUsuarioCrear;
     private javax.swing.JTextField txtCedulaUsuarioCrear;
     private javax.swing.JTextField txtNombreUsuarioCrear;
+    private javax.swing.JTextField txtTelefonoUsuarioCrear;
     // End of variables declaration//GEN-END:variables
 }

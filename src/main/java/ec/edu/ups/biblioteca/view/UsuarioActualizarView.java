@@ -35,6 +35,8 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         btnCancelarUsuarioActualizar = new javax.swing.JButton();
         btnLimpiarUsuarioActualizar = new javax.swing.JButton();
         btnActualizarUsuarioActualizar = new javax.swing.JButton();
+        lblTelefonoUsuarioActualizar = new javax.swing.JLabel();
+        txtTelefonoUsuarioActualizar = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -57,6 +59,8 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
 
         btnActualizarUsuarioActualizar.setText("Actualizar");
 
+        lblTelefonoUsuarioActualizar.setText("Teléfono:");
+
         javax.swing.GroupLayout panelUsuarioActualizarLayout = new javax.swing.GroupLayout(panelUsuarioActualizar);
         panelUsuarioActualizar.setLayout(panelUsuarioActualizarLayout);
         panelUsuarioActualizarLayout.setHorizontalGroup(
@@ -64,28 +68,33 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreUsuarioActualizar)
-                    .addComponent(lblCedulaUsuarioActualizar))
-                .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                        .addComponent(lblTelefonoUsuarioActualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTelefonoUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                        .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreUsuarioActualizar)
+                            .addComponent(lblCedulaUsuarioActualizar))
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCedulaUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(btnBuscarUsuarioActualizar))
-                            .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(btnActualizarUsuarioActualizar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCancelarUsuarioActualizar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiarUsuarioActualizar)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNombreUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                                .addComponent(btnBuscarUsuarioActualizar)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioActualizarLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                                        .addComponent(btnActualizarUsuarioActualizar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnCancelarUsuarioActualizar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnLimpiarUsuarioActualizar))
+                                    .addComponent(txtNombreUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))))
         );
         panelUsuarioActualizarLayout.setVerticalGroup(
             panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,12 +108,16 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
                 .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreUsuarioActualizar)
                     .addComponent(txtNombreUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(29, 29, 29)
                 .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoUsuarioActualizar)
+                    .addComponent(txtTelefonoUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizarUsuarioActualizar)
                     .addComponent(btnCancelarUsuarioActualizar)
-                    .addComponent(btnLimpiarUsuarioActualizar)
-                    .addComponent(btnActualizarUsuarioActualizar))
-                .addContainerGap(95, Short.MAX_VALUE))
+                    .addComponent(btnLimpiarUsuarioActualizar))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,8 +155,10 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiarUsuarioActualizar;
     private javax.swing.JLabel lblCedulaUsuarioActualizar;
     private javax.swing.JLabel lblNombreUsuarioActualizar;
+    private javax.swing.JLabel lblTelefonoUsuarioActualizar;
     private javax.swing.JPanel panelUsuarioActualizar;
     private javax.swing.JTextField txtCedulaUsuarioActualizar;
     private javax.swing.JTextField txtNombreUsuarioActualizar;
+    private javax.swing.JTextField txtTelefonoUsuarioActualizar;
     // End of variables declaration//GEN-END:variables
 }

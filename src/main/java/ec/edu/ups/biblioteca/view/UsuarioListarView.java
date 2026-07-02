@@ -30,6 +30,7 @@ import javax.swing.table.DefaultTableModel;
         modelo2 = new DefaultTableModel();
         modelo2.addColumn("Nombre");
         modelo2.addColumn("Cédula");
+        modelo2.addColumn("Teléfono");
 
         tblUsuarioListar.setModel(modelo2);
 

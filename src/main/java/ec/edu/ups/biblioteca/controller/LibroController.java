@@ -53,6 +53,7 @@ public class LibroController {
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
         String autor = libroCrearView.getTxtAutorLibroCrear().getText();
+
         Libro libro = new Libro(isbn,titulo,año,genero,disponible,editorial,autor);
         libroDao.crear(libro);
         listarLibros();

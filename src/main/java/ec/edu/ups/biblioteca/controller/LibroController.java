@@ -47,12 +47,12 @@ public class LibroController {
     // METODOS PARA CONFIGURARCREAR
     public void crearLibro(){
         String isbn = libroCrearView.getTxtIsbnLibroCrear().getText();
+        String titulo = libroCrearView.getTxtTituloLibroCrear().getText();
         int año = Integer.parseInt(libroCrearView.getTxtYearLibroCrear().getText());
         String genero = libroCrearView.getTxtGeneroLibroCrear().getText();
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
         String autor = libroCrearView.getTxtAutorLibroCrear().getText();
-        String titulo = libroActualizarView.getTxtTituloLibroActualizar().getText();
 
         Libro libro = new Libro(isbn,titulo,año,genero,disponible,editorial,autor);
         libroDao.crear(libro);

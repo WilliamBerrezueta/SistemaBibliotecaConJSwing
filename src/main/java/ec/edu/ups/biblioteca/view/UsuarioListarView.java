@@ -4,46 +4,55 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import ec.edu.ups.biblioteca.models.Libro;
+import ec.edu.ups.biblioteca.models.Usuario;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author USER
  */
-  
+public class UsuarioListarView extends javax.swing.JInternalFrame {
 
-    public class UsuarioListarView extends javax.swing.JInternalFrame {
-
-        private DefaultTableModel modelo2;
-    
+    private DefaultTableModel modelo2;
 
     /**
      * Creates new form UsuarioListarView
      */
-    public UsuarioListarView(){
+    public UsuarioListarView() {
         initComponents();
         configurarTabla();
     }
 
     public void configurarTabla() {
-
-        modelo2 = new DefaultTableModel();
-        modelo2.addColumn("Nombre");
-        modelo2.addColumn("Cédula");
-
-        tblUsuarioListar.setModel(modelo2);
-
-        tblUsuarioListar.getTableHeader().setReorderingAllowed(false);
-        tblUsuarioListar.getTableHeader().setResizingAllowed(false);
-
         modelo2 = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
+
+        modelo2 = new DefaultTableModel();
+        modelo2.addColumn("Nombre");
+        modelo2.addColumn("Cédula");
+        modelo2.addColumn("Teléfono");
+
+        tblUsuarioListar.setModel(modelo2);
+
+        tblUsuarioListar.getTableHeader().setReorderingAllowed(false);
+        tblUsuarioListar.getTableHeader().setResizingAllowed(false);
     }
-    
+
+    public void cargarDatos(List<Usuario> usuarios) {
+
+        modelo2.setRowCount(0);
+
+        for (Usuario usuario : usuarios) {
+            Object[] fila = {usuario.getNombre(), usuario.getCedula(), usuario.getNumero()};
+            modelo2.addRow(fila);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

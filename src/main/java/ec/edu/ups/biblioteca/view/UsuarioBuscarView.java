@@ -4,6 +4,9 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -145,6 +148,31 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaUsuarioBuscarActionPerformed
 
+    public JButton getBtnBuscarUsuarioBuscar() {
+        return btnBuscarUsuarioBuscar;
+    }
+
+    public JButton getBtnCancelarUsuarioBuscar() {
+        return btnCancelarUsuarioBuscar;
+    }
+
+    public JButton getBtnLimpiarUsuarioBuscar() {
+        return btnLimpiarUsuarioBuscar;
+    }
+
+    public JTextField getTxtCedulaUsuarioBuscar() {
+        return txtCedulaUsuarioBuscar;
+    }
+
+    public JTextField getTxtNombreUsuarioBuscar() {
+        return txtNombreUsuarioBuscar;
+    }
+
+    public JTextField getTxtTelefonoUsuarioBuscar() {
+        return txtTelefonoUsuarioBuscar;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarUsuarioBuscar;

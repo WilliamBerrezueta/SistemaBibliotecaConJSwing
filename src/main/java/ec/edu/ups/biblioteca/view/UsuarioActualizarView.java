@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -147,7 +151,38 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaUsuarioActualizarActionPerformed
 
+    public JButton getBtnActualizarUsuarioActualizar() {
+        return btnActualizarUsuarioActualizar;
+    }
 
+    public JButton getBtnBuscarUsuarioActualizar() {
+        return btnBuscarUsuarioActualizar;
+    }
+
+    public JButton getBtnCancelarUsuarioActualizar() {
+        return btnCancelarUsuarioActualizar;
+    }
+
+    public JButton getBtnLimpiarUsuarioActualizar() {
+        return btnLimpiarUsuarioActualizar;
+    }
+
+    public JTextField getTxtCedulaUsuarioActualizar() {
+        return txtCedulaUsuarioActualizar;
+    }
+
+    public JTextField getTxtNombreUsuarioActualizar() {
+        return txtNombreUsuarioActualizar;
+    }
+
+    public JTextField getTxtTelefonoUsuarioActualizar() {
+        return txtTelefonoUsuarioActualizar;
+    }
+
+    public void mostarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarUsuarioActualizar;
     private javax.swing.JButton btnBuscarUsuarioActualizar;

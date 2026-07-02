@@ -22,12 +22,18 @@ public class Usuario {
     public Usuario(){
         
     }
+    public Usuario(String nombre, String cedula,String numero) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.numero = numero;
+        this.pedidos = new ArrayList<>();
+    }
 
     public Usuario(String nombre, String cedula,String numero, List<Prestamo> pedidos) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.numero = numero;
-        this.pedidos = new ArrayList<>();
+        this.pedidos = pedidos;
     }
 
     public String getNombre() {

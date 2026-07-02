@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -57,6 +61,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         btnCancelarUsuarioEliminar.setText("Cancelar");
 
         btnLimpiarUsuarioEliminar.setText("Limpiar");
+        btnLimpiarUsuarioEliminar.addActionListener(this::btnLimpiarUsuarioEliminarActionPerformed);
 
         btnEliminarUsuarioEliminar.setText("Eliminar");
 
@@ -150,6 +155,42 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaUsuarioEliminarActionPerformed
 
+    private void btnLimpiarUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarUsuarioEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarUsuarioEliminarActionPerformed
+
+    public JButton getBtnLimpiarUsuarioEliminar() {
+        return btnLimpiarUsuarioEliminar;
+    }
+    
+    
+    public JButton getBtnBuscarUsuarioEliminar() {
+        return btnBuscarUsuarioEliminar;
+    }
+
+    public JButton getBtnCancelarUsuarioEliminar() {
+        return btnCancelarUsuarioEliminar;
+    }
+
+    public JButton getBtnEliminarUsuarioEliminar() {
+        return btnEliminarUsuarioEliminar;
+    }
+
+    public JTextField getTxtCedulaUsuarioEliminar() {
+        return txtCedulaUsuarioEliminar;
+    }
+
+    public JTextField getTxtNombreUsuarioEliminar() {
+        return txtNombreUsuarioEliminar;
+    }
+
+    public JTextField getTxtTelefonoUsuarioEliminar() {
+        return txtTelefonoUsuarioEliminar;
+    }
+
+    public int mostarMensaje(String mensaje){
+        return JOptionPane.showConfirmDialog(this, mensaje);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarUsuarioEliminar;

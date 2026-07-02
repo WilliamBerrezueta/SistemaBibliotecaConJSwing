@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -89,6 +93,7 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         rbtnDisponibleLibroBuscar.setEnabled(false);
 
         btnLimpiarLibroBuscar.setText("Limpiar");
+        btnLimpiarLibroBuscar.addActionListener(this::btnLimpiarLibroBuscarActionPerformed);
 
         javax.swing.GroupLayout panelLibroBuscarLayout = new javax.swing.GroupLayout(panelLibroBuscar);
         panelLibroBuscar.setLayout(panelLibroBuscarLayout);
@@ -194,6 +199,91 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCrearLibroBuscarActionPerformed
 
+    private void btnLimpiarLibroBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarLibroBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarLibroBuscarActionPerformed
+
+    public JButton getBtnCancelarLibroBuscar() {
+        return btnCancelarLibroBuscar;
+    }
+
+    public void setBtnCancelarLibroBuscar(JButton btnCancelarLibroBuscar) {
+        this.btnCancelarLibroBuscar = btnCancelarLibroBuscar;
+    }
+
+    public JButton getBtnCrearLibroBuscar() {
+        return btnCrearLibroBuscar;
+    }
+
+    public void setBtnCrearLibroBuscar(JButton btnCrearLibroBuscar) {
+        this.btnCrearLibroBuscar = btnCrearLibroBuscar;
+    }
+
+    public JButton getBtnLimpiarLibroBuscar() {
+        return btnLimpiarLibroBuscar;
+    }
+
+    public void setBtnLimpiarLibroBuscar(JButton btnLimpiarLibroBuscar) {
+        this.btnLimpiarLibroBuscar = btnLimpiarLibroBuscar;
+    }
+
+    public JRadioButton getRbtnDisponibleLibroBuscar() {
+        return rbtnDisponibleLibroBuscar;
+    }
+
+    public void setRbtnDisponibleLibroBuscar(JRadioButton rbtnDisponibleLibroBuscar) {
+        this.rbtnDisponibleLibroBuscar = rbtnDisponibleLibroBuscar;
+    }
+
+    public JTextField getTxtAutorLibroBuscar() {
+        return txtAutorLibroBuscar;
+    }
+
+    public void setTxtAutorLibroBuscar(JTextField txtAutorLibroBuscar) {
+        this.txtAutorLibroBuscar = txtAutorLibroBuscar;
+    }
+
+    public JTextField getTxtEditorialLibroBuscar() {
+        return txtEditorialLibroBuscar;
+    }
+
+    public void setTxtEditorialLibroBuscar(JTextField txtEditorialLibroBuscar) {
+        this.txtEditorialLibroBuscar = txtEditorialLibroBuscar;
+    }
+
+    public JTextField getTxtGeneroLibroBuscar() {
+        return txtGeneroLibroBuscar;
+    }
+
+    public void setTxtGeneroLibroBuscar(JTextField txtGeneroLibroBuscar) {
+        this.txtGeneroLibroBuscar = txtGeneroLibroBuscar;
+    }
+
+    public JTextField getTxtIsbnLibroBuscar() {
+        return txtIsbnLibroBuscar;
+    }
+
+    public void setTxtIsbnLibroBuscar(JTextField txtIsbnLibroBuscar) {
+        this.txtIsbnLibroBuscar = txtIsbnLibroBuscar;
+    }
+
+    public JTextField getTxtTituloLibroBuscar() {
+        return txtTituloLibroBuscar;
+    }
+
+    public void setTxtTituloLibroBuscar(JTextField txtTituloLibroBuscar) {
+        this.txtTituloLibroBuscar = txtTituloLibroBuscar;
+    }
+
+    public JTextField getTxtYearLibroBuscar() {
+        return txtYearLibroBuscar;
+    }
+
+    public void setTxtYearLibroBuscar(JTextField txtYearLibroBuscar) {
+        this.txtYearLibroBuscar = txtYearLibroBuscar;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarLibroBuscar;

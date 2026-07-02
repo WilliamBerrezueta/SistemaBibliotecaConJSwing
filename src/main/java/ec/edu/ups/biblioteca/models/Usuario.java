@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -14,15 +16,27 @@ public class Usuario {
     
     private String nombre;
     private String cedula;
-    
+    private List<Prestamo> pedidos;
+  
     public Usuario(){
         
     }
 
-    public Usuario(String nombre, String cedula) {
+    public Usuario(String nombre, String cedula, List<Prestamo> pedidos) {
         this.nombre = nombre;
         this.cedula = cedula;
+        this.pedidos = new ArrayList<>();
     }
+
+    public List<Prestamo> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Prestamo> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -40,10 +54,6 @@ public class Usuario {
         this.cedula = cedula;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", cedula=" + cedula + '}';
-    }
 
     @Override
     public int hashCode() {

@@ -4,6 +4,11 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -187,6 +192,91 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnDisponibleLibroCrearActionPerformed
 
+    public JButton getBtnCancelarLibroCrear() {
+        return btnCancelarLibroCrear;
+    }
+
+    public void setBtnCancelarLibroCrear(JButton btnCancelarLibroCrear) {
+        this.btnCancelarLibroCrear = btnCancelarLibroCrear;
+    }
+
+    public JButton getBtnCrearLibroCrear() {
+        return btnCrearLibroCrear;
+    }
+
+    public void setBtnCrearLibroCrear(JButton btnCrearLibroCrear) {
+        this.btnCrearLibroCrear = btnCrearLibroCrear;
+    }
+
+    public JButton getBtnLimpiarLibroCrear() {
+        return btnLimpiarLibroCrear;
+    }
+
+    public void setBtnLimpiarLibroCrear(JButton btnLimpiarLibroCrear) {
+        this.btnLimpiarLibroCrear = btnLimpiarLibroCrear;
+    }
+
+    public JRadioButton getRbtnDisponibleLibroCrear() {
+        return rbtnDisponibleLibroCrear;
+    }
+
+    public void setRbtnDisponibleLibroCrear(JRadioButton rbtnDisponibleLibroCrear) {
+        this.rbtnDisponibleLibroCrear = rbtnDisponibleLibroCrear;
+    }
+
+    public JTextField getTxtAutorLibroCrear() {
+        return txtAutorLibroCrear;
+    }
+
+    public void setTxtAutorLibroCrear(JTextField txtAutorLibroCrear) {
+        this.txtAutorLibroCrear = txtAutorLibroCrear;
+    }
+
+    public JTextField getTxtEditorialLibroCrear() {
+        return txtEditorialLibroCrear;
+    }
+
+    public void setTxtEditorialLibroCrear(JTextField txtEditorialLibroCrear) {
+        this.txtEditorialLibroCrear = txtEditorialLibroCrear;
+    }
+
+    public JTextField getTxtGeneroLibroCrear() {
+        return txtGeneroLibroCrear;
+    }
+
+    public void setTxtGeneroLibroCrear(JTextField txtGeneroLibroCrear) {
+        this.txtGeneroLibroCrear = txtGeneroLibroCrear;
+    }
+
+    public JTextField getTxtIsbnLibroCrear() {
+        return txtIsbnLibroCrear;
+    }
+
+    public void setTxtIsbnLibroCrear(JTextField txtIsbnLibroCrear) {
+        this.txtIsbnLibroCrear = txtIsbnLibroCrear;
+    }
+
+    public JTextField getTxtTituloLibroCrear() {
+        return txtTituloLibroCrear;
+    }
+
+    public void setTxtTituloLibroCrear(JTextField txtTituloLibroCrear) {
+        this.txtTituloLibroCrear = txtTituloLibroCrear;
+    }
+
+    public JTextField getTxtYearLibroCrear() {
+        return txtYearLibroCrear;
+    }
+
+    public void setTxtYearLibroCrear(JTextField txtYearLibroCrear) {
+        this.txtYearLibroCrear = txtYearLibroCrear;
+    }
+    
+           
+    
+    public void mostarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarLibroCrear;

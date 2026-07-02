@@ -4,6 +4,11 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -86,8 +91,10 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         rbtnDisponibleLibroEliminar.setEnabled(false);
 
         btnLimpiarLibroEliminar.setText("Limpiar");
+        btnLimpiarLibroEliminar.addActionListener(this::btnLimpiarLibroEliminarActionPerformed);
 
         btnEliminarLibroEliminar.setText("Eliminar");
+        btnEliminarLibroEliminar.addActionListener(this::btnEliminarLibroEliminarActionPerformed);
 
         javax.swing.GroupLayout panelLibroBuscarLayout = new javax.swing.GroupLayout(panelLibroBuscar);
         panelLibroBuscar.setLayout(panelLibroBuscarLayout);
@@ -195,7 +202,63 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCrearLibroBuscarActionPerformed
 
+    private void btnEliminarLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarLibroEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarLibroEliminarActionPerformed
 
+    private void btnLimpiarLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarLibroEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarLibroEliminarActionPerformed
+
+    public JButton getBtnLimpiarLibroEliminar() {
+        return btnLimpiarLibroEliminar;
+    }
+
+    
+    public JButton getBtnCancelarLibroEliminar() {
+        return btnCancelarLibroEliminar;
+    }
+
+    public JButton getBtnCrearLibroBuscar() {
+        return btnCrearLibroBuscar;
+    }
+
+    public JButton getBtnEliminarLibroEliminar() {
+        return btnEliminarLibroEliminar;
+    }
+
+    public JRadioButton getRbtnDisponibleLibroEliminar() {
+        return rbtnDisponibleLibroEliminar;
+    }
+
+    public JTextField getTxtAutorLibroEliminar() {
+        return txtAutorLibroEliminar;
+    }
+
+    public JTextField getTxtEditorialLibroEliminar() {
+        return txtEditorialLibroEliminar;
+    }
+
+    public JTextField getTxtGeneroLibroEliminar() {
+        return txtGeneroLibroEliminar;
+    }
+
+    public JTextField getTxtIsbnLibroEliminar() {
+        return txtIsbnLibroEliminar;
+    }
+
+    public JTextField getTxtTituloLibroEliminar() {
+        return txtTituloLibroEliminar;
+    }
+
+    public JTextField getTxtYearLibroEliminar() {
+        return txtYearLibroEliminar;
+    }
+
+    public int mostarMensaje(String mensaje){
+        return JOptionPane.showConfirmDialog(this, mensaje);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarLibroEliminar;
     private javax.swing.JButton btnCrearLibroBuscar;

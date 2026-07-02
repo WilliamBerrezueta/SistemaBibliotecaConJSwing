@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import ec.edu.ups.biblioteca.models.Libro;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,26 +25,35 @@ public class LibroListarView extends javax.swing.JInternalFrame {
     }
     
     public void ConfigurarTabla(){
-        modelo = new DefaultTableModel();
-        modelo.addColumn("ISBN");
-        modelo.addColumn("Titulo");
-        modelo.addColumn("Año de publicación");
-        modelo.addColumn("Género");
-        modelo.addColumn("Editorial");
-        modelo.addColumn("Autor");
-        modelo.addColumn("Disponible");
+    modelo = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    
+    modelo.addColumn("ISBN");
+    modelo.addColumn("Titulo");
+    modelo.addColumn("Año de publicación");
+    modelo.addColumn("Género");
+    modelo.addColumn("Editorial");
+    modelo.addColumn("Autor");
+    modelo.addColumn("Disponible");
+    
+    tblListarLibro.setModel(modelo); 
+
+    tblListarLibro.getTableHeader().setReorderingAllowed(false);
+    tblListarLibro.getTableHeader().setResizingAllowed(false);
+}
+    
+    public void cargarDatos(List<Libro> libros){
         
-        tblListarLibro.setModel(modelo);
+        modelo.setRowCount(0);
         
-        tblListarLibro.getTableHeader().setReorderingAllowed(false);
-        tblListarLibro.getTableHeader().setResizingAllowed(false);
-        
-        modelo = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
+        for(Libro libro : libros){
+            Object[] fila = {libro.getIsbn(),libro.getTitulo(),libro.getAñoDePublicacion(),libro.getGenero(),libro.getEditorial(),libro.getAutor(),libro.isDisponible()};
+            modelo.addRow(fila);
+        }
     }
 
     /**

@@ -4,6 +4,11 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -193,6 +198,54 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnDisponibleLibroActualizarActionPerformed
 
+    public void mostarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+    public JButton getBtnActualizarLibroActualizar() {
+        return btnActualizarLibroActualizar;
+    }
+
+    public JButton getBtnBuscarLibroActualizar() {
+        return btnBuscarLibroActualizar;
+    }
+
+    public JButton getBtnCancelarLibroActualizar() {
+        return btnCancelarLibroActualizar;
+    }
+
+    public JButton getBtnLimpiarLibroActualizar() {
+        return btnLimpiarLibroActualizar;
+    }
+
+    public JRadioButton getRbtnDisponibleLibroActualizar() {
+        return rbtnDisponibleLibroActualizar;
+    }
+
+    public JTextField getTxtAutorLibroActualizar() {
+        return txtAutorLibroActualizar;
+    }
+
+    public JTextField getTxtEditorialLibroActualizar() {
+        return txtEditorialLibroActualizar;
+    }
+
+    public JTextField getTxtGeneroLibroActualizar() {
+        return txtGeneroLibroActualizar;
+    }
+
+    public JTextField getTxtIsbnLibroActualizar() {
+        return txtIsbnLibroActualizar;
+    }
+
+    public JTextField getTxtTituloLibroActualizar() {
+        return txtTituloLibroActualizar;
+    }
+
+    public JTextField getTxtYearLibroActualizar() {
+        return txtYearLibroActualizar;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarLibroActualizar;

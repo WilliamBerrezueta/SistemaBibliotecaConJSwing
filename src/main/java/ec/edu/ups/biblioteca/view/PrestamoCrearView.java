@@ -4,6 +4,16 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JComboBox;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -15,6 +25,176 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
      */
     public PrestamoCrearView() {
         initComponents();
+        configurarTabla();
+        configurarFechaActual();
+    }
+
+    private void configurarTabla() {
+
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(
+                new Object[]{"ISBN", "Título"}, 0) {
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        tblLibrosAgregadosPrestamoCrear.setModel(modelo);
+
+        tblLibrosAgregadosPrestamoCrear.getTableHeader().setReorderingAllowed(false);
+
+        tblLibrosAgregadosPrestamoCrear.getTableHeader().setResizingAllowed(false);
+
+        tblLibrosAgregadosPrestamoCrear.setRowSelectionAllowed(true);
+        tblLibrosAgregadosPrestamoCrear.setColumnSelectionAllowed(false);
+
+        tblLibrosAgregadosPrestamoCrear.setRowHeight(25);
+    }
+
+    private void configurarFechaActual() {
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        txtFechaPrestamoPrestamoCrear.setText(
+                LocalDate.now().format(formato)
+        );
+    }
+
+    public JButton getBtnAgregarPrestamoCrear() {
+        return btnAgregarPrestamoCrear;
+    }
+
+    public void setBtnAgregarPrestamoCrear(JButton btnAgregarPrestamoCrear) {
+        this.btnAgregarPrestamoCrear = btnAgregarPrestamoCrear;
+    }
+
+    public JButton getBtnBuscarPrestamoCrear() {
+        return btnBuscarPrestamoCrear;
+    }
+
+    public void setBtnBuscarPrestamoCrear(JButton btnBuscarPrestamoCrear) {
+        this.btnBuscarPrestamoCrear = btnBuscarPrestamoCrear;
+    }
+
+    public JButton getBtnCancelarPrestamoView() {
+        return btnCancelarPrestamoView;
+    }
+
+    public void setBtnCancelarPrestamoView(JButton btnCancelarPrestamoView) {
+        this.btnCancelarPrestamoView = btnCancelarPrestamoView;
+    }
+
+    public JButton getBtnCrearPrestamoCrear() {
+        return btnCrearPrestamoCrear;
+    }
+
+    public void setBtnCrearPrestamoCrear(JButton btnCrearPrestamoCrear) {
+        this.btnCrearPrestamoCrear = btnCrearPrestamoCrear;
+    }
+
+    public JButton getBtnLimpiarPrestamoCrear() {
+        return btnLimpiarPrestamoCrear;
+    }
+
+    public void setBtnLimpiarPrestamoCrear(JButton btnLimpiarPrestamoCrear) {
+        this.btnLimpiarPrestamoCrear = btnLimpiarPrestamoCrear;
+    }
+
+    public JComboBox<String> getCbxLibrosListaPrestamoCrear() {
+        return cbxLibrosListaPrestamoCrear;
+    }
+
+    public void setCbxLibrosListaPrestamoCrear(JComboBox<String> cbxLibrosListaPrestamoCrear) {
+        this.cbxLibrosListaPrestamoCrear = cbxLibrosListaPrestamoCrear;
+    }
+
+    public JCheckBoxMenuItem getjCheckBoxMenuItem1() {
+        return jCheckBoxMenuItem1;
+    }
+
+    public void setjCheckBoxMenuItem1(JCheckBoxMenuItem jCheckBoxMenuItem1) {
+        this.jCheckBoxMenuItem1 = jCheckBoxMenuItem1;
+    }
+
+    public JMenu getjMenu1() {
+        return jMenu1;
+    }
+
+    public void setjMenu1(JMenu jMenu1) {
+        this.jMenu1 = jMenu1;
+    }
+
+    public JMenu getjMenu2() {
+        return jMenu2;
+    }
+
+    public void setjMenu2(JMenu jMenu2) {
+        this.jMenu2 = jMenu2;
+    }
+
+    public JMenuItem getjMenuItem1() {
+        return jMenuItem1;
+    }
+
+    public void setjMenuItem1(JMenuItem jMenuItem1) {
+        this.jMenuItem1 = jMenuItem1;
+    }
+
+    public JRadioButtonMenuItem getjRadioButtonMenuItem1() {
+        return jRadioButtonMenuItem1;
+    }
+
+    public void setjRadioButtonMenuItem1(JRadioButtonMenuItem jRadioButtonMenuItem1) {
+        this.jRadioButtonMenuItem1 = jRadioButtonMenuItem1;
+    }
+
+    public JTextField getTxtCedulaPrestamoCrear() {
+        return txtCedulaPrestamoCrear;
+    }
+
+    public void setTxtCedulaPrestamoCrear(JTextField txtCedulaPrestamoCrear) {
+        this.txtCedulaPrestamoCrear = txtCedulaPrestamoCrear;
+    }
+
+    public JTextField getTxtCodigoPrestamoCrear() {
+        return txtCodigoPrestamoCrear;
+    }
+
+    public void setTxtCodigoPrestamoCrear(JTextField txtCodigoPrestamoCrear) {
+        this.txtCodigoPrestamoCrear = txtCodigoPrestamoCrear;
+    }
+
+    public JTextField getTxtFechaPrestamoPrestamoCrear() {
+        return txtFechaPrestamoPrestamoCrear;
+    }
+
+    public void setTxtFechaPrestamoPrestamoCrear(JTextField txtFechaPrestamoPrestamoCrear) {
+        this.txtFechaPrestamoPrestamoCrear = txtFechaPrestamoPrestamoCrear;
+    }
+
+    public JTextField getTxtNombrePrestamoCrear() {
+        return txtNombrePrestamoCrear;
+    }
+
+    public void setTxtNombrePrestamoCrear(JTextField txtNombrePrestamoCrear) {
+        this.txtNombrePrestamoCrear = txtNombrePrestamoCrear;
+    }
+
+    public JTextField getTxtTelefonoPrestamoCrear() {
+        return txtTelefonoPrestamoCrear;
+    }
+
+    public void setTxtTelefonoPrestamoCrear(JTextField txtTelefonoPrestamoCrear) {
+        this.txtTelefonoPrestamoCrear = txtTelefonoPrestamoCrear;
+    }
+
+    public void mostarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    public javax.swing.JTable getTblLibrosAgregadosPrestamoCrear() {
+        return tblLibrosAgregadosPrestamoCrear;
     }
 
     /**
@@ -26,17 +206,182 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        panelPrestamoCrear = new javax.swing.JPanel();
+        lblCodigoPrestamoCrear = new javax.swing.JLabel();
+        txtCodigoPrestamoCrear = new javax.swing.JTextField();
+        lblCedulaPrestamoCrear = new javax.swing.JLabel();
+        txtCedulaPrestamoCrear = new javax.swing.JTextField();
+        lblNombrePrestamoCrear = new javax.swing.JLabel();
+        txtNombrePrestamoCrear = new javax.swing.JTextField();
+        lblLibrosPrestamoCrear = new javax.swing.JLabel();
+        cbxLibrosListaPrestamoCrear = new javax.swing.JComboBox<>();
+        btnBuscarPrestamoCrear = new javax.swing.JButton();
+        lblTelefonoPrestamoCrear = new javax.swing.JLabel();
+        txtTelefonoPrestamoCrear = new javax.swing.JTextField();
+        btnAgregarPrestamoCrear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblLibrosAgregadosPrestamoCrear = new javax.swing.JTable();
+        btnLimpiarPrestamoCrear = new javax.swing.JButton();
+        btnCrearPrestamoCrear = new javax.swing.JButton();
+        btnCancelarPrestamoView = new javax.swing.JButton();
+        lblFechaPrestamoPrestamoCrear = new javax.swing.JLabel();
+        txtFechaPrestamoPrestamoCrear = new javax.swing.JTextField();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        lblCodigoPrestamoCrear.setText("Código del prestamo:");
+
+        lblCedulaPrestamoCrear.setText("Cédula:");
+
+        lblNombrePrestamoCrear.setText("Nombre:");
+
+        txtNombrePrestamoCrear.setEnabled(false);
+
+        lblLibrosPrestamoCrear.setText("Libros");
+
+        cbxLibrosListaPrestamoCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnBuscarPrestamoCrear.setText("Buscar");
+
+        lblTelefonoPrestamoCrear.setText("Telefono:");
+
+        txtTelefonoPrestamoCrear.setEnabled(false);
+
+        btnAgregarPrestamoCrear.setText("Agregar");
+
+        tblLibrosAgregadosPrestamoCrear.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblLibrosAgregadosPrestamoCrear);
+
+        btnLimpiarPrestamoCrear.setText("Limpiar");
+
+        btnCrearPrestamoCrear.setText("Crear");
+
+        btnCancelarPrestamoView.setText("Cancelar");
+
+        lblFechaPrestamoPrestamoCrear.setText("Fecha de prestamo:");
+
+        txtFechaPrestamoPrestamoCrear.setEnabled(false);
+
+        javax.swing.GroupLayout panelPrestamoCrearLayout = new javax.swing.GroupLayout(panelPrestamoCrear);
+        panelPrestamoCrear.setLayout(panelPrestamoCrearLayout);
+        panelPrestamoCrearLayout.setHorizontalGroup(
+            panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombrePrestamoCrear)
+                            .addComponent(lblCedulaPrestamoCrear)
+                            .addComponent(lblCodigoPrestamoCrear))
+                        .addGap(0, 22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblTelefonoPrestamoCrear)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCodigoPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(txtCedulaPrestamoCrear))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarPrestamoCrear))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addComponent(txtTelefonoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiarPrestamoCrear))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblFechaPrestamoPrestamoCrear)
+                            .addComponent(txtNombrePrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(464, 464, 464)
+                        .addComponent(btnCrearPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addComponent(btnCancelarPrestamoView, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLibrosPrestamoCrear)
+                            .addComponent(cbxLibrosListaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addComponent(btnAgregarPrestamoCrear)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
+        panelPrestamoCrearLayout.setVerticalGroup(
+            panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoPrestamoCrear)
+                    .addComponent(txtCodigoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFechaPrestamoPrestamoCrear)
+                    .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedulaPrestamoCrear)
+                    .addComponent(txtCedulaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPrestamoCrear))
+                .addGap(18, 18, 18)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombrePrestamoCrear)
+                    .addComponent(txtNombrePrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoPrestamoCrear)
+                    .addComponent(txtTelefonoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarPrestamoCrear))
+                .addGap(28, 28, 28)
+                .addComponent(lblLibrosPrestamoCrear)
+                .addGap(7, 7, 7)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbxLibrosListaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarPrestamoCrear))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelarPrestamoView, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(btnCrearPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -45,14 +390,14 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -61,6 +406,30 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnAgregarPrestamoCrear;
+    private javax.swing.JButton btnBuscarPrestamoCrear;
+    private javax.swing.JButton btnCancelarPrestamoView;
+    private javax.swing.JButton btnCrearPrestamoCrear;
+    private javax.swing.JButton btnLimpiarPrestamoCrear;
+    private javax.swing.JComboBox<String> cbxLibrosListaPrestamoCrear;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCedulaPrestamoCrear;
+    private javax.swing.JLabel lblCodigoPrestamoCrear;
+    private javax.swing.JLabel lblFechaPrestamoPrestamoCrear;
+    private javax.swing.JLabel lblLibrosPrestamoCrear;
+    private javax.swing.JLabel lblNombrePrestamoCrear;
+    private javax.swing.JLabel lblTelefonoPrestamoCrear;
+    private javax.swing.JPanel panelPrestamoCrear;
+    private javax.swing.JTable tblLibrosAgregadosPrestamoCrear;
+    private javax.swing.JTextField txtCedulaPrestamoCrear;
+    private javax.swing.JTextField txtCodigoPrestamoCrear;
+    private javax.swing.JTextField txtFechaPrestamoPrestamoCrear;
+    private javax.swing.JTextField txtNombrePrestamoCrear;
+    private javax.swing.JTextField txtTelefonoPrestamoCrear;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -168,6 +170,16 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
+        lblCedulaUsuarioCrear.setText(bundle.getString("keyCedula"));
+        lblNombreUsuarioCrear.setText(bundle.getString("keyNombre"));
+        lblTelefonoUsuarioCrear.setText(bundle.getString("keyTelefono"));
+        btnCrearUsuarioCrear.setText(bundle.getString("keyCrear"));
+        btnCancelarUsuarioCrear.setText(bundle.getString("keybotonCancelar"));
+        btnLimpiarUsuarioCrear.setText(bundle.getString("keyLimpiar"));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

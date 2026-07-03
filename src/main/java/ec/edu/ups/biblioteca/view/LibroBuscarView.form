@@ -57,87 +57,122 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblYearLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblIsbnLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTituloLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGeneroLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEditorialLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAutorLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDisponibleLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDisponibleLibroBuscar" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblYearLibroBuscar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblGeneroLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="btnCancelarLibroBuscar" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtGeneroLibroBuscar" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <Component id="txtYearLibroBuscar" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <Component id="txtTituloLibroBuscar" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <Component id="rbtnDisponibleLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="lblIsbnLibroBuscar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="txtIsbnLibroBuscar" min="-2" pref="160" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtIsbnLibroBuscar" alignment="0" pref="140" max="32767" attributes="0"/>
-                              <Component id="txtTituloLibroBuscar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtYearLibroBuscar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtGeneroLibroBuscar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEditorialLibroBuscar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtAutorLibroBuscar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="rbtnDisponibleLibroBuscar" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                          <Component id="btnCancelarLibroBuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="38" max="32767" attributes="0"/>
-                          <Component id="btnLimpiarLibroBuscar" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTituloLibroBuscar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnLimpiarLibroBuscar" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAutorLibroBuscar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtAutorLibroBuscar" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblEditorialLibroBuscar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtEditorialLibroBuscar" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnCrearLibroBuscar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblIsbnLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtIsbnLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCrearLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIsbnLibroBuscar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnCrearLibroBuscar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTituloLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTituloLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblYearLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtYearLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblGeneroLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtGeneroLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtEditorialLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblEditorialLibroBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAutorLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAutorLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEditorialLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEditorialLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDisponibleLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rbtnDisponibleLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblYearLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtYearLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="txtGeneroLibroBuscar" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblGeneroLibroBuscar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtAutorLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAutorLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblDisponibleLibroBuscar" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbtnDisponibleLibroBuscar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCancelarLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLimpiarLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,7 +180,11 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblIsbnLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="ISBN"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtIsbnLibroBuscar">
@@ -155,21 +194,33 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTituloLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Titulo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblYearLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="A&#xf1;o de publicaci&#xf3;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGeneroLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="G&#xe9;nero"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEditorialLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Editorial"/>
           </Properties>
         </Component>
@@ -198,6 +249,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCrearLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
@@ -206,16 +260,25 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCancelarLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAutorLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Autor"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDisponibleLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Disponible"/>
           </Properties>
         </Component>
@@ -228,9 +291,15 @@
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnDisponibleLibroBuscarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiarLibroBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>
           <Events>

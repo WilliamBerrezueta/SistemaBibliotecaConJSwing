@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -191,7 +193,18 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
     public int mostarMensaje(String mensaje){
         return JOptionPane.showConfirmDialog(this, mensaje);
     }
-
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
+        lblCedulaUsuarioEliminar.setText(bundle.getString("keyCedula"));
+        lblNombreUsuarioEliminar.setText(bundle.getString("keyNombre"));
+        lblTelefonoUsuarioEliminar.setText(bundle.getString("keyTelefono"));
+        btnBuscarUsuarioEliminar.setText(bundle.getString("keyBuscar"));
+        btnEliminarUsuarioEliminar.setText(bundle.getString("keyEliminar"));
+        btnCancelarUsuarioEliminar.setText(bundle.getString("keybotonCancelar"));
+        btnLimpiarUsuarioEliminar.setText(bundle.getString("keyLimpiar"));
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarUsuarioEliminar;
     private javax.swing.JButton btnCancelarUsuarioEliminar;

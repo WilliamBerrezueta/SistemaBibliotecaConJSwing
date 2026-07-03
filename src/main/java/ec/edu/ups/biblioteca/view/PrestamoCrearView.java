@@ -226,6 +226,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         btnCancelarPrestamoView = new javax.swing.JButton();
         lblFechaPrestamoPrestamoCrear = new javax.swing.JLabel();
         txtFechaPrestamoPrestamoCrear = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -244,24 +245,36 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        lblCodigoPrestamoCrear.setText("Código del prestamo:");
+        panelPrestamoCrear.setBackground(new java.awt.Color(255, 255, 255));
 
+        lblCodigoPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblCodigoPrestamoCrear.setText("Código del préstamo:");
+
+        lblCedulaPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaPrestamoCrear.setText("Cédula:");
 
+        lblNombrePrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombrePrestamoCrear.setText("Nombre:");
 
         txtNombrePrestamoCrear.setEnabled(false);
 
+        lblLibrosPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblLibrosPrestamoCrear.setText("Libros");
 
         cbxLibrosListaPrestamoCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxLibrosListaPrestamoCrear.addActionListener(this::cbxLibrosListaPrestamoCrearActionPerformed);
 
+        btnBuscarPrestamoCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBuscarPrestamoCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarPrestamoCrear.setText("Buscar");
 
-        lblTelefonoPrestamoCrear.setText("Telefono:");
+        lblTelefonoPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblTelefonoPrestamoCrear.setText("Teléfono:");
 
         txtTelefonoPrestamoCrear.setEnabled(false);
 
+        btnAgregarPrestamoCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnAgregarPrestamoCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Agg.png"))); // NOI18N
         btnAgregarPrestamoCrear.setText("Agregar");
 
         tblLibrosAgregadosPrestamoCrear.setModel(new javax.swing.table.DefaultTableModel(
@@ -277,15 +290,24 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblLibrosAgregadosPrestamoCrear);
 
+        btnLimpiarPrestamoCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarPrestamoCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarPrestamoCrear.setText("Limpiar");
 
+        btnCrearPrestamoCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCrearPrestamoCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear.png"))); // NOI18N
         btnCrearPrestamoCrear.setText("Crear");
 
+        btnCancelarPrestamoView.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarPrestamoView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarPrestamoView.setText("Cancelar");
 
-        lblFechaPrestamoPrestamoCrear.setText("Fecha de prestamo:");
+        lblFechaPrestamoPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblFechaPrestamoPrestamoCrear.setText("Fecha de préstamo:");
 
         txtFechaPrestamoPrestamoCrear.setEnabled(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearP.png"))); // NOI18N
 
         javax.swing.GroupLayout panelPrestamoCrearLayout = new javax.swing.GroupLayout(panelPrestamoCrear);
         panelPrestamoCrear.setLayout(panelPrestamoCrearLayout);
@@ -294,110 +316,122 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
             .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
                 .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNombrePrestamoCrear)
-                            .addComponent(lblCedulaPrestamoCrear)
-                            .addComponent(lblCodigoPrestamoCrear))
-                        .addGap(0, 22, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrestamoCrearLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblTelefonoPrestamoCrear)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCodigoPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(txtCedulaPrestamoCrear))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscarPrestamoCrear))
-                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                        .addComponent(txtTelefonoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiarPrestamoCrear))
-                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblFechaPrestamoPrestamoCrear)
-                            .addComponent(txtNombrePrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                        .addGap(464, 464, 464)
-                        .addComponent(btnCrearPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89)
-                        .addComponent(btnCancelarPrestamoView, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLibrosPrestamoCrear)
-                            .addComponent(cbxLibrosListaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addComponent(btnAgregarPrestamoCrear)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                                .addComponent(cbxLibrosListaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnAgregarPrestamoCrear)
+                                .addGap(55, 55, 55)
+                                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrestamoCrearLayout.createSequentialGroup()
+                                        .addComponent(btnCrearPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(68, 68, 68)
+                                        .addComponent(btnCancelarPrestamoView)
+                                        .addGap(57, 57, 57))))))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                                .addComponent(lblTelefonoPrestamoCrear)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtTelefonoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                                    .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                                            .addGap(114, 114, 114)
+                                            .addComponent(btnBuscarPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(74, 74, 74)
+                                            .addComponent(btnLimpiarPrestamoCrear))
+                                        .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                                            .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblCodigoPrestamoCrear)
+                                                .addComponent(lblCedulaPrestamoCrear))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtCodigoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtCedulaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(82, 82, 82)
+                                    .addComponent(jLabel1)
+                                    .addGap(76, 76, 76))
+                                .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                                    .addComponent(lblNombrePrestamoCrear)
+                                    .addGap(27, 27, 27)
+                                    .addComponent(txtNombrePrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(54, 54, 54)
+                                    .addComponent(lblFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         panelPrestamoCrearLayout.setVerticalGroup(
             panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoPrestamoCrear)
-                    .addComponent(txtCodigoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechaPrestamoPrestamoCrear)
-                    .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedulaPrestamoCrear)
-                    .addComponent(txtCedulaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarPrestamoCrear))
+                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCodigoPrestamoCrear)
+                            .addComponent(txtCodigoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCedulaPrestamoCrear)
+                            .addComponent(txtCedulaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLimpiarPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuscarPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombrePrestamoCrear)
-                    .addComponent(txtNombrePrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(txtNombrePrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFechaPrestamoPrestamoCrear)
+                    .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefonoPrestamoCrear)
-                    .addComponent(txtTelefonoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpiarPrestamoCrear))
-                .addGap(28, 28, 28)
+                    .addComponent(txtTelefonoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(lblLibrosPrestamoCrear)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbxLibrosListaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxLibrosListaPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAgregarPrestamoCrear))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCancelarPrestamoView, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(btnCrearPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addGroup(panelPrestamoCrearLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCancelarPrestamoView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCrearPrestamoCrear))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbxLibrosListaPrestamoCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLibrosListaPrestamoCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxLibrosListaPrestamoCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -408,6 +442,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiarPrestamoCrear;
     private javax.swing.JComboBox<String> cbxLibrosListaPrestamoCrear;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;

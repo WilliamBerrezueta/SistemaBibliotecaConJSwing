@@ -85,9 +85,9 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
 
         txtTelefonoPrestamoEliminar.setEnabled(false);
 
-        lblFechaPrestamoEliminar.setText("Fecha del prestamo:");
+        lblFechaPrestamoEliminar.setText("Fecha del préstamo:");
 
-        lblCodigoPrestamoEliminar.setText("Código del prestamo:");
+        lblCodigoPrestamoEliminar.setText("Código del préstamo:");
 
         txtFechaPrestamoEliminar.setEnabled(false);
 

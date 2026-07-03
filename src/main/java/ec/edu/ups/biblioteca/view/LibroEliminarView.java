@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
@@ -20,6 +22,25 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
      */
     public LibroEliminarView() {
         initComponents();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+    lblIsbnLibroEliminar.setText(bundle.getString("libro.isbn"));
+    lblTituloLibroEliminar.setText(bundle.getString("libro.titulo"));
+    lblAutorLibroEliminar.setText(bundle.getString("libro.autor"));
+    lblEditorialLibroEliminar.setText(bundle.getString("libro.editorial"));
+    lblGeneroLibroEliminar.setText(bundle.getString("libro.genero"));
+    lblDisponibleLibroEliminar.setText(bundle.getString("libro.disponible"));
+    lblYearLibroEliminar.setText(bundle.getString("libro.anio"));
+
+    btnCrearLibroBuscar.setText(bundle.getString("boton.buscar"));
+    btnEliminarLibroEliminar.setText(bundle.getString("boton.eliminar"));
+    btnLimpiarLibroEliminar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarLibroEliminar.setText(bundle.getString("boton.cancelar"));
+
+    rbtnDisponibleLibroEliminar.setText(bundle.getString("libro.disponible"));
     }
 
     /**
@@ -59,7 +80,7 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
 
         panelLibroBuscar.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblIsbnLibroEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblIsbnLibroEliminar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroEliminar.setText("ISBN");
 
         txtIsbnLibroEliminar.addActionListener(this::txtIsbnLibroEliminarActionPerformed);
@@ -90,6 +111,8 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         btnCrearLibroBuscar.setText("Buscar");
         btnCrearLibroBuscar.addActionListener(this::btnCrearLibroBuscarActionPerformed);
 
+        btnCancelarLibroEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarLibroEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarLibroEliminar.setText("Cancelar");
 
         lblAutorLibroEliminar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -102,9 +125,13 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
 
         rbtnDisponibleLibroEliminar.setEnabled(false);
 
+        btnLimpiarLibroEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarLibroEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarLibroEliminar.setText("Limpiar");
         btnLimpiarLibroEliminar.addActionListener(this::btnLimpiarLibroEliminarActionPerformed);
 
+        btnEliminarLibroEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnEliminarLibroEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminar.png"))); // NOI18N
         btnEliminarLibroEliminar.setText("Eliminar");
         btnEliminarLibroEliminar.addActionListener(this::btnEliminarLibroEliminarActionPerformed);
 
@@ -123,7 +150,7 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
                                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelLibroBuscarLayout.createSequentialGroup()
                                         .addComponent(lblIsbnLibroEliminar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtIsbnLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(51, 51, 51))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
@@ -151,14 +178,14 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
                                 .addComponent(rbtnDisponibleLibroEliminar)
                                 .addGap(18, 18, 18)))
                         .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEditorialLibroEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(txtEditorialLibroEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                             .addComponent(txtYearLibroEliminar)
                             .addComponent(txtGeneroLibroEliminar)
                             .addComponent(txtAutorLibroEliminar)
                             .addComponent(txtTituloLibroEliminar))
                         .addGap(15, 15, 15))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 79, Short.MAX_VALUE)
                         .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -220,10 +247,7 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelLibroBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelLibroBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

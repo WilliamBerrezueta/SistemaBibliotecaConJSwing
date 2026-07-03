@@ -22,6 +22,18 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     public UsuarioCrearView() {
         initComponents();
     }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        lblNombreUsuarioCrear.setText(bundle.getString("usuario.nombre"));
+    lblCedulaUsuarioCrear.setText(bundle.getString("usuario.cedula"));
+    lblTelefonoUsuarioCrear.setText(bundle.getString("usuario.telefono"));
+
+    btnCrearUsuarioCrear.setText(bundle.getString("boton.crear"));
+    btnCancelarUsuarioCrear.setText(bundle.getString("boton.cancelar"));
+    btnLimpiarUsuarioCrear.setText(bundle.getString("boton.limpiar"));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,58 +54,83 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         btnLimpiarUsuarioCrear = new javax.swing.JButton();
         lblTelefonoUsuarioCrear = new javax.swing.JLabel();
         txtTelefonoUsuarioCrear = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        panelUsuarioCrear.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblNombreUsuarioCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioCrear.setText("Nombre:");
 
+        lblCedulaUsuarioCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaUsuarioCrear.setText("Cédula:");
 
         txtNombreUsuarioCrear.addActionListener(this::txtNombreUsuarioCrearActionPerformed);
 
         txtCedulaUsuarioCrear.addActionListener(this::txtCedulaUsuarioCrearActionPerformed);
 
+        btnCrearUsuarioCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCrearUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear.png"))); // NOI18N
         btnCrearUsuarioCrear.setText("Crear");
 
+        btnCancelarUsuarioCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarUsuarioCrear.setText("Cancelar");
 
+        btnLimpiarUsuarioCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarUsuarioCrear.setText("Limpiar");
 
+        lblTelefonoUsuarioCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoUsuarioCrear.setText("Teléfono:");
 
         txtTelefonoUsuarioCrear.addActionListener(this::txtTelefonoUsuarioCrearActionPerformed);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/CrearUsuario .png"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout panelUsuarioCrearLayout = new javax.swing.GroupLayout(panelUsuarioCrear);
         panelUsuarioCrear.setLayout(panelUsuarioCrearLayout);
         panelUsuarioCrearLayout.setHorizontalGroup(
             panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap(91, Short.MAX_VALUE)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreUsuarioCrear)
-                    .addComponent(lblTelefonoUsuarioCrear)
-                    .addComponent(lblCedulaUsuarioCrear))
-                .addGap(18, 18, 18)
-                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioCrearLayout.createSequentialGroup()
+                        .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioCrearLayout.createSequentialGroup()
+                                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNombreUsuarioCrear)
+                                    .addComponent(lblTelefonoUsuarioCrear)
+                                    .addComponent(lblCedulaUsuarioCrear))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtTelefonoUsuarioCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioCrearLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(151, 151, 151)))
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioCrearLayout.createSequentialGroup()
                         .addComponent(btnCrearUsuarioCrear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(38, 38, 38)
                         .addComponent(btnCancelarUsuarioCrear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimpiarUsuarioCrear))
-                    .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtTelefonoUsuarioCrear, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtCedulaUsuarioCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addComponent(btnLimpiarUsuarioCrear)
+                        .addGap(53, 53, 53))))
         );
         panelUsuarioCrearLayout.setVerticalGroup(
             panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreUsuarioCrear)
                     .addComponent(txtNombreUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -105,28 +142,23 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefonoUsuarioCrear)
                     .addComponent(txtTelefonoUsuarioCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(69, 69, 69)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearUsuarioCrear)
                     .addComponent(btnCancelarUsuarioCrear)
                     .addComponent(btnLimpiarUsuarioCrear))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelUsuarioCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelUsuarioCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelUsuarioCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelUsuarioCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -172,20 +204,11 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, mensaje);
     }
     
-    public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes",locale);
-        lblCedulaUsuarioCrear.setText(bundle.getString("keyCedula"));
-        lblNombreUsuarioCrear.setText(bundle.getString("keyNombre"));
-        lblTelefonoUsuarioCrear.setText(bundle.getString("keyTelefono"));
-        btnCrearUsuarioCrear.setText(bundle.getString("keyCrear"));
-        btnCancelarUsuarioCrear.setText(bundle.getString("keybotonCancelar"));
-        btnLimpiarUsuarioCrear.setText(bundle.getString("keyLimpiar"));
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarUsuarioCrear;
     private javax.swing.JButton btnCrearUsuarioCrear;
     private javax.swing.JButton btnLimpiarUsuarioCrear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedulaUsuarioCrear;
     private javax.swing.JLabel lblNombreUsuarioCrear;
     private javax.swing.JLabel lblTelefonoUsuarioCrear;

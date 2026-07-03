@@ -60,6 +60,8 @@ public class PrincipalView extends javax.swing.JFrame {
         libroDao = new LibroDaoMemoria();
         libroController = new LibroController(libroActualizarView, libroBuscarView, libroCrearView, libroEliminarView, libroListarView, libroDao);
 
+        libroController.listarLibros();
+
         usuarioActualizarView = new UsuarioActualizarView();
         usuarioBuscarView = new UsuarioBuscarView();
         usuarioCrearView = new UsuarioCrearView();
@@ -68,6 +70,8 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioDao = new UsuarioDaoMemoria();
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
+        usuarioController.listarUsuarios();
+
         prestamoActualizarView = new RegistrarDevolucionView();
         prestamoBuscarView = new PrestamoBuscarView();
         prestamoCrearView = new PrestamoCrearView();
@@ -75,12 +79,40 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoListarView = new PrestamoListarView();
         prestamoDao = new PrestamoDaoMemoria();
-        prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, usuarioDao, libroDao, prestamoBuscarView);
+        prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, prestamoEliminarView, prestamoListarView, usuarioDao, libroDao, prestamoBuscarView);
     }
-    
-    public void cambiarIdioma(Locale locale){
+
+    public void cambiarIdioma(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
-        
+
+        menuItemLibro.setText(bundle.getString("menu.libro"));
+        menuItemUsuario.setText(bundle.getString("menu.usuario"));
+        menuItemPrestamo.setText(bundle.getString("menu.prestamo"));
+        menuItemIdioma.setText(bundle.getString("menu.idioma"));
+        menuItemSistema.setText(bundle.getString("menu.sistema"));
+
+        menuItemSistemaSalir.setText(bundle.getString("menu.salir"));
+
+        menuItemLibroCrear.setText(bundle.getString("menu.crear"));
+        menuItemLibroBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemLibroActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemLibroEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemLibroListar.setText(bundle.getString("menu.listar"));
+
+        menuItemUsuarioCrear.setText(bundle.getString("menu.crear"));
+        menuItemUsuarioBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemUsuarioActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemUsuarioEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemUsuarioListar.setText(bundle.getString("menu.listar"));
+
+        menuItemPrestamoCrear.setText(bundle.getString("menu.crear"));
+        menuItemPrestamoBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemPrestamoActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemPrestamoEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemPrestamoListar.setText(bundle.getString("menu.listar"));
+
+        menuItemIdiomaEspañol.setText(bundle.getString("menu.idioma.espanol"));
+        menuItemIdiomaIngles.setText(bundle.getString("menu.idioma.ingles"));
     }
 
     /**
@@ -96,6 +128,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuItemLibro = new javax.swing.JMenu();
         menuItemLibroCrear = new javax.swing.JMenuItem();
@@ -128,6 +161,10 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/converted_image (1).png"))); // NOI18N
+        desktopPane.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1408, 795);
 
         menuItemLibro.setMnemonic('f');
         menuItemLibro.setText("Libro");
@@ -229,6 +266,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemSistema.setText("Sistema");
 
         menuItemSistemaSalir.setText("Salir");
+        menuItemSistemaSalir.addActionListener(this::menuItemSistemaSalirActionPerformed);
         menuItemSistema.add(menuItemSistemaSalir);
 
         menuBar.add(menuItemSistema);
@@ -239,11 +277,11 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1408, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
         );
 
         pack();
@@ -371,24 +409,52 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemPrestamoListarActionPerformed
 
     private void menuItemIdiomaInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaInglesActionPerformed
-        Locale locale = new Locale("en","US");
+        Locale locale = new Locale("en", "US");
         this.cambiarIdioma(locale);
         usuarioCrearView.cambiarIdioma(locale);
         usuarioBuscarView.cambiarIdioma(locale);
         usuarioActualizarView.cambiarIdioma(locale);
         usuarioEliminarView.cambiarIdioma(locale);
         usuarioListarView.cambiarIdioma(locale);
+
+        libroActualizarView.cambiarIdioma(locale);
+        libroBuscarView.cambiarIdioma(locale);
+        libroCrearView.cambiarIdioma(locale);
+        libroEliminarView.cambiarIdioma(locale);
+        libroListarView.cambiarIdioma(locale);
+
+        prestamoActualizarView.cambiarIdioma(locale);
+        prestamoBuscarView.cambiarIdioma(locale);
+        prestamoCrearView.cambiarIdioma(locale);
+        prestamoEliminarView.cambiarIdioma(locale);
+        prestamoListarView.cambiarIdioma(locale);
     }//GEN-LAST:event_menuItemIdiomaInglesActionPerformed
 
     private void menuItemIdiomaEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaEspañolActionPerformed
-        Locale locale = new Locale("es","EC");
+        Locale locale = new Locale("es", "EC");
         this.cambiarIdioma(locale);
         usuarioCrearView.cambiarIdioma(locale);
         usuarioBuscarView.cambiarIdioma(locale);
         usuarioActualizarView.cambiarIdioma(locale);
         usuarioEliminarView.cambiarIdioma(locale);
         usuarioListarView.cambiarIdioma(locale);
+
+        libroActualizarView.cambiarIdioma(locale);
+        libroBuscarView.cambiarIdioma(locale);
+        libroCrearView.cambiarIdioma(locale);
+        libroEliminarView.cambiarIdioma(locale);
+        libroListarView.cambiarIdioma(locale);
+
+        prestamoActualizarView.cambiarIdioma(locale);
+        prestamoBuscarView.cambiarIdioma(locale);
+        prestamoCrearView.cambiarIdioma(locale);
+        prestamoEliminarView.cambiarIdioma(locale);
+        prestamoListarView.cambiarIdioma(locale);
     }//GEN-LAST:event_menuItemIdiomaEspañolActionPerformed
+
+    private void menuItemSistemaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSistemaSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuItemSistemaSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,6 +494,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

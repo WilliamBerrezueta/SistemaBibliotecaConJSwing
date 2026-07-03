@@ -22,6 +22,19 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
     public UsuarioActualizarView() {
         initComponents();
     }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        lblCedulaUsuarioActualizar.setText(bundle.getString("usuario.cedula"));
+    lblNombreUsuarioActualizar.setText(bundle.getString("usuario.nombre"));
+    lblTelefonoUsuarioActualizar.setText(bundle.getString("usuario.telefono"));
+
+    btnBuscarUsuarioActualizar.setText(bundle.getString("boton.buscar"));
+    btnActualizarUsuarioActualizar.setText(bundle.getString("boton.actualizar"));
+    btnLimpiarUsuarioActualizar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarUsuarioActualizar.setText(bundle.getString("boton.cancelar"));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,29 +65,33 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
 
         panelUsuarioActualizar.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblNombreUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblNombreUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioActualizar.setText("Nombre:");
 
-        lblCedulaUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCedulaUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaUsuarioActualizar.setText("Cédula:");
 
         txtNombreUsuarioActualizar.addActionListener(this::txtNombreUsuarioActualizarActionPerformed);
 
         txtCedulaUsuarioActualizar.addActionListener(this::txtCedulaUsuarioActualizarActionPerformed);
 
+        btnBuscarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnBuscarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarUsuarioActualizar.setText("Buscar");
 
-        btnCancelarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnCancelarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarUsuarioActualizar.setText("Cancelar");
 
-        btnLimpiarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnLimpiarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarUsuarioActualizar.setText("Limpiar");
 
-        btnActualizarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnActualizarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnActualizarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarU.png"))); // NOI18N
         btnActualizarUsuarioActualizar.setText("Actualizar");
 
-        lblTelefonoUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblTelefonoUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoUsuarioActualizar.setText("Teléfono:");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarUsuario.png"))); // NOI18N
@@ -101,7 +118,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
                         .addComponent(btnLimpiarUsuarioActualizar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
+                        .addGap(0, 22, Short.MAX_VALUE)
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                                 .addComponent(lblTelefonoUsuarioActualizar)
@@ -198,18 +215,6 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
 
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
-    }
-    
-    public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
-        lblCedulaUsuarioActualizar.setText(bundle.getString("keyCedula"));
-        lblNombreUsuarioActualizar.setText(bundle.getString("keyNombre"));
-        lblTelefonoUsuarioActualizar.setText(bundle.getString("keyTelefono"));
-        btnActualizarUsuarioActualizar.setText(bundle.getString("keyActualizar"));
-        btnBuscarUsuarioActualizar.setText(bundle.getString("keyBuscar"));
-        btnCancelarUsuarioActualizar.setText(bundle.getString("keybotonCancelar"));
-        btnLimpiarUsuarioActualizar.setText(bundle.getString("keyLimpiar"));
-        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

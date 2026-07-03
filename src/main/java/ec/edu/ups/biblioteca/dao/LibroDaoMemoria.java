@@ -14,10 +14,16 @@ import java.util.List;
  */
 public class LibroDaoMemoria implements LibroDao{
     private List<Libro> listaLibros;
-
+    
     public LibroDaoMemoria() {
-        listaLibros = new ArrayList<>();
-    }
+    listaLibros = new ArrayList<>();
+
+    crear(new Libro("111", "Effective Java", 2018, "Programación", true, "Addison-Wesley", "Joshua Bloch"));
+    crear(new Libro("112", "Clean Code", 2008, "Programación", true, "Prentice Hall", "Robert C. Martin"));
+    crear(new Libro("113", "Head First Java", 2022, "Programación", true, "O'Reilly", "Kathy Sierra"));
+    crear(new Libro("114", "Core Java Volume I", 2018, "Programación", true, "Pearson", "Cay S. Horstmann"));
+    crear(new Libro("115", "Database System Concepts", 2019, "Bases de Datos", true, "McGraw-Hill", "Abraham Silberschatz"));
+}
 
     @Override
     public void crear(Libro libro) {

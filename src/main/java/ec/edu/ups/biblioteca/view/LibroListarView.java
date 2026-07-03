@@ -6,6 +6,8 @@ package ec.edu.ups.biblioteca.view;
 
 import ec.edu.ups.biblioteca.models.Libro;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -55,6 +57,23 @@ public class LibroListarView extends javax.swing.JInternalFrame {
             modelo.addRow(fila);
         }
     }
+    
+    public void cambiarIdioma(Locale locale) {
+
+    ResourceBundle bundle = ResourceBundle.getBundle(
+            "ec.edu.ups.biblioteca.i18n.mensajes", locale);
+
+    modelo.setColumnIdentifiers(new Object[]{
+        bundle.getString("libro.isbn"),
+        bundle.getString("libro.titulo"),
+        bundle.getString("libro.anio"),
+        bundle.getString("libro.genero"),
+        bundle.getString("libro.editorial"),
+        bundle.getString("libro.autor"),
+        bundle.getString("libro.disponible")
+    });
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

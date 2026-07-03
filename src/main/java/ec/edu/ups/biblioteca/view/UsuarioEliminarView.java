@@ -22,6 +22,19 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
     public UsuarioEliminarView() {
         initComponents();
     }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        lblCedulaUsuarioEliminar.setText(bundle.getString("usuario.cedula"));
+    lblNombreUsuarioEliminar.setText(bundle.getString("usuario.nombre"));
+    lblTelefonoUsuarioEliminar.setText(bundle.getString("usuario.telefono"));
+
+    btnBuscarUsuarioEliminar.setText(bundle.getString("boton.buscar"));
+    btnEliminarUsuarioEliminar.setText(bundle.getString("boton.eliminar"));
+    btnLimpiarUsuarioEliminar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarUsuarioEliminar.setText(bundle.getString("boton.cancelar"));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,14 +56,19 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         btnEliminarUsuarioEliminar = new javax.swing.JButton();
         lblTelefonoUsuarioEliminar = new javax.swing.JLabel();
         txtTelefonoUsuarioEliminar = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        panelUsuarioEliminar.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblNombreUsuarioEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioEliminar.setText("Nombre:");
 
+        lblCedulaUsuarioEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaUsuarioEliminar.setText("Cédula:");
 
         txtNombreUsuarioEliminar.setEnabled(false);
@@ -58,92 +76,102 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
 
         txtCedulaUsuarioEliminar.addActionListener(this::txtCedulaUsuarioEliminarActionPerformed);
 
+        btnBuscarUsuarioEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscarUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarUsuarioEliminar.setText("Buscar");
 
+        btnCancelarUsuarioEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarUsuarioEliminar.setText("Cancelar");
 
+        btnLimpiarUsuarioEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarUsuarioEliminar.setText("Limpiar");
         btnLimpiarUsuarioEliminar.addActionListener(this::btnLimpiarUsuarioEliminarActionPerformed);
 
+        btnEliminarUsuarioEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnEliminarUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminar.png"))); // NOI18N
         btnEliminarUsuarioEliminar.setText("Eliminar");
 
+        lblTelefonoUsuarioEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoUsuarioEliminar.setText("Teléfono");
 
         txtTelefonoUsuarioEliminar.setEnabled(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminarUsuario.png"))); // NOI18N
 
         javax.swing.GroupLayout panelUsuarioEliminarLayout = new javax.swing.GroupLayout(panelUsuarioEliminar);
         panelUsuarioEliminar.setLayout(panelUsuarioEliminarLayout);
         panelUsuarioEliminarLayout.setHorizontalGroup(
             panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(160, 160, 160)
                 .addComponent(btnEliminarUsuarioEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancelarUsuarioEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLimpiarUsuarioEliminar)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioEliminarLayout.createSequentialGroup()
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addComponent(lblTelefonoUsuarioEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefonoUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1))
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombreUsuarioEliminar)
-                            .addComponent(lblCedulaUsuarioEliminar))
-                        .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnBuscarUsuarioEliminar)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioEliminarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                        .addGap(125, 125, 125)
+                        .addComponent(btnBuscarUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTelefonoUsuarioEliminar))
+                    .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(lblCedulaUsuarioEliminar)
+                        .addGap(41, 41, 41)
+                        .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreUsuarioEliminar)))
+                .addGap(18, 18, 18)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                    .addComponent(txtTelefonoUsuarioEliminar))
+                .addContainerGap())
         );
         panelUsuarioEliminarLayout.setVerticalGroup(
             panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedulaUsuarioEliminar)
-                    .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarUsuarioEliminar))
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreUsuarioEliminar)
-                    .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefonoUsuarioEliminar)
-                    .addComponent(txtTelefonoUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCedulaUsuarioEliminar)
+                    .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTelefonoUsuarioEliminar)
+                            .addComponent(txtTelefonoUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
                 .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarUsuarioEliminar)
                     .addComponent(btnCancelarUsuarioEliminar)
                     .addComponent(btnLimpiarUsuarioEliminar))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(68, 68, 68))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelUsuarioEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -194,22 +222,12 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         return JOptionPane.showConfirmDialog(this, mensaje);
     }
     
-    public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
-        lblCedulaUsuarioEliminar.setText(bundle.getString("keyCedula"));
-        lblNombreUsuarioEliminar.setText(bundle.getString("keyNombre"));
-        lblTelefonoUsuarioEliminar.setText(bundle.getString("keyTelefono"));
-        btnBuscarUsuarioEliminar.setText(bundle.getString("keyBuscar"));
-        btnEliminarUsuarioEliminar.setText(bundle.getString("keyEliminar"));
-        btnCancelarUsuarioEliminar.setText(bundle.getString("keybotonCancelar"));
-        btnLimpiarUsuarioEliminar.setText(bundle.getString("keyLimpiar"));
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarUsuarioEliminar;
     private javax.swing.JButton btnCancelarUsuarioEliminar;
     private javax.swing.JButton btnEliminarUsuarioEliminar;
     private javax.swing.JButton btnLimpiarUsuarioEliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedulaUsuarioEliminar;
     private javax.swing.JLabel lblNombreUsuarioEliminar;
     private javax.swing.JLabel lblTelefonoUsuarioEliminar;

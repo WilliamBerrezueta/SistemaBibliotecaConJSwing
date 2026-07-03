@@ -52,16 +52,17 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
 
         panelUsuarioActualizar.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblNombreUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblNombreUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioActualizar.setText("Nombre:");
 
-        lblCedulaUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCedulaUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaUsuarioActualizar.setText("Cédula:");
 
         txtNombreUsuarioActualizar.addActionListener(this::txtNombreUsuarioActualizarActionPerformed);
 
         txtCedulaUsuarioActualizar.addActionListener(this::txtCedulaUsuarioActualizarActionPerformed);
 
+        btnBuscarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnBuscarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarUsuarioActualizar.setText("Buscar");
 
@@ -77,7 +78,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         btnActualizarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarU.png"))); // NOI18N
         btnActualizarUsuarioActualizar.setText("Actualizar");
 
-        lblTelefonoUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblTelefonoUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoUsuarioActualizar.setText("Teléfono:");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarUsuario.png"))); // NOI18N
@@ -102,9 +103,9 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
                         .addComponent(btnCancelarUsuarioActualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiarUsuarioActualizar)
-                        .addGap(0, 27, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 22, Short.MAX_VALUE)
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                                 .addComponent(lblTelefonoUsuarioActualizar)

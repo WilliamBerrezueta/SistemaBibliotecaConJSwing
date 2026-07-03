@@ -118,8 +118,8 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnCrearLibroBuscar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                  <Component id="btnCrearLibroBuscar" min="-2" pref="123" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,9 +131,9 @@
                       <Component id="lblIsbnLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtIsbnLibroBuscar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="btnCrearLibroBuscar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTituloLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTituloLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -167,7 +167,7 @@
                       <Component id="lblDisponibleLibroBuscar" min="-2" max="-2" attributes="0"/>
                       <Component id="rbtnDisponibleLibroBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCancelarLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLimpiarLibroBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -251,6 +251,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/LUPA_.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>

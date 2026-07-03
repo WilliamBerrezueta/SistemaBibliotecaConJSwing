@@ -13,6 +13,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -31,9 +32,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
 
     private void configurarTabla() {
 
-        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(
-                new Object[]{"ISBN", "Título"}, 0) {
-
+        DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ISBN", "Título"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -46,10 +45,6 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
 
         tblLibrosAgregadosPrestamoCrear.getTableHeader().setResizingAllowed(false);
 
-        tblLibrosAgregadosPrestamoCrear.setRowSelectionAllowed(true);
-        tblLibrosAgregadosPrestamoCrear.setColumnSelectionAllowed(false);
-
-        tblLibrosAgregadosPrestamoCrear.setRowHeight(25);
     }
 
     private void configurarFechaActual() {

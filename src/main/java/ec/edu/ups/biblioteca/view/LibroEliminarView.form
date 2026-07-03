@@ -58,15 +58,19 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnCrearLibroBuscar" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="lblIsbnLibroEliminar" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace pref="50" max="32767" attributes="0"/>
                                           <Component id="txtIsbnLibroEliminar" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="btnCrearLibroBuscar" min="-2" pref="181" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
@@ -145,6 +149,18 @@
                               <Component id="lblAutorLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtAutorLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDisponibleLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbtnDisponibleLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnCancelarLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEliminarLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -153,9 +169,9 @@
                               <Component id="lblIsbnLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtIsbnLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtGeneroLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblGeneroLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -163,25 +179,11 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblEditorialLibroEliminar" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="btnCrearLibroBuscar" min="-2" pref="72" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnCrearLibroBuscar" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDisponibleLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rbtnDisponibleLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnCancelarLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLimpiarLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminarLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -260,6 +262,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCrearLibroBuscar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/LUPA_.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>

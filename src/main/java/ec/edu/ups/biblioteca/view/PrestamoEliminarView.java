@@ -4,6 +4,9 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
@@ -15,6 +18,26 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
      */
     public PrestamoEliminarView() {
         initComponents();
+        configurarTabla();
+    }
+    
+    private void configurarTabla() {
+
+    DefaultTableModel modelo = new DefaultTableModel(
+            new Object[]{"ISBN", "Título"}, 0) {
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+
+    tblLibrosPrestamoEliminar.setModel(modelo);
+
+    tblLibrosPrestamoEliminar.getTableHeader().setReorderingAllowed(false);
+
+    tblLibrosPrestamoEliminar.getTableHeader().setResizingAllowed(false);
+
     }
 
     /**
@@ -26,26 +49,198 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblCedulaPrestamoEliminar = new javax.swing.JLabel();
+        txtCedulaPrestamoEliminar = new javax.swing.JTextField();
+        lblNombrePrestamoEliminar = new javax.swing.JLabel();
+        txtNombrePrestamoEliminar = new javax.swing.JTextField();
+        lblTelefonoPrestamoEliminar = new javax.swing.JLabel();
+        txtTelefonoPrestamoEliminar = new javax.swing.JTextField();
+        lblFechaPrestamoEliminar = new javax.swing.JLabel();
+        lblCodigoPrestamoEliminar = new javax.swing.JLabel();
+        txtFechaPrestamoEliminar = new javax.swing.JTextField();
+        txtCodigoPrestamoEliminar = new javax.swing.JTextField();
+        lblTituloTblPrestamoEliminar = new javax.swing.JLabel();
+        btnBuscarPrestamoEliminar = new javax.swing.JButton();
+        btnLimpiarPrestamoEliminar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblLibrosPrestamoEliminar = new javax.swing.JTable();
+        btnEliminarPrestamoEliminar = new javax.swing.JButton();
+        btnCancelarPrestamoEliminar = new javax.swing.JButton();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        lblCedulaPrestamoEliminar.setText("Cédula:");
+
+        txtCedulaPrestamoEliminar.setEnabled(false);
+
+        lblNombrePrestamoEliminar.setText("Nombre:");
+
+        txtNombrePrestamoEliminar.setEnabled(false);
+
+        lblTelefonoPrestamoEliminar.setText("Teléfono:");
+
+        txtTelefonoPrestamoEliminar.setEnabled(false);
+
+        lblFechaPrestamoEliminar.setText("Fecha del prestamo:");
+
+        lblCodigoPrestamoEliminar.setText("Código del prestamo:");
+
+        txtFechaPrestamoEliminar.setEnabled(false);
+
+        lblTituloTblPrestamoEliminar.setText("Libro/s prestado/s");
+
+        btnBuscarPrestamoEliminar.setText("Buscar");
+
+        btnLimpiarPrestamoEliminar.setText("Limpiar");
+
+        tblLibrosPrestamoEliminar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblLibrosPrestamoEliminar);
+
+        btnEliminarPrestamoEliminar.setText("Eliminar");
+        btnEliminarPrestamoEliminar.addActionListener(this::btnEliminarPrestamoEliminarActionPerformed);
+
+        btnCancelarPrestamoEliminar.setText("Cancelar");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblCedulaPrestamoEliminar)
+                                    .addComponent(lblNombrePrestamoEliminar)
+                                    .addComponent(lblCodigoPrestamoEliminar)
+                                    .addComponent(lblTelefonoPrestamoEliminar)
+                                    .addComponent(lblFechaPrestamoEliminar))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtFechaPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(txtCedulaPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                                    .addComponent(txtTelefonoPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtCodigoPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(lblTituloTblPrestamoEliminar)
+                                                        .addGap(13, 13, 13)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnBuscarPrestamoEliminar)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnLimpiarPrestamoEliminar))
+                                    .addComponent(txtNombrePrestamoEliminar)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(btnCancelarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(168, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoPrestamoEliminar)
+                    .addComponent(txtCodigoPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPrestamoEliminar)
+                    .addComponent(btnLimpiarPrestamoEliminar))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombrePrestamoEliminar)
+                    .addComponent(txtNombrePrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedulaPrestamoEliminar)
+                    .addComponent(txtCedulaPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoPrestamoEliminar)
+                    .addComponent(txtTelefonoPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFechaPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFechaPrestamoEliminar))
+                .addGap(28, 28, 28)
+                .addComponent(lblTituloTblPrestamoEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelarPrestamoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(325, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarPrestamoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoEliminarActionPerformed
+        int opcion = JOptionPane.showConfirmDialog(
+                this,
+                "¿Está seguro de eliminar este préstamo?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+        }
+    }//GEN-LAST:event_btnEliminarPrestamoEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarPrestamoEliminar;
+    private javax.swing.JButton btnCancelarPrestamoEliminar;
+    private javax.swing.JButton btnEliminarPrestamoEliminar;
+    private javax.swing.JButton btnLimpiarPrestamoEliminar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCedulaPrestamoEliminar;
+    private javax.swing.JLabel lblCodigoPrestamoEliminar;
+    private javax.swing.JLabel lblFechaPrestamoEliminar;
+    private javax.swing.JLabel lblNombrePrestamoEliminar;
+    private javax.swing.JLabel lblTelefonoPrestamoEliminar;
+    private javax.swing.JLabel lblTituloTblPrestamoEliminar;
+    private javax.swing.JTable tblLibrosPrestamoEliminar;
+    private javax.swing.JTextField txtCedulaPrestamoEliminar;
+    private javax.swing.JTextField txtCodigoPrestamoEliminar;
+    private javax.swing.JTextField txtFechaPrestamoEliminar;
+    private javax.swing.JTextField txtNombrePrestamoEliminar;
+    private javax.swing.JTextField txtTelefonoPrestamoEliminar;
     // End of variables declaration//GEN-END:variables
 }

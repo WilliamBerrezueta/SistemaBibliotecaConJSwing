@@ -49,11 +49,18 @@ public class UsuarioController {
         String nombre = usuarioCrearView.getTxtNombreUsuarioCrear().getText();
         String cedula = usuarioCrearView.getTxtCedulaUsuarioCrear().getText();
         String celular = usuarioCrearView.getTxtTelefonoUsuarioCrear().getText();
-
+        
+        if(!nombre.isEmpty() && !cedula.isEmpty() && !celular.isEmpty()){
         Usuario usuario = new Usuario(nombre, cedula, celular);
         usuarioDao.crear(usuario);
         listarUsuarios();
         usuarioCrearView.mostarMensaje("Se ha creado su usuario");
+        }
+        else{
+        usuarioCrearView.mostarMensaje("Debe de rellenar todos los datos");
+        return;
+        }
+        
     }
 
     public void limpiarUsuarioCrear() {

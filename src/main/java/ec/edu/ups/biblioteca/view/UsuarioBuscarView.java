@@ -41,14 +41,19 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         btnLimpiarUsuarioBuscar = new javax.swing.JButton();
         lblTelefonoUsuarioBuscar = new javax.swing.JLabel();
         txtTelefonoUsuarioBuscar = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        panelUsuarioBuscar.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblNombreUsuarioBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioBuscar.setText("Nombre:");
 
+        lblCedulaUsuarioBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaUsuarioBuscar.setText("Cédula:");
 
         txtNombreUsuarioBuscar.setEnabled(false);
@@ -56,71 +61,80 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
 
         txtCedulaUsuarioBuscar.addActionListener(this::txtCedulaUsuarioBuscarActionPerformed);
 
+        btnBuscarUsuarioBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBuscarUsuarioBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarUsuarioBuscar.setText("Buscar");
+        btnBuscarUsuarioBuscar.addActionListener(this::btnBuscarUsuarioBuscarActionPerformed);
 
+        btnCancelarUsuarioBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnCancelarUsuarioBuscar.setText("Cancelar");
 
+        btnLimpiarUsuarioBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnLimpiarUsuarioBuscar.setText("Limpiar");
 
+        lblTelefonoUsuarioBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoUsuarioBuscar.setText("Telefono:");
 
         txtTelefonoUsuarioBuscar.setEnabled(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscarUsuario.png"))); // NOI18N
 
         javax.swing.GroupLayout panelUsuarioBuscarLayout = new javax.swing.GroupLayout(panelUsuarioBuscar);
         panelUsuarioBuscar.setLayout(panelUsuarioBuscarLayout);
         panelUsuarioBuscarLayout.setHorizontalGroup(
             panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
+                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblCedulaUsuarioBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCedulaUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(btnBuscarUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                        .addComponent(lblTelefonoUsuarioBuscar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                        .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombreUsuarioBuscar)
-                            .addComponent(lblCedulaUsuarioBuscar))
-                        .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCedulaUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnBuscarUsuarioBuscar)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefonoUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())))))
-            .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(btnCancelarUsuarioBuscar)
-                .addGap(52, 52, 52)
-                .addComponent(btnLimpiarUsuarioBuscar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblTelefonoUsuarioBuscar)
+                    .addComponent(lblNombreUsuarioBuscar))
+                .addGap(32, 32, 32)
+                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTelefonoUsuarioBuscar)
+                    .addComponent(txtNombreUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
+                        .addComponent(btnCancelarUsuarioBuscar)
+                        .addGap(52, 52, 52)
+                        .addComponent(btnLimpiarUsuarioBuscar)
+                        .addGap(162, 162, 162))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(212, 212, 212))))
         );
         panelUsuarioBuscarLayout.setVerticalGroup(
             panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedulaUsuarioBuscar)
                     .addComponent(txtCedulaUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarUsuarioBuscar))
-                .addGap(33, 33, 33)
-                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedulaUsuarioBuscar)
                     .addComponent(lblNombreUsuarioBuscar)
                     .addComponent(txtNombreUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefonoUsuarioBuscar)
-                    .addComponent(txtTelefonoUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTelefonoUsuarioBuscar)
+                        .addComponent(txtTelefonoUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarUsuarioBuscar)
                     .addComponent(btnLimpiarUsuarioBuscar))
-                .addGap(61, 61, 61))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,6 +163,10 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
     private void txtCedulaUsuarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaUsuarioBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaUsuarioBuscarActionPerformed
+
+    private void btnBuscarUsuarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarUsuarioBuscarActionPerformed
 
     public JButton getBtnBuscarUsuarioBuscar() {
         return btnBuscarUsuarioBuscar;
@@ -190,6 +208,7 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarUsuarioBuscar;
     private javax.swing.JButton btnCancelarUsuarioBuscar;
     private javax.swing.JButton btnLimpiarUsuarioBuscar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedulaUsuarioBuscar;
     private javax.swing.JLabel lblNombreUsuarioBuscar;
     private javax.swing.JLabel lblTelefonoUsuarioBuscar;

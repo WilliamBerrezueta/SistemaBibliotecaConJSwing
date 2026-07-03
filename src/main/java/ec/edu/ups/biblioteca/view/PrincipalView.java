@@ -13,6 +13,8 @@ import ec.edu.ups.biblioteca.dao.PrestamoDao;
 import ec.edu.ups.biblioteca.dao.PrestamoDaoMemoria;
 import ec.edu.ups.biblioteca.dao.UsuarioDao;
 import ec.edu.ups.biblioteca.dao.UsuarioDaoMemoria;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -38,7 +40,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private PrestamoDao prestamoDao;
     private PrestamoController prestamoController;
-    private PrestamoActualizarView prestamoActualizarView;
+    private RegistrarDevolucionView prestamoActualizarView;
     private PrestamoBuscarView prestamoBuscarView;
     private PrestamoCrearView prestamoCrearView;
     private PrestamoEliminarView prestamoEliminarView;
@@ -66,14 +68,19 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioDao = new UsuarioDaoMemoria();
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
-        prestamoActualizarView = new PrestamoActualizarView();
+        prestamoActualizarView = new RegistrarDevolucionView();
         prestamoBuscarView = new PrestamoBuscarView();
         prestamoCrearView = new PrestamoCrearView();
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoListarView = new PrestamoListarView();
         prestamoDao = new PrestamoDaoMemoria();
-        prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, usuarioDao, libroDao);
+        prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, usuarioDao, libroDao, prestamoBuscarView);
+    }
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
     }
 
     /**
@@ -193,7 +200,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemPrestamoBuscar.addActionListener(this::menuItemPrestamoBuscarActionPerformed);
         menuItemPrestamo.add(menuItemPrestamoBuscar);
 
-        menuItemPrestamoActualizar.setText("Actualizar");
+        menuItemPrestamoActualizar.setText("Devolver");
         menuItemPrestamoActualizar.addActionListener(this::menuItemPrestamoActualizarActionPerformed);
         menuItemPrestamo.add(menuItemPrestamoActualizar);
 
@@ -210,9 +217,11 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemIdioma.setText("Idioma");
 
         menuItemIdiomaEspañol.setText("Español");
+        menuItemIdiomaEspañol.addActionListener(this::menuItemIdiomaEspañolActionPerformed);
         menuItemIdioma.add(menuItemIdiomaEspañol);
 
         menuItemIdiomaIngles.setText("Ingles");
+        menuItemIdiomaIngles.addActionListener(this::menuItemIdiomaInglesActionPerformed);
         menuItemIdioma.add(menuItemIdiomaIngles);
 
         menuBar.add(menuItemIdioma);
@@ -360,6 +369,26 @@ public class PrincipalView extends javax.swing.JFrame {
             desktopPane.add(prestamoListarView);
         }
     }//GEN-LAST:event_menuItemPrestamoListarActionPerformed
+
+    private void menuItemIdiomaInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaInglesActionPerformed
+        Locale locale = new Locale("en","US");
+        this.cambiarIdioma(locale);
+        usuarioCrearView.cambiarIdioma(locale);
+        usuarioBuscarView.cambiarIdioma(locale);
+        usuarioActualizarView.cambiarIdioma(locale);
+        usuarioEliminarView.cambiarIdioma(locale);
+        usuarioListarView.cambiarIdioma(locale);
+    }//GEN-LAST:event_menuItemIdiomaInglesActionPerformed
+
+    private void menuItemIdiomaEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaEspañolActionPerformed
+        Locale locale = new Locale("es","EC");
+        this.cambiarIdioma(locale);
+        usuarioCrearView.cambiarIdioma(locale);
+        usuarioBuscarView.cambiarIdioma(locale);
+        usuarioActualizarView.cambiarIdioma(locale);
+        usuarioEliminarView.cambiarIdioma(locale);
+        usuarioListarView.cambiarIdioma(locale);
+    }//GEN-LAST:event_menuItemIdiomaEspañolActionPerformed
 
     /**
      * @param args the command line arguments

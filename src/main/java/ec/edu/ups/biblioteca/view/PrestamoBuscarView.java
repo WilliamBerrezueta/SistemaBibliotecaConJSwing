@@ -4,6 +4,11 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
@@ -15,6 +20,76 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
      */
     public PrestamoBuscarView() {
         initComponents();
+        configurarTabla();
+    }
+
+    private void configurarTabla() {
+
+        DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Código", "Usuario", "Título del Libro", "Fecha Préstamo", "Estado"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        tblPrestamosPrestamosBuscar.setModel(modelo);
+
+        tblPrestamosPrestamosBuscar.getTableHeader().setReorderingAllowed(false);
+
+        tblPrestamosPrestamosBuscar.getTableHeader().setResizingAllowed(false);
+
+    }
+
+    public JButton getBtnBuscarCedulaPrestamoBuscar() {
+        return btnBuscarCedulaPrestamoBuscar;
+    }
+
+    public void setBtnBuscarCedulaPrestamoBuscar(JButton btnBuscarCedulaPrestamoBuscar) {
+        this.btnBuscarCedulaPrestamoBuscar = btnBuscarCedulaPrestamoBuscar;
+    }
+
+    public JButton getBtnBuscarCodigoPrestamoBuscar() {
+        return btnBuscarCodigoPrestamoBuscar;
+    }
+
+    public void setBtnBuscarCodigoPrestamoBuscar(JButton btnBuscarCodigoPrestamoBuscar) {
+        this.btnBuscarCodigoPrestamoBuscar = btnBuscarCodigoPrestamoBuscar;
+    }
+
+    public JButton getBtnCancelarPrestamoBuscar() {
+        return btnCancelarPrestamoBuscar;
+    }
+
+    public void setBtnCancelarPrestamoBuscar(JButton btnCancelarPrestamoBuscar) {
+        this.btnCancelarPrestamoBuscar = btnCancelarPrestamoBuscar;
+    }
+
+    public JTable getTblPrestamosPrestamosBuscar() {
+        return tblPrestamosPrestamosBuscar;
+    }
+
+    public void setTblPrestamosPrestamosBuscar(JTable tblPrestamosPrestamosBuscar) {
+        this.tblPrestamosPrestamosBuscar = tblPrestamosPrestamosBuscar;
+    }
+
+    public JTextField getTxtCedulaPrestamoBuscar() {
+        return txtCedulaPrestamoBuscar;
+    }
+
+    public void setTxtCedulaPrestamoBuscar(JTextField txtCedulaPrestamoBuscar) {
+        this.txtCedulaPrestamoBuscar = txtCedulaPrestamoBuscar;
+    }
+
+    public JTextField getTxtCodigoPrestamoBuscar() {
+        return txtCodigoPrestamoBuscar;
+    }
+
+    public void setTxtCodigoPrestamoBuscar(JTextField txtCodigoPrestamoBuscar) {
+        this.txtCodigoPrestamoBuscar = txtCodigoPrestamoBuscar;
+    }
+
+    public void mostarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
 
     /**
@@ -26,20 +101,108 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblCodigoPrestamoBuscar = new javax.swing.JLabel();
+        txtCodigoPrestamoBuscar = new javax.swing.JTextField();
+        btnBuscarCodigoPrestamoBuscar = new javax.swing.JButton();
+        lblOPrestamoBuscar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCedulaPrestamoBuscar = new javax.swing.JTextField();
+        btnBuscarCedulaPrestamoBuscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPrestamosPrestamosBuscar = new javax.swing.JTable();
+        lblTemaTablaPrestamoBuscar = new javax.swing.JLabel();
+        btnCancelarPrestamoBuscar = new javax.swing.JButton();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        lblCodigoPrestamoBuscar.setText("Código:");
+
+        btnBuscarCodigoPrestamoBuscar.setText("Buscar");
+
+        lblOPrestamoBuscar.setText("O");
+
+        jLabel2.setText("Cédula del usuario:");
+
+        btnBuscarCedulaPrestamoBuscar.setText("Buscar");
+
+        tblPrestamosPrestamosBuscar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblPrestamosPrestamosBuscar);
+
+        lblTemaTablaPrestamoBuscar.setText("Prestamos encontrados");
+
+        btnCancelarPrestamoBuscar.setText("Cancelar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 697, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblCodigoPrestamoBuscar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedulaPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBuscarCodigoPrestamoBuscar)
+                            .addComponent(btnBuscarCedulaPrestamoBuscar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(129, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCancelarPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(343, 343, 343))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblTemaTablaPrestamoBuscar)
+                        .addGap(332, 332, 332))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblOPrestamoBuscar)
+                        .addGap(390, 390, 390))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoPrestamoBuscar)
+                    .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarCodigoPrestamoBuscar))
+                .addGap(18, 18, 18)
+                .addComponent(lblOPrestamoBuscar)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCedulaPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarCedulaPrestamoBuscar))
+                .addGap(30, 30, 30)
+                .addComponent(lblTemaTablaPrestamoBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelarPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -47,5 +210,16 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarCedulaPrestamoBuscar;
+    private javax.swing.JButton btnBuscarCodigoPrestamoBuscar;
+    private javax.swing.JButton btnCancelarPrestamoBuscar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCodigoPrestamoBuscar;
+    private javax.swing.JLabel lblOPrestamoBuscar;
+    private javax.swing.JLabel lblTemaTablaPrestamoBuscar;
+    private javax.swing.JTable tblPrestamosPrestamosBuscar;
+    private javax.swing.JTextField txtCedulaPrestamoBuscar;
+    private javax.swing.JTextField txtCodigoPrestamoBuscar;
     // End of variables declaration//GEN-END:variables
 }

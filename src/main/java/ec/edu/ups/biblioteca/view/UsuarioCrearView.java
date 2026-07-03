@@ -173,7 +173,7 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     }
     
     public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes",locale);
         lblCedulaUsuarioCrear.setText(bundle.getString("keyCedula"));
         lblNombreUsuarioCrear.setText(bundle.getString("keyNombre"));
         lblTelefonoUsuarioCrear.setText(bundle.getString("keyTelefono"));

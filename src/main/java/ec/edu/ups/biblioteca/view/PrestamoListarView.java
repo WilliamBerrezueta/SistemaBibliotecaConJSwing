@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -13,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
  * @author USER
  */
 public class PrestamoListarView extends javax.swing.JInternalFrame {
+    
+    private DefaultTableModel modelo;
 
     /**
      * Creates new form PrestamoLIstarView
@@ -24,7 +28,7 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
     
     private void configurarTabla() {
 
-    DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Código","Usuario","Cantidad de Libros","Fecha Préstamo","Estado"}, 0) {
+    modelo = new DefaultTableModel(new Object[]{"Código","Usuario","Cantidad de Libros","Fecha Préstamo","Estado"}, 0) {
         @Override
         public boolean isCellEditable(int row, int column) {
             return false;
@@ -52,6 +56,18 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
 
     public void setTblPrestamoPrestamoListar(JTable tblPrestamoPrestamoListar) {
         this.tblPrestamoPrestamoListar = tblPrestamoPrestamoListar;
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        modelo.setColumnIdentifiers(new Object[]{
+        bundle.getString("prestamo.codigo"),
+        bundle.getString("usuario.nombre"),
+        bundle.getString("prestamo.cantidadLibros"),
+        bundle.getString("prestamo.fecha"),
+        bundle.getString("prestamo.estado")
+    });
     }
     
 

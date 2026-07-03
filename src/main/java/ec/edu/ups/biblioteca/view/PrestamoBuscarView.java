@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -21,6 +23,28 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
     public PrestamoBuscarView() {
         initComponents();
         configurarTabla();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+
+        lblCodigoPrestamoBuscar.setText(bundle.getString("prestamo.codigo"));
+        lblOPrestamoBuscar.setText(bundle.getString("prestamo.o"));
+        lblTemaTablaPrestamoBuscar.setText(bundle.getString("prestamo.resultados"));
+
+        btnBuscarCodigoPrestamoBuscar.setText(bundle.getString("boton.buscar"));
+        btnBuscarCedulaPrestamoBuscar.setText(bundle.getString("boton.buscar"));
+        btnCancelarPrestamoBuscar.setText(bundle.getString("boton.cancelar"));
+
+        DefaultTableModel modelo = (DefaultTableModel) tblPrestamosPrestamosBuscar.getModel();
+
+        modelo.setColumnIdentifiers(new Object[]{
+            bundle.getString("prestamo.codigo"),
+            bundle.getString("usuario.cedula"),
+            bundle.getString("usuario.nombre"),
+            bundle.getString("prestamo.fecha"),
+            bundle.getString("prestamo.devolucion")
+        });
     }
 
     private void configurarTabla() {
@@ -204,12 +228,13 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscarCodigoPrestamoBuscar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(lblCodigoPrestamoBuscar)))
+                                .addComponent(lblCodigoPrestamoBuscar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBuscarCodigoPrestamoBuscar)))
                         .addGap(18, 18, 18)
                         .addComponent(lblOPrestamoBuscar)
                         .addGap(12, 12, 12)

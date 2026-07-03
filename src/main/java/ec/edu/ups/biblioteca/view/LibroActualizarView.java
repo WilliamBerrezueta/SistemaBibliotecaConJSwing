@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
@@ -20,6 +22,25 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
      */
     public LibroActualizarView() {
         initComponents();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+    lblIsbnLibroActualizar.setText(bundle.getString("libro.isbn"));
+    lblTituloLibroActualizar.setText(bundle.getString("libro.titulo"));
+    lblAutorLibroActualizar.setText(bundle.getString("libro.autor"));
+    lblEditorialLibroActualizar.setText(bundle.getString("libro.editorial"));
+    lblGeneroLibroActualizar.setText(bundle.getString("libro.genero"));
+    lblDisponibleLibroActualizar.setText(bundle.getString("libro.disponible"));
+    lblYearLibroActualizar.setText(bundle.getString("libro.anio"));
+
+    btnBuscarLibroActualizar.setText(bundle.getString("boton.buscar"));
+    btnActualizarLibroActualizar.setText(bundle.getString("boton.actualizar"));
+    btnLimpiarLibroActualizar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarLibroActualizar.setText(bundle.getString("boton.cancelar"));
+
+    rbtnDisponibleLibroActualizar.setText(bundle.getString("libro.disponible"));
     }
 
     /**

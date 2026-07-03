@@ -22,6 +22,19 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
     public UsuarioActualizarView() {
         initComponents();
     }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        lblCedulaUsuarioActualizar.setText(bundle.getString("usuario.cedula"));
+    lblNombreUsuarioActualizar.setText(bundle.getString("usuario.nombre"));
+    lblTelefonoUsuarioActualizar.setText(bundle.getString("usuario.telefono"));
+
+    btnBuscarUsuarioActualizar.setText(bundle.getString("boton.buscar"));
+    btnActualizarUsuarioActualizar.setText(bundle.getString("boton.actualizar"));
+    btnLimpiarUsuarioActualizar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarUsuarioActualizar.setText(bundle.getString("boton.cancelar"));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,18 +215,6 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
 
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
-    }
-    
-    public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
-        lblCedulaUsuarioActualizar.setText(bundle.getString("keyCedula"));
-        lblNombreUsuarioActualizar.setText(bundle.getString("keyNombre"));
-        lblTelefonoUsuarioActualizar.setText(bundle.getString("keyTelefono"));
-        btnActualizarUsuarioActualizar.setText(bundle.getString("keyActualizar"));
-        btnBuscarUsuarioActualizar.setText(bundle.getString("keyBuscar"));
-        btnCancelarUsuarioActualizar.setText(bundle.getString("keybotonCancelar"));
-        btnLimpiarUsuarioActualizar.setText(bundle.getString("keyLimpiar"));
-        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

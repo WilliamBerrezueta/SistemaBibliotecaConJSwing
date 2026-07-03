@@ -135,7 +135,6 @@
                       <Component id="txtTituloLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTituloLibroEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>

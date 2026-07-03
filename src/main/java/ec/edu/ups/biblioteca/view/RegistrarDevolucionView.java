@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -41,6 +43,30 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
 
         tblLibrosRegistrarDevolucion.getTableHeader().setResizingAllowed(false);
 
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        lblCodigoRegistrarDevolucion.setText(bundle.getString("prestamo.codigo"));
+    lblFechaPrestamoRegistrarDevolucion.setText(bundle.getString("prestamo.fecha"));
+    lblFechaDevolucionRegistrarDevolucion.setText(bundle.getString("prestamo.fechaDevolucion"));
+    lblEstadoRegistrarDevolucion.setText(bundle.getString("prestamo.estado"));
+
+    btnBuscarRegistrarDevolucion.setText(bundle.getString("boton.buscar"));
+    btnDevolverRegistrarDevolucion.setText(bundle.getString("boton.devolver"));
+    btnLimpiarRegistrarDevolucion.setText(bundle.getString("boton.limpiar"));
+    btnCancelarRegistrarDevolucion.setText(bundle.getString("boton.cancelar"));
+
+    jLabel1.setText(bundle.getString("prestamo.devolucion.titulo"));
+    jLabel2.setText(bundle.getString("prestamo.libros"));
+
+    DefaultTableModel modelo = (DefaultTableModel) tblLibrosRegistrarDevolucion.getModel();
+
+    modelo.setColumnIdentifiers(new Object[]{
+        bundle.getString("libro.isbn"),
+        bundle.getString("libro.titulo")
+    });
     }
 
     /**

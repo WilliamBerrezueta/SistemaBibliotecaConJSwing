@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
@@ -20,6 +22,21 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
      */
     public LibroCrearView() {
         initComponents();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        lblIsbnLibroCrear.setText(bundle.getString("libro.isbn"));
+        lblTituloLibroCrear.setText(bundle.getString("libro.titulo"));
+        lblAutorLibroCrear.setText(bundle.getString("libro.autor"));
+        lblEditorialLibroCrear.setText(bundle.getString("libro.editorial"));
+        lblGeneroLibroCrear.setText(bundle.getString("libro.genero"));
+        lblYearLibroCrear.setText(bundle.getString("libro.anio"));
+        lblDisponibleLibroCrear.setText(bundle.getString("libro.disponible"));
+
+        btnCrearLibroCrear.setText(bundle.getString("boton.crear"));
+        btnCancelarLibroCrear.setText(bundle.getString("boton.cancelar"));
+        btnLimpiarLibroCrear.setText(bundle.getString("boton.limpiar"));
     }
 
     /**
@@ -181,10 +198,10 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
                             .addComponent(txtGeneroLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAutorLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtEditorialLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblAutorLibroCrear)
-                        .addComponent(txtAutorLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblAutorLibroCrear))
                     .addComponent(lblEditorialLibroCrear))
                 .addGap(28, 28, 28)
                 .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

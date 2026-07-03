@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
@@ -20,6 +22,25 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
      */
     public LibroEliminarView() {
         initComponents();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+    lblIsbnLibroEliminar.setText(bundle.getString("libro.isbn"));
+    lblTituloLibroEliminar.setText(bundle.getString("libro.titulo"));
+    lblAutorLibroEliminar.setText(bundle.getString("libro.autor"));
+    lblEditorialLibroEliminar.setText(bundle.getString("libro.editorial"));
+    lblGeneroLibroEliminar.setText(bundle.getString("libro.genero"));
+    lblDisponibleLibroEliminar.setText(bundle.getString("libro.disponible"));
+    lblYearLibroEliminar.setText(bundle.getString("libro.anio"));
+
+    btnCrearLibroBuscar.setText(bundle.getString("boton.buscar"));
+    btnEliminarLibroEliminar.setText(bundle.getString("boton.eliminar"));
+    btnLimpiarLibroEliminar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarLibroEliminar.setText(bundle.getString("boton.cancelar"));
+
+    rbtnDisponibleLibroEliminar.setText(bundle.getString("libro.disponible"));
     }
 
     /**

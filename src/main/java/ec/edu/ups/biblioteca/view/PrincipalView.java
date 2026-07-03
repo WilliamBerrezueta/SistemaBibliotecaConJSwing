@@ -80,11 +80,39 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoListarView = new PrestamoListarView();
         prestamoDao = new PrestamoDaoMemoria();
         prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, prestamoEliminarView, prestamoListarView, usuarioDao, libroDao, prestamoBuscarView);
-    }
+        }
     
     public void cambiarIdioma(Locale locale){
         ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
         
+        menuItemLibro.setText(bundle.getString("menu.libro"));
+    menuItemUsuario.setText(bundle.getString("menu.usuario"));
+    menuItemPrestamo.setText(bundle.getString("menu.prestamo"));
+    menuItemIdioma.setText(bundle.getString("menu.idioma"));
+    menuItemSistema.setText(bundle.getString("menu.sistema"));
+    
+    menuItemSistemaSalir.setText(bundle.getString("menu.salir"));
+
+    menuItemLibroCrear.setText(bundle.getString("menu.crear"));
+    menuItemLibroBuscar.setText(bundle.getString("menu.buscar"));
+    menuItemLibroActualizar.setText(bundle.getString("menu.actualizar"));
+    menuItemLibroEliminar.setText(bundle.getString("menu.eliminar"));
+    menuItemLibroListar.setText(bundle.getString("menu.listar"));
+
+    menuItemUsuarioCrear.setText(bundle.getString("menu.crear"));
+    menuItemUsuarioBuscar.setText(bundle.getString("menu.buscar"));
+    menuItemUsuarioActualizar.setText(bundle.getString("menu.actualizar"));
+    menuItemUsuarioEliminar.setText(bundle.getString("menu.eliminar"));
+    menuItemUsuarioListar.setText(bundle.getString("menu.listar"));
+
+    menuItemPrestamoCrear.setText(bundle.getString("menu.crear"));
+    menuItemPrestamoBuscar.setText(bundle.getString("menu.buscar"));
+    menuItemPrestamoActualizar.setText(bundle.getString("menu.actualizar"));
+    menuItemPrestamoEliminar.setText(bundle.getString("menu.eliminar"));
+    menuItemPrestamoListar.setText(bundle.getString("menu.listar"));
+
+    menuItemIdiomaEspañol.setText(bundle.getString("menu.idioma.espanol"));
+    menuItemIdiomaIngles.setText(bundle.getString("menu.idioma.ingles"));
     }
 
     /**
@@ -238,6 +266,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemSistema.setText("Sistema");
 
         menuItemSistemaSalir.setText("Salir");
+        menuItemSistemaSalir.addActionListener(this::menuItemSistemaSalirActionPerformed);
         menuItemSistema.add(menuItemSistemaSalir);
 
         menuBar.add(menuItemSistema);
@@ -387,6 +416,18 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioActualizarView.cambiarIdioma(locale);
         usuarioEliminarView.cambiarIdioma(locale);
         usuarioListarView.cambiarIdioma(locale);
+        
+        libroActualizarView.cambiarIdioma(locale);
+        libroBuscarView.cambiarIdioma(locale);
+        libroCrearView.cambiarIdioma(locale);
+        libroEliminarView.cambiarIdioma(locale);
+        libroListarView.cambiarIdioma(locale);
+        
+        prestamoActualizarView.cambiarIdioma(locale);
+        prestamoBuscarView.cambiarIdioma(locale);
+        prestamoCrearView.cambiarIdioma(locale);
+        prestamoEliminarView.cambiarIdioma(locale);
+        prestamoListarView.cambiarIdioma(locale);
     }//GEN-LAST:event_menuItemIdiomaInglesActionPerformed
 
     private void menuItemIdiomaEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaEspañolActionPerformed
@@ -397,7 +438,23 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioActualizarView.cambiarIdioma(locale);
         usuarioEliminarView.cambiarIdioma(locale);
         usuarioListarView.cambiarIdioma(locale);
+        
+        libroActualizarView.cambiarIdioma(locale);
+        libroBuscarView.cambiarIdioma(locale);
+        libroCrearView.cambiarIdioma(locale);
+        libroEliminarView.cambiarIdioma(locale);
+        libroListarView.cambiarIdioma(locale);
+        
+        prestamoActualizarView.cambiarIdioma(locale);
+        prestamoBuscarView.cambiarIdioma(locale);
+        prestamoCrearView.cambiarIdioma(locale);
+        prestamoEliminarView.cambiarIdioma(locale);
+        prestamoListarView.cambiarIdioma(locale);
     }//GEN-LAST:event_menuItemIdiomaEspañolActionPerformed
+
+    private void menuItemSistemaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSistemaSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuItemSistemaSalirActionPerformed
 
     /**
      * @param args the command line arguments

@@ -21,6 +21,20 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
     public UsuarioBuscarView() {
         initComponents();
     }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        lblCedulaUsuarioBuscar.setText(bundle.getString("usuario.cedula"));
+    lblNombreUsuarioBuscar.setText(bundle.getString("usuario.nombre"));
+    lblTelefonoUsuarioBuscar.setText(bundle.getString("usuario.telefono"));
+
+    btnBuscarUsuarioBuscar.setText(bundle.getString("boton.buscar"));
+    btnLimpiarUsuarioBuscar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarUsuarioBuscar.setText(bundle.getString("boton.cancelar"));
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,16 +206,6 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
 
     public JTextField getTxtTelefonoUsuarioBuscar() {
         return txtTelefonoUsuarioBuscar;
-    }
-    
-    public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
-        lblCedulaUsuarioBuscar.setText(bundle.getString("keyCedula"));
-        lblNombreUsuarioBuscar.setText(bundle.getString("keyNombre"));
-        lblTelefonoUsuarioBuscar.setText(bundle.getString("keyTelefono"));
-        btnBuscarUsuarioBuscar.setText(bundle.getString("keyBuscar"));
-        btnCancelarUsuarioBuscar.setText(bundle.getString("keybotonCancelar"));
-        btnLimpiarUsuarioBuscar.setText(bundle.getString("keyLimpiar"));  
     }
 
     

@@ -6,6 +6,8 @@ package ec.edu.ups.biblioteca.view;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
@@ -28,6 +30,23 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         initComponents();
         configurarTabla();
         configurarFechaActual();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+        
+        lblCodigoPrestamoCrear.setText(bundle.getString("prestamo.codigo"));
+    lblCedulaPrestamoCrear.setText(bundle.getString("usuario.cedula"));
+    lblNombrePrestamoCrear.setText(bundle.getString("usuario.nombre"));
+    lblTelefonoPrestamoCrear.setText(bundle.getString("usuario.telefono"));
+    lblLibrosPrestamoCrear.setText(bundle.getString("prestamo.libros"));
+
+    btnBuscarPrestamoCrear.setText(bundle.getString("boton.buscar"));
+    btnAgregarPrestamoCrear.setText(bundle.getString("boton.agregar"));
+    btnCrearPrestamoCrear.setText(bundle.getString("boton.crear"));
+    btnCancelarPrestamoView.setText(bundle.getString("boton.cancelar"));
+    btnLimpiarPrestamoCrear.setText(bundle.getString("boton.limpiar"));
     }
 
     private void configurarTabla() {

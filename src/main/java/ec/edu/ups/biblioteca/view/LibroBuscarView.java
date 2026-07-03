@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -19,6 +21,24 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
      */
     public LibroBuscarView() {
         initComponents();
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+    lblIsbnLibroBuscar.setText(bundle.getString("libro.isbn"));
+    lblTituloLibroBuscar.setText(bundle.getString("libro.titulo"));
+    lblAutorLibroBuscar.setText(bundle.getString("libro.autor"));
+    lblEditorialLibroBuscar.setText(bundle.getString("libro.editorial"));
+    lblGeneroLibroBuscar.setText(bundle.getString("libro.genero"));
+    lblDisponibleLibroBuscar.setText(bundle.getString("libro.disponible"));
+    lblYearLibroBuscar.setText(bundle.getString("libro.anio"));
+
+    btnCrearLibroBuscar.setText(bundle.getString("boton.buscar"));
+    btnLimpiarLibroBuscar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarLibroBuscar.setText(bundle.getString("boton.cancelar"));
+
+    rbtnDisponibleLibroBuscar.setText(bundle.getString("libro.disponible"));
     }
 
     /**

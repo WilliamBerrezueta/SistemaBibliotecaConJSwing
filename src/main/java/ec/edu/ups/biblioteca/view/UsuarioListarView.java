@@ -26,18 +26,8 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
      */
     public UsuarioListarView() {
         initComponents();
-        cambiarIdioma(new Locale("es","EC"));
         configurarTabla();
-    }
-    public void cambiarIdioma(Locale locale){
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes",locale);
-        nombre = bundle.getString("keyNombre");
-        cedula = bundle.getString("keyCedula");
-        telefono = bundle.getString("keyTelefono");
-        
-         if (modelo2 != null) {
-        modelo2.setColumnIdentifiers(new Object[]{nombre, cedula, telefono});
-    }
+        cambiarIdioma(new Locale("es","EC"));
     }
 
     public void configurarTabla() {
@@ -47,10 +37,6 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
                 return false;
             }
         };
-        
-        modelo2.addColumn(nombre);
-        modelo2.addColumn(cedula);
-        modelo2.addColumn(telefono);
 
         tblUsuarioListar.setModel(modelo2);
 
@@ -66,6 +52,17 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
             Object[] fila = {usuario.getNombre(), usuario.getCedula(), usuario.getNumero()};
             modelo2.addRow(fila);
         }
+    }
+    
+    public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle(
+            "ec.edu.ups.biblioteca.i18n.mensajes", locale);
+
+    modelo2.setColumnIdentifiers(new Object[]{
+        bundle.getString("usuario.nombre"),
+        bundle.getString("usuario.cedula"),
+        bundle.getString("usuario.telefono")
+    });
     }
 
     /**

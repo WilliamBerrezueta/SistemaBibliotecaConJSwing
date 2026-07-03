@@ -81,11 +81,11 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
 
         txtTituloLibroCrear.addActionListener(this::txtTituloLibroCrearActionPerformed);
 
-        btnCrearLibroCrear.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnCrearLibroCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnCrearLibroCrear.setText("Crear");
         btnCrearLibroCrear.addActionListener(this::btnCrearLibroCrearActionPerformed);
 
-        btnCancelarLibroCrear.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnCancelarLibroCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnCancelarLibroCrear.setText("Cancelar");
 
         lblAutorLibroCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
@@ -96,10 +96,10 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
 
         rbtnDisponibleLibroCrear.addActionListener(this::rbtnDisponibleLibroCrearActionPerformed);
 
-        btnLimpiarLibroCrear.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnLimpiarLibroCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnLimpiarLibroCrear.setText("Limpiar");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/libroCrear.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearLibro.png"))); // NOI18N
 
         javax.swing.GroupLayout panelLibroCrearLayout = new javax.swing.GroupLayout(panelLibroCrear);
         panelLibroCrear.setLayout(panelLibroCrearLayout);
@@ -150,15 +150,15 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroCrearLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(235, 235, 235))
+                .addComponent(jLabel1)
+                .addGap(222, 222, 222))
         );
         panelLibroCrearLayout.setVerticalGroup(
             panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLibroCrearLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLibroCrearLayout.createSequentialGroup()
                         .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

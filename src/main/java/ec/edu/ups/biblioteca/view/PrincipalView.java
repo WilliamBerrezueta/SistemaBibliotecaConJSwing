@@ -61,7 +61,7 @@ public class PrincipalView extends javax.swing.JFrame {
         libroController = new LibroController(libroActualizarView, libroBuscarView, libroCrearView, libroEliminarView, libroListarView, libroDao);
 
         libroController.listarLibros();
-        
+
         usuarioActualizarView = new UsuarioActualizarView();
         usuarioBuscarView = new UsuarioBuscarView();
         usuarioCrearView = new UsuarioCrearView();
@@ -71,7 +71,7 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
         usuarioController.listarUsuarios();
-        
+
         prestamoActualizarView = new RegistrarDevolucionView();
         prestamoBuscarView = new PrestamoBuscarView();
         prestamoCrearView = new PrestamoCrearView();
@@ -80,39 +80,39 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoListarView = new PrestamoListarView();
         prestamoDao = new PrestamoDaoMemoria();
         prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, prestamoEliminarView, prestamoListarView, usuarioDao, libroDao, prestamoBuscarView);
-        }
-    
-    public void cambiarIdioma(Locale locale){
+    }
+
+    public void cambiarIdioma(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
-        
+
         menuItemLibro.setText(bundle.getString("menu.libro"));
-    menuItemUsuario.setText(bundle.getString("menu.usuario"));
-    menuItemPrestamo.setText(bundle.getString("menu.prestamo"));
-    menuItemIdioma.setText(bundle.getString("menu.idioma"));
-    menuItemSistema.setText(bundle.getString("menu.sistema"));
-    
-    menuItemSistemaSalir.setText(bundle.getString("menu.salir"));
+        menuItemUsuario.setText(bundle.getString("menu.usuario"));
+        menuItemPrestamo.setText(bundle.getString("menu.prestamo"));
+        menuItemIdioma.setText(bundle.getString("menu.idioma"));
+        menuItemSistema.setText(bundle.getString("menu.sistema"));
 
-    menuItemLibroCrear.setText(bundle.getString("menu.crear"));
-    menuItemLibroBuscar.setText(bundle.getString("menu.buscar"));
-    menuItemLibroActualizar.setText(bundle.getString("menu.actualizar"));
-    menuItemLibroEliminar.setText(bundle.getString("menu.eliminar"));
-    menuItemLibroListar.setText(bundle.getString("menu.listar"));
+        menuItemSistemaSalir.setText(bundle.getString("menu.salir"));
 
-    menuItemUsuarioCrear.setText(bundle.getString("menu.crear"));
-    menuItemUsuarioBuscar.setText(bundle.getString("menu.buscar"));
-    menuItemUsuarioActualizar.setText(bundle.getString("menu.actualizar"));
-    menuItemUsuarioEliminar.setText(bundle.getString("menu.eliminar"));
-    menuItemUsuarioListar.setText(bundle.getString("menu.listar"));
+        menuItemLibroCrear.setText(bundle.getString("menu.crear"));
+        menuItemLibroBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemLibroActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemLibroEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemLibroListar.setText(bundle.getString("menu.listar"));
 
-    menuItemPrestamoCrear.setText(bundle.getString("menu.crear"));
-    menuItemPrestamoBuscar.setText(bundle.getString("menu.buscar"));
-    menuItemPrestamoActualizar.setText(bundle.getString("menu.actualizar"));
-    menuItemPrestamoEliminar.setText(bundle.getString("menu.eliminar"));
-    menuItemPrestamoListar.setText(bundle.getString("menu.listar"));
+        menuItemUsuarioCrear.setText(bundle.getString("menu.crear"));
+        menuItemUsuarioBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemUsuarioActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemUsuarioEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemUsuarioListar.setText(bundle.getString("menu.listar"));
 
-    menuItemIdiomaEspañol.setText(bundle.getString("menu.idioma.espanol"));
-    menuItemIdiomaIngles.setText(bundle.getString("menu.idioma.ingles"));
+        menuItemPrestamoCrear.setText(bundle.getString("menu.crear"));
+        menuItemPrestamoBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemPrestamoActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemPrestamoEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemPrestamoListar.setText(bundle.getString("menu.listar"));
+
+        menuItemIdiomaEspañol.setText(bundle.getString("menu.idioma.espanol"));
+        menuItemIdiomaIngles.setText(bundle.getString("menu.idioma.ingles"));
     }
 
     /**
@@ -409,20 +409,20 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemPrestamoListarActionPerformed
 
     private void menuItemIdiomaInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaInglesActionPerformed
-        Locale locale = new Locale("en","US");
+        Locale locale = new Locale("en", "US");
         this.cambiarIdioma(locale);
         usuarioCrearView.cambiarIdioma(locale);
         usuarioBuscarView.cambiarIdioma(locale);
         usuarioActualizarView.cambiarIdioma(locale);
         usuarioEliminarView.cambiarIdioma(locale);
         usuarioListarView.cambiarIdioma(locale);
-        
+
         libroActualizarView.cambiarIdioma(locale);
         libroBuscarView.cambiarIdioma(locale);
         libroCrearView.cambiarIdioma(locale);
         libroEliminarView.cambiarIdioma(locale);
         libroListarView.cambiarIdioma(locale);
-        
+
         prestamoActualizarView.cambiarIdioma(locale);
         prestamoBuscarView.cambiarIdioma(locale);
         prestamoCrearView.cambiarIdioma(locale);
@@ -431,20 +431,20 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemIdiomaInglesActionPerformed
 
     private void menuItemIdiomaEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaEspañolActionPerformed
-        Locale locale = new Locale("es","EC");
+        Locale locale = new Locale("es", "EC");
         this.cambiarIdioma(locale);
         usuarioCrearView.cambiarIdioma(locale);
         usuarioBuscarView.cambiarIdioma(locale);
         usuarioActualizarView.cambiarIdioma(locale);
         usuarioEliminarView.cambiarIdioma(locale);
         usuarioListarView.cambiarIdioma(locale);
-        
+
         libroActualizarView.cambiarIdioma(locale);
         libroBuscarView.cambiarIdioma(locale);
         libroCrearView.cambiarIdioma(locale);
         libroEliminarView.cambiarIdioma(locale);
         libroListarView.cambiarIdioma(locale);
-        
+
         prestamoActualizarView.cambiarIdioma(locale);
         prestamoBuscarView.cambiarIdioma(locale);
         prestamoCrearView.cambiarIdioma(locale);

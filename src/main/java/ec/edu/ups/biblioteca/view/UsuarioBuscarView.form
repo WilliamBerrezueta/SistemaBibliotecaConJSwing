@@ -43,76 +43,82 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panelUsuarioBuscar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblTelefonoUsuarioBuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCedulaUsuarioBuscar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="txtCedulaUsuarioBuscar" min="-2" pref="142" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNombreUsuarioBuscar" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblCedulaUsuarioBuscar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtCedulaUsuarioBuscar" min="-2" pref="142" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="btnBuscarUsuarioBuscar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="18" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtNombreUsuarioBuscar" min="-2" pref="309" max="-2" attributes="0"/>
-                                      <Component id="txtTelefonoUsuarioBuscar" min="-2" pref="143" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                          <Component id="btnBuscarUsuarioBuscar" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTelefonoUsuarioBuscar" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNombreUsuarioBuscar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="txtTelefonoUsuarioBuscar" max="32767" attributes="0"/>
+                      <Component id="txtNombreUsuarioBuscar" min="-2" pref="143" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                  <Component id="btnCancelarUsuarioBuscar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="btnLimpiarUsuarioBuscar" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnCancelarUsuarioBuscar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarUsuarioBuscar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblCedulaUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCedulaUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnBuscarUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCedulaUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNombreUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNombreUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelefonoUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTelefonoUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="lblTelefonoUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTelefonoUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnBuscarUsuarioBuscar" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCancelarUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLimpiarUsuarioBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -120,11 +126,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblNombreUsuarioBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCedulaUsuarioBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C&#xe9;dula:"/>
           </Properties>
         </Component>
@@ -143,27 +155,52 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnBuscarUsuarioBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/LUPA_.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarUsuarioBuscarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCancelarUsuarioBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiarUsuarioBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTelefonoUsuarioBuscar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Telefono:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTelefonoUsuarioBuscar">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/buscarUsuario.png"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

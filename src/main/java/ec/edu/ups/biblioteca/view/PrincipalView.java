@@ -75,7 +75,7 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoListarView = new PrestamoListarView();
         prestamoDao = new PrestamoDaoMemoria();
-        prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, usuarioDao, libroDao);
+        prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, usuarioDao, libroDao, prestamoBuscarView);
     }
     
     public void cambiarIdioma(Locale locale){

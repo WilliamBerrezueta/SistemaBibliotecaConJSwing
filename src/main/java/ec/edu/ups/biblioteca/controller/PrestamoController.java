@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.ups.biblioteca.controller;
 
 import ec.edu.ups.biblioteca.dao.LibroDao;
@@ -10,13 +6,19 @@ import ec.edu.ups.biblioteca.dao.UsuarioDao;
 import ec.edu.ups.biblioteca.models.Libro;
 import ec.edu.ups.biblioteca.models.Prestamo;
 import ec.edu.ups.biblioteca.models.Usuario;
+import ec.edu.ups.biblioteca.view.PrestamoBuscarView;
 import ec.edu.ups.biblioteca.view.PrestamoCrearView;
+import ec.edu.ups.biblioteca.view.RegistrarDevolucionView;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class PrestamoController {
 
@@ -27,32 +29,41 @@ public class PrestamoController {
 
     private Usuario usuarioSeleccionado;
     private List<Libro> librosSeleccionados;
+    private PrestamoBuscarView prestamoBuscarView;
 
-    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao,
-            UsuarioDao usuarioDao, LibroDao libroDao) {
+    private RegistrarDevolucionView registrarDevolucionView;
+    private Prestamo prestamoEncontradoDevolucion; // guarda el préstamo que se buscó, para usarlo al presionar "Devolver" acuerdate
+
+    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView) {
 
         this.prestamoCrearView = prestamoCrearView;
         this.prestamoDao = prestamoDao;
         this.usuarioDao = usuarioDao;
         this.libroDao = libroDao;
         this.librosSeleccionados = new ArrayList<>();
+        this.prestamoBuscarView = prestamoBuscarView;
+        this.registrarDevolucionView = registrarDevolucionView;
 
         cargarLibrosDisponibles();
         idCodigo();
         configurarEventoPrestamoCrear();
+        configurarEventoPrestamoBuscar();
+        configurarEventoRegistrarDevolucion();
     }
+
     // METODO PAR LA ID
     private void idCodigo() {
         int siguienteCodigo = prestamoDao.listar().size() + 1;
         // simplemente crea la ID de los prestamos
         prestamoCrearView.getTxtCodigoPrestamoCrear().setText(String.valueOf(siguienteCodigo));
     }
+
     // METODO PARA CREAR LOS LIBROS
     private void cargarLibrosDisponibles() {
         List<Libro> libros = libroDao.listar();
-        javax.swing.DefaultComboBoxModel<String> modelo = new javax.swing.DefaultComboBoxModel<>();
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
         // el parantecis sirve para poder definir el tipo de variable antes de poner (un casteo)
-        // el tipo javax.swing.blabla es el tipo del cual necesitamos lo metodos para hacerlo mas comodo 
+        // el tipo DefaultComboBoxModel es el tipo del cual necesitamos lo metodos para hacerlo mas comodo 
         // de hacer la agragacion de los metodos
         for (Libro libro : libros) {
             if (libro.isDisponible()) {
@@ -94,10 +105,10 @@ public class PrestamoController {
             prestamoCrearView.mostarMensaje("No hay libros disponibles para agregar");
             return;
         }
-        
+
         String isbn = seleccionado.split(" - ")[0]; // ESTO genera una lista dividiendolo en 2 
-                                                    // dependiendo el parametro que esta ahí
-                                                    // y simplenete como es[0] coge el isbn     
+        // dependiendo el parametro que esta ahí
+        // y simplenete como es[0] coge el isbn     
         Libro libro = libroDao.buscar(isbn);
 
         if (libro == null) {
@@ -112,9 +123,10 @@ public class PrestamoController {
 
         librosSeleccionados.add(libro);
 
-        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel)prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
+        DefaultTableModel modelo = (DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
         modelo.addRow(new Object[]{libro.getIsbn(), libro.getTitulo()});
     }
+
     // METODO PARA CREAR EL PRESTAMO
     public void crearPrestamo() {
 
@@ -141,7 +153,7 @@ public class PrestamoController {
 
         for (Libro libro : librosSeleccionados) {
             prestamo.agregarLibro(libro);
-            libro.setDisponible(false);      
+            libro.setDisponible(false);
             libroDao.actualizar(libro);
         }
 
@@ -158,7 +170,7 @@ public class PrestamoController {
         prestamoCrearView.getTxtNombrePrestamoCrear().setText("");
         prestamoCrearView.getTxtTelefonoPrestamoCrear().setText("");
 
-        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
+        DefaultTableModel modelo = (DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
         modelo.setRowCount(0);
 
         librosSeleccionados.clear();
@@ -167,11 +179,11 @@ public class PrestamoController {
         cargarLibrosDisponibles();
         idCodigo();
     }
-    
+
     public void refrescarLibrosDisponibles() {
-    cargarLibrosDisponibles();
-}
-    
+        cargarLibrosDisponibles();
+    }
+
     // METODO DE LA CONFIGURACION DE TODO LOS BOTONES
     public void configurarEventoPrestamoCrear() {
 
@@ -210,4 +222,218 @@ public class PrestamoController {
             }
         });
     }
+    // METODO PARA BUSCAR POR CÓDIGO
+
+    public void buscarPorCodigo() {
+        String codigoTexto = prestamoBuscarView.getTxtCodigoPrestamoBuscar().getText();
+
+        if (codigoTexto.isEmpty()) {
+            prestamoBuscarView.mostarMensaje("Debe ingresar un código");
+            return;
+        }
+
+        int codigo = Integer.parseInt(codigoTexto);
+
+        Prestamo prestamo = prestamoDao.buscar(codigo);
+
+        if (prestamo != null) {
+            List<Prestamo> resultado = new ArrayList<>();
+            resultado.add(prestamo);
+            mostrarResultadosEnTabla(resultado);
+        } else {
+            limpiarTablaBuscar();
+            prestamoBuscarView.mostarMensaje("No se encontró un préstamo con ese código");
+        }
+    }
+
+// METODO PARA BUSCAR POR CÉDULA DEL USUARIO
+    public void buscarPorCedula() {
+        String cedula = prestamoBuscarView.getTxtCedulaPrestamoBuscar().getText();
+
+        if (cedula.isEmpty()) {
+            prestamoBuscarView.mostarMensaje("Debe ingresar una cédula");
+            return;
+        }
+
+        List<Prestamo> encontrados = new ArrayList<>();
+        for (Prestamo prestamo : prestamoDao.listar()) {
+            if (prestamo.getUsuario() != null && prestamo.getUsuario().getCedula().equalsIgnoreCase(cedula)) {
+                encontrados.add(prestamo);
+            }
+        }
+        if (!encontrados.isEmpty()) {
+            mostrarResultadosEnTabla(encontrados);
+        } else {
+            limpiarTablaBuscar();
+            prestamoBuscarView.mostarMensaje("No se encontraron préstamos para esa cédula");
+        }
+    }
+
+// METODO QUE ARMA LA TABLA (Código, Usuario, Título del Libro, Fecha Préstamo, Estado)
+// Como cada préstamo puede tener varios libros, se genera UNA FILA por cada libro
+    private void mostrarResultadosEnTabla(List<Prestamo> prestamos) {
+        DefaultTableModel modelo = (DefaultTableModel) prestamoBuscarView.getTblPrestamosPrestamosBuscar().getModel();
+        modelo.setRowCount(0);
+
+        for (Prestamo prestamo : prestamos) {
+            String nombreUsuario = prestamo.getUsuario().getNombre();
+            String estado = (prestamo.getFechaDeDevolucion() != null) ? "Devuelto" : "Prestado";// Angel EL ? es para poder hacer que si se cumple esa 
+            // condicion se ejecuta lo que esta a la derecha de ? 
+            // si no lo que esta despues de : (operador ternario)
+
+            // SIMPLEMENTE al modelo que tenemos de la tabla le agragamos cuando esta vacio y cuando tiene pedidos
+            if (prestamo.getListaLibros().isEmpty()) {
+                modelo.addRow(new Object[]{prestamo.getCodigo(), nombreUsuario, "Sin libros", prestamo.getFechaDePrestamo(), estado});
+            } else {
+                for (Libro libro : prestamo.getListaLibros()) {
+                    modelo.addRow(new Object[]{prestamo.getCodigo(), nombreUsuario, libro.getTitulo(), prestamo.getFechaDePrestamo(), estado});
+                }
+            }
+        }
+    }
+
+    private void limpiarTablaBuscar() {
+        DefaultTableModel modelo = (DefaultTableModel) prestamoBuscarView.getTblPrestamosPrestamosBuscar().getModel();
+        modelo.setRowCount(0);
+    }
+
+// CONFIGURACION DE EVENTOS BOTONES
+    public void configurarEventoPrestamoBuscar() {
+
+        prestamoBuscarView.getBtnBuscarCodigoPrestamoBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarPorCodigo();
+            }
+        });
+
+        prestamoBuscarView.getBtnBuscarCedulaPrestamoBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarPorCedula();
+            }
+        });
+
+        prestamoBuscarView.getBtnCancelarPrestamoBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prestamoBuscarView.dispose();
+            }
+        });
+    }
+
+    // METODO PARA BUSCAR EL PRESTAMO A DEVOLVER
+    public void buscarPrestamoParaDevolucion() {
+        String codigoTexto = registrarDevolucionView.getTxtCodigoRegistarDevolucion().getText();
+
+        if (codigoTexto.isEmpty()) {
+            registrarDevolucionView.mostarMensaje("Debe ingresar un código de préstamo");
+            return;
+        }
+
+        int codigo = Integer.parseInt(codigoTexto);
+
+        Prestamo prestamo = prestamoDao.buscar(codigo);
+
+        if (prestamo == null) {
+            prestamoEncontradoDevolucion = null;
+            limpiarCamposDevolucion();
+            registrarDevolucionView.mostarMensaje("No se encontró un préstamo con ese código");
+            return;
+        }
+
+        if (prestamo.getFechaDeDevolucion() != null) {
+            prestamoEncontradoDevolucion = null;
+            limpiarCamposDevolucion();
+            registrarDevolucionView.mostarMensaje("Este préstamo ya fue devuelto");
+            return;
+        }
+
+        prestamoEncontradoDevolucion = prestamo;
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // una forma para poder poner el formato del tiempo con formato 
+        registrarDevolucionView.getTxtFechaPrestamoRegistrarDevolucion().setText(prestamo.getFechaDePrestamo() != null ? prestamo.getFechaDePrestamo().format(formato) : "");
+        registrarDevolucionView.getTxtFechaDevolucionRegistrarDevolucion().setText(""); // para eliminarlo para evitar errores visuales 
+        registrarDevolucionView.getTxtEstadoRegistrarDevolucion().setText("Prestado"); // porque ya no va a estar en el estado de prestamo
+        DefaultTableModel modelo = (DefaultTableModel) registrarDevolucionView.getTblLibrosRegistrarDevolucion().getModel();
+        modelo.setRowCount(0);
+
+        for (Libro libro : prestamo.getListaLibros()) {
+            modelo.addRow(new Object[]{libro.getIsbn(), libro.getTitulo()});
+        }
+    }
+
+// METODO PARA REGISTRAR LA DEVOLUCION
+    public void registrarDevolucion() {
+
+        if (prestamoEncontradoDevolucion == null) {
+            registrarDevolucionView.mostarMensaje("Primero debe buscar un préstamo válido");
+            return;
+        }
+
+        LocalDate fechaDevolucion = LocalDate.now();
+        prestamoEncontradoDevolucion.setFechaDeDevolucion(fechaDevolucion);
+
+        // Marca todos los libros del préstamo como disponibles otra vez
+        for (Libro libro : prestamoEncontradoDevolucion.getListaLibros()) {
+            libro.setDisponible(true);
+            libroDao.actualizar(libro);
+        }
+
+        prestamoDao.actualizar(prestamoEncontradoDevolucion);
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // ponemos el formato que queremos que tenga
+        registrarDevolucionView.getTxtFechaDevolucionRegistrarDevolucion().setText(fechaDevolucion.format(formato));// le ponemos el formato y el tiempo
+        registrarDevolucionView.getTxtEstadoRegistrarDevolucion().setText("Devuelto");
+
+        registrarDevolucionView.mostarMensaje("Devolución registrada correctamente");
+
+        prestamoEncontradoDevolucion = null;
+        cargarLibrosDisponibles(); // volver a cargarlo por si acaso
+    }
+
+    public void limpiarCamposDevolucion() {
+        registrarDevolucionView.getTxtCodigoRegistarDevolucion().setText("");
+        registrarDevolucionView.getTxtFechaPrestamoRegistrarDevolucion().setText("");
+        registrarDevolucionView.getTxtFechaDevolucionRegistrarDevolucion().setText("");
+        registrarDevolucionView.getTxtEstadoRegistrarDevolucion().setText("");
+
+        DefaultTableModel modelo = (DefaultTableModel) registrarDevolucionView.getTblLibrosRegistrarDevolucion().getModel();
+        modelo.setRowCount(0);
+
+        prestamoEncontradoDevolucion = null;
+    }
+
+// CONFIGURACION DE EVENTOS
+    public void configurarEventoRegistrarDevolucion() {
+
+        registrarDevolucionView.getBtnBuscarRegistrarDevolucion().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarPrestamoParaDevolucion();
+            }
+        });
+
+        registrarDevolucionView.getBtnDevolverRegistrarDevolucion().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                registrarDevolucion();
+            }
+        });
+
+        registrarDevolucionView.getBtnLimpiarRegistrarDevolucion().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarCamposDevolucion();
+            }
+        });
+
+        registrarDevolucionView.getBtnCancelarRegistrarDevolucion().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                registrarDevolucionView.dispose();
+            }
+        });
+    }
+
 }

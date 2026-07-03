@@ -4,6 +4,9 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,23 +22,75 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         initComponents();
         configurarTabla();
     }
-    
+
     private void configurarTabla() {
 
-    DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Código","Usuario","Título del Libro","Fecha Préstamo","Estado"}, 0) {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
-    };
+        DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Código", "Usuario", "Título del Libro", "Fecha Préstamo", "Estado"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
-    tblPrestamosPrestamosBuscar.setModel(modelo);
+        tblPrestamosPrestamosBuscar.setModel(modelo);
 
-    tblPrestamosPrestamosBuscar.getTableHeader().setReorderingAllowed(false);
+        tblPrestamosPrestamosBuscar.getTableHeader().setReorderingAllowed(false);
 
-    tblPrestamosPrestamosBuscar.getTableHeader().setResizingAllowed(false);
+        tblPrestamosPrestamosBuscar.getTableHeader().setResizingAllowed(false);
 
-}
+    }
+
+    public JButton getBtnBuscarCedulaPrestamoBuscar() {
+        return btnBuscarCedulaPrestamoBuscar;
+    }
+
+    public void setBtnBuscarCedulaPrestamoBuscar(JButton btnBuscarCedulaPrestamoBuscar) {
+        this.btnBuscarCedulaPrestamoBuscar = btnBuscarCedulaPrestamoBuscar;
+    }
+
+    public JButton getBtnBuscarCodigoPrestamoBuscar() {
+        return btnBuscarCodigoPrestamoBuscar;
+    }
+
+    public void setBtnBuscarCodigoPrestamoBuscar(JButton btnBuscarCodigoPrestamoBuscar) {
+        this.btnBuscarCodigoPrestamoBuscar = btnBuscarCodigoPrestamoBuscar;
+    }
+
+    public JButton getBtnCancelarPrestamoBuscar() {
+        return btnCancelarPrestamoBuscar;
+    }
+
+    public void setBtnCancelarPrestamoBuscar(JButton btnCancelarPrestamoBuscar) {
+        this.btnCancelarPrestamoBuscar = btnCancelarPrestamoBuscar;
+    }
+
+    public JTable getTblPrestamosPrestamosBuscar() {
+        return tblPrestamosPrestamosBuscar;
+    }
+
+    public void setTblPrestamosPrestamosBuscar(JTable tblPrestamosPrestamosBuscar) {
+        this.tblPrestamosPrestamosBuscar = tblPrestamosPrestamosBuscar;
+    }
+
+    public JTextField getTxtCedulaPrestamoBuscar() {
+        return txtCedulaPrestamoBuscar;
+    }
+
+    public void setTxtCedulaPrestamoBuscar(JTextField txtCedulaPrestamoBuscar) {
+        this.txtCedulaPrestamoBuscar = txtCedulaPrestamoBuscar;
+    }
+
+    public JTextField getTxtCodigoPrestamoBuscar() {
+        return txtCodigoPrestamoBuscar;
+    }
+
+    public void setTxtCodigoPrestamoBuscar(JTextField txtCodigoPrestamoBuscar) {
+        this.txtCodigoPrestamoBuscar = txtCodigoPrestamoBuscar;
+    }
+
+    public void mostarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

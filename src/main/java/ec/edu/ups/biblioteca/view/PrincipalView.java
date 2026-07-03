@@ -60,6 +60,8 @@ public class PrincipalView extends javax.swing.JFrame {
         libroDao = new LibroDaoMemoria();
         libroController = new LibroController(libroActualizarView, libroBuscarView, libroCrearView, libroEliminarView, libroListarView, libroDao);
 
+        libroController.listarLibros();
+        
         usuarioActualizarView = new UsuarioActualizarView();
         usuarioBuscarView = new UsuarioBuscarView();
         usuarioCrearView = new UsuarioCrearView();
@@ -68,6 +70,8 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioDao = new UsuarioDaoMemoria();
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
+        usuarioController.listarUsuarios();
+        
         prestamoActualizarView = new RegistrarDevolucionView();
         prestamoBuscarView = new PrestamoBuscarView();
         prestamoCrearView = new PrestamoCrearView();

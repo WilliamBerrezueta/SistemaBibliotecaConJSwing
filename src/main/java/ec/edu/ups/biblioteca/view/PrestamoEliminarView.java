@@ -70,34 +70,47 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
         tblLibrosPrestamoEliminar = new javax.swing.JTable();
         btnEliminarPrestamoEliminar = new javax.swing.JButton();
         btnCancelarPrestamoEliminar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblCedulaPrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCedulaPrestamoEliminar.setText("Cédula:");
 
         txtCedulaPrestamoEliminar.setEnabled(false);
 
+        lblNombrePrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombrePrestamoEliminar.setText("Nombre:");
 
         txtNombrePrestamoEliminar.setEnabled(false);
 
+        lblTelefonoPrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoPrestamoEliminar.setText("Teléfono:");
 
         txtTelefonoPrestamoEliminar.setEnabled(false);
 
+        lblFechaPrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblFechaPrestamoEliminar.setText("Fecha del préstamo:");
 
+        lblCodigoPrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCodigoPrestamoEliminar.setText("Código del préstamo:");
 
         txtFechaPrestamoEliminar.setEnabled(false);
 
+        lblTituloTblPrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTituloTblPrestamoEliminar.setText("Libro/s prestado/s");
 
+        btnBuscarPrestamoEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBuscarPrestamoEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarPrestamoEliminar.setText("Buscar");
 
+        btnLimpiarPrestamoEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarPrestamoEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarPrestamoEliminar.setText("Limpiar");
 
         tblLibrosPrestamoEliminar.setModel(new javax.swing.table.DefaultTableModel(
@@ -113,63 +126,85 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblLibrosPrestamoEliminar);
 
+        btnEliminarPrestamoEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnEliminarPrestamoEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminar.png"))); // NOI18N
         btnEliminarPrestamoEliminar.setText("Eliminar");
         btnEliminarPrestamoEliminar.addActionListener(this::btnEliminarPrestamoEliminarActionPerformed);
 
+        btnCancelarPrestamoEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarPrestamoEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarPrestamoEliminar.setText("Cancelar");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Eprestamo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblCedulaPrestamoEliminar)
-                                    .addComponent(lblNombrePrestamoEliminar)
-                                    .addComponent(lblCodigoPrestamoEliminar)
-                                    .addComponent(lblTelefonoPrestamoEliminar)
-                                    .addComponent(lblFechaPrestamoEliminar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtFechaPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(txtCedulaPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                    .addComponent(txtTelefonoPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtCodigoPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(lblTituloTblPrestamoEliminar)
-                                                        .addGap(13, 13, 13)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnBuscarPrestamoEliminar)))
+                                        .addGap(117, 117, 117)
+                                        .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnLimpiarPrestamoEliminar))
-                                    .addComponent(txtNombrePrestamoEliminar)))))
+                                        .addComponent(btnCancelarPrestamoEliminar))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(181, 181, 181)
+                                        .addComponent(lblTituloTblPrestamoEliminar)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCedulaPrestamoEliminar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblNombrePrestamoEliminar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTelefonoPrestamoEliminar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblFechaPrestamoEliminar, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFechaPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtCedulaPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtTelefonoPrestamoEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNombrePrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(btnCancelarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(168, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addGap(134, 134, 134)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnBuscarPrestamoEliminar)
+                                .addGap(95, 95, 95)
+                                .addComponent(btnLimpiarPrestamoEliminar)
+                                .addGap(24, 24, 24))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCodigoPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCodigoPrestamoEliminar))
+                                .addGap(157, 157, 157))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoPrestamoEliminar)
-                    .addComponent(txtCodigoPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarPrestamoEliminar)
-                    .addComponent(btnLimpiarPrestamoEliminar))
-                .addGap(18, 18, 18)
+                .addGap(73, 73, 73)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCodigoPrestamoEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodigoPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscarPrestamoEliminar)
+                            .addComponent(btnLimpiarPrestamoEliminar)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombrePrestamoEliminar)
                     .addComponent(txtNombrePrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,15 +220,15 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFechaPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFechaPrestamoEliminar))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTituloTblPrestamoEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCancelarPrestamoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(325, Short.MAX_VALUE))
+                    .addComponent(btnCancelarPrestamoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1724, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,6 +343,7 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelarPrestamoEliminar;
     private javax.swing.JButton btnEliminarPrestamoEliminar;
     private javax.swing.JButton btnLimpiarPrestamoEliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCedulaPrestamoEliminar;

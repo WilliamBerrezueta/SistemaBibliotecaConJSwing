@@ -68,25 +68,36 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btnDevolverRegistrarDevolucion = new javax.swing.JButton();
         btnCancelarRegistrarDevolucion = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
 
+        panelRegistrarDevolución.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblCodigoRegistrarDevolucion.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCodigoRegistrarDevolucion.setText("Código del prestamo:");
 
+        btnBuscarRegistrarDevolucion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBuscarRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarRegistrarDevolucion.setText("Buscar");
 
+        lblFechaPrestamoRegistrarDevolucion.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblFechaPrestamoRegistrarDevolucion.setText("Fecha del prestamo:");
 
         txtFechaPrestamoRegistrarDevolucion.setEnabled(false);
 
+        lblFechaDevolucionRegistrarDevolucion.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblFechaDevolucionRegistrarDevolucion.setText("Fecha de devolucion:");
 
         txtFechaDevolucionRegistrarDevolucion.setEnabled(false);
 
+        btnLimpiarRegistrarDevolucion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarRegistrarDevolucion.setText("Limpiar");
 
+        lblEstadoRegistrarDevolucion.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblEstadoRegistrarDevolucion.setText("Estado:");
 
         txtEstadoRegistrarDevolucion.setEnabled(false);
@@ -104,79 +115,105 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblLibrosRegistrarDevolucion);
 
+        jLabel1.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Libro/s prestado/s");
 
+        btnDevolverRegistrarDevolucion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnDevolverRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/dev.png"))); // NOI18N
         btnDevolverRegistrarDevolucion.setText("Devolver");
 
+        btnCancelarRegistrarDevolucion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarRegistrarDevolucion.setText("Cancelar");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/devolucion.png"))); // NOI18N
 
         javax.swing.GroupLayout panelRegistrarDevoluciónLayout = new javax.swing.GroupLayout(panelRegistrarDevolución);
         panelRegistrarDevolución.setLayout(panelRegistrarDevoluciónLayout);
         panelRegistrarDevoluciónLayout.setHorizontalGroup(
             panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegistrarDevoluciónLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegistrarDevoluciónLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(166, 166, 166))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegistrarDevoluciónLayout.createSequentialGroup()
+                            .addComponent(lblCodigoRegistrarDevolucion)
+                            .addGap(257, 257, 257)))
+                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCodigoRegistarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
+                                .addComponent(btnBuscarRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(btnLimpiarRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46))))
             .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
                 .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
-                                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblEstadoRegistrarDevolucion)
-                                    .addComponent(lblFechaDevolucionRegistrarDevolucion)
-                                    .addComponent(lblFechaPrestamoRegistrarDevolucion)
-                                    .addComponent(lblCodigoRegistrarDevolucion))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtFechaPrestamoRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(txtEstadoRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtFechaDevolucionRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
-                                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(txtCodigoRegistarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnBuscarRegistrarDevolucion)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnLimpiarRegistrarDevolucion))))))
-                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
                         .addGap(256, 256, 256)
-                        .addComponent(btnDevolverRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118)
-                        .addComponent(btnCancelarRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(200, Short.MAX_VALUE))
+                        .addComponent(btnDevolverRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(btnCancelarRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEstadoRegistrarDevolucion)
+                            .addComponent(lblFechaDevolucionRegistrarDevolucion)
+                            .addComponent(lblFechaPrestamoRegistrarDevolucion))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtFechaPrestamoRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEstadoRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFechaDevolucionRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         panelRegistrarDevoluciónLayout.setVerticalGroup(
             panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoRegistrarDevolucion)
-                    .addComponent(txtCodigoRegistarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarRegistrarDevolucion)
-                    .addComponent(btnLimpiarRegistrarDevolucion))
-                .addGap(18, 18, 18)
-                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaPrestamoRegistrarDevolucion)
-                    .addComponent(txtFechaPrestamoRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaDevolucionRegistrarDevolucion)
-                    .addComponent(txtFechaDevolucionRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEstadoRegistrarDevolucion)
-                    .addComponent(txtEstadoRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(lblCodigoRegistrarDevolucion)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCodigoRegistarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLimpiarRegistrarDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuscarRegistrarDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)))
+                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegistrarDevoluciónLayout.createSequentialGroup()
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFechaPrestamoRegistrarDevolucion)
+                            .addComponent(txtFechaPrestamoRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFechaDevolucionRegistrarDevolucion)
+                            .addComponent(txtFechaDevolucionRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEstadoRegistrarDevolucion)
+                            .addComponent(txtEstadoRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(89, 89, 89)))
                 .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDevolverRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarRegistrarDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,6 +326,7 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDevolverRegistrarDevolucion;
     private javax.swing.JButton btnLimpiarRegistrarDevolucion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoRegistrarDevolucion;
     private javax.swing.JLabel lblEstadoRegistrarDevolucion;

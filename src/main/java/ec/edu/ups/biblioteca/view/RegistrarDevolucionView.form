@@ -42,90 +42,123 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panelRegistrarDevoluci&#xf3;n">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="271" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblEstadoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblFechaDevolucionRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblFechaPrestamoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCodigoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtFechaPrestamoRegistrarDevolucion" alignment="0" pref="150" max="32767" attributes="0"/>
-                                          <Component id="txtEstadoRegistrarDevolucion" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtFechaDevolucionRegistrarDevolucion" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtCodigoRegistarDevolucion" min="-2" pref="201" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnBuscarRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="btnLimpiarRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblCodigoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                          <Component id="btnDevolverRegistrarDevolucion" min="-2" pref="89" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                          <Component id="btnCancelarRegistrarDevolucion" min="-2" pref="89" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtCodigoRegistarDevolucion" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnBuscarRegistrarDevolucion" min="-2" pref="147" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="btnLimpiarRegistrarDevolucion" min="-2" pref="132" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="200" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="btnDevolverRegistrarDevolucion" min="-2" pref="139" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="btnCancelarRegistrarDevolucion" min="-2" pref="151" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblEstadoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFechaDevolucionRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFechaPrestamoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtFechaPrestamoRegistrarDevolucion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEstadoRegistrarDevolucion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtFechaDevolucionRegistrarDevolucion" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblCodigoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCodigoRegistarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnBuscarRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLimpiarRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="lblCodigoRegistrarDevolucion" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtCodigoRegistarDevolucion" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnLimpiarRegistrarDevolucion" max="32767" attributes="0"/>
+                              <Component id="btnBuscarRegistrarDevolucion" pref="58" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="166" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFechaPrestamoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFechaPrestamoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFechaDevolucionRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFechaDevolucionRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblEstadoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEstadoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="218" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="218" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblFechaPrestamoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtFechaPrestamoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblFechaDevolucionRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtFechaDevolucionRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblEstadoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEstadoRegistrarDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnDevolverRegistrarDevolucion" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="btnCancelarRegistrarDevolucion" alignment="3" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="102" max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -133,6 +166,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblCodigoRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C&#xf3;digo del prestamo:"/>
           </Properties>
         </Component>
@@ -140,11 +176,20 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnBuscarRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/LUPA_.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblFechaPrestamoRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fecha del prestamo:"/>
           </Properties>
         </Component>
@@ -155,6 +200,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblFechaDevolucionRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fecha de devolucion:"/>
           </Properties>
         </Component>
@@ -165,11 +213,20 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiarRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/Escoba.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEstadoRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
@@ -201,17 +258,39 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Libro/s prestado/s"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnDevolverRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/dev.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Devolver"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnCancelarRegistrarDevolucion">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/X.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/devolucion.png"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

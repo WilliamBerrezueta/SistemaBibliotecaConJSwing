@@ -112,20 +112,28 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         tblPrestamosPrestamosBuscar = new javax.swing.JTable();
         lblTemaTablaPrestamoBuscar = new javax.swing.JLabel();
         btnCancelarPrestamoBuscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        lblCodigoPrestamoBuscar.setFont(new java.awt.Font("Yu Gothic", 3, 14)); // NOI18N
         lblCodigoPrestamoBuscar.setText("Código:");
 
+        btnBuscarCodigoPrestamoBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBuscarCodigoPrestamoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarCodigoPrestamoBuscar.setText("Buscar");
 
         lblOPrestamoBuscar.setText("O");
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic", 3, 14)); // NOI18N
         jLabel2.setText("Cédula del usuario:");
 
+        btnBuscarCedulaPrestamoBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBuscarCedulaPrestamoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarCedulaPrestamoBuscar.setText("Buscar");
 
         tblPrestamosPrestamosBuscar.setModel(new javax.swing.table.DefaultTableModel(
@@ -141,68 +149,84 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblPrestamosPrestamosBuscar);
 
+        lblTemaTablaPrestamoBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblTemaTablaPrestamoBuscar.setText("Prestamos encontrados");
 
+        btnCancelarPrestamoBuscar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnCancelarPrestamoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarPrestamoBuscar.setText("Cancelar");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Bprestamo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(204, 204, 204)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(lblCodigoPrestamoBuscar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCedulaPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBuscarCodigoPrestamoBuscar)
-                            .addComponent(btnBuscarCedulaPrestamoBuscar)))
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(129, Short.MAX_VALUE))
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCodigoPrestamoBuscar)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCedulaPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscarCodigoPrestamoBuscar)
+                    .addComponent(btnBuscarCedulaPrestamoBuscar))
+                .addContainerGap(156, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 466, Short.MAX_VALUE)
+                .addComponent(lblOPrestamoBuscar)
+                .addGap(390, 390, 390))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(213, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCancelarPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(343, 343, 343))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(152, 152, 152))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblTemaTablaPrestamoBuscar)
-                        .addGap(332, 332, 332))
+                        .addGap(336, 336, 336))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblOPrestamoBuscar)
-                        .addGap(390, 390, 390))))
+                        .addComponent(btnCancelarPrestamoBuscar)
+                        .addGap(312, 312, 312))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoPrestamoBuscar)
-                    .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarCodigoPrestamoBuscar))
-                .addGap(18, 18, 18)
-                .addComponent(lblOPrestamoBuscar)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCedulaPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarCedulaPrestamoBuscar))
-                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCodigoPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarCodigoPrestamoBuscar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblCodigoPrestamoBuscar)))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblOPrestamoBuscar)
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtCedulaPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarCedulaPrestamoBuscar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
                 .addComponent(lblTemaTablaPrestamoBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCancelarPrestamoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancelarPrestamoBuscar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,6 +237,7 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarCedulaPrestamoBuscar;
     private javax.swing.JButton btnBuscarCodigoPrestamoBuscar;
     private javax.swing.JButton btnCancelarPrestamoBuscar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoPrestamoBuscar;

@@ -9,6 +9,7 @@ import ec.edu.ups.biblioteca.models.Usuario;
 import ec.edu.ups.biblioteca.view.PrestamoBuscarView;
 import ec.edu.ups.biblioteca.view.PrestamoCrearView;
 import ec.edu.ups.biblioteca.view.PrestamoEliminarView;
+import ec.edu.ups.biblioteca.view.PrestamoListarView;
 import ec.edu.ups.biblioteca.view.RegistrarDevolucionView;
 
 import java.awt.event.ActionEvent;
@@ -36,8 +37,10 @@ public class PrestamoController {
 
     private PrestamoEliminarView prestamoEliminarView;
     private Prestamo prestamoEncontradoEliminar; // los mismo del anterior,es para guardarlo
+    
+    private PrestamoListarView prestamoListarView;
 
-    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, PrestamoEliminarView prestamoEliminarView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView) {
+    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, PrestamoEliminarView prestamoEliminarView,PrestamoListarView prestamoListarView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView) {
 
         this.prestamoCrearView = prestamoCrearView;
         this.prestamoDao = prestamoDao;
@@ -47,6 +50,7 @@ public class PrestamoController {
         this.prestamoBuscarView = prestamoBuscarView;
         this.registrarDevolucionView = registrarDevolucionView;
         this.prestamoEliminarView = prestamoEliminarView;
+        this.prestamoListarView = prestamoListarView;
 
         cargarLibrosDisponibles();
         idCodigo();
@@ -166,6 +170,7 @@ public class PrestamoController {
         usuarioSeleccionado.getPedidos().add(prestamo);
 
         prestamoCrearView.mostarMensaje("Préstamo creado correctamente");
+        listarPrestamos();
         limpiarPrestamoCrear();
     }
 
@@ -392,7 +397,7 @@ public class PrestamoController {
         registrarDevolucionView.getTxtEstadoRegistrarDevolucion().setText("Devuelto");
 
         registrarDevolucionView.mostarMensaje("Devolución registrada correctamente");
-
+        listarPrestamos();
         prestamoEncontradoDevolucion = null;
         cargarLibrosDisponibles(); // volver a cargarlo por si acaso
     }
@@ -508,7 +513,7 @@ public class PrestamoController {
         prestamoDao.eliminar(prestamoEncontradoEliminar.getCodigo());
 
         prestamoEliminarView.mostarMensaje("Préstamo eliminado correctamente");
-
+        listarPrestamos();
         limpiarPrestamoEliminar();
         cargarLibrosDisponibles(); // refresca el coso de crear Préstamo para que funcione
     }
@@ -557,5 +562,21 @@ public class PrestamoController {
             }
         });
     }
+    
+    // METODO LISTAR 
+    // una fila por préstamo (no por libro no es buscar acuerdate)
+public void listarPrestamos() {
+    DefaultTableModel modelo = (DefaultTableModel) prestamoListarView.getTblPrestamoPrestamoListar().getModel();
+    modelo.setRowCount(0);
+
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    for (Prestamo prestamo : prestamoDao.listar()) {
+        String nombreUsuario = prestamo.getUsuario().getNombre();
+        String fecha = prestamo.getFechaDePrestamo().format(formato);
+        String estado = (prestamo.getFechaDeDevolucion() != null) ? "Devuelto" : "Prestado";
+        modelo.addRow(new Object[]{prestamo.getCodigo(),nombreUsuario,prestamo.getListaLibros().size(),fecha,estado});
+    }
+}
 
 }

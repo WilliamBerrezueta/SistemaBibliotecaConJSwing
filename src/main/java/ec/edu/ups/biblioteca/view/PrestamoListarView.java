@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,6 +37,23 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
     tblPrestamoPrestamoListar.getTableHeader().setResizingAllowed(false);
 
 }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getTblPrestamoPrestamoListar() {
+        return tblPrestamoPrestamoListar;
+    }
+
+    public void setTblPrestamoPrestamoListar(JTable tblPrestamoPrestamoListar) {
+        this.tblPrestamoPrestamoListar = tblPrestamoPrestamoListar;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

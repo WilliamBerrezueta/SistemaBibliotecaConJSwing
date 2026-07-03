@@ -4,9 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
-import ec.edu.ups.biblioteca.models.Libro;
 import ec.edu.ups.biblioteca.models.Usuario;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,13 +17,27 @@ import javax.swing.table.DefaultTableModel;
 public class UsuarioListarView extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo2;
+    private String nombre;
+    private String cedula;
+    private String telefono;
 
     /**
      * Creates new form UsuarioListarView
      */
     public UsuarioListarView() {
         initComponents();
+        cambiarIdioma(new Locale("es","EC"));
         configurarTabla();
+    }
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes",locale);
+        nombre = bundle.getString("keyNombre");
+        cedula = bundle.getString("keyCedula");
+        telefono = bundle.getString("keyTelefono");
+        
+         if (modelo2 != null) {
+        modelo2.setColumnIdentifiers(new Object[]{nombre, cedula, telefono});
+    }
     }
 
     public void configurarTabla() {
@@ -32,11 +47,10 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
                 return false;
             }
         };
-
-        modelo2 = new DefaultTableModel();
-        modelo2.addColumn("Nombre");
-        modelo2.addColumn("Cédula");
-        modelo2.addColumn("Teléfono");
+        
+        modelo2.addColumn(nombre);
+        modelo2.addColumn(cedula);
+        modelo2.addColumn(telefono);
 
         tblUsuarioListar.setModel(modelo2);
 

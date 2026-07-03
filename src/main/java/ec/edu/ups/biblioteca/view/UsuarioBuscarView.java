@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -170,6 +172,16 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
 
     public JTextField getTxtTelefonoUsuarioBuscar() {
         return txtTelefonoUsuarioBuscar;
+    }
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensaje",locale);
+        lblCedulaUsuarioBuscar.setText(bundle.getString("keyCedula"));
+        lblNombreUsuarioBuscar.setText(bundle.getString("keyNombre"));
+        lblTelefonoUsuarioBuscar.setText(bundle.getString("keyTelefono"));
+        btnBuscarUsuarioBuscar.setText(bundle.getString("keyBuscar"));
+        btnCancelarUsuarioBuscar.setText(bundle.getString("keybotonCancelar"));
+        btnLimpiarUsuarioBuscar.setText(bundle.getString("keyLimpiar"));  
     }
 
     

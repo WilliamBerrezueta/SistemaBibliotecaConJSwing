@@ -20,6 +20,17 @@ public class Prestamo {
     private LocalDate fechaDeDevolucion;
     private boolean pedidoHecho;
     private List<Libro> libros;
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
     
     public Prestamo(){
         this.libros = new ArrayList<>();

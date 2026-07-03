@@ -6,6 +6,13 @@ package ec.edu.ups.biblioteca.view;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JComboBox;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JTextField;
 
 /**
  *
@@ -21,43 +28,175 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         configurarTabla();
         configurarFechaActual();
     }
-    
+
     private void configurarTabla() {
 
-    javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(
-            new Object[]{"ISBN", "Título"}, 0) {
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(
+                new Object[]{"ISBN", "Título"}, 0) {
 
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false; // Ninguna celda será editable
-        }
-    };
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
-    tblLibrosAgregadosPrestamoCrear.setModel(modelo);
+        tblLibrosAgregadosPrestamoCrear.setModel(modelo);
 
-    // Evita mover las columnas
-    tblLibrosAgregadosPrestamoCrear.getTableHeader().setReorderingAllowed(false);
+        tblLibrosAgregadosPrestamoCrear.getTableHeader().setReorderingAllowed(false);
 
-    // Evita cambiar el tamaño de las columnas arrastrándolas
-    tblLibrosAgregadosPrestamoCrear.getTableHeader().setResizingAllowed(false);
+        tblLibrosAgregadosPrestamoCrear.getTableHeader().setResizingAllowed(false);
 
-    // Solo permite seleccionar filas completas
-    tblLibrosAgregadosPrestamoCrear.setRowSelectionAllowed(true);
-    tblLibrosAgregadosPrestamoCrear.setColumnSelectionAllowed(false);
+        tblLibrosAgregadosPrestamoCrear.setRowSelectionAllowed(true);
+        tblLibrosAgregadosPrestamoCrear.setColumnSelectionAllowed(false);
 
-    // Opcional: altura de las filas
-    tblLibrosAgregadosPrestamoCrear.setRowHeight(25);
+        tblLibrosAgregadosPrestamoCrear.setRowHeight(25);
     }
-    
+
     private void configurarFechaActual() {
 
-    DateTimeFormatter formato =
-            DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    txtFechaPrestamoPrestamoCrear.setText(
-            LocalDate.now().format(formato)
-    );
-}
+        txtFechaPrestamoPrestamoCrear.setText(
+                LocalDate.now().format(formato)
+        );
+    }
+
+    public JButton getBtnAgregarPrestamoCrear() {
+        return btnAgregarPrestamoCrear;
+    }
+
+    public void setBtnAgregarPrestamoCrear(JButton btnAgregarPrestamoCrear) {
+        this.btnAgregarPrestamoCrear = btnAgregarPrestamoCrear;
+    }
+
+    public JButton getBtnBuscarPrestamoCrear() {
+        return btnBuscarPrestamoCrear;
+    }
+
+    public void setBtnBuscarPrestamoCrear(JButton btnBuscarPrestamoCrear) {
+        this.btnBuscarPrestamoCrear = btnBuscarPrestamoCrear;
+    }
+
+    public JButton getBtnCancelarPrestamoView() {
+        return btnCancelarPrestamoView;
+    }
+
+    public void setBtnCancelarPrestamoView(JButton btnCancelarPrestamoView) {
+        this.btnCancelarPrestamoView = btnCancelarPrestamoView;
+    }
+
+    public JButton getBtnCrearPrestamoCrear() {
+        return btnCrearPrestamoCrear;
+    }
+
+    public void setBtnCrearPrestamoCrear(JButton btnCrearPrestamoCrear) {
+        this.btnCrearPrestamoCrear = btnCrearPrestamoCrear;
+    }
+
+    public JButton getBtnLimpiarPrestamoCrear() {
+        return btnLimpiarPrestamoCrear;
+    }
+
+    public void setBtnLimpiarPrestamoCrear(JButton btnLimpiarPrestamoCrear) {
+        this.btnLimpiarPrestamoCrear = btnLimpiarPrestamoCrear;
+    }
+
+    public JComboBox<String> getCbxLibrosListaPrestamoCrear() {
+        return cbxLibrosListaPrestamoCrear;
+    }
+
+    public void setCbxLibrosListaPrestamoCrear(JComboBox<String> cbxLibrosListaPrestamoCrear) {
+        this.cbxLibrosListaPrestamoCrear = cbxLibrosListaPrestamoCrear;
+    }
+
+    public JCheckBoxMenuItem getjCheckBoxMenuItem1() {
+        return jCheckBoxMenuItem1;
+    }
+
+    public void setjCheckBoxMenuItem1(JCheckBoxMenuItem jCheckBoxMenuItem1) {
+        this.jCheckBoxMenuItem1 = jCheckBoxMenuItem1;
+    }
+
+    public JMenu getjMenu1() {
+        return jMenu1;
+    }
+
+    public void setjMenu1(JMenu jMenu1) {
+        this.jMenu1 = jMenu1;
+    }
+
+    public JMenu getjMenu2() {
+        return jMenu2;
+    }
+
+    public void setjMenu2(JMenu jMenu2) {
+        this.jMenu2 = jMenu2;
+    }
+
+    public JMenuItem getjMenuItem1() {
+        return jMenuItem1;
+    }
+
+    public void setjMenuItem1(JMenuItem jMenuItem1) {
+        this.jMenuItem1 = jMenuItem1;
+    }
+
+    public JRadioButtonMenuItem getjRadioButtonMenuItem1() {
+        return jRadioButtonMenuItem1;
+    }
+
+    public void setjRadioButtonMenuItem1(JRadioButtonMenuItem jRadioButtonMenuItem1) {
+        this.jRadioButtonMenuItem1 = jRadioButtonMenuItem1;
+    }
+
+    public JTextField getTxtCedulaPrestamoCrear() {
+        return txtCedulaPrestamoCrear;
+    }
+
+    public void setTxtCedulaPrestamoCrear(JTextField txtCedulaPrestamoCrear) {
+        this.txtCedulaPrestamoCrear = txtCedulaPrestamoCrear;
+    }
+
+    public JTextField getTxtCodigoPrestamoCrear() {
+        return txtCodigoPrestamoCrear;
+    }
+
+    public void setTxtCodigoPrestamoCrear(JTextField txtCodigoPrestamoCrear) {
+        this.txtCodigoPrestamoCrear = txtCodigoPrestamoCrear;
+    }
+
+    public JTextField getTxtFechaPrestamoPrestamoCrear() {
+        return txtFechaPrestamoPrestamoCrear;
+    }
+
+    public void setTxtFechaPrestamoPrestamoCrear(JTextField txtFechaPrestamoPrestamoCrear) {
+        this.txtFechaPrestamoPrestamoCrear = txtFechaPrestamoPrestamoCrear;
+    }
+
+    public JTextField getTxtNombrePrestamoCrear() {
+        return txtNombrePrestamoCrear;
+    }
+
+    public void setTxtNombrePrestamoCrear(JTextField txtNombrePrestamoCrear) {
+        this.txtNombrePrestamoCrear = txtNombrePrestamoCrear;
+    }
+
+    public JTextField getTxtTelefonoPrestamoCrear() {
+        return txtTelefonoPrestamoCrear;
+    }
+
+    public void setTxtTelefonoPrestamoCrear(JTextField txtTelefonoPrestamoCrear) {
+        this.txtTelefonoPrestamoCrear = txtTelefonoPrestamoCrear;
+    }
+
+    public void mostarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    public javax.swing.JTable getTblLibrosAgregadosPrestamoCrear() {
+        return tblLibrosAgregadosPrestamoCrear;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

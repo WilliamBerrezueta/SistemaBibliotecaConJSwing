@@ -152,7 +152,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemPrestamoActualizar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Actualizar"/>
+                <Property name="text" type="java.lang.String" value="Devolver"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemPrestamoActualizarActionPerformed"/>

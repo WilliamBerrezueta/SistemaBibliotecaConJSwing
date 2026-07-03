@@ -38,7 +38,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private PrestamoDao prestamoDao;
     private PrestamoController prestamoController;
-    private PrestamoActualizarView prestamoActualizarView;
+    private RegistrarDevolucionView prestamoActualizarView;
     private PrestamoBuscarView prestamoBuscarView;
     private PrestamoCrearView prestamoCrearView;
     private PrestamoEliminarView prestamoEliminarView;
@@ -66,7 +66,7 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioDao = new UsuarioDaoMemoria();
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
-        prestamoActualizarView = new PrestamoActualizarView();
+        prestamoActualizarView = new RegistrarDevolucionView();
         prestamoBuscarView = new PrestamoBuscarView();
         prestamoCrearView = new PrestamoCrearView();
         prestamoEliminarView = new PrestamoEliminarView();
@@ -193,7 +193,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemPrestamoBuscar.addActionListener(this::menuItemPrestamoBuscarActionPerformed);
         menuItemPrestamo.add(menuItemPrestamoBuscar);
 
-        menuItemPrestamoActualizar.setText("Actualizar");
+        menuItemPrestamoActualizar.setText("Devolver");
         menuItemPrestamoActualizar.addActionListener(this::menuItemPrestamoActualizarActionPerformed);
         menuItemPrestamo.add(menuItemPrestamoActualizar);
 

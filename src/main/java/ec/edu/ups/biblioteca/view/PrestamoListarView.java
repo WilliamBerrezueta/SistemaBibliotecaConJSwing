@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
@@ -15,7 +17,24 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
      */
     public PrestamoListarView() {
         initComponents();
+        configurarTabla();
     }
+    
+    private void configurarTabla() {
+
+    DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Código","Usuario","Cantidad de Libros","Fecha Préstamo","Estado"}, 0) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    tblPrestamoPrestamoListar.setModel(modelo);
+
+    tblPrestamoPrestamoListar.getTableHeader().setReorderingAllowed(false);
+
+    tblPrestamoPrestamoListar.getTableHeader().setResizingAllowed(false);
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,20 +45,40 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPrestamoPrestamoListar = new javax.swing.JTable();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        tblPrestamoPrestamoListar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblPrestamoPrestamoListar.setEnabled(false);
+        jScrollPane1.setViewportView(tblPrestamoPrestamoListar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
         );
 
         pack();
@@ -47,5 +86,7 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblPrestamoPrestamoListar;
     // End of variables declaration//GEN-END:variables
 }

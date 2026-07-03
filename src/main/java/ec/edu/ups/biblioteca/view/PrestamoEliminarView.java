@@ -4,7 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,23 +23,23 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
         initComponents();
         configurarTabla();
     }
-    
+
     private void configurarTabla() {
 
-    DefaultTableModel modelo = new DefaultTableModel(
-            new Object[]{"ISBN", "Título"}, 0) {
+        DefaultTableModel modelo = new DefaultTableModel(
+                new Object[]{"ISBN", "Título"}, 0) {
 
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
-    };
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
-    tblLibrosPrestamoEliminar.setModel(modelo);
+        tblLibrosPrestamoEliminar.setModel(modelo);
 
-    tblLibrosPrestamoEliminar.getTableHeader().setReorderingAllowed(false);
+        tblLibrosPrestamoEliminar.getTableHeader().setReorderingAllowed(false);
 
-    tblLibrosPrestamoEliminar.getTableHeader().setResizingAllowed(false);
+        tblLibrosPrestamoEliminar.getTableHeader().setResizingAllowed(false);
 
     }
 
@@ -211,16 +214,93 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarPrestamoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoEliminarActionPerformed
-        int opcion = JOptionPane.showConfirmDialog(
-                this,
-                "¿Está seguro de eliminar este préstamo?",
-                "Confirmar eliminación",
-                JOptionPane.YES_NO_OPTION
-        );
 
-        if (opcion == JOptionPane.YES_OPTION) {
-        }
+       
     }//GEN-LAST:event_btnEliminarPrestamoEliminarActionPerformed
+
+    public JButton getBtnBuscarPrestamoEliminar() {
+        return btnBuscarPrestamoEliminar;
+    }
+
+    public void setBtnBuscarPrestamoEliminar(JButton btnBuscarPrestamoEliminar) {
+        this.btnBuscarPrestamoEliminar = btnBuscarPrestamoEliminar;
+    }
+
+    public JButton getBtnCancelarPrestamoEliminar() {
+        return btnCancelarPrestamoEliminar;
+    }
+
+    public void setBtnCancelarPrestamoEliminar(JButton btnCancelarPrestamoEliminar) {
+        this.btnCancelarPrestamoEliminar = btnCancelarPrestamoEliminar;
+    }
+
+    public JButton getBtnEliminarPrestamoEliminar() {
+        return btnEliminarPrestamoEliminar;
+    }
+
+    public void setBtnEliminarPrestamoEliminar(JButton btnEliminarPrestamoEliminar) {
+        this.btnEliminarPrestamoEliminar = btnEliminarPrestamoEliminar;
+    }
+
+    public JButton getBtnLimpiarPrestamoEliminar() {
+        return btnLimpiarPrestamoEliminar;
+    }
+
+    public void setBtnLimpiarPrestamoEliminar(JButton btnLimpiarPrestamoEliminar) {
+        this.btnLimpiarPrestamoEliminar = btnLimpiarPrestamoEliminar;
+    }
+
+    public JTable getTblLibrosPrestamoEliminar() {
+        return tblLibrosPrestamoEliminar;
+    }
+
+    public void setTblLibrosPrestamoEliminar(JTable tblLibrosPrestamoEliminar) {
+        this.tblLibrosPrestamoEliminar = tblLibrosPrestamoEliminar;
+    }
+
+    public JTextField getTxtCedulaPrestamoEliminar() {
+        return txtCedulaPrestamoEliminar;
+    }
+
+    public void setTxtCedulaPrestamoEliminar(JTextField txtCedulaPrestamoEliminar) {
+        this.txtCedulaPrestamoEliminar = txtCedulaPrestamoEliminar;
+    }
+
+    public JTextField getTxtCodigoPrestamoEliminar() {
+        return txtCodigoPrestamoEliminar;
+    }
+
+    public void setTxtCodigoPrestamoEliminar(JTextField txtCodigoPrestamoEliminar) {
+        this.txtCodigoPrestamoEliminar = txtCodigoPrestamoEliminar;
+    }
+
+    public JTextField getTxtFechaPrestamoEliminar() {
+        return txtFechaPrestamoEliminar;
+    }
+
+    public void setTxtFechaPrestamoEliminar(JTextField txtFechaPrestamoEliminar) {
+        this.txtFechaPrestamoEliminar = txtFechaPrestamoEliminar;
+    }
+
+    public JTextField getTxtNombrePrestamoEliminar() {
+        return txtNombrePrestamoEliminar;
+    }
+
+    public void setTxtNombrePrestamoEliminar(JTextField txtNombrePrestamoEliminar) {
+        this.txtNombrePrestamoEliminar = txtNombrePrestamoEliminar;
+    }
+
+    public JTextField getTxtTelefonoPrestamoEliminar() {
+        return txtTelefonoPrestamoEliminar;
+    }
+
+    public void setTxtTelefonoPrestamoEliminar(JTextField txtTelefonoPrestamoEliminar) {
+        this.txtTelefonoPrestamoEliminar = txtTelefonoPrestamoEliminar;
+    }
+
+    public void mostarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

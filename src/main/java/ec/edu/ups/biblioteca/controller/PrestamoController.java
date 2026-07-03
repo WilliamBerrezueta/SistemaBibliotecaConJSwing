@@ -8,8 +8,8 @@ import ec.edu.ups.biblioteca.models.Prestamo;
 import ec.edu.ups.biblioteca.models.Usuario;
 import ec.edu.ups.biblioteca.view.PrestamoBuscarView;
 import ec.edu.ups.biblioteca.view.PrestamoCrearView;
+import ec.edu.ups.biblioteca.view.PrestamoEliminarView;
 import ec.edu.ups.biblioteca.view.RegistrarDevolucionView;
-
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +34,10 @@ public class PrestamoController {
     private RegistrarDevolucionView registrarDevolucionView;
     private Prestamo prestamoEncontradoDevolucion; // guarda el préstamo que se buscó, para usarlo al presionar "Devolver" acuerdate
 
-    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView) {
+    private PrestamoEliminarView prestamoEliminarView;
+    private Prestamo prestamoEncontradoEliminar; // los mismo del anterior,es para guardarlo
+
+    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, PrestamoEliminarView prestamoEliminarView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView) {
 
         this.prestamoCrearView = prestamoCrearView;
         this.prestamoDao = prestamoDao;
@@ -43,12 +46,14 @@ public class PrestamoController {
         this.librosSeleccionados = new ArrayList<>();
         this.prestamoBuscarView = prestamoBuscarView;
         this.registrarDevolucionView = registrarDevolucionView;
+        this.prestamoEliminarView = prestamoEliminarView;
 
         cargarLibrosDisponibles();
         idCodigo();
         configurarEventoPrestamoCrear();
         configurarEventoPrestamoBuscar();
         configurarEventoRegistrarDevolucion();
+        configurarEventoPrestamoEliminar();
     }
 
     // METODO PAR LA ID
@@ -432,6 +437,123 @@ public class PrestamoController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registrarDevolucionView.dispose();
+            }
+        });
+    }
+    // METODO PARA BUSCAR EL PRESTAMO A ELIMINAR
+
+    public void buscarPrestamoEliminar() {
+        String codigoTexto = prestamoEliminarView.getTxtCodigoPrestamoEliminar().getText();
+
+        if (codigoTexto.isEmpty()) {
+            prestamoEliminarView.mostarMensaje("Debe ingresar un código de préstamo");
+            return;
+        }
+
+        int codigo;
+        try {
+            codigo = Integer.parseInt(codigoTexto);
+        } catch (NumberFormatException e) {
+            prestamoEliminarView.mostarMensaje("El código debe ser un número");
+            return;
+        }
+
+        Prestamo prestamo = prestamoDao.buscar(codigo);
+
+        if (prestamo == null) {
+            prestamoEncontradoEliminar = null;
+            limpiarPrestamoEliminar();
+            prestamoEliminarView.mostarMensaje("No se encontró un préstamo con ese código");
+            return;
+        }
+
+        prestamoEncontradoEliminar = prestamo;
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        prestamoEliminarView.getTxtCedulaPrestamoEliminar().setText(prestamo.getUsuario().getCedula());
+        prestamoEliminarView.getTxtNombrePrestamoEliminar().setText(prestamo.getUsuario().getNombre());
+        prestamoEliminarView.getTxtTelefonoPrestamoEliminar().setText(prestamo.getUsuario().getNumero());
+        prestamoEliminarView.getTxtFechaPrestamoEliminar().setText(
+                prestamo.getFechaDePrestamo() != null ? prestamo.getFechaDePrestamo().format(formato) : ""
+        );
+
+        DefaultTableModel modelo = (DefaultTableModel) prestamoEliminarView.getTblLibrosPrestamoEliminar().getModel();
+        modelo.setRowCount(0);
+
+        for (Libro libro : prestamo.getListaLibros()) {
+            modelo.addRow(new Object[]{libro.getIsbn(), libro.getTitulo()});
+        }
+    }
+
+// METODO PARA ELIMINAR EL PRESTAMO
+    public void eliminarPrestamo() {
+
+        if (prestamoEncontradoEliminar == null) {
+            prestamoEliminarView.mostarMensaje("Primero debe buscar un préstamo válido");
+            return;
+        }
+
+        int opcion = javax.swing.JOptionPane.showConfirmDialog(prestamoEliminarView,"¿Está seguro de eliminar este préstamo?","Confirmar eliminación",javax.swing.JOptionPane.YES_NO_OPTION);
+
+        if (opcion != javax.swing.JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        // Se quita el préstamo de la lista de pedidos del usuario
+        if (prestamoEncontradoEliminar.getUsuario() != null && prestamoEncontradoEliminar.getUsuario().getPedidos() != null) {
+            prestamoEncontradoEliminar.getUsuario().getPedidos().remove(prestamoEncontradoEliminar);
+        }
+
+        prestamoDao.eliminar(prestamoEncontradoEliminar.getCodigo());
+
+        prestamoEliminarView.mostarMensaje("Préstamo eliminado correctamente");
+
+        limpiarPrestamoEliminar();
+        cargarLibrosDisponibles(); // refresca el coso de crear Préstamo para que funcione
+    }
+
+    public void limpiarPrestamoEliminar() {
+        prestamoEliminarView.getTxtCodigoPrestamoEliminar().setText("");
+        prestamoEliminarView.getTxtCedulaPrestamoEliminar().setText("");
+        prestamoEliminarView.getTxtNombrePrestamoEliminar().setText("");
+        prestamoEliminarView.getTxtTelefonoPrestamoEliminar().setText("");
+        prestamoEliminarView.getTxtFechaPrestamoEliminar().setText("");
+
+        DefaultTableModel modelo = (DefaultTableModel) prestamoEliminarView.getTblLibrosPrestamoEliminar().getModel();
+        modelo.setRowCount(0);
+
+        prestamoEncontradoEliminar = null;
+    }
+
+// CONFIGURACION DE EVENTOS
+    public void configurarEventoPrestamoEliminar() {
+
+        prestamoEliminarView.getBtnBuscarPrestamoEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarPrestamoEliminar();
+            }
+        });
+
+        prestamoEliminarView.getBtnEliminarPrestamoEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                eliminarPrestamo();
+            }
+        });
+
+        prestamoEliminarView.getBtnLimpiarPrestamoEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarPrestamoEliminar();
+            }
+        });
+
+        prestamoEliminarView.getBtnCancelarPrestamoEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prestamoEliminarView.dispose();
             }
         });
     }

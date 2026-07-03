@@ -100,7 +100,7 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
 
-        panelRegistrarDevolución.setBackground(new java.awt.Color(255, 255, 255));
+        panelRegistrarDevolución.setBackground(new java.awt.Color(204, 255, 255));
 
         lblCodigoRegistrarDevolucion.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCodigoRegistrarDevolucion.setText("Código del prestamo:");

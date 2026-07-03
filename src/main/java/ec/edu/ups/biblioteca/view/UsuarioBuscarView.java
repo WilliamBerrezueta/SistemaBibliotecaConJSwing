@@ -62,7 +62,7 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        panelUsuarioBuscar.setBackground(new java.awt.Color(204, 255, 255));
 
         lblNombreUsuarioBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioBuscar.setText("Nombre:");
@@ -93,6 +93,7 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
 
         txtTelefonoUsuarioBuscar.setEnabled(false);
 
+        jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscarUsuario.png"))); // NOI18N
 
         javax.swing.GroupLayout panelUsuarioBuscarLayout = new javax.swing.GroupLayout(panelUsuarioBuscar);
@@ -120,21 +121,21 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(212, 212, 212))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioBuscarLayout.createSequentialGroup()
-                        .addComponent(btnCancelarUsuarioBuscar)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnLimpiarUsuarioBuscar)
-                        .addGap(121, 121, 121))))
+                .addComponent(btnCancelarUsuarioBuscar)
+                .addGap(52, 52, 52)
+                .addComponent(btnLimpiarUsuarioBuscar)
+                .addGap(121, 121, 121))
+            .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
+                .addGap(211, 211, 211)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelUsuarioBuscarLayout.setVerticalGroup(
             panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedulaUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCedulaUsuarioBuscar)

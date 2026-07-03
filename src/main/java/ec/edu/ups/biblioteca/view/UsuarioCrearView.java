@@ -61,7 +61,7 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioCrear.setBackground(new java.awt.Color(255, 255, 255));
+        panelUsuarioCrear.setBackground(new java.awt.Color(204, 255, 255));
 
         lblNombreUsuarioCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioCrear.setText("Nombre:");

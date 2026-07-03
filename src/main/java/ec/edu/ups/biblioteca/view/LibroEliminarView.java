@@ -78,7 +78,7 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelLibroBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        panelLibroBuscar.setBackground(new java.awt.Color(204, 255, 255));
 
         lblIsbnLibroEliminar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroEliminar.setText("ISBN");
@@ -206,7 +206,6 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTituloLibroEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTituloLibroEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLibroBuscarLayout.createSequentialGroup()
                         .addGap(66, 66, 66)

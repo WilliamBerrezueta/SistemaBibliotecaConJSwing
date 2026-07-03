@@ -88,6 +88,7 @@ public class PrestamoListarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        tblPrestamoPrestamoListar.setBackground(new java.awt.Color(204, 255, 255));
         tblPrestamoPrestamoListar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

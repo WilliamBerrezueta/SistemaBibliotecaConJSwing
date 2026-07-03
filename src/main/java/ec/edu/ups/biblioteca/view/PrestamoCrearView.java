@@ -259,12 +259,13 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
 
         jMenu2.setText("jMenu2");
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
-        panelPrestamoCrear.setBackground(new java.awt.Color(255, 255, 255));
+        panelPrestamoCrear.setBackground(new java.awt.Color(204, 255, 255));
 
         lblCodigoPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCodigoPrestamoCrear.setText("Código del préstamo:");
@@ -384,7 +385,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
                                     .addComponent(lblFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         panelPrestamoCrearLayout.setVerticalGroup(
             panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,9 +437,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
-                .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelPrestamoCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

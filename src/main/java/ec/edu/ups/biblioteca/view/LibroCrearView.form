@@ -77,7 +77,7 @@
                                   <Component id="btnLimpiarLibroCrear" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtYearLibroCrear" pref="109" max="32767" attributes="0"/>
+                              <Component id="txtYearLibroCrear" max="32767" attributes="0"/>
                               <Component id="txtGeneroLibroCrear" max="32767" attributes="0"/>
                               <Component id="txtAutorLibroCrear" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -166,7 +166,7 @@
                       <Component id="lblDisponibleLibroCrear" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="rbtnDisponibleLibroCrear" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCrearLibroCrear" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCancelarLibroCrear" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -181,7 +181,7 @@
         <Component class="javax.swing.JLabel" name="lblIsbnLibroCrear">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic" size="14" style="1"/>
+              <Font name="Tw Cen MT Condensed Extra Bold" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ISBN"/>
           </Properties>
@@ -239,6 +239,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="3"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/Crear.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Crear"/>
           </Properties>
           <Events>
@@ -249,6 +252,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/X.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
@@ -280,6 +286,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="3"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ec/edu/ups/imagenes/Escoba.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>

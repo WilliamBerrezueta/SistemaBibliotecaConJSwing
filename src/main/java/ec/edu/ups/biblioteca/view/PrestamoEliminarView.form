@@ -173,12 +173,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblFechaPrestamoEliminar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha del prestamo:"/>
+            <Property name="text" type="java.lang.String" value="Fecha del pr&#xe9;stamo:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCodigoPrestamoEliminar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&#xf3;digo del prestamo:"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo del pr&#xe9;stamo:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaPrestamoEliminar">

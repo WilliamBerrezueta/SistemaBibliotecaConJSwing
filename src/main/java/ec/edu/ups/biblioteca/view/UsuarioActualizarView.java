@@ -65,13 +65,16 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         btnBuscarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/LUPA_.png"))); // NOI18N
         btnBuscarUsuarioActualizar.setText("Buscar");
 
-        btnCancelarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnCancelarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnCancelarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarUsuarioActualizar.setText("Cancelar");
 
-        btnLimpiarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnLimpiarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarUsuarioActualizar.setText("Limpiar");
 
-        btnActualizarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnActualizarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnActualizarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarU.png"))); // NOI18N
         btnActualizarUsuarioActualizar.setText("Actualizar");
 
         lblTelefonoUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -99,9 +102,9 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
                         .addComponent(btnCancelarUsuarioActualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiarUsuarioActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 27, Short.MAX_VALUE))
                     .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                                 .addComponent(lblTelefonoUsuarioActualizar)

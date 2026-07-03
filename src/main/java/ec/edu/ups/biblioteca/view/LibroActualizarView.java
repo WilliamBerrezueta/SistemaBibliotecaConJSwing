@@ -83,12 +83,12 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         txtYearLibroActualizar.addActionListener(this::txtYearLibroActualizarActionPerformed);
 
         btnActualizarLibroActualizar.setBackground(new java.awt.Color(153, 153, 153));
-        btnActualizarLibroActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnActualizarLibroActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         btnActualizarLibroActualizar.setText("Actualizar");
         btnActualizarLibroActualizar.addActionListener(this::btnActualizarLibroActualizarActionPerformed);
 
         btnCancelarLibroActualizar.setBackground(new java.awt.Color(153, 153, 153));
-        btnCancelarLibroActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnCancelarLibroActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         btnCancelarLibroActualizar.setText("Cancelar");
         btnCancelarLibroActualizar.addActionListener(this::btnCancelarLibroActualizarActionPerformed);
 
@@ -103,7 +103,7 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         btnBuscarLibroActualizar.setText("Buscar");
 
         btnLimpiarLibroActualizar.setBackground(new java.awt.Color(153, 153, 153));
-        btnLimpiarLibroActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnLimpiarLibroActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         btnLimpiarLibroActualizar.setText("Limpiar");
 
         jLabel2.setFont(new java.awt.Font("Xolonium", 0, 24)); // NOI18N

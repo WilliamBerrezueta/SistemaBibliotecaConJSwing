@@ -72,12 +72,13 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         btnLimpiarLibroCrear = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
-        panelLibroCrear.setBackground(new java.awt.Color(255, 255, 255));
+        panelLibroCrear.setBackground(new java.awt.Color(204, 255, 255));
 
         lblIsbnLibroCrear.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroCrear.setText("ISBN");

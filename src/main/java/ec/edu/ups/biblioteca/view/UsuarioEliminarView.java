@@ -63,7 +63,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        panelUsuarioEliminar.setBackground(new java.awt.Color(204, 255, 255));
 
         lblNombreUsuarioEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioEliminar.setText("Nombre:");

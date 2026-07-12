@@ -82,6 +82,7 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        tblUsuarioListar.setBackground(new java.awt.Color(204, 255, 255));
         tblUsuarioListar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

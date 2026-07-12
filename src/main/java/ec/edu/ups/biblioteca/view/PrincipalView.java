@@ -288,92 +288,107 @@ public class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemLibroEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroEliminarActionPerformed
-        if (!libroEliminarView.isVisible()) {
-            desktopPane.remove(libroEliminarView);
-            libroEliminarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(libroEliminarView)) {
             desktopPane.add(libroEliminarView);
         }
+
+        libroEliminarView.setVisible(true);
+        libroEliminarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(libroEliminarView);
     }//GEN-LAST:event_menuItemLibroEliminarActionPerformed
 
     private void menuItemLibroCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroCrearActionPerformed
-        if (!libroCrearView.isVisible()) {
-            desktopPane.remove(libroCrearView);
-            libroCrearView.setVisible(true);
+        if (!desktopPane.isAncestorOf(libroCrearView)) {
             desktopPane.add(libroCrearView);
         }
+        libroCrearView.setVisible(true);
+        libroCrearView.toFront();
+        desktopPane.getDesktopManager().activateFrame(libroCrearView);
     }//GEN-LAST:event_menuItemLibroCrearActionPerformed
 
     private void menuItemLibroBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroBuscarActionPerformed
-        if (!libroBuscarView.isVisible()) {
-            desktopPane.remove(libroBuscarView);
-            libroBuscarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(libroBuscarView)) {
             desktopPane.add(libroBuscarView);
         }
+        libroBuscarView.setVisible(true);
+        libroBuscarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(libroBuscarView);
     }//GEN-LAST:event_menuItemLibroBuscarActionPerformed
 
     private void menuItemLibroActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroActualizarActionPerformed
-        if (!libroActualizarView.isVisible()) {
-            desktopPane.remove(libroActualizarView);
-            libroActualizarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(libroActualizarView)) {
             desktopPane.add(libroActualizarView);
         }
+        libroActualizarView.setVisible(true);
+        libroActualizarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(libroActualizarView);
     }//GEN-LAST:event_menuItemLibroActualizarActionPerformed
 
     private void menuItemLibroListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLibroListarActionPerformed
-        if (!libroListarView.isVisible()) {
-            desktopPane.remove(libroListarView);
-            libroListarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(libroListarView)) {
             desktopPane.add(libroListarView);
         }
+        libroListarView.setVisible(true);
+        libroListarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(libroListarView);
     }//GEN-LAST:event_menuItemLibroListarActionPerformed
 
     private void menuItemUsuarioCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioCrearActionPerformed
-        if (!usuarioCrearView.isVisible()) {
-            desktopPane.remove(usuarioCrearView);
-            usuarioCrearView.setVisible(true);
+        if (!desktopPane.isAncestorOf(usuarioCrearView)) {
             desktopPane.add(usuarioCrearView);
         }
+        usuarioCrearView.setVisible(true);
+        usuarioCrearView.toFront();
+        desktopPane.getDesktopManager().activateFrame(usuarioCrearView);
     }//GEN-LAST:event_menuItemUsuarioCrearActionPerformed
 
     private void menuItemUsuarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioBuscarActionPerformed
-        if (!usuarioBuscarView.isVisible()) {
-            desktopPane.remove(usuarioBuscarView);
-            usuarioBuscarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(usuarioBuscarView)) {
             desktopPane.add(usuarioBuscarView);
         }
+        usuarioBuscarView.setVisible(true);
+        usuarioBuscarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(usuarioBuscarView);
     }//GEN-LAST:event_menuItemUsuarioBuscarActionPerformed
 
     private void menuItemUsuarioActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioActualizarActionPerformed
-        if (!usuarioActualizarView.isVisible()) {
-            desktopPane.remove(usuarioActualizarView);
-            usuarioActualizarView.setVisible(true);
-            desktopPane.add(usuarioActualizarView);
-        }
+        if (!desktopPane.isAncestorOf(usuarioActualizarView)) {
+    desktopPane.add(usuarioActualizarView);
+}
+
+usuarioActualizarView.setVisible(true);
+usuarioActualizarView.toFront();
+desktopPane.getDesktopManager().activateFrame(usuarioActualizarView);
     }//GEN-LAST:event_menuItemUsuarioActualizarActionPerformed
 
     private void menuItemUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioEliminarActionPerformed
-        if (!usuarioEliminarView.isVisible()) {
-            desktopPane.remove(usuarioEliminarView);
-            usuarioEliminarView.setVisible(true);
-            desktopPane.add(usuarioEliminarView);
-        }
+        if (!desktopPane.isAncestorOf(usuarioEliminarView)) {
+    desktopPane.add(usuarioEliminarView);
+}
+
+usuarioEliminarView.setVisible(true);
+usuarioEliminarView.toFront();
+desktopPane.getDesktopManager().activateFrame(usuarioEliminarView);
     }//GEN-LAST:event_menuItemUsuarioEliminarActionPerformed
 
     private void menuItemUsuarioListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioListarActionPerformed
-        if (!usuarioListarView.isVisible()) {
-            desktopPane.remove(usuarioListarView);
-            usuarioListarView.setVisible(true);
-            desktopPane.add(usuarioListarView);
-        }
+        if (!desktopPane.isAncestorOf(usuarioListarView)) {
+    desktopPane.add(usuarioListarView);
+}
+
+usuarioListarView.setVisible(true);
+usuarioListarView.toFront();
+desktopPane.getDesktopManager().activateFrame(usuarioListarView);
     }//GEN-LAST:event_menuItemUsuarioListarActionPerformed
 
     private void menuItemPrestamoCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoCrearActionPerformed
-        if (!prestamoCrearView.isVisible()) {
-            prestamoController.refrescarLibrosDisponibles();
-            desktopPane.remove(prestamoCrearView);
-            prestamoCrearView.setVisible(true);
-            desktopPane.add(prestamoCrearView);
-        }
+        if (!desktopPane.isAncestorOf(prestamoCrearView)) {
+    desktopPane.add(prestamoCrearView);
+}
+
+prestamoCrearView.setVisible(true);
+usuarioListarView.toFront();
+desktopPane.getDesktopManager().activateFrame(usuarioListarView);
     }//GEN-LAST:event_menuItemPrestamoCrearActionPerformed
 
     private void menuItemPrestamoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoBuscarActionPerformed

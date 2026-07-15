@@ -61,7 +61,8 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioCrear.setBackground(new java.awt.Color(204, 255, 255));
+        panelUsuarioCrear.setBackground(new java.awt.Color(207, 162, 124));
+        panelUsuarioCrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblNombreUsuarioCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioCrear.setText("Nombre:");
@@ -98,7 +99,7 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         panelUsuarioCrearLayout.setHorizontalGroup(
             panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
-                .addContainerGap(91, Short.MAX_VALUE)
+                .addContainerGap(85, Short.MAX_VALUE)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioCrearLayout.createSequentialGroup()
                         .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +130,7 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
             panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioCrearLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(panelUsuarioCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreUsuarioCrear)

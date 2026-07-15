@@ -71,6 +71,9 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         rbtnDisponibleLibroCrear = new javax.swing.JRadioButton();
         btnLimpiarLibroCrear = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtDisponibleLibroCrear = new javax.swing.JTextField();
+        cbxGeneroLibroCrear = new javax.swing.JComboBox<>();
+        cbxAutorLibroCrear = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 255, 255));
         setClosable(true);
@@ -78,7 +81,8 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelLibroCrear.setBackground(new java.awt.Color(204, 255, 255));
+        panelLibroCrear.setBackground(new java.awt.Color(207, 162, 124));
+        panelLibroCrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblIsbnLibroCrear.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroCrear.setText("ISBN");
@@ -122,57 +126,71 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearLibro.png"))); // NOI18N
 
+        txtDisponibleLibroCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        txtDisponibleLibroCrear.setText("No");
+        txtDisponibleLibroCrear.setEnabled(false);
+
+        cbxGeneroLibroCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbxAutorLibroCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelLibroCrearLayout = new javax.swing.GroupLayout(panelLibroCrear);
         panelLibroCrear.setLayout(panelLibroCrearLayout);
         panelLibroCrearLayout.setHorizontalGroup(
             panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLibroCrearLayout.createSequentialGroup()
-                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLibroCrearLayout.createSequentialGroup()
-                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelLibroCrearLayout.createSequentialGroup()
-                                .addGap(233, 233, 233)
-                                .addComponent(lblDisponibleLibroCrear)
-                                .addGap(65, 65, 65)
-                                .addComponent(rbtnDisponibleLibroCrear))
-                            .addGroup(panelLibroCrearLayout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(btnCrearLibroCrear)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCancelarLibroCrear)
-                                .addGap(30, 30, 30)
-                                .addComponent(btnLimpiarLibroCrear)))
-                        .addGap(0, 17, Short.MAX_VALUE))
-                    .addGroup(panelLibroCrearLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroCrearLayout.createSequentialGroup()
-                                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblIsbnLibroCrear)
-                                    .addComponent(lblTituloLibroCrear))
-                                .addGap(90, 90, 90))
-                            .addGroup(panelLibroCrearLayout.createSequentialGroup()
-                                .addComponent(lblEditorialLibroCrear)
-                                .addGap(78, 78, 78)))
-                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtEditorialLibroCrear)
-                            .addComponent(txtIsbnLibroCrear, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTituloLibroCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                        .addGap(42, 42, 42)
-                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblYearLibroCrear)
-                            .addComponent(lblGeneroLibroCrear)
-                            .addComponent(lblAutorLibroCrear))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtYearLibroCrear)
-                            .addComponent(txtGeneroLibroCrear)
-                            .addComponent(txtAutorLibroCrear))))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroCrearLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(222, 222, 222))
+                .addGap(313, 313, 313))
+            .addGroup(panelLibroCrearLayout.createSequentialGroup()
+                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLibroCrearLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelLibroCrearLayout.createSequentialGroup()
+                                .addComponent(lblDisponibleLibroCrear)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbtnDisponibleLibroCrear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDisponibleLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31))
+                            .addGroup(panelLibroCrearLayout.createSequentialGroup()
+                                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroCrearLayout.createSequentialGroup()
+                                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblIsbnLibroCrear)
+                                            .addComponent(lblTituloLibroCrear))
+                                        .addGap(31, 31, 31))
+                                    .addGroup(panelLibroCrearLayout.createSequentialGroup()
+                                        .addComponent(lblEditorialLibroCrear)
+                                        .addGap(19, 19, 19)))
+                                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtEditorialLibroCrear)
+                                    .addComponent(txtTituloLibroCrear)
+                                    .addComponent(txtIsbnLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblYearLibroCrear)
+                                    .addComponent(lblGeneroLibroCrear)
+                                    .addComponent(lblAutorLibroCrear))))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtGeneroLibroCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(txtYearLibroCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAutorLibroCrear))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxGeneroLibroCrear, 0, 123, Short.MAX_VALUE)
+                            .addComponent(cbxAutorLibroCrear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelLibroCrearLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(btnCrearLibroCrear)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelarLibroCrear)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnLimpiarLibroCrear)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelLibroCrearLayout.setVerticalGroup(
             panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,19 +214,25 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblGeneroLibroCrear)
-                            .addComponent(txtGeneroLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtGeneroLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxGeneroLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAutorLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAutorLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxAutorLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtEditorialLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblAutorLibroCrear))
                     .addComponent(lblEditorialLibroCrear))
-                .addGap(28, 28, 28)
-                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDisponibleLibroCrear)
-                    .addComponent(rbtnDisponibleLibroCrear))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDisponibleLibroCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblDisponibleLibroCrear)
+                        .addComponent(rbtnDisponibleLibroCrear)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearLibroCrear)
                     .addComponent(btnCancelarLibroCrear)
@@ -342,6 +366,8 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JComboBox<String> cbxAutorLibroCrear;
+    private javax.swing.JComboBox<String> cbxGeneroLibroCrear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAutorLibroCrear;
     private javax.swing.JLabel lblDisponibleLibroCrear;
@@ -353,6 +379,7 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelLibroCrear;
     private javax.swing.JRadioButton rbtnDisponibleLibroCrear;
     private javax.swing.JTextField txtAutorLibroCrear;
+    private javax.swing.JTextField txtDisponibleLibroCrear;
     private javax.swing.JTextField txtEditorialLibroCrear;
     private javax.swing.JTextField txtGeneroLibroCrear;
     private javax.swing.JTextField txtIsbnLibroCrear;

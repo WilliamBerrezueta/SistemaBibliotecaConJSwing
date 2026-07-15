@@ -71,6 +71,8 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         rbtnDisponibleLibroBuscar = new javax.swing.JRadioButton();
         btnLimpiarLibroBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtDisponibleLibroBuscar = new javax.swing.JTextField();
+        cbxIsbnLibroBuscar = new javax.swing.JComboBox<>();
 
         btnLimpiarLibroCrear.setText("Limpiar");
 
@@ -79,7 +81,8 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelLibroBuscar.setBackground(new java.awt.Color(204, 255, 255));
+        panelLibroBuscar.setBackground(new java.awt.Color(207, 162, 124));
+        panelLibroBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblIsbnLibroBuscar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroBuscar.setText("ISBN");
@@ -137,105 +140,109 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         jLabel1.setText("jLabel1");
         jLabel1.setPreferredSize(new java.awt.Dimension(171, 171));
 
+        txtDisponibleLibroBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        txtDisponibleLibroBuscar.setText("No");
+        txtDisponibleLibroBuscar.setEnabled(false);
+
+        cbxIsbnLibroBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelLibroBuscarLayout = new javax.swing.GroupLayout(panelLibroBuscar);
         panelLibroBuscar.setLayout(panelLibroBuscarLayout);
         panelLibroBuscarLayout.setHorizontalGroup(
             panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLibroBuscarLayout.createSequentialGroup()
                         .addComponent(lblIsbnLibroBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                        .addComponent(txtIsbnLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnCrearLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                                .addComponent(txtIsbnLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxIsbnLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
-                        .addComponent(btnCrearLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)))
-                .addGap(71, 71, 71))
+                        .addComponent(btnLimpiarLibroBuscar)
+                        .addGap(14, 14, 14)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCancelarLibroBuscar)
-                .addGap(69, 69, 69)
-                .addComponent(btnLimpiarLibroBuscar)
-                .addGap(95, 95, 95))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroBuscarLayout.createSequentialGroup()
-                        .addGap(329, 329, 329)
-                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                                .addComponent(lblAutorLibroBuscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtAutorLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                                .addComponent(lblEditorialLibroBuscar)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtEditorialLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(lblTituloLibroBuscar)
                     .addGroup(panelLibroBuscarLayout.createSequentialGroup()
                         .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDisponibleLibroBuscar)
-                            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblYearLibroBuscar)
-                                    .addComponent(lblGeneroLibroBuscar))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGeneroLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtYearLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTituloLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblYearLibroBuscar)
+                                .addComponent(lblGeneroLibroBuscar)
+                                .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                                    .addComponent(lblDisponibleLibroBuscar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(rbtnDisponibleLibroBuscar)))
-                            .addComponent(lblTituloLibroBuscar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                            .addComponent(lblEditorialLibroBuscar)
+                            .addComponent(lblAutorLibroBuscar))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEditorialLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtGeneroLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtYearLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAutorLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                                .addComponent(txtDisponibleLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)
+                                .addComponent(btnCancelarLibroBuscar))
+                            .addComponent(txtTituloLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(132, 132, 132))
         );
         panelLibroBuscarLayout.setVerticalGroup(
             panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLibroBuscarLayout.createSequentialGroup()
                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIsbnLibroBuscar)
-                            .addComponent(txtIsbnLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addComponent(btnCrearLibroBuscar))
-                    .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTituloLibroBuscar)
-                    .addComponent(txtTituloLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEditorialLibroBuscar)
-                    .addComponent(txtEditorialLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblYearLibroBuscar)
-                    .addComponent(txtYearLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLibroBuscarLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                            .addComponent(lblTituloLibroBuscar)
+                            .addComponent(txtTituloLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblYearLibroBuscar)
+                            .addComponent(txtYearLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
                         .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtGeneroLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGeneroLibroBuscar)))
-                    .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtAutorLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblAutorLibroBuscar)))
-                .addGap(36, 36, 36)
+                            .addComponent(lblGeneroLibroBuscar))
+                        .addGap(48, 48, 48)
+                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEditorialLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEditorialLibroBuscar))
+                        .addGap(34, 34, 34)
+                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAutorLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAutorLibroBuscar))
+                        .addGap(34, 34, 34))
+                    .addGroup(panelLibroBuscarLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btnLimpiarLibroBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIsbnLibroBuscar)
+                            .addComponent(txtIsbnLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxIsbnLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCrearLibroBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDisponibleLibroBuscar)
-                    .addComponent(rbtnDisponibleLibroBuscar))
-                .addGap(33, 33, 33)
-                .addGroup(panelLibroBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiarLibroBuscar)
+                    .addComponent(rbtnDisponibleLibroBuscar)
+                    .addComponent(txtDisponibleLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarLibroBuscar))
-                .addGap(133, 133, 133))
+                .addGap(95, 95, 95))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,7 +253,9 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 551, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelLibroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 612, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -360,6 +369,7 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiarLibroBuscar;
     private javax.swing.JButton btnLimpiarLibroCrear;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cbxIsbnLibroBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAutorLibroBuscar;
     private javax.swing.JLabel lblDisponibleLibroBuscar;
@@ -371,6 +381,7 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelLibroBuscar;
     private javax.swing.JRadioButton rbtnDisponibleLibroBuscar;
     private javax.swing.JTextField txtAutorLibroBuscar;
+    private javax.swing.JTextField txtDisponibleLibroBuscar;
     private javax.swing.JTextField txtEditorialLibroBuscar;
     private javax.swing.JTextField txtGeneroLibroBuscar;
     private javax.swing.JTextField txtIsbnLibroBuscar;

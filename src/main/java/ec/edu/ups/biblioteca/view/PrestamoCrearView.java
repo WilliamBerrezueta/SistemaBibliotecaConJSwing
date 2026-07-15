@@ -265,7 +265,8 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelPrestamoCrear.setBackground(new java.awt.Color(204, 255, 255));
+        panelPrestamoCrear.setBackground(new java.awt.Color(207, 162, 124));
+        panelPrestamoCrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblCodigoPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCodigoPrestamoCrear.setText("Código del préstamo:");
@@ -385,7 +386,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
                                     .addComponent(lblFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtFechaPrestamoPrestamoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         panelPrestamoCrearLayout.setVerticalGroup(
             panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,7 +431,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
                         .addGroup(panelPrestamoCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCancelarPrestamoView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCrearPrestamoCrear))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

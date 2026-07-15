@@ -138,7 +138,8 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         btnCancelarPrestamoBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(207, 162, 124));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -204,13 +205,13 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnBuscarCodigoPrestamoBuscar)
                     .addComponent(btnBuscarCedulaPrestamoBuscar))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 466, Short.MAX_VALUE)
+                .addGap(0, 472, Short.MAX_VALUE)
                 .addComponent(lblOPrestamoBuscar)
                 .addGap(390, 390, 390))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(213, Short.MAX_VALUE)
+                .addContainerGap(219, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)

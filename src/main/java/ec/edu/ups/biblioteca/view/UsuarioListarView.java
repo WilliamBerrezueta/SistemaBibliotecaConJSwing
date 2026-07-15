@@ -82,7 +82,8 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        tblUsuarioListar.setBackground(new java.awt.Color(204, 255, 255));
+        tblUsuarioListar.setBackground(new java.awt.Color(207, 162, 124));
+        tblUsuarioListar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblUsuarioListar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -103,8 +104,8 @@ public class UsuarioListarView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1975, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

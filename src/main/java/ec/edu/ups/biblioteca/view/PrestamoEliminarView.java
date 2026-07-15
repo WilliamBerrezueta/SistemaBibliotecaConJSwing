@@ -102,7 +102,8 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(207, 162, 124));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.setPreferredSize(new java.awt.Dimension(768, 880));
 
         lblCedulaPrestamoEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
@@ -161,6 +162,7 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
         btnCancelarPrestamoEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
         btnCancelarPrestamoEliminar.setText("Cancelar");
 
+        jLabel1.setBackground(new java.awt.Color(207, 162, 124));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Eprestamo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -194,7 +196,7 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLimpiarPrestamoEliminar)))
                         .addGap(8, 8, 8)))
-                .addGap(0, 124, Short.MAX_VALUE))
+                .addGap(0, 118, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -248,7 +250,7 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEliminarPrestamoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarPrestamoEliminar))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

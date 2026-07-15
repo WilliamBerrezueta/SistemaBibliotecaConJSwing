@@ -100,7 +100,8 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
 
-        panelRegistrarDevolución.setBackground(new java.awt.Color(204, 255, 255));
+        panelRegistrarDevolución.setBackground(new java.awt.Color(207, 162, 124));
+        panelRegistrarDevolución.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblCodigoRegistrarDevolucion.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblCodigoRegistrarDevolucion.setText("Código del prestamo:");
@@ -198,7 +199,7 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
                             .addComponent(txtFechaDevolucionRegistrarDevolucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         panelRegistrarDevoluciónLayout.setVerticalGroup(
             panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +217,7 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
                     .addGroup(panelRegistrarDevoluciónLayout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +240,7 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
                 .addGroup(panelRegistrarDevoluciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDevolverRegistrarDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarRegistrarDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

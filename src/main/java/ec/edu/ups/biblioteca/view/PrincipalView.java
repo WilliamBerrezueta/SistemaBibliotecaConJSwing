@@ -45,6 +45,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private PrestamoCrearView prestamoCrearView;
     private PrestamoEliminarView prestamoEliminarView;
     private PrestamoListarView prestamoListarView;
+    
+    private AutorCrearView autorCrearView;
+    private AutorBuscarView autorBuscarView;
+    private AutorEliminarView autorEliminarView;
+    private AutorActualizarView autorActualizarView;
+    private AutorListarView autorListarView;
 
     /**
      * Creates new form Principal
@@ -127,6 +133,10 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
@@ -148,6 +158,12 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemPrestamoActualizar = new javax.swing.JMenuItem();
         menuItemPrestamoEliminar = new javax.swing.JMenuItem();
         menuItemPrestamoListar = new javax.swing.JMenuItem();
+        menuItemAutor = new javax.swing.JMenu();
+        menuItemAutorCrear = new javax.swing.JMenuItem();
+        menuItemAutorBuscar = new javax.swing.JMenuItem();
+        menuItemAutorActualizar = new javax.swing.JMenuItem();
+        menuItemAutorEliminar = new javax.swing.JMenuItem();
+        menuItemAutorListar = new javax.swing.JMenuItem();
         menuItemIdioma = new javax.swing.JMenu();
         menuItemIdiomaEspañol = new javax.swing.JMenuItem();
         menuItemIdiomaIngles = new javax.swing.JMenuItem();
@@ -160,11 +176,24 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/converted_image (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/nuevoFondoBi.jpeg"))); // NOI18N
         desktopPane.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1408, 795);
+        jLabel1.setBounds(-10, 0, 1740, 850);
+
+        menuBar.setBackground(new java.awt.Color(102, 51, 0));
+        menuBar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        menuBar.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        menuBar.setPreferredSize(new java.awt.Dimension(332, 50));
 
         menuItemLibro.setMnemonic('f');
         menuItemLibro.setText("Libro");
@@ -251,6 +280,26 @@ public class PrincipalView extends javax.swing.JFrame {
 
         menuBar.add(menuItemPrestamo);
 
+        menuItemAutor.setText("Autor");
+
+        menuItemAutorCrear.setText("Crear");
+        menuItemAutorCrear.addActionListener(this::menuItemAutorCrearActionPerformed);
+        menuItemAutor.add(menuItemAutorCrear);
+
+        menuItemAutorBuscar.setText("Buscar");
+        menuItemAutor.add(menuItemAutorBuscar);
+
+        menuItemAutorActualizar.setText("Actualizar");
+        menuItemAutor.add(menuItemAutorActualizar);
+
+        menuItemAutorEliminar.setText("Eliminar");
+        menuItemAutor.add(menuItemAutorEliminar);
+
+        menuItemAutorListar.setText("Listar");
+        menuItemAutor.add(menuItemAutorListar);
+
+        menuBar.add(menuItemAutor);
+
         menuItemIdioma.setText("Idioma");
 
         menuItemIdiomaEspañol.setText("Español");
@@ -277,11 +326,11 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1408, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
 
         pack();
@@ -353,74 +402,74 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void menuItemUsuarioActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioActualizarActionPerformed
         if (!desktopPane.isAncestorOf(usuarioActualizarView)) {
-    desktopPane.add(usuarioActualizarView);
-}
-
-usuarioActualizarView.setVisible(true);
-usuarioActualizarView.toFront();
-desktopPane.getDesktopManager().activateFrame(usuarioActualizarView);
+            desktopPane.add(usuarioActualizarView);
+        }
+        usuarioActualizarView.setVisible(true);
+        usuarioActualizarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(usuarioActualizarView);
     }//GEN-LAST:event_menuItemUsuarioActualizarActionPerformed
 
     private void menuItemUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioEliminarActionPerformed
         if (!desktopPane.isAncestorOf(usuarioEliminarView)) {
-    desktopPane.add(usuarioEliminarView);
-}
-
-usuarioEliminarView.setVisible(true);
-usuarioEliminarView.toFront();
-desktopPane.getDesktopManager().activateFrame(usuarioEliminarView);
+            desktopPane.add(usuarioEliminarView);
+        }
+        usuarioEliminarView.setVisible(true);
+        usuarioEliminarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(usuarioEliminarView);
     }//GEN-LAST:event_menuItemUsuarioEliminarActionPerformed
 
     private void menuItemUsuarioListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioListarActionPerformed
         if (!desktopPane.isAncestorOf(usuarioListarView)) {
-    desktopPane.add(usuarioListarView);
-}
-
-usuarioListarView.setVisible(true);
-usuarioListarView.toFront();
-desktopPane.getDesktopManager().activateFrame(usuarioListarView);
+            desktopPane.add(usuarioListarView);
+        }
+        usuarioListarView.setVisible(true);
+        usuarioListarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(usuarioListarView);
     }//GEN-LAST:event_menuItemUsuarioListarActionPerformed
 
     private void menuItemPrestamoCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoCrearActionPerformed
         if (!desktopPane.isAncestorOf(prestamoCrearView)) {
-    desktopPane.add(prestamoCrearView);
-}
-
-prestamoCrearView.setVisible(true);
-usuarioListarView.toFront();
-desktopPane.getDesktopManager().activateFrame(usuarioListarView);
+            desktopPane.add(prestamoCrearView);
+        }
+        prestamoCrearView.setVisible(true);
+        usuarioListarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(prestamoCrearView);
     }//GEN-LAST:event_menuItemPrestamoCrearActionPerformed
 
     private void menuItemPrestamoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoBuscarActionPerformed
-        if (!prestamoBuscarView.isVisible()) {
-            desktopPane.remove(prestamoBuscarView);
-            prestamoBuscarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(prestamoBuscarView)) {
             desktopPane.add(prestamoBuscarView);
         }
+        prestamoBuscarView.setVisible(true);
+        prestamoBuscarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(prestamoBuscarView);
     }//GEN-LAST:event_menuItemPrestamoBuscarActionPerformed
 
     private void menuItemPrestamoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoActualizarActionPerformed
-        if (!prestamoActualizarView.isVisible()) {
-            desktopPane.remove(prestamoActualizarView);
-            prestamoActualizarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(prestamoActualizarView)) {
             desktopPane.add(prestamoActualizarView);
         }
+        prestamoActualizarView.setVisible(true);
+        prestamoActualizarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(prestamoActualizarView);
     }//GEN-LAST:event_menuItemPrestamoActualizarActionPerformed
 
     private void menuItemPrestamoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoEliminarActionPerformed
-        if (!prestamoEliminarView.isVisible()) {
-            desktopPane.remove(prestamoEliminarView);
-            prestamoEliminarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(prestamoEliminarView)) {
             desktopPane.add(prestamoEliminarView);
         }
+        prestamoEliminarView.setVisible(true);
+        prestamoEliminarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(prestamoEliminarView);
     }//GEN-LAST:event_menuItemPrestamoEliminarActionPerformed
 
     private void menuItemPrestamoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPrestamoListarActionPerformed
-        if (!prestamoListarView.isVisible()) {
-            desktopPane.remove(prestamoListarView);
-            prestamoListarView.setVisible(true);
+        if (!desktopPane.isAncestorOf(prestamoListarView)) {
             desktopPane.add(prestamoListarView);
         }
+        prestamoListarView.setVisible(true);
+        prestamoListarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(prestamoListarView);
     }//GEN-LAST:event_menuItemPrestamoListarActionPerformed
 
     private void menuItemIdiomaInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaInglesActionPerformed
@@ -471,6 +520,15 @@ desktopPane.getDesktopManager().activateFrame(usuarioListarView);
         System.exit(0);
     }//GEN-LAST:event_menuItemSistemaSalirActionPerformed
 
+    private void menuItemAutorCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutorCrearActionPerformed
+        if (!desktopPane.isAncestorOf(prestamoListarView)) {
+            desktopPane.add(prestamoListarView);
+        }
+        prestamoListarView.setVisible(true);
+        prestamoListarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(prestamoListarView);
+    }//GEN-LAST:event_menuItemAutorCrearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -512,8 +570,18 @@ desktopPane.getDesktopManager().activateFrame(usuarioListarView);
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuItemAutor;
+    private javax.swing.JMenuItem menuItemAutorActualizar;
+    private javax.swing.JMenuItem menuItemAutorBuscar;
+    private javax.swing.JMenuItem menuItemAutorCrear;
+    private javax.swing.JMenuItem menuItemAutorEliminar;
+    private javax.swing.JMenuItem menuItemAutorListar;
     private javax.swing.JMenu menuItemIdioma;
     private javax.swing.JMenuItem menuItemIdiomaEspañol;
     private javax.swing.JMenuItem menuItemIdiomaIngles;

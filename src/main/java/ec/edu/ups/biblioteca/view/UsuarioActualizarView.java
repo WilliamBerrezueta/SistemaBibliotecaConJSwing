@@ -63,7 +63,8 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioActualizar.setBackground(new java.awt.Color(204, 255, 255));
+        panelUsuarioActualizar.setBackground(new java.awt.Color(207, 162, 124));
+        panelUsuarioActualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblNombreUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioActualizar.setText("Nombre:");
@@ -118,7 +119,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
                         .addComponent(btnLimpiarUsuarioActualizar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addGap(0, 22, Short.MAX_VALUE)
+                        .addGap(0, 16, Short.MAX_VALUE)
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                                 .addComponent(lblTelefonoUsuarioActualizar)

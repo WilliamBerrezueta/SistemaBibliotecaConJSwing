@@ -62,7 +62,8 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioBuscar.setBackground(new java.awt.Color(204, 255, 255));
+        panelUsuarioBuscar.setBackground(new java.awt.Color(207, 162, 124));
+        panelUsuarioBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblNombreUsuarioBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioBuscar.setText("Nombre:");
@@ -110,7 +111,7 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
                     .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(btnBuscarUsuarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTelefonoUsuarioBuscar)
                     .addComponent(lblNombreUsuarioBuscar))
@@ -133,7 +134,7 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         panelUsuarioBuscarLayout.setVerticalGroup(
             panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioBuscarLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelUsuarioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

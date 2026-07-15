@@ -63,7 +63,8 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        panelUsuarioEliminar.setBackground(new java.awt.Color(204, 255, 255));
+        panelUsuarioEliminar.setBackground(new java.awt.Color(207, 162, 124));
+        panelUsuarioEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         lblNombreUsuarioEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreUsuarioEliminar.setText("Nombre:");
@@ -111,7 +112,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
                 .addComponent(btnCancelarUsuarioEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLimpiarUsuarioEliminar)
-                .addGap(0, 73, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioEliminarLayout.createSequentialGroup()
                 .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()

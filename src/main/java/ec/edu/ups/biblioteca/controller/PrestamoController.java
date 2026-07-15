@@ -27,44 +27,29 @@ public class PrestamoController {
     private UsuarioDao usuarioDao;
     private LibroDao libroDao;
     private PrestamoCrearView prestamoCrearView;
-
-    private Usuario usuarioSeleccionado;
-    private List<Libro> librosSeleccionados;
     private PrestamoBuscarView prestamoBuscarView;
-
     private RegistrarDevolucionView registrarDevolucionView;
-    private Prestamo prestamoEncontradoDevolucion; // guarda el préstamo que se buscó, para usarlo al presionar "Devolver" acuerdate
-
-    private PrestamoEliminarView prestamoEliminarView;
-    private Prestamo prestamoEncontradoEliminar; // los mismo del anterior,es para guardarlo
-    
     private PrestamoListarView prestamoListarView;
+    private PrestamoEliminarView prestamoEliminarView;
+    private LibroController libroController; // para poder actualizar la actualizacion de los libros
 
-    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, PrestamoEliminarView prestamoEliminarView,PrestamoListarView prestamoListarView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView) {
+    public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, PrestamoEliminarView prestamoEliminarView, PrestamoListarView prestamoListarView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView,LibroController libroController) {
 
         this.prestamoCrearView = prestamoCrearView;
         this.prestamoDao = prestamoDao;
         this.usuarioDao = usuarioDao;
         this.libroDao = libroDao;
-        this.librosSeleccionados = new ArrayList<>();
         this.prestamoBuscarView = prestamoBuscarView;
         this.registrarDevolucionView = registrarDevolucionView;
         this.prestamoEliminarView = prestamoEliminarView;
         this.prestamoListarView = prestamoListarView;
+        this.libroController = libroController;
 
         cargarLibrosDisponibles();
-        idCodigo();
         configurarEventoPrestamoCrear();
         configurarEventoPrestamoBuscar();
         configurarEventoRegistrarDevolucion();
         configurarEventoPrestamoEliminar();
-    }
-
-    // METODO PAR LA ID
-    private void idCodigo() {
-        int siguienteCodigo = prestamoDao.listar().size() + 1;
-        // simplemente crea la ID de los prestamos
-        prestamoCrearView.getTxtCodigoPrestamoCrear().setText(String.valueOf(siguienteCodigo));
     }
 
     // METODO PARA CREAR LOS LIBROS
@@ -95,11 +80,10 @@ public class PrestamoController {
         Usuario usuario = usuarioDao.buscar(cedula);
 
         if (usuario != null) {
-            usuarioSeleccionado = usuario;
+
             prestamoCrearView.getTxtNombrePrestamoCrear().setText(usuario.getNombre());
             prestamoCrearView.getTxtTelefonoPrestamoCrear().setText(usuario.getNumero());
         } else {
-            usuarioSeleccionado = null;
             prestamoCrearView.getTxtNombrePrestamoCrear().setText("");
             prestamoCrearView.getTxtTelefonoPrestamoCrear().setText("");
             prestamoCrearView.mostarMensaje("No se encontró un usuario con esa cédula");
@@ -124,27 +108,35 @@ public class PrestamoController {
             prestamoCrearView.mostarMensaje("No se encontró el libro seleccionado");
             return;
         }
-
-        if (librosSeleccionados.contains(libro)) {
-            prestamoCrearView.mostarMensaje("Ese libro ya fue agregado");
-            return;
+        DefaultTableModel modelo = (DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            if (isbn.equals(modelo.getValueAt(i, 0))) { // saca un valor de una fila y columna especifica
+                prestamoCrearView.mostarMensaje("Ese libro ya fue agregado");
+                return;
+            }
         }
 
-        librosSeleccionados.add(libro);
-
-        DefaultTableModel modelo = (DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
         modelo.addRow(new Object[]{libro.getIsbn(), libro.getTitulo()});
-    }
 
+    }
     // METODO PARA CREAR EL PRESTAMO
+
     public void crearPrestamo() {
 
-        if (usuarioSeleccionado == null) {
+        String cedula = prestamoCrearView.getTxtCedulaPrestamoCrear().getText();
+        if (cedula.isEmpty()) {
             prestamoCrearView.mostarMensaje("Debe buscar y seleccionar un usuario válido");
             return;
         }
 
-        if (librosSeleccionados.isEmpty()) {
+        Usuario usuario = usuarioDao.buscar(cedula);
+        if (usuario == null) {
+            prestamoCrearView.mostarMensaje("Debe buscar y seleccionar un usuario válido");
+            return;
+        }
+
+        DefaultTableModel modeloLibros = (DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
+        if (modeloLibros.getRowCount() == 0) {
             prestamoCrearView.mostarMensaje("Debe agregar al menos un libro");
             return;
         }
@@ -154,20 +146,41 @@ public class PrestamoController {
             prestamoCrearView.mostarMensaje("Debe ingresar un código de préstamo");
             return;
         }
+
         int codigo = Integer.parseInt(codigoTexto);
+
+        if (prestamoDao.buscar(codigo) != null) {
+            prestamoCrearView.mostarMensaje("Ya existe un préstamo con ese código");
+            return;
+        }
+
+      
+        // revisamos que ningún libro este no disponible mientras se armaba el préstamo
+        for (int i = 0; i < modeloLibros.getRowCount(); i++) {
+            String isbnFila = (String) modeloLibros.getValueAt(i, 0);
+            Libro libroFila = libroDao.buscar(isbnFila);
+            if (libroFila == null || !libroFila.isDisponible()) {
+                prestamoCrearView.mostarMensaje("El libro con ISBN " + isbnFila + " ya no está disponible");
+                return;
+            }
+        }
+
         Prestamo prestamo = new Prestamo();
         prestamo.setCodigo(codigo);
-        prestamo.setUsuario(usuarioSeleccionado);
+        prestamo.setUsuario(usuario);
         prestamo.prestamoHecho(LocalDate.now());
 
-        for (Libro libro : librosSeleccionados) {
-            prestamo.agregarLibro(libro);
-            libro.setDisponible(false);
-            libroDao.actualizar(libro);
+        for (int i = 0; i < modeloLibros.getRowCount(); i++) {
+            String isbnFila = (String) modeloLibros.getValueAt(i, 0);
+            Libro libroFila = libroDao.buscar(isbnFila);
+            prestamo.agregarLibro(libroFila);
+            libroFila.setDisponible(false);
+            libroDao.actualizar(libroFila);
+            libroController.listarLibros();
         }
 
         prestamoDao.crear(prestamo);
-        usuarioSeleccionado.getPedidos().add(prestamo);
+        usuario.getPedidos().add(prestamo);
 
         prestamoCrearView.mostarMensaje("Préstamo creado correctamente");
         listarPrestamos();
@@ -176,6 +189,7 @@ public class PrestamoController {
 
     // SIMPLEMENTE LIMPIAR
     public void limpiarPrestamoCrear() {
+
         prestamoCrearView.getTxtCedulaPrestamoCrear().setText("");
         prestamoCrearView.getTxtNombrePrestamoCrear().setText("");
         prestamoCrearView.getTxtTelefonoPrestamoCrear().setText("");
@@ -183,11 +197,7 @@ public class PrestamoController {
         DefaultTableModel modelo = (DefaultTableModel) prestamoCrearView.getTblLibrosAgregadosPrestamoCrear().getModel();
         modelo.setRowCount(0);
 
-        librosSeleccionados.clear();
-        usuarioSeleccionado = null;
-
         cargarLibrosDisponibles();
-        idCodigo();
     }
 
     public void refrescarLibrosDisponibles() {
@@ -242,7 +252,13 @@ public class PrestamoController {
             return;
         }
 
-        int codigo = Integer.parseInt(codigoTexto);
+        int codigo;
+        try {
+            codigo = Integer.parseInt(codigoTexto);
+        } catch (NumberFormatException e) {
+            prestamoBuscarView.mostarMensaje("El código debe ser un número");
+            return;
+        }
 
         Prestamo prestamo = prestamoDao.buscar(codigo);
 
@@ -341,25 +357,27 @@ public class PrestamoController {
             return;
         }
 
-        int codigo = Integer.parseInt(codigoTexto);
+        int codigo;
+        try {
+            codigo = Integer.parseInt(codigoTexto);
+        } catch (NumberFormatException e) {
+            registrarDevolucionView.mostarMensaje("El código debe ser un número");
+            return;
+        }
 
         Prestamo prestamo = prestamoDao.buscar(codigo);
 
         if (prestamo == null) {
-            prestamoEncontradoDevolucion = null;
             limpiarCamposDevolucion();
             registrarDevolucionView.mostarMensaje("No se encontró un préstamo con ese código");
             return;
         }
 
         if (prestamo.getFechaDeDevolucion() != null) {
-            prestamoEncontradoDevolucion = null;
             limpiarCamposDevolucion();
             registrarDevolucionView.mostarMensaje("Este préstamo ya fue devuelto");
             return;
         }
-
-        prestamoEncontradoDevolucion = prestamo;
 
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // una forma para poder poner el formato del tiempo con formato 
         registrarDevolucionView.getTxtFechaPrestamoRegistrarDevolucion().setText(prestamo.getFechaDePrestamo() != null ? prestamo.getFechaDePrestamo().format(formato) : "");
@@ -376,21 +394,30 @@ public class PrestamoController {
 // METODO PARA REGISTRAR LA DEVOLUCION
     public void registrarDevolucion() {
 
-        if (prestamoEncontradoDevolucion == null) {
+        String codigoTexto = registrarDevolucionView.getTxtCodigoRegistarDevolucion().getText();
+        int codigo;
+        try {
+            codigo = Integer.parseInt(codigoTexto);
+        } catch (NumberFormatException e) {
+            registrarDevolucionView.mostarMensaje("Primero debe buscar un préstamo válido");
+            return;
+        }
+
+        Prestamo prestamo = prestamoDao.buscar(codigo);
+        if (prestamo == null || prestamo.getFechaDeDevolucion() != null) {
             registrarDevolucionView.mostarMensaje("Primero debe buscar un préstamo válido");
             return;
         }
 
         LocalDate fechaDevolucion = LocalDate.now();
-        prestamoEncontradoDevolucion.setFechaDeDevolucion(fechaDevolucion);
+        prestamo.setFechaDeDevolucion(fechaDevolucion);
 
-        // Marca todos los libros del préstamo como disponibles otra vez
-        for (Libro libro : prestamoEncontradoDevolucion.getListaLibros()) {
+        for (Libro libro : prestamo.getListaLibros()) {
             libro.setDisponible(true);
             libroDao.actualizar(libro);
         }
 
-        prestamoDao.actualizar(prestamoEncontradoDevolucion);
+        prestamoDao.actualizar(prestamo);
 
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // ponemos el formato que queremos que tenga
         registrarDevolucionView.getTxtFechaDevolucionRegistrarDevolucion().setText(fechaDevolucion.format(formato));// le ponemos el formato y el tiempo
@@ -398,7 +425,6 @@ public class PrestamoController {
 
         registrarDevolucionView.mostarMensaje("Devolución registrada correctamente");
         listarPrestamos();
-        prestamoEncontradoDevolucion = null;
         cargarLibrosDisponibles(); // volver a cargarlo por si acaso
     }
 
@@ -411,7 +437,6 @@ public class PrestamoController {
         DefaultTableModel modelo = (DefaultTableModel) registrarDevolucionView.getTblLibrosRegistrarDevolucion().getModel();
         modelo.setRowCount(0);
 
-        prestamoEncontradoDevolucion = null;
     }
 
 // CONFIGURACION DE EVENTOS
@@ -466,13 +491,10 @@ public class PrestamoController {
         Prestamo prestamo = prestamoDao.buscar(codigo);
 
         if (prestamo == null) {
-            prestamoEncontradoEliminar = null;
             limpiarPrestamoEliminar();
             prestamoEliminarView.mostarMensaje("No se encontró un préstamo con ese código");
             return;
         }
-
-        prestamoEncontradoEliminar = prestamo;
 
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -494,23 +516,30 @@ public class PrestamoController {
 // METODO PARA ELIMINAR EL PRESTAMO
     public void eliminarPrestamo() {
 
-        if (prestamoEncontradoEliminar == null) {
+        String codigoTexto = prestamoEliminarView.getTxtCodigoPrestamoEliminar().getText();
+        int codigo;
+        try {
+            codigo = Integer.parseInt(codigoTexto);
+        } catch (NumberFormatException e) {
             prestamoEliminarView.mostarMensaje("Primero debe buscar un préstamo válido");
             return;
         }
 
-        int opcion = javax.swing.JOptionPane.showConfirmDialog(prestamoEliminarView,"¿Está seguro de eliminar este préstamo?","Confirmar eliminación",javax.swing.JOptionPane.YES_NO_OPTION);
-
-        if (opcion != javax.swing.JOptionPane.YES_OPTION) {
+        Prestamo prestamo = prestamoDao.buscar(codigo);
+        if (prestamo == null) {
+            prestamoEliminarView.mostarMensaje("Primero debe buscar un préstamo válido");
             return;
         }
 
-        // Se quita el préstamo de la lista de pedidos del usuario
-        if (prestamoEncontradoEliminar.getUsuario() != null && prestamoEncontradoEliminar.getUsuario().getPedidos() != null) {
-            prestamoEncontradoEliminar.getUsuario().getPedidos().remove(prestamoEncontradoEliminar);
+        if (!prestamoEliminarView.confirmarEliminacion()) {
+            return;
         }
 
-        prestamoDao.eliminar(prestamoEncontradoEliminar.getCodigo());
+        if (prestamo.getUsuario() != null && prestamo.getUsuario().getPedidos() != null) {
+            prestamo.getUsuario().getPedidos().remove(prestamo);
+        }
+
+        prestamoDao.eliminar(prestamo.getCodigo());
 
         prestamoEliminarView.mostarMensaje("Préstamo eliminado correctamente");
         listarPrestamos();
@@ -527,8 +556,6 @@ public class PrestamoController {
 
         DefaultTableModel modelo = (DefaultTableModel) prestamoEliminarView.getTblLibrosPrestamoEliminar().getModel();
         modelo.setRowCount(0);
-
-        prestamoEncontradoEliminar = null;
     }
 
 // CONFIGURACION DE EVENTOS
@@ -562,21 +589,21 @@ public class PrestamoController {
             }
         });
     }
-    
+
     // METODO LISTAR 
     // una fila por préstamo (no por libro no es buscar acuerdate)
-public void listarPrestamos() {
-    DefaultTableModel modelo = (DefaultTableModel) prestamoListarView.getTblPrestamoPrestamoListar().getModel();
-    modelo.setRowCount(0);
+    public void listarPrestamos() {
+        DefaultTableModel modelo = (DefaultTableModel) prestamoListarView.getTblPrestamoPrestamoListar().getModel();
+        modelo.setRowCount(0);
 
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    for (Prestamo prestamo : prestamoDao.listar()) {
-        String nombreUsuario = prestamo.getUsuario().getNombre();
-        String fecha = prestamo.getFechaDePrestamo().format(formato);
-        String estado = (prestamo.getFechaDeDevolucion() != null) ? "Devuelto" : "Prestado";
-        modelo.addRow(new Object[]{prestamo.getCodigo(),nombreUsuario,prestamo.getListaLibros().size(),fecha,estado});
+        for (Prestamo prestamo : prestamoDao.listar()) {
+            String nombreUsuario = prestamo.getUsuario().getNombre();
+            String fecha = prestamo.getFechaDePrestamo().format(formato);
+            String estado = (prestamo.getFechaDeDevolucion() != null) ? "Devuelto" : "Prestado";
+            modelo.addRow(new Object[]{prestamo.getCodigo(), nombreUsuario, prestamo.getListaLibros().size(), fecha, estado});
+        }
     }
-}
 
 }

@@ -357,6 +357,11 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
     public void mostarMensaje(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
+    
+    public boolean confirmarEliminacion() {
+    int opcion = javax.swing.JOptionPane.showConfirmDialog(this,"¿Está seguro de eliminar este préstamo?","Confirmar eliminación",javax.swing.JOptionPane.YES_NO_OPTION);
+    return opcion == javax.swing.JOptionPane.YES_OPTION;
+}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

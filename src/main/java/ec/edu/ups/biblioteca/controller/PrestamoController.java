@@ -146,8 +146,14 @@ public class PrestamoController {
             prestamoCrearView.mostarMensaje("Debe ingresar un código de préstamo");
             return;
         }
-
-        int codigo = Integer.parseInt(codigoTexto);
+        
+        int codigo;
+        try {
+            codigo = Integer.parseInt(codigoTexto);
+        } catch (NumberFormatException e) {
+            prestamoCrearView.mostarMensaje("El código debe ser un número");
+            return;
+        }
 
         if (prestamoDao.buscar(codigo) != null) {
             prestamoCrearView.mostarMensaje("Ya existe un préstamo con ese código");

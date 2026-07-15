@@ -46,21 +46,35 @@ public class UsuarioController {
     // METODOS CREAR
 
     public void crearUsuario() {
+
         String nombre = usuarioCrearView.getTxtNombreUsuarioCrear().getText();
         String cedula = usuarioCrearView.getTxtCedulaUsuarioCrear().getText();
         String celular = usuarioCrearView.getTxtTelefonoUsuarioCrear().getText();
+
+        if (nombre.isEmpty() || cedula.isEmpty() || celular.isEmpty()) {
+            usuarioCrearView.mostarMensaje("Debe de rellenar todos los datos");
+            return;
+        }
+
+        if (!usuarioCrearView.isValidaCedula(cedula)) {
+            usuarioCrearView.mostarMensaje("Debe de colocar una cedula valida");
+            return;
+        }
+
+        if (!usuarioCrearView.isValidoCelular(celular)) {
+            usuarioCrearView.mostarMensaje("Debe de colocar un numero valido");
+            return;
+        }
         
-        if(!nombre.isEmpty() && !cedula.isEmpty() && !celular.isEmpty()){
+        if(usuarioDao.buscar(cedula) != null){
+            usuarioCrearView.mostarMensaje("Usuario repetido");
+            return;
+        }
+
         Usuario usuario = new Usuario(nombre, cedula, celular);
         usuarioDao.crear(usuario);
         listarUsuarios();
         usuarioCrearView.mostarMensaje("Se ha creado su usuario");
-        }
-        else{
-        usuarioCrearView.mostarMensaje("Debe de rellenar todos los datos");
-        return;
-        }
-        
     }
 
     public void limpiarUsuarioCrear() {
@@ -102,6 +116,12 @@ public class UsuarioController {
                 usuarioBuscarView.getTxtCedulaUsuarioBuscar().setText(usuarioBuscar.getCedula());
                 usuarioBuscarView.getTxtTelefonoUsuarioBuscar().setText(usuarioBuscar.getNumero());
             }
+            else{
+                usuarioActualizarView.mostarMensaje("No se ha encontrado el Usuario");
+            }
+        }
+        else{
+            usuarioBuscarView.mostarMensaje("Ingrese una cedula");
         }
     }
 
@@ -166,6 +186,12 @@ public class UsuarioController {
                 usuarioEliminarView.getTxtCedulaUsuarioEliminar().setText(usuarioBuscar.getCedula());
                 usuarioEliminarView.getTxtTelefonoUsuarioEliminar().setText(usuarioBuscar.getNumero());
             }
+            else{
+                usuarioBuscarView.mostarMensaje("No se ha encotrado el usuario");
+            }
+        }
+        else{
+            usuarioBuscarView.mostarMensaje("Ingrese una cedula");
         }
     }
 
@@ -199,9 +225,18 @@ public class UsuarioController {
 // METODOS ACTUALIZAR
     public void actualizarUsuario() {
         String cedula = usuarioActualizarView.getTxtCedulaUsuarioActualizar().getText();
+        String nombre = usuarioActualizarView.getTxtNombreUsuarioActualizar().getText();
+        String celular = usuarioActualizarView.getTxtCedulaUsuarioActualizar().getText();
         Usuario usuario = usuarioDao.buscar(cedula);
 
         if (usuario != null) {
+            if(nombre == null || nombre == ""){
+                usuarioActualizarView.mostarMensaje("Coloque un nombre");
+                return;
+            }
+            if(celular== "" ||celular == null || usuarioCrearView.isValidoCelular(celular)){// uso el metodo de usuario crear porque no quiero volverlo a poner este metodo a usuario actualizar
+                usuarioActualizarView.mostarMensaje("Coloque un numero valido");
+            }
             usuario.setNombre(usuarioActualizarView.getTxtNombreUsuarioActualizar().getText());
             usuario.setNumero(usuarioActualizarView.getTxtTelefonoUsuarioActualizar().getText());
 
@@ -209,6 +244,8 @@ public class UsuarioController {
             listarUsuarios();
             usuarioActualizarView.mostarMensaje("Usuario actualizado");
         }
+        else
+            usuarioActualizarView.mostarMensaje("No se ha encontrado el Usuario ");
     }
 
     public void buscarUsuarioActualizar() {
@@ -221,6 +258,12 @@ public class UsuarioController {
                 usuarioActualizarView.getTxtNombreUsuarioActualizar().setText(usuarioBuscar.getNombre());
                 usuarioActualizarView.getTxtTelefonoUsuarioActualizar().setText(usuarioBuscar.getNumero());
             }
+            else{
+                usuarioActualizarView.mostarMensaje("No se ha encontrado el Usuario ");
+            }
+        }
+        else{
+            usuarioActualizarView.mostarMensaje("Ingrese una cedula");
         }
     }
 
@@ -256,9 +299,8 @@ public class UsuarioController {
             }
         });
     }
-    
+
     //METODO LISTAR
-    
     public void listarUsuarios() {
         usuarioListarView.cargarDatos(usuarioDao.listar());
     }

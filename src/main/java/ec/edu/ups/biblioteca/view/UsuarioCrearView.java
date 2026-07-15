@@ -22,17 +22,17 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     public UsuarioCrearView() {
         initComponents();
     }
-    
+
     public void cambiarIdioma(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
-        
-        lblNombreUsuarioCrear.setText(bundle.getString("usuario.nombre"));
-    lblCedulaUsuarioCrear.setText(bundle.getString("usuario.cedula"));
-    lblTelefonoUsuarioCrear.setText(bundle.getString("usuario.telefono"));
 
-    btnCrearUsuarioCrear.setText(bundle.getString("boton.crear"));
-    btnCancelarUsuarioCrear.setText(bundle.getString("boton.cancelar"));
-    btnLimpiarUsuarioCrear.setText(bundle.getString("boton.limpiar"));
+        lblNombreUsuarioCrear.setText(bundle.getString("usuario.nombre"));
+        lblCedulaUsuarioCrear.setText(bundle.getString("usuario.cedula"));
+        lblTelefonoUsuarioCrear.setText(bundle.getString("usuario.telefono"));
+
+        btnCrearUsuarioCrear.setText(bundle.getString("boton.crear"));
+        btnCancelarUsuarioCrear.setText(bundle.getString("boton.cancelar"));
+        btnLimpiarUsuarioCrear.setText(bundle.getString("boton.limpiar"));
     }
 
     /**
@@ -180,15 +180,15 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     public JButton getBtnCancelarUsuarioCrear() {
         return btnCancelarUsuarioCrear;
     }
-    
+
     public JButton getBtnCrearUsuarioCrear() {
         return btnCrearUsuarioCrear;
     }
-    
+
     public JButton getBtnLimpiarUsuarioCrear() {
         return btnLimpiarUsuarioCrear;
     }
-    
+
     public JTextField getTxtCedulaUsuarioCrear() {
         return txtCedulaUsuarioCrear;
     }
@@ -196,15 +196,81 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
     public JTextField getTxtNombreUsuarioCrear() {
         return txtNombreUsuarioCrear;
     }
-    
+
     public JTextField getTxtTelefonoUsuarioCrear() {
         return txtTelefonoUsuarioCrear;
     }
-    
-    public void mostarMensaje(String mensaje){
+
+    public void mostarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
-    
+
+    public boolean isValidaCedula(String cedula) {
+        
+    if (cedula != null && cedula.length() == 10) {
+
+        int digitoVerificador = Character.getNumericValue(cedula.charAt(9));
+        int suma = 0;
+        int resultado = 0;
+        
+        
+        char[] digitos = cedula.toCharArray();
+        
+        
+        if (Character.isLetter(digitos[9])) {
+            return false;
+        }
+
+        for (int i = 0; i < 9; i++) {
+            
+            if (Character.isLetter(digitos[i])) {
+                return false;
+            }
+            
+            int digito = Character.getNumericValue(digitos[i]);
+
+            if (i % 2 == 0) {
+                digito = digito * 2;
+                if (digito >= 10) {
+                    digito -= 9;
+                }
+            }
+            suma += digito;
+        } 
+        
+        int decenaSuperior = ((suma + 9) / 10) * 10; 
+        resultado = decenaSuperior - suma;
+
+        if (resultado == 10) {
+            resultado = 0;
+        }
+        
+        if (resultado == digitoVerificador) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+    public boolean isValidoCelular(String celular){
+        if(celular != null && celular.length() == 10){
+        char[] celularC = celular.toCharArray();
+        
+        if(celularC[0]!= '0' || celularC[1]!= '9'){ // se pone con comillas porque estoy comparando char no enteros
+            return false;
+        }
+            for (int i = 0; i < celularC.length; i++) {
+                if(Character.isLetter(celularC[i]))
+                    return false;
+            }
+            return true;
+            }
+        
+        return false;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarUsuarioCrear;
     private javax.swing.JButton btnCrearUsuarioCrear;

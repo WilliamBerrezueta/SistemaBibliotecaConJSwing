@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -210,6 +211,9 @@ public class UsuarioBuscarView extends javax.swing.JInternalFrame {
         return txtTelefonoUsuarioBuscar;
     }
 
+    public void mostarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

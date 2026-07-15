@@ -150,30 +150,16 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
         return btnLimpiarAutorActualizar;
     }
 
-    public void limpiarCampos() {
-        txtNombreAutorActualizar.setText("");
-        txtYearAutorActualizar.setText("");
-        txtNacionalidadAutorActualizar.setText("");
-    }
-
-    public void mostrarMensaje(String mensaje) {
-        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
-    }
-
-    public void addCancelarListener(ActionListener listener) {
-        btnCancelarAutorActualizar.addActionListener(listener);
-    }
-
-    public void addLimpiarListener(ActionListener listener) {
-        btnLimpiarAutorActualizar.addActionListener(listener);
-    }
-
     public JButton getBtnActualizarAutorActualizar() {
         return btnActualizarAutorActualizar;
     }
 
-    public void setBtnActualizarAutorActualizar(JButton btnActualizarAutorActualizar) {
-        this.btnActualizarAutorActualizar = btnActualizarAutorActualizar;
+    public JButton getBtnBuscarAutorActualizar() {
+        return btnBuscarAutorActualizar;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

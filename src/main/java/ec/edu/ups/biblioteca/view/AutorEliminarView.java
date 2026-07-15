@@ -165,12 +165,6 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
         return btnLimpiarAutorEliminar;
     }
 
-    public void limpiarCampos() {
-        txtNombreAutorEliminar.setText("");
-        txtYearAutorEliminar.setText("");
-        txtNacionalidadAutorEliminar.setText("");
-    }
-
     public void mostrarMensaje(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }

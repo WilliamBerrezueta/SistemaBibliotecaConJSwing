@@ -157,12 +157,6 @@ public JTextField getTxtNombre() {
         return btnLimpiarAutorBuscar;
     }
 
-    public void limpiarCampos() {
-        txtNombreAutorBuscar.setText("");
-        txtYearAutorBuscar.setText("");
-        txtNacionalidadAutorBuscar.setText("");
-    }
-
     public void mostrarMensaje(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }

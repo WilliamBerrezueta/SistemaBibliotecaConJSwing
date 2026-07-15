@@ -4,6 +4,9 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -134,7 +137,47 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
     private void txtNombreAutorEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAutorEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreAutorEliminarActionPerformed
+    public JTextField getTxtNombre() {
+        return txtNombreAutorEliminar;
+    }
 
+    public JTextField getTxtYear() {
+        return txtYearAutorEliminar;
+    }
+
+    public JTextField getTxtNacionalidad() {
+        return txtNacionalidadAutorEliminar;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscarAutorEliminar;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminarAutorEliminar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelarAutorEliminar;
+    }
+
+    public JButton getBtnLimpiar() {
+        return btnLimpiarAutorEliminar;
+    }
+
+    public void limpiarCampos() {
+        txtNombreAutorEliminar.setText("");
+        txtYearAutorEliminar.setText("");
+        txtNacionalidadAutorEliminar.setText("");
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    public int mostrarConfirmacion(String mensaje) {
+        return javax.swing.JOptionPane.showConfirmDialog(this, mensaje);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarAutorEliminar;

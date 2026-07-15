@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -118,8 +122,32 @@ public class AutorCrearView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public JTextField getTxtNombre() {
+    return txtNombreAutorCrear;
+}
 
+public JTextField getTxtYear() {
+    return txtYearAutorCrear;
+}
 
+public JTextField getTxtNacionalidad() {
+    return txtNacionalidadAutorCrear;
+}
+
+public JButton getBtnCrear() {
+    return btnCrearAutorCrear;
+}
+
+public JButton getBtnLimpiar() {
+    return btnLimpiarAutorCrear;
+}
+
+public JButton getBtnCancelar() {
+    return btnCancelarAutorCrear;
+}
+public void mostrarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarAutorCrear;
     private javax.swing.JButton btnCrearAutorCrear;

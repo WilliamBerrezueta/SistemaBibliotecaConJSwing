@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -129,7 +133,51 @@ public class AutorBuscarView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public JTextField getTxtNombre() {
+        return txtNombreAutorBuscar;
+    }
 
+    public JTextField getTxtYear() {
+        return txtYearAutorBuscar;
+    }
+
+    public JTextField getTxtNacionalidad() {
+        return txtNacionalidadAutorBuscar;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscarAutorBuscar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelarAutorBuscar;
+    }
+
+    public JButton getBtnLimpiar() {
+        return btnLimpiarAutorBuscar;
+    }
+
+    public void limpiarCampos() {
+        txtNombreAutorBuscar.setText("");
+        txtYearAutorBuscar.setText("");
+        txtNacionalidadAutorBuscar.setText("");
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    public void addBuscarListener(ActionListener listener) {
+        btnBuscarAutorBuscar.addActionListener(listener);
+    }
+
+    public void addCancelarListener(ActionListener listener) {
+        btnCancelarAutorBuscar.addActionListener(listener);
+    }
+
+    public void addLimpiarListener(ActionListener listener) {
+        btnLimpiarAutorBuscar.addActionListener(listener);
+    }
     private void btnBuscarAutorBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAutorBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarAutorBuscarActionPerformed
@@ -137,7 +185,7 @@ public class AutorBuscarView extends javax.swing.JInternalFrame {
     private void txtNacionalidadAutorBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacionalidadAutorBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNacionalidadAutorBuscarActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarAutorBuscar;

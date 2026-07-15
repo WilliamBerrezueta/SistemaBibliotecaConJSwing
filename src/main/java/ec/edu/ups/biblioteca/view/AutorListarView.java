@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import ec.edu.ups.biblioteca.models.Autor;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -105,7 +107,21 @@ public class AutorListarView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void cargarDatos(List<Autor> listaAutores) {
 
+        modelo.setRowCount(0);
+
+        for (Autor autor : listaAutores) {
+
+            modelo.addRow(new Object[]{
+                autor.getNombre(),
+                autor.getYearDeNacimiento(),
+                autor.getNacionalidad()
+            });
+
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

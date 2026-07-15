@@ -4,9 +4,12 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import ec.edu.ups.biblioteca.controller.AutorController;
 import ec.edu.ups.biblioteca.controller.LibroController;
 import ec.edu.ups.biblioteca.controller.PrestamoController;
 import ec.edu.ups.biblioteca.controller.UsuarioController;
+import ec.edu.ups.biblioteca.dao.AutorDao;
+import ec.edu.ups.biblioteca.dao.AutorDaoMemoria;
 import ec.edu.ups.biblioteca.dao.LibroDao;
 import ec.edu.ups.biblioteca.dao.LibroDaoMemoria;
 import ec.edu.ups.biblioteca.dao.PrestamoDao;
@@ -46,6 +49,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private PrestamoEliminarView prestamoEliminarView;
     private PrestamoListarView prestamoListarView;
     
+    private AutorDao autorDao;
+    private AutorController autorController;
     private AutorCrearView autorCrearView;
     private AutorBuscarView autorBuscarView;
     private AutorEliminarView autorEliminarView;
@@ -86,6 +91,18 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoListarView = new PrestamoListarView();
         prestamoDao = new PrestamoDaoMemoria();
         prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, prestamoEliminarView, prestamoListarView, usuarioDao, libroDao, prestamoBuscarView,libroController);
+    
+        prestamoController.listarPrestamos();
+        
+        autorActualizarView = new AutorActualizarView();
+        autorBuscarView = new AutorBuscarView();
+        autorCrearView = new AutorCrearView();
+        autorEliminarView = new AutorEliminarView();
+        autorListarView = new AutorListarView();
+        autorDao = new AutorDaoMemoria();
+        autorController = new AutorController(autorActualizarView, autorBuscarView, autorCrearView, autorEliminarView, autorListarView, autorDao);
+        
+        autorController.listarAutores();
     }
 
     public void cambiarIdioma(Locale locale) {
@@ -287,15 +304,19 @@ public class PrincipalView extends javax.swing.JFrame {
         menuItemAutor.add(menuItemAutorCrear);
 
         menuItemAutorBuscar.setText("Buscar");
+        menuItemAutorBuscar.addActionListener(this::menuItemAutorBuscarActionPerformed);
         menuItemAutor.add(menuItemAutorBuscar);
 
         menuItemAutorActualizar.setText("Actualizar");
+        menuItemAutorActualizar.addActionListener(this::menuItemAutorActualizarActionPerformed);
         menuItemAutor.add(menuItemAutorActualizar);
 
         menuItemAutorEliminar.setText("Eliminar");
+        menuItemAutorEliminar.addActionListener(this::menuItemAutorEliminarActionPerformed);
         menuItemAutor.add(menuItemAutorEliminar);
 
         menuItemAutorListar.setText("Listar");
+        menuItemAutorListar.addActionListener(this::menuItemAutorListarActionPerformed);
         menuItemAutor.add(menuItemAutorListar);
 
         menuBar.add(menuItemAutor);
@@ -521,13 +542,49 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemSistemaSalirActionPerformed
 
     private void menuItemAutorCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutorCrearActionPerformed
-        if (!desktopPane.isAncestorOf(prestamoListarView)) {
-            desktopPane.add(prestamoListarView);
+        if (!desktopPane.isAncestorOf(autorCrearView)) {
+            desktopPane.add(autorCrearView);
         }
-        prestamoListarView.setVisible(true);
-        prestamoListarView.toFront();
-        desktopPane.getDesktopManager().activateFrame(prestamoListarView);
+        autorCrearView.setVisible(true);
+        autorCrearView.toFront();
+        desktopPane.getDesktopManager().activateFrame(autorCrearView);
     }//GEN-LAST:event_menuItemAutorCrearActionPerformed
+
+    private void menuItemAutorBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutorBuscarActionPerformed
+        if (!desktopPane.isAncestorOf(autorBuscarView)) {
+            desktopPane.add(autorBuscarView);
+        }
+        autorBuscarView.setVisible(true);
+        autorBuscarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(autorBuscarView);
+    }//GEN-LAST:event_menuItemAutorBuscarActionPerformed
+
+    private void menuItemAutorActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutorActualizarActionPerformed
+        if (!desktopPane.isAncestorOf(autorActualizarView)) {
+            desktopPane.add(autorActualizarView);
+        }
+        autorActualizarView.setVisible(true);
+        autorActualizarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(autorActualizarView);
+    }//GEN-LAST:event_menuItemAutorActualizarActionPerformed
+
+    private void menuItemAutorEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutorEliminarActionPerformed
+        if (!desktopPane.isAncestorOf(autorEliminarView)) {
+            desktopPane.add(autorEliminarView);
+        }
+        autorEliminarView.setVisible(true);
+        autorEliminarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(autorEliminarView);
+    }//GEN-LAST:event_menuItemAutorEliminarActionPerformed
+
+    private void menuItemAutorListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAutorListarActionPerformed
+        if (!desktopPane.isAncestorOf(autorListarView)) {
+            desktopPane.add(autorListarView);
+        }
+        autorListarView.setVisible(true);
+        autorListarView.toFront();
+        desktopPane.getDesktopManager().activateFrame(autorListarView);
+    }//GEN-LAST:event_menuItemAutorListarActionPerformed
 
     /**
      * @param args the command line arguments

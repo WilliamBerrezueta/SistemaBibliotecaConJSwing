@@ -42,50 +42,217 @@ public class AutorController {
         this.autorDao = autorDao;
 
         configurarEventoAutorCrear();
-//        configurarEventoAutorBuscar();
-//        configurarEventoAutorActualizar();
-//        configurarEventoAutorEliminar();
+        configurarEventoAutorBuscar();
+        configurarEventoAutorActualizar();
+        configurarEventoAutorEliminar();
 
     }
-    public void crearAutor(){
 
-    String nombre = autorCrearView.getTxtNombre().getText();
-    String yearTexto = autorCrearView.getTxtYear().getText();
-    String nacionalidad = autorCrearView.getTxtNacionalidad().getText();
+    public void crearAutor() {
 
-    if(nombre.isEmpty() || yearTexto.isEmpty() || nacionalidad.isEmpty()){
-        autorCrearView.mostrarMensaje("Debe llenar todos los campos");
-        return;
+        String nombre = autorCrearView.getTxtNombre().getText();
+        String yearTexto = autorCrearView.getTxtYear().getText();
+        String nacionalidad = autorCrearView.getTxtNacionalidad().getText();
+
+        if (nombre.isEmpty() || yearTexto.isEmpty() || nacionalidad.isEmpty()) {
+            autorCrearView.mostrarMensaje("Debe llenar todos los campos");
+            return;
+        }
+
+        int year = Integer.parseInt(yearTexto);
+
+        Autor autor = new Autor(nombre, year, nacionalidad);
+
+        autorDao.crear(autor);
+
+        listarAutores();
+
+        autorCrearView.mostrarMensaje("Autor creado correctamente");
+
     }
 
-    int year = Integer.parseInt(yearTexto);
-
-    Autor autor = new Autor(nombre,year,nacionalidad);
-
-    autorDao.crear(autor);
-
-    listarAutores();
-
-    autorCrearView.mostrarMensaje("Autor creado correctamente");
-
- } 
     public void configurarEventoAutorCrear() {
 
-    autorCrearView.getBtnCrear().addActionListener(e -> crearAutor());
+        autorCrearView.getBtnCrear().addActionListener(e -> crearAutor());
 
-    autorCrearView.getBtnLimpiar().addActionListener(e -> limpiarAutorCrear());
+        autorCrearView.getBtnLimpiar().addActionListener(e -> limpiarAutorCrear());
 
-    autorCrearView.getBtnCancelar().addActionListener(e -> autorCrearView.dispose());
+        autorCrearView.getBtnCancelar().addActionListener(e -> autorCrearView.dispose());
 
-}
+    }
+
     public void listarAutores() {
-    autorListarView.cargarDatos(autorDao.listar());
-}
+        autorListarView.cargarDatos(autorDao.listar());
+    }
+
     public void limpiarAutorCrear() {
 
-    autorCrearView.getTxtNombre().setText("");
-    autorCrearView.getTxtYear().setText("");
-    autorCrearView.getTxtNacionalidad().setText("");
+        autorCrearView.getTxtNombre().setText("");
+        autorCrearView.getTxtYear().setText("");
+        autorCrearView.getTxtNacionalidad().setText("");
 
-}
+    }
+
+    public void buscarAutor() {
+
+        String nombre = autorBuscarView.getTxtNombre().getText();
+
+        Autor autor = autorDao.buscar(nombre);
+
+        if (autor != null) {
+
+            autorBuscarView.getTxtNombre().setText(autor.getNombre());
+            autorBuscarView.getTxtYear().setText(String.valueOf(autor.getYearDeNacimiento()));
+            autorBuscarView.getTxtNacionalidad().setText(autor.getNacionalidad());
+
+        } else {
+
+            autorBuscarView.mostrarMensaje("Autor no encontrado");
+
+        }
+
+    }
+
+    public void limpiarAutorBuscar() {
+
+        autorBuscarView.getTxtNombre().setText("");
+        autorBuscarView.getTxtYear().setText("");
+        autorBuscarView.getTxtNacionalidad().setText("");
+
+    }
+
+    public void configurarEventoAutorBuscar() {
+
+        autorBuscarView.getBtnBuscar().addActionListener(e -> buscarAutor());
+
+        autorBuscarView.getBtnLimpiar().addActionListener(e -> limpiarAutorBuscar());
+
+        autorBuscarView.getBtnCancelar().addActionListener(e -> autorBuscarView.dispose());
+
+    }
+
+    public void buscarAutorActualizar() {
+
+        String nombre = autorActualizarView.getTxtNombre().getText();
+
+        Autor autor = autorDao.buscar(nombre);
+
+        if (autor != null) {
+
+            autorActualizarView.getTxtNombre().setText(autor.getNombre());
+            autorActualizarView.getTxtYear().setText(String.valueOf(autor.getYearDeNacimiento()));
+            autorActualizarView.getTxtNacionalidad().setText(autor.getNacionalidad());
+
+        } else {
+
+            autorActualizarView.mostrarMensaje("Autor no encontrado");
+
+        }
+
+    }
+
+    public void actualizarAutor() {
+
+        String nombre = autorActualizarView.getTxtNombre().getText();
+
+        Autor autor = autorDao.buscar(nombre);
+
+        if (autor != null) {
+
+            autor.setNombre(autorActualizarView.getTxtNombre().getText());
+            autor.setYearDeNacimiento(Integer.parseInt(autorActualizarView.getTxtYear().getText()));
+            autor.setNacionalidad(autorActualizarView.getTxtNacionalidad().getText());
+
+            autorDao.actualizar(autor);
+
+            listarAutores();
+
+            autorActualizarView.mostrarMensaje("Autor actualizado");
+
+        }
+
+    }
+
+    public void limpiarAutorActualizar() {
+
+        autorActualizarView.getTxtNombre().setText("");
+        autorActualizarView.getTxtYear().setText("");
+        autorActualizarView.getTxtNacionalidad().setText("");
+
+    }
+
+    public void configurarEventoAutorActualizar() {
+
+        autorActualizarView.getBtnBuscarAutorActualizar().addActionListener(e -> buscarAutorActualizar());
+
+        autorActualizarView.getBtnActualizarAutorActualizar().addActionListener(e -> actualizarAutor());
+
+        autorActualizarView.getBtnLimpiar().addActionListener(e -> limpiarAutorActualizar());
+
+        autorActualizarView.getBtnCancelar().addActionListener(e -> autorActualizarView.dispose());
+
+    }
+
+    public void buscarAutorEliminar() {
+
+        String nombre = autorEliminarView.getTxtNombre().getText();
+
+        Autor autor = autorDao.buscar(nombre);
+
+        if (autor != null) {
+
+            autorEliminarView.getTxtNombre().setText(autor.getNombre());
+            autorEliminarView.getTxtYear().setText(String.valueOf(autor.getYearDeNacimiento()));
+            autorEliminarView.getTxtNacionalidad().setText(autor.getNacionalidad());
+
+        } else {
+
+            autorEliminarView.mostrarMensaje("Autor no encontrado");
+
+        }
+
+    }
+
+    public void eliminarAutor() {
+
+        String nombre = autorEliminarView.getTxtNombre().getText();
+
+        Autor autor = autorDao.buscar(nombre);
+
+        if (autor != null) {
+
+            int opcion = autorEliminarView.mostrarConfirmacion("¿Desea eliminar este autor?");
+
+            if (opcion == 0) {
+
+                autorDao.eliminar(nombre);
+
+                listarAutores();
+
+            }
+
+        }
+
+    }
+
+    public void limpiarAutorEliminar() {
+
+        autorEliminarView.getTxtNombre().setText("");
+        autorEliminarView.getTxtYear().setText("");
+        autorEliminarView.getTxtNacionalidad().setText("");
+
+    }
+
+    public void configurarEventoAutorEliminar() {
+
+        autorEliminarView.getBtnBuscar().addActionListener(e -> buscarAutorEliminar());
+
+        autorEliminarView.getBtnEliminar().addActionListener(e -> eliminarAutor());
+
+        autorEliminarView.getBtnLimpiar().addActionListener(e -> limpiarAutorEliminar());
+
+        autorEliminarView.getBtnCancelar().addActionListener(e -> autorEliminarView.dispose());
+
+    }
+
 }

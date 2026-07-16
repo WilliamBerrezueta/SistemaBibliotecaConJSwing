@@ -5,6 +5,7 @@
 package ec.edu.ups.biblioteca.view;
 
 import ec.edu.ups.biblioteca.models.Autor;
+import ec.edu.ups.biblioteca.models.Genero;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
@@ -271,7 +272,7 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrearLibroCrearActionPerformed
 
     private void rbtnDisponibleLibroCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDisponibleLibroCrearActionPerformed
-        // TODO add your handling code here:
+        txtDisponibleLibroCrear.setText(rbtnDisponibleLibroCrear.isSelected() ? "Sí" : "No");
     }//GEN-LAST:event_rbtnDisponibleLibroCrearActionPerformed
 
     private void cbxGeneroLibroCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxGeneroLibroCrearActionPerformed
@@ -362,7 +363,16 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
     public javax.swing.JComboBox<Autor> getCbxAutorLibroCrear() {
         return (javax.swing.JComboBox<Autor>) (javax.swing.JComboBox<?>) cbxAutorLibroCrear;
     } 
-    
+
+    @SuppressWarnings("unchecked")
+    public javax.swing.JComboBox<Genero> getCbxGeneroLibroCrear() {
+        return (javax.swing.JComboBox<Genero>) (javax.swing.JComboBox<?>) cbxGeneroLibroCrear;
+    }
+
+    public JTextField getTxtDisponibleLibroCrear() {
+        return txtDisponibleLibroCrear;
+    }
+
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }

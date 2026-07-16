@@ -315,6 +315,10 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         return rbtnDisponibleLibroEliminar;
     }
 
+    public JTextField getTxtDisponibleLibroEliminar() {
+        return txtDisponibleLibroEliminar;
+    }
+
     public JTextField getTxtAutorLibroEliminar() {
         return txtAutorLibroEliminar;
     }

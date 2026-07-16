@@ -86,6 +86,11 @@ public class PrincipalView extends javax.swing.JFrame {
         libroController = new LibroController(libroActualizarView,libroBuscarView,libroCrearView,libroEliminarView,libroListarView,libroDao,autorDao);
 
         libroController.listarLibros();
+        
+        // Permite que AutorController avise a LibroController cada vez que
+        // se crea, actualiza o elimina un autor, para mantener sincronizado
+        // el combo box de autores de LibroCrearView.
+        autorController.setLibroController(libroController);
 
         usuarioActualizarView = new UsuarioActualizarView();
         usuarioBuscarView = new UsuarioBuscarView();

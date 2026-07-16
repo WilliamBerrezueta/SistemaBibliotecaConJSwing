@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.biblioteca.dao;
 
+import ec.edu.ups.biblioteca.models.Genero;
 import ec.edu.ups.biblioteca.models.Libro;
 import java.io.File;
 
@@ -48,7 +49,8 @@ public class LibroDaoArchivo implements LibroDao {
         escribirString(raf, libro.getIsbn(), TAMANIO_ISBN);
         escribirString(raf, libro.getTitulo(), TAMANIO_TITULO);
         raf.writeInt(libro.getAñoDePublicacion());
-        escribirString(raf, libro.getGenero(), TAMANIO_GENERO);
+        String nombreGenero = libro.getGenero() != null ? libro.getGenero().name() : "";
+        escribirString(raf, nombreGenero, TAMANIO_GENERO);
         raf.writeBoolean(libro.isDisponible());
         escribirString(raf, libro.getEditorial(), TAMANIO_EDITORIAL);
         String nombreAutor = libro.getAutor() != null ? libro.getAutor().getNombre() : "";
@@ -69,7 +71,7 @@ public class LibroDaoArchivo implements LibroDao {
         libro.setIsbn(isbn);
         libro.setTitulo(titulo);
         libro.setAñoDePublicacion(año);
-        libro.setGenero(genero);
+        libro.setGenero(!genero.isEmpty() ? Genero.valueOf(genero) : null);
         libro.setDisponible(disponible);
         libro.setEditorial(editorial);
         libro.setAutor(!nombreAutor.isEmpty() ? autorDao.buscar(nombreAutor) : null); // reconstruye el objeto Autor completo

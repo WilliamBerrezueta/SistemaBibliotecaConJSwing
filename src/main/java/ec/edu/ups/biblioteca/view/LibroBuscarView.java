@@ -309,6 +309,10 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         return rbtnDisponibleLibroBuscar;
     }
 
+    public JTextField getTxtDisponibleLibroBuscar() {
+        return txtDisponibleLibroBuscar;
+    }
+
     public void setRbtnDisponibleLibroBuscar(JRadioButton rbtnDisponibleLibroBuscar) {
         this.rbtnDisponibleLibroBuscar = rbtnDisponibleLibroBuscar;
     }

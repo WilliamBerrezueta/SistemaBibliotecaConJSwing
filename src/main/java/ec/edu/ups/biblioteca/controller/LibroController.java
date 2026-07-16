@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.controller;
 import ec.edu.ups.biblioteca.dao.AutorDao;
 import ec.edu.ups.biblioteca.dao.LibroDao;
 import ec.edu.ups.biblioteca.models.Autor;
+import ec.edu.ups.biblioteca.models.Genero;
 import ec.edu.ups.biblioteca.models.Libro;
 import ec.edu.ups.biblioteca.view.LibroActualizarView;
 import ec.edu.ups.biblioteca.view.LibroBuscarView;
@@ -46,6 +47,7 @@ public class LibroController {
         configurarEventoLibroEliminar();
         configurarEventoLibroActualizar();
         cargarAutoresCombo();
+        cargarGenerosCombo();
     }
     
     
@@ -54,12 +56,12 @@ public class LibroController {
         String isbn = libroCrearView.getTxtIsbnLibroCrear().getText();
         String titulo = libroCrearView.getTxtTituloLibroCrear().getText();
         String añoTexto = libroCrearView.getTxtYearLibroCrear().getText();
-        String genero = libroCrearView.getTxtGeneroLibroCrear().getText();
+        Genero genero = (Genero) libroCrearView.getCbxGeneroLibroCrear().getSelectedItem();
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
         Autor autor = (Autor) libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
         
-        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero.isEmpty() || editorial.isEmpty() || autor == null) {
+        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero == null || editorial.isEmpty() || autor == null) {
         libroCrearView.mostarMensaje("Debe llenar todos los campos");
         if(isbn.length()!=13){
         libroCrearView.mostarMensaje("Ingrese los 13 numeros del codigo ISBN");
@@ -86,6 +88,13 @@ public class LibroController {
     libroCrearView.getTxtTituloLibroCrear().setText("");
     libroCrearView.getTxtYearLibroCrear().setText("");
     libroCrearView.getRbtnDisponibleLibroCrear().setSelected(false);
+    libroCrearView.getTxtDisponibleLibroCrear().setText("No");
+    if (libroCrearView.getCbxGeneroLibroCrear().getItemCount() > 0) {
+        libroCrearView.getCbxGeneroLibroCrear().setSelectedIndex(0);
+    }
+    if (libroCrearView.getCbxAutorLibroCrear().getItemCount() > 0) {
+        libroCrearView.getCbxAutorLibroCrear().setSelectedIndex(0);
+    }
 }
     // CONFIGURAR
     public void configurarEventoLibroCrear() {
@@ -120,7 +129,7 @@ public class LibroController {
             if (libroBuscar != null) {
                 libroBuscarView.getTxtAutorLibroBuscar().setText(libroBuscar.getAutor().getNombre());
                 libroBuscarView.getTxtEditorialLibroBuscar().setText(libroBuscar.getEditorial());
-                libroBuscarView.getTxtGeneroLibroBuscar().setText(libroBuscar.getGenero());
+                libroBuscarView.getTxtGeneroLibroBuscar().setText(libroBuscar.getGenero() != null ? libroBuscar.getGenero().toString() : "");
                 libroBuscarView.getTxtIsbnLibroBuscar().setText(libroBuscar.getIsbn());
                 libroBuscarView.getTxtTituloLibroBuscar().setText(libroBuscar.getTitulo());
                 libroBuscarView.getTxtYearLibroBuscar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
@@ -137,6 +146,7 @@ public class LibroController {
     libroBuscarView.getTxtTituloLibroBuscar().setText("");
     libroBuscarView.getTxtYearLibroBuscar().setText("");
     libroBuscarView.getRbtnDisponibleLibroBuscar().setSelected(false);
+    libroBuscarView.getTxtDisponibleLibroBuscar().setText("No");
 }
     public void configurarEventoLibroBuscar() {
         libroBuscarView.getBtnCrearLibroBuscar().addActionListener(new ActionListener() { //clase anonima
@@ -185,6 +195,7 @@ public class LibroController {
     libroEliminarView.getTxtTituloLibroEliminar().setText("");
     libroEliminarView.getTxtYearLibroEliminar().setText("");
     libroEliminarView.getRbtnDisponibleLibroEliminar().setSelected(false);
+    libroEliminarView.getTxtDisponibleLibroEliminar().setText("No");
 }
     public void eliminarLibroBuscar() {
         if (libroEliminarView != null) {
@@ -196,7 +207,7 @@ public class LibroController {
             if (libroBuscar != null) {
                 libroEliminarView.getTxtAutorLibroEliminar().setText(libroBuscar.getAutor().getNombre());
                 libroEliminarView.getTxtEditorialLibroEliminar().setText(libroBuscar.getEditorial());
-                libroEliminarView.getTxtGeneroLibroEliminar().setText(libroBuscar.getGenero());
+                libroEliminarView.getTxtGeneroLibroEliminar().setText(libroBuscar.getGenero() != null ? libroBuscar.getGenero().toString() : "");
                 libroEliminarView.getTxtIsbnLibroEliminar().setText(libroBuscar.getIsbn());
                 libroEliminarView.getTxtTituloLibroEliminar().setText(libroBuscar.getTitulo());
                 libroEliminarView.getTxtYearLibroEliminar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
@@ -241,11 +252,20 @@ public class LibroController {
 
     if(libro != null){
 
+        Genero genero;
+        try {
+            genero = Genero.fromTexto(libroActualizarView.getTxtGeneroLibroActualizar().getText());
+        } catch (IllegalArgumentException ex) {
+            libroActualizarView.mostarMensaje("Use uno de los géneros existentes");
+            return;
+        }
+
         libro.setTitulo(libroActualizarView.getTxtTituloLibroActualizar().getText());
         libro.setEditorial(libroActualizarView.getTxtEditorialLibroActualizar().getText());
-        libro.setGenero(libroActualizarView.getTxtGeneroLibroActualizar().getText());
+        libro.setGenero(genero);
         libro.setAñoDePublicacion(Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText()));
         libro.setDisponible(libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected());
+        libroActualizarView.getTxtDisponibleLibroActualizar().setText(libro.isDisponible() ? "Sí" : "No");
 
         libroDao.actualizar(libro);
 
@@ -268,7 +288,7 @@ public class LibroController {
             if (libroBuscar != null) {
                 libroActualizarView.getTxtAutorLibroActualizar().setText(libroBuscar.getAutor().getNombre());
                 libroActualizarView.getTxtEditorialLibroActualizar().setText(libroBuscar.getEditorial());
-                libroActualizarView.getTxtGeneroLibroActualizar().setText(libroBuscar.getGenero());
+                libroActualizarView.getTxtGeneroLibroActualizar().setText(libroBuscar.getGenero() != null ? libroBuscar.getGenero().toString() : "");
                 libroActualizarView.getTxtTituloLibroActualizar().setText(libroBuscar.getTitulo());
                 libroActualizarView.getTxtYearLibroActualizar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
                 libroActualizarView.getRbtnDisponibleLibroActualizar().setSelected(libroBuscar.isDisponible());
@@ -283,6 +303,7 @@ public class LibroController {
     libroActualizarView.getTxtTituloLibroActualizar().setText("");
     libroActualizarView.getTxtYearLibroActualizar().setText("");
     libroActualizarView.getRbtnDisponibleLibroActualizar().setSelected(false);
+    libroActualizarView.getTxtDisponibleLibroActualizar().setText("No");
 }
     public void configurarEventoLibroActualizar() {
         libroActualizarView.getBtnActualizarLibroActualizar().addActionListener(new ActionListener() { //clase anonima
@@ -315,14 +336,39 @@ public class LibroController {
         libroListarView.cargarDatos(libroDao.listar());
         
     }
-    //// METODO PARA RELLENAR COMBO BOX
+    //// METODOS PARA RELLENAR LOS COMBO BOX
+
+    
+//      Recarga el combo de autores del formulario de creación de libros con
+//      los autores actualmente registrados. Este método debe volver a
+//      ejecutarse cada vez que se crea, actualiza o elimina un autor para que
+//      el combo box siempre refleje la lista más reciente
+     
     public void cargarAutoresCombo() {
 
-    libroCrearView.getCbxAutorLibroCrear().removeAllItems();
+        Object seleccionActual = libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
 
-    for (Autor autor : autorDao.listar()) {
-        libroCrearView.getCbxAutorLibroCrear().addItem(autor);
+        libroCrearView.getCbxAutorLibroCrear().removeAllItems();
+
+        for (Autor autor : autorDao.listar()) {
+            libroCrearView.getCbxAutorLibroCrear().addItem(autor);
+        }
+
+        if (seleccionActual instanceof Autor) {
+            libroCrearView.getCbxAutorLibroCrear().setSelectedItem(seleccionActual);
+        }
     }
 
-}
+    
+//      Rellena el combo de género del formulario de creación de libros con
+//      todos los valores de la enumeración
+     
+    public void cargarGenerosCombo() {
+
+        libroCrearView.getCbxGeneroLibroCrear().removeAllItems();
+
+        for (Genero genero : Genero.values()) {
+            libroCrearView.getCbxGeneroLibroCrear().addItem(genero);
+        }
+    }
 }

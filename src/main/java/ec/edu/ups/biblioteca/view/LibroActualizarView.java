@@ -286,7 +286,7 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnActualizarLibroActualizarActionPerformed
 
     private void rbtnDisponibleLibroActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDisponibleLibroActualizarActionPerformed
-        // TODO add your handling code here:
+        txtDisponibleLibroActualizar.setText(rbtnDisponibleLibroActualizar.isSelected() ? "Sí" : "No");
     }//GEN-LAST:event_rbtnDisponibleLibroActualizarActionPerformed
 
     private void btnCancelarLibroActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarLibroActualizarActionPerformed
@@ -318,6 +318,10 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
 
     public JRadioButton getRbtnDisponibleLibroActualizar() {
         return rbtnDisponibleLibroActualizar;
+    }
+
+    public JTextField getTxtDisponibleLibroActualizar() {
+        return txtDisponibleLibroActualizar;
     }
 
     public JTextField getTxtAutorLibroActualizar() {

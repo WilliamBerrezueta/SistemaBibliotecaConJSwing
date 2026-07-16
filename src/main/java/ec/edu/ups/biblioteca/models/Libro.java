@@ -16,7 +16,7 @@ public class Libro {
     private String isbn;
     private String titulo;
     private int añoDePublicacion;
-    private String genero;
+    private Genero genero;
     private boolean disponible;
     private String editorial;
     private Autor autor;
@@ -25,7 +25,7 @@ public class Libro {
     }
     
 
-    public Libro(String isbn, String titulo, int añoDePublicacion, String genero, boolean disponible, String editorial, Autor autor) {
+    public Libro(String isbn, String titulo, int añoDePublicacion, Genero genero, boolean disponible, String editorial, Autor autor) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.añoDePublicacion = añoDePublicacion;
@@ -59,11 +59,11 @@ public class Libro {
         this.añoDePublicacion = añoDePublicacion;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 

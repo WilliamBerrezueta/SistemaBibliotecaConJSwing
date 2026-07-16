@@ -25,6 +25,25 @@ public class AutorController {
     private AutorActualizarView autorActualizarView;
     private AutorEliminarView autorEliminarView;
     private AutorListarView autorListarView;
+    
+    // Referencia opcional al controlador de libros. Se usa únicamente para
+    // refrescar el combo box de autores de LibroCrearView cada vez que se
+    // crea, actualiza o elimina un autor, sin que ambos controladores
+    // dependan uno del otro en su construcción.
+    private LibroController libroController;
+
+    public void setLibroController(LibroController libroController) {
+        this.libroController = libroController;
+    }
+
+    // Centraliza el refresco del combo box de autores; si todavía no se
+    // asignó el LibroController (por ejemplo, mientras se arma la ventana
+    // principal) simplemente no hace nada.
+    private void actualizarComboAutoresEnLibros() {
+        if (libroController != null) {
+            libroController.cargarAutoresCombo();
+        }
+    }
 
     public AutorController(
             AutorActualizarView autorActualizarView,
@@ -66,6 +85,8 @@ public class AutorController {
         autorDao.crear(autor);
 
         listarAutores();
+        
+        actualizarComboAutoresEnLibros();
 
         autorCrearView.mostrarMensaje("Autor creado correctamente");
 
@@ -166,6 +187,8 @@ public class AutorController {
             autorDao.actualizar(autor);
 
             listarAutores();
+            
+            actualizarComboAutoresEnLibros();
 
             autorActualizarView.mostrarMensaje("Autor actualizado");
 
@@ -228,6 +251,8 @@ public class AutorController {
                 autorDao.eliminar(nombre);
 
                 listarAutores();
+                
+                actualizarComboAutoresEnLibros();
 
             }
 

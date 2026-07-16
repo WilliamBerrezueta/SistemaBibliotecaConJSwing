@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -27,6 +27,11 @@ public class UsuarioController {
     private UsuarioCrearView usuarioCrearView;
     private UsuarioEliminarView usuarioEliminarView;
     private UsuarioListarView usuarioListarView;
+    
+    // Bandera para evitar que, mientras se rellenan los combos por código
+    // (removeAllItems + addItem), se disparen búsquedas o mensajes como si
+    // el usuario hubiese seleccionado algo manualmente.
+    private boolean cargandoCombosCedula = false;
 
     public UsuarioController(UsuarioActualizarView usuarioActualizarView, UsuarioBuscarView usuarioBuscarView, UsuarioCrearView usuarioCrearView, UsuarioEliminarView usuarioEliminarView, UsuarioListarView usuarioListarView, UsuarioDao usuarioDao) {
 
@@ -41,6 +46,7 @@ public class UsuarioController {
         configurarEventoUsuarioBuscar();
         configurarEventoUsuarioEliminar();
         configurarEventoUsuarioActualizar();
+        cargarCedulasCombo();
 
     }
     // METODOS CREAR
@@ -74,6 +80,7 @@ public class UsuarioController {
         Usuario usuario = new Usuario(nombre, cedula, celular);
         usuarioDao.crear(usuario);
         listarUsuarios();
+        cargarCedulasCombo();
         usuarioCrearView.mostarMensaje("Se ha creado su usuario");
     }
 
@@ -150,6 +157,18 @@ public class UsuarioController {
                 limpiarUsuarioBuscar();
             }
         });
+        usuarioBuscarView.getCbxCedulaUsuarioBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosCedula) {
+                    return;
+                }
+                Object seleccionada = usuarioBuscarView.getCbxCedulaUsuarioBuscar().getSelectedItem();
+                if (seleccionada != null) {
+                    usuarioBuscarView.getTxtCedulaUsuarioBuscar().setText(seleccionada.toString());
+                }
+            }
+        });
     }
 
 // METODOS ELIMINAR
@@ -164,6 +183,7 @@ public class UsuarioController {
                 if (seguro == 0) {
                     usuarioDao.eliminar(cedula);
                     listarUsuarios();
+                    cargarCedulasCombo();
                 }
             }
         }
@@ -218,6 +238,18 @@ public class UsuarioController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 eliminarUsuario();
+            }
+        });
+        usuarioEliminarView.getCbxCedulaUsuarioEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosCedula) {
+                    return;
+                }
+                Object seleccionada = usuarioEliminarView.getCbxCedulaUsuarioEliminar().getSelectedItem();
+                if (seleccionada != null) {
+                    usuarioEliminarView.getTxtCedulaUsuarioEliminar().setText(seleccionada.toString());
+                }
             }
         });
     }
@@ -298,11 +330,59 @@ public class UsuarioController {
                 limpiarUsuarioActualizar();
             }
         });
+        usuarioActualizarView.getCbxCedulaUsuarioActualizar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosCedula) {
+                    return;
+                }
+                Object seleccionada = usuarioActualizarView.getCbxCedulaUsuarioActualizar().getSelectedItem();
+                if (seleccionada != null) {
+                    usuarioActualizarView.getTxtCedulaUsuarioActualizar().setText(seleccionada.toString());
+                }
+            }
+        });
     }
 
     //METODO LISTAR
     public void listarUsuarios() {
         usuarioListarView.cargarDatos(usuarioDao.listar());
+    }
+    
+    //// METODO PARA RELLENAR LOS COMBO BOX DE CEDULA
+
+    
+//      Rellena los combos de cédula de las vistas Buscar, Actualizar y
+//      Eliminar con las cédulas de los usuarios actualmente registrados.
+//      Debe volver a ejecutarse cada vez que se crea o elimina un usuario
+//      para que los combos siempre reflejen la lista más reciente.
+     
+    public void cargarCedulasCombo() {
+
+        cargandoCombosCedula = true;
+
+        java.util.List<Usuario> usuarios = usuarioDao.listar();
+
+        llenarComboCedulas(usuarioBuscarView.getCbxCedulaUsuarioBuscar(), usuarios);
+        llenarComboCedulas(usuarioActualizarView.getCbxCedulaUsuarioActualizar(), usuarios);
+        llenarComboCedulas(usuarioEliminarView.getCbxCedulaUsuarioEliminar(), usuarios);
+
+        cargandoCombosCedula = false;
+    }
+
+    private void llenarComboCedulas(javax.swing.JComboBox<String> combo, java.util.List<Usuario> usuarios) {
+
+        Object seleccionActual = combo.getSelectedItem();
+
+        combo.removeAllItems();
+
+        for (Usuario usuario : usuarios) {
+            combo.addItem(usuario.getCedula());
+        }
+
+        if (seleccionActual != null) {
+            combo.setSelectedItem(seleccionActual);
+        }
     }
 
 }

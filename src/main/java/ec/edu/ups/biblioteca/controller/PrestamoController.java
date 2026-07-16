@@ -32,6 +32,11 @@ public class PrestamoController {
     private PrestamoListarView prestamoListarView;
     private PrestamoEliminarView prestamoEliminarView;
     private LibroController libroController; // para poder actualizar la actualizacion de los libros
+    
+    // Bandera para evitar que, mientras se rellenan los combos por código
+    // (removeAllItems + addItem), se disparen búsquedas como si el usuario
+    // hubiese seleccionado algo manualmente.
+    private boolean cargandoCombosPrestamo = false;
 
     public PrestamoController(PrestamoCrearView prestamoCrearView, PrestamoDao prestamoDao, RegistrarDevolucionView registrarDevolucionView, PrestamoEliminarView prestamoEliminarView, PrestamoListarView prestamoListarView, UsuarioDao usuarioDao, LibroDao libroDao, PrestamoBuscarView prestamoBuscarView,LibroController libroController) {
 
@@ -50,9 +55,10 @@ public class PrestamoController {
         configurarEventoPrestamoBuscar();
         configurarEventoRegistrarDevolucion();
         configurarEventoPrestamoEliminar();
+        cargarCombosPrestamo();
     }
 
-    // METODO PARA CREAR LOS LIBROS
+     // METODO PARA CREAR LOS LIBROS
     private void cargarLibrosDisponibles() {
         List<Libro> libros = libroDao.listar();
         DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
@@ -191,6 +197,7 @@ public class PrestamoController {
         prestamoCrearView.mostarMensaje("Préstamo creado correctamente");
         listarPrestamos();
         limpiarPrestamoCrear();
+        cargarCombosPrestamo();
     }
 
     // SIMPLEMENTE LIMPIAR
@@ -352,6 +359,33 @@ public class PrestamoController {
                 prestamoBuscarView.dispose();
             }
         });
+        
+        prestamoBuscarView.getCbxCodigoPrestamoBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosPrestamo) {
+                    return;
+                }
+                Object seleccionado = prestamoBuscarView.getCbxCodigoPrestamoBuscar().getSelectedItem();
+                if (seleccionado != null) {
+                    String codigoSeleccionado = seleccionado.toString().split(" - ")[0];
+                    prestamoBuscarView.getTxtCodigoPrestamoBuscar().setText(codigoSeleccionado);
+                }
+            }
+        });
+
+        prestamoBuscarView.getCbxCedulaPrestamoBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosPrestamo) {
+                    return;
+                }
+                Object seleccionada = prestamoBuscarView.getCbxCedulaPrestamoBuscar().getSelectedItem();
+                if (seleccionada != null) {
+                    prestamoBuscarView.getTxtCedulaPrestamoBuscar().setText(seleccionada.toString());
+                }
+            }
+        });
     }
 
     // METODO PARA BUSCAR EL PRESTAMO A DEVOLVER
@@ -432,6 +466,7 @@ public class PrestamoController {
         registrarDevolucionView.mostarMensaje("Devolución registrada correctamente");
         listarPrestamos();
         cargarLibrosDisponibles(); // volver a cargarlo por si acaso
+        cargarCombosPrestamo();
     }
 
     public void limpiarCamposDevolucion() {
@@ -473,6 +508,20 @@ public class PrestamoController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registrarDevolucionView.dispose();
+            }
+        });
+        
+        registrarDevolucionView.getCbxCodigoRegistrarDevolucion().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosPrestamo) {
+                    return;
+                }
+                Object seleccionado = registrarDevolucionView.getCbxCodigoRegistrarDevolucion().getSelectedItem();
+                if (seleccionado != null) {
+                    String codigoSeleccionado = seleccionado.toString().split(" - ")[0];
+                    registrarDevolucionView.getTxtCodigoRegistarDevolucion().setText(codigoSeleccionado);
+                }
             }
         });
     }
@@ -551,6 +600,7 @@ public class PrestamoController {
         listarPrestamos();
         limpiarPrestamoEliminar();
         cargarLibrosDisponibles(); // refresca el coso de crear Préstamo para que funcione
+        cargarCombosPrestamo();
     }
 
     public void limpiarPrestamoEliminar() {
@@ -594,6 +644,20 @@ public class PrestamoController {
                 prestamoEliminarView.dispose();
             }
         });
+        
+        prestamoEliminarView.getCbxCodigoPrestamoEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosPrestamo) {
+                    return;
+                }
+                Object seleccionado = prestamoEliminarView.getCbxCodigoPrestamoEliminar().getSelectedItem();
+                if (seleccionado != null) {
+                    String codigoSeleccionado = seleccionado.toString().split(" - ")[0];
+                    prestamoEliminarView.getTxtCodigoPrestamoEliminar().setText(codigoSeleccionado);
+                }
+            }
+        });
     }
 
     // METODO LISTAR 
@@ -610,6 +674,65 @@ public class PrestamoController {
             String estado = (prestamo.getFechaDeDevolucion() != null) ? "Devuelto" : "Prestado";
             modelo.addRow(new Object[]{prestamo.getCodigo(), nombreUsuario, prestamo.getListaLibros().size(), fecha, estado});
         }
+    }
+    
+    public void cargarCombosPrestamo() {
+
+        cargandoCombosPrestamo = true;
+
+        List<Prestamo> prestamos = prestamoDao.listar();
+
+        // Combo de códigos: uno por cada préstamo existente
+        javax.swing.JComboBox<String> cbxCodigoBuscar = prestamoBuscarView.getCbxCodigoPrestamoBuscar();
+        Object codigoBuscarActual = cbxCodigoBuscar.getSelectedItem();
+        cbxCodigoBuscar.removeAllItems();
+
+        javax.swing.JComboBox<String> cbxCodigoEliminar = prestamoEliminarView.getCbxCodigoPrestamoEliminar();
+        Object codigoEliminarActual = cbxCodigoEliminar.getSelectedItem();
+        cbxCodigoEliminar.removeAllItems();
+
+        javax.swing.JComboBox<String> cbxCodigoDevolucion = registrarDevolucionView.getCbxCodigoRegistrarDevolucion();
+        Object codigoDevolucionActual = cbxCodigoDevolucion.getSelectedItem();
+        cbxCodigoDevolucion.removeAllItems();
+
+        // Combo de cédulas: solo cédulas distintas de usuarios con al menos un préstamo
+        javax.swing.JComboBox<String> cbxCedulaBuscar = prestamoBuscarView.getCbxCedulaPrestamoBuscar();
+        Object cedulaBuscarActual = cbxCedulaBuscar.getSelectedItem();
+        cbxCedulaBuscar.removeAllItems();
+
+        java.util.LinkedHashSet<String> cedulasAgregadas = new java.util.LinkedHashSet<>();
+
+        for (Prestamo prestamo : prestamos) {
+
+            String item = prestamo.getCodigo() + " - " + prestamo.getUsuario().getNombre();
+
+            cbxCodigoBuscar.addItem(item);
+            cbxCodigoEliminar.addItem(item);
+
+            if (prestamo.getFechaDeDevolucion() == null) {
+                cbxCodigoDevolucion.addItem(item);
+            }
+
+            String cedula = prestamo.getUsuario().getCedula();
+            if (cedulasAgregadas.add(cedula)) {
+                cbxCedulaBuscar.addItem(cedula);
+            }
+        }
+
+        if (codigoBuscarActual != null) {
+            cbxCodigoBuscar.setSelectedItem(codigoBuscarActual);
+        }
+        if (codigoEliminarActual != null) {
+            cbxCodigoEliminar.setSelectedItem(codigoEliminarActual);
+        }
+        if (codigoDevolucionActual != null) {
+            cbxCodigoDevolucion.setSelectedItem(codigoDevolucionActual);
+        }
+        if (cedulaBuscarActual != null) {
+            cbxCedulaBuscar.setSelectedItem(cedulaBuscarActual);
+        }
+
+        cargandoCombosPrestamo = false;
     }
 
 }

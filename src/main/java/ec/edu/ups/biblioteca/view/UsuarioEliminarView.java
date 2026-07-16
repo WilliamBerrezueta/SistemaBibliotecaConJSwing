@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -57,6 +58,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         lblTelefonoUsuarioEliminar = new javax.swing.JLabel();
         txtTelefonoUsuarioEliminar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        cbxCedulaUsuarioEliminar = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -101,40 +103,47 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminarUsuario.png"))); // NOI18N
 
+        cbxCedulaUsuarioEliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelUsuarioEliminarLayout = new javax.swing.GroupLayout(panelUsuarioEliminar);
         panelUsuarioEliminar.setLayout(panelUsuarioEliminarLayout);
         panelUsuarioEliminarLayout.setHorizontalGroup(
             panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(btnEliminarUsuarioEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancelarUsuarioEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLimpiarUsuarioEliminar)
-                .addGap(0, 67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioEliminarLayout.createSequentialGroup()
-                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(351, 351, 351))
+            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(lblCedulaUsuarioEliminar)
+                .addGap(41, 41, 41)
+                .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbxCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
+                        .addComponent(lblTelefonoUsuarioEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTelefonoUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(btnBuscarUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTelefonoUsuarioEliminar))
+                        .addComponent(lblNombreUsuarioEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(lblCedulaUsuarioEliminar)
-                        .addGap(41, 41, 41)
-                        .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNombreUsuarioEliminar)))
-                .addGap(18, 18, 18)
-                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                    .addComponent(txtTelefonoUsuarioEliminar))
-                .addContainerGap())
+                        .addGap(160, 160, 160)
+                        .addComponent(btnEliminarUsuarioEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarUsuarioEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiarUsuarioEliminar))
+                    .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(btnBuscarUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelUsuarioEliminarLayout.setVerticalGroup(
             panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,17 +155,17 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
                     .addComponent(lblNombreUsuarioEliminar)
                     .addComponent(txtNombreUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCedulaUsuarioEliminar)
-                    .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCedulaUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTelefonoUsuarioEliminar)
-                            .addComponent(txtTelefonoUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelUsuarioEliminarLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscarUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48)
+                        .addComponent(btnBuscarUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTelefonoUsuarioEliminar)
+                        .addComponent(txtTelefonoUsuarioEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(53, 53, 53)
                 .addGroup(panelUsuarioEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarUsuarioEliminar)
                     .addComponent(btnCancelarUsuarioEliminar)
@@ -219,6 +228,10 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         return txtTelefonoUsuarioEliminar;
     }
 
+    public JComboBox<String> getCbxCedulaUsuarioEliminar() {
+        return cbxCedulaUsuarioEliminar;
+    }
+
     public int mostarMensaje(String mensaje){
         return JOptionPane.showConfirmDialog(this, mensaje);
     }
@@ -228,6 +241,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelarUsuarioEliminar;
     private javax.swing.JButton btnEliminarUsuarioEliminar;
     private javax.swing.JButton btnLimpiarUsuarioEliminar;
+    private javax.swing.JComboBox<String> cbxCedulaUsuarioEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedulaUsuarioEliminar;
     private javax.swing.JLabel lblNombreUsuarioEliminar;

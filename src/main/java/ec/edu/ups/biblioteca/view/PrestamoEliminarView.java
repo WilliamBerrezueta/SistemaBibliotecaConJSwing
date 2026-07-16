@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -331,6 +332,10 @@ public class PrestamoEliminarView extends javax.swing.JInternalFrame {
 
     public JTextField getTxtCodigoPrestamoEliminar() {
         return txtCodigoPrestamoEliminar;
+    }
+
+    public JComboBox<String> getCbxCodigoPrestamoEliminar() {
+        return cbxCodigoPrestamoEliminar;
     }
 
     public void setTxtCodigoPrestamoEliminar(JTextField txtCodigoPrestamoEliminar) {

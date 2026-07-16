@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -338,6 +339,10 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
 
     public JTextField getTxtIsbnLibroActualizar() {
         return txtIsbnLibroActualizar;
+    }
+
+    public JComboBox<String> getCbxIsbnLibroActualizar() {
+        return cbxIsbnLibroActualizar;
     }
 
     public JTextField getTxtTituloLibroActualizar() {

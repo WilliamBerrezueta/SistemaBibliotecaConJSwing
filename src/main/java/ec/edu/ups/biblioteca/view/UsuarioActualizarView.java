@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -57,6 +58,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         lblTelefonoUsuarioActualizar = new javax.swing.JLabel();
         txtTelefonoUsuarioActualizar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        cbxCedulaUsuarioActualizar = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -97,54 +99,56 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarUsuario.png"))); // NOI18N
 
+        cbxCedulaUsuarioActualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelUsuarioActualizarLayout = new javax.swing.GroupLayout(panelUsuarioActualizar);
         panelUsuarioActualizar.setLayout(panelUsuarioActualizarLayout);
         panelUsuarioActualizarLayout.setHorizontalGroup(
             panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnActualizarUsuarioActualizar)
+                .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addComponent(lblCedulaUsuarioActualizar)
                         .addGap(13, 13, 13)
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCedulaUsuarioActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(btnBuscarUsuarioActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addComponent(btnCancelarUsuarioActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimpiarUsuarioActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
+                            .addComponent(btnBuscarUsuarioActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(cbxCedulaUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
                         .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                                 .addComponent(lblTelefonoUsuarioActualizar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTelefonoUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
                                 .addComponent(lblNombreUsuarioActualizar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombreUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioActualizarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(182, 182, 182))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNombreUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                        .addGap(362, 362, 362)
+                        .addComponent(jLabel1))
+                    .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(btnActualizarUsuarioActualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelarUsuarioActualizar)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnLimpiarUsuarioActualizar)))
+                .addGap(0, 37, Short.MAX_VALUE))
         );
         panelUsuarioActualizarLayout.setVerticalGroup(
             panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioActualizarLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreUsuarioActualizar)
                     .addComponent(txtNombreUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCedulaUsuarioActualizar)
-                    .addComponent(txtCedulaUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedulaUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCedulaUsuarioActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelUsuarioActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -214,6 +218,10 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         return txtTelefonoUsuarioActualizar;
     }
 
+    public JComboBox<String> getCbxCedulaUsuarioActualizar() {
+        return cbxCedulaUsuarioActualizar;
+    }
+
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }
@@ -223,6 +231,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarUsuarioActualizar;
     private javax.swing.JButton btnCancelarUsuarioActualizar;
     private javax.swing.JButton btnLimpiarUsuarioActualizar;
+    private javax.swing.JComboBox<String> cbxCedulaUsuarioActualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedulaUsuarioActualizar;
     private javax.swing.JLabel lblNombreUsuarioActualizar;

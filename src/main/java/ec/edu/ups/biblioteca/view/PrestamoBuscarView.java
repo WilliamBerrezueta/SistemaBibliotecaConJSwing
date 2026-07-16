@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -100,12 +101,20 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         return txtCedulaPrestamoBuscar;
     }
 
+    public JComboBox<String> getCbxCedulaPrestamoBuscar() {
+        return cbxCedulaPrestamoBuscar;
+    }
+
     public void setTxtCedulaPrestamoBuscar(JTextField txtCedulaPrestamoBuscar) {
         this.txtCedulaPrestamoBuscar = txtCedulaPrestamoBuscar;
     }
 
     public JTextField getTxtCodigoPrestamoBuscar() {
         return txtCodigoPrestamoBuscar;
+    }
+
+    public JComboBox<String> getCbxCodigoPrestamoBuscar() {
+        return cbxCodigoPrestamoBuscar;
     }
 
     public void setTxtCodigoPrestamoBuscar(JTextField txtCodigoPrestamoBuscar) {

@@ -32,6 +32,11 @@ public class LibroController {
     private LibroEliminarView libroEliminarView;
     private LibroListarView libroListarView;
     
+    // Bandera para evitar que, mientras se rellenan los combos de ISBN por
+    // código (removeAllItems + addItem), se disparen búsquedas como si el
+    // usuario hubiese seleccionado algo manualmente.
+    private boolean cargandoCombosIsbn = false;
+    
     public LibroController(LibroActualizarView libroActualizarView,LibroBuscarView libroBuscarView, LibroCrearView libroCrearView, LibroEliminarView libroEliminarView,LibroListarView libroListarView, LibroDao libroDao, AutorDao autorDao){
         
         this.libroActualizarView = libroActualizarView;
@@ -48,6 +53,7 @@ public class LibroController {
         configurarEventoLibroActualizar();
         cargarAutoresCombo();
         cargarGenerosCombo();
+        cargarIsbnsCombo();
     }
     
     
@@ -76,6 +82,7 @@ public class LibroController {
         Libro libro = new Libro(isbn,titulo,año,genero,disponible,editorial,autor);
         libroDao.crear(libro);
         listarLibros();
+        cargarIsbnsCombo();
         libroCrearView.mostarMensaje("Se ha creado su libro");
         }
     }
@@ -134,6 +141,7 @@ public class LibroController {
                 libroBuscarView.getTxtTituloLibroBuscar().setText(libroBuscar.getTitulo());
                 libroBuscarView.getTxtYearLibroBuscar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
                 libroBuscarView.getRbtnDisponibleLibroBuscar().setSelected(libroBuscar.isDisponible());
+                libroBuscarView.getTxtDisponibleLibroBuscar().setText(libroBuscar.isDisponible() ? "Sí" : "No");
             }
         }
     }
@@ -167,6 +175,19 @@ public class LibroController {
                 limpiarLibroBuscar();
             }
         });
+        libroBuscarView.getCbxIsbnLibroBuscar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosIsbn) {
+                    return;
+                }
+                Object seleccionado = libroBuscarView.getCbxIsbnLibroBuscar().getSelectedItem();
+                if (seleccionado != null) {
+                    String isbnSeleccionado = seleccionado.toString().split(" - ")[0];
+                    libroBuscarView.getTxtIsbnLibroBuscar().setText(isbnSeleccionado);
+                }
+            }
+        });
     }
     // METODOS ELIMINAR
     public void eliminarLibro(){
@@ -181,6 +202,7 @@ public class LibroController {
                 if (seguro == 0) {
                     libroDao.eliminar(isbn);
                     listarLibros();
+                    cargarIsbnsCombo();
                 }
                 listarLibros();
             }
@@ -212,6 +234,7 @@ public class LibroController {
                 libroEliminarView.getTxtTituloLibroEliminar().setText(libroBuscar.getTitulo());
                 libroEliminarView.getTxtYearLibroEliminar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
                 libroEliminarView.getRbtnDisponibleLibroEliminar().setSelected(libroBuscar.isDisponible());
+                libroEliminarView.getTxtDisponibleLibroEliminar().setText(libroBuscar.isDisponible() ? "Sí" : "No");
             }
         }
     }
@@ -238,6 +261,19 @@ public class LibroController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 eliminarLibro();
+            }
+        });
+        libroEliminarView.getCbxIsbnLibroEliminar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosIsbn) {
+                    return;
+                }
+                Object seleccionado = libroEliminarView.getCbxIsbnLibroEliminar().getSelectedItem();
+                if (seleccionado != null) {
+                    String isbnSeleccionado = seleccionado.toString().split(" - ")[0];
+                    libroEliminarView.getTxtIsbnLibroEliminar().setText(isbnSeleccionado);
+                }
             }
         });
     }
@@ -270,6 +306,7 @@ public class LibroController {
         libroDao.actualizar(libro);
 
         listarLibros();
+        cargarIsbnsCombo();
 
         libroActualizarView.mostarMensaje("Libro actualizado");
         
@@ -292,6 +329,7 @@ public class LibroController {
                 libroActualizarView.getTxtTituloLibroActualizar().setText(libroBuscar.getTitulo());
                 libroActualizarView.getTxtYearLibroActualizar().setText(String.valueOf(libroBuscar.getAñoDePublicacion()));
                 libroActualizarView.getRbtnDisponibleLibroActualizar().setSelected(libroBuscar.isDisponible());
+                libroActualizarView.getTxtDisponibleLibroActualizar().setText(libroBuscar.isDisponible() ? "Sí" : "No");
             }
         }
     }
@@ -330,6 +368,7 @@ public class LibroController {
                 limpiarLibroActualizar();
             }
         });
+        
     }
     // METODOS LISTAR
     public void listarLibros() {
@@ -369,6 +408,39 @@ public class LibroController {
 
         for (Genero genero : Genero.values()) {
             libroCrearView.getCbxGeneroLibroCrear().addItem(genero);
+        }
+    }
+    
+//      Rellena los combos de ISBN de las vistas Buscar, Actualizar y Eliminar
+//      con "isbn - titulo" de cada libro registrado. Debe volver a ejecutarse
+//      cada vez que se crea, actualiza o elimina un libro para que los combos
+//      siempre reflejen la lista más reciente.
+     
+    public void cargarIsbnsCombo() {
+
+        cargandoCombosIsbn = true;
+
+        java.util.List<Libro> libros = libroDao.listar();
+
+        llenarComboIsbns(libroBuscarView.getCbxIsbnLibroBuscar(), libros);
+        llenarComboIsbns(libroActualizarView.getCbxIsbnLibroActualizar(), libros);
+        llenarComboIsbns(libroEliminarView.getCbxIsbnLibroEliminar(), libros);
+
+        cargandoCombosIsbn = false;
+    }
+
+    private void llenarComboIsbns(javax.swing.JComboBox<String> combo, java.util.List<Libro> libros) {
+
+        Object seleccionActual = combo.getSelectedItem();
+
+        combo.removeAllItems();
+
+        for (Libro libro : libros) {
+            combo.addItem(libro.getIsbn() + " - " + libro.getTitulo());
+        }
+
+        if (seleccionActual != null) {
+            combo.setSelectedItem(seleccionActual);
         }
     }
 }

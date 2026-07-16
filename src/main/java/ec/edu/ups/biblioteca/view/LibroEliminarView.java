@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -333,6 +334,10 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
 
     public JTextField getTxtIsbnLibroEliminar() {
         return txtIsbnLibroEliminar;
+    }
+
+    public JComboBox<String> getCbxIsbnLibroEliminar() {
+        return cbxIsbnLibroEliminar;
     }
 
     public JTextField getTxtTituloLibroEliminar() {

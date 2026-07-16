@@ -368,6 +368,19 @@ public class LibroController {
                 limpiarLibroActualizar();
             }
         });
+        libroActualizarView.getCbxIsbnLibroActualizar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosIsbn) {
+                    return;
+                }
+                Object seleccionado = libroActualizarView.getCbxIsbnLibroActualizar().getSelectedItem();
+                if (seleccionado != null) {
+                    String isbnSeleccionado = seleccionado.toString().split(" - ")[0];
+                    libroActualizarView.getTxtIsbnLibroActualizar().setText(isbnSeleccionado);
+                }
+            }
+        });
         
     }
     // METODOS LISTAR

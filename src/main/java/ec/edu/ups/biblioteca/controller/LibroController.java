@@ -52,6 +52,8 @@ public class LibroController {
         configurarEventoLibroBuscar();
         configurarEventoLibroEliminar();
         configurarEventoLibroActualizar();
+        cargarAutoresActualizar();
+        cargarGenerosActualizar();
         cargarAutoresCombo();
         cargarGenerosCombo();
         cargarIsbnsCombo();
@@ -401,6 +403,31 @@ public class LibroController {
                 }
             }
         });
+        
+        libroActualizarView.getCbxAutorLibroActualizar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Object seleccionado = libroActualizarView.getCbxAutorLibroActualizar().getSelectedItem();
+
+                if (seleccionado != null) {
+                    libroActualizarView.getTxtAutorLibroActualizar().setText(seleccionado.toString());
+                }
+
+            }
+        });
+        libroActualizarView.getCbxGeneroLibroActualizar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Object seleccionado = libroActualizarView.getCbxGeneroLibroActualizar().getSelectedItem();
+
+                if (seleccionado != null) {
+                    libroActualizarView.getTxtGeneroLibroActualizar().setText(seleccionado.toString());
+                }
+
+            }
+        });
 
     }
 
@@ -475,4 +502,21 @@ public class LibroController {
             combo.setSelectedItem(seleccionActual);
         }
     }
+    
+    public void cargarAutoresActualizar() {
+
+    libroActualizarView.getCbxAutorLibroActualizar().removeAllItems();
+
+    for (Autor autor : autorDao.listar()) {
+        libroActualizarView.getCbxAutorLibroActualizar().addItem(autor.getNombre());
+    }
+}
+    public void cargarGenerosActualizar() {
+
+    libroActualizarView.getCbxGeneroLibroActualizar().removeAllItems();
+
+    for (Genero genero : Genero.values()) {
+        libroActualizarView.getCbxGeneroLibroActualizar().addItem(genero.toString());
+    }
+}
 }

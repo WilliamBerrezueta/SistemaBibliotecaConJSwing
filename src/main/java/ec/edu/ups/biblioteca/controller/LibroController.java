@@ -315,6 +315,7 @@ public class LibroController {
         libroListarView.cargarDatos(libroDao.listar());
         
     }
+    //// METODO PARA RELLENAR COMBO BOX
     public void cargarAutoresCombo() {
 
     libroCrearView.getCbxAutorLibroCrear().removeAllItems();

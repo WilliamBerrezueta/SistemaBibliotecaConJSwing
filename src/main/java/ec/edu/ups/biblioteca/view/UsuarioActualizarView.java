@@ -83,7 +83,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         btnBuscarUsuarioActualizar.setText("Buscar");
 
         btnCancelarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarUsuarioActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarUsuarioActualizar.setText("Cancelar");
 
         btnLimpiarUsuarioActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -97,7 +97,7 @@ public class UsuarioActualizarView extends javax.swing.JInternalFrame {
         lblTelefonoUsuarioActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblTelefonoUsuarioActualizar.setText("Teléfono:");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarUsuario.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarUsuario-Photoroom.png"))); // NOI18N
 
         cbxCedulaUsuarioActualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 

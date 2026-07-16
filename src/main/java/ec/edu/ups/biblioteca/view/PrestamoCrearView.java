@@ -316,11 +316,11 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
         btnLimpiarPrestamoCrear.setText("Limpiar");
 
         btnCrearPrestamoCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCrearPrestamoCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear.png"))); // NOI18N
+        btnCrearPrestamoCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear-Photoroom.png"))); // NOI18N
         btnCrearPrestamoCrear.setText("Crear");
 
         btnCancelarPrestamoView.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarPrestamoView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarPrestamoView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarPrestamoView.setText("Cancelar");
 
         lblFechaPrestamoPrestamoCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
@@ -328,7 +328,7 @@ public class PrestamoCrearView extends javax.swing.JInternalFrame {
 
         txtFechaPrestamoPrestamoCrear.setEnabled(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearP.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearP-Photoroom.png"))); // NOI18N
 
         javax.swing.GroupLayout panelPrestamoCrearLayout = new javax.swing.GroupLayout(panelPrestamoCrear);
         panelPrestamoCrear.setLayout(panelPrestamoCrearLayout);

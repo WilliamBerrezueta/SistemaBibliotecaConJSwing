@@ -84,7 +84,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
         btnBuscarUsuarioEliminar.setText("Buscar");
 
         btnCancelarUsuarioEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarUsuarioEliminar.setText("Cancelar");
 
         btnLimpiarUsuarioEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -101,7 +101,7 @@ public class UsuarioEliminarView extends javax.swing.JInternalFrame {
 
         txtTelefonoUsuarioEliminar.setEnabled(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminarUsuario.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminarUsuario-Photoroom.png"))); // NOI18N
 
         cbxCedulaUsuarioEliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 

@@ -75,11 +75,11 @@ public class UsuarioCrearView extends javax.swing.JInternalFrame {
         txtCedulaUsuarioCrear.addActionListener(this::txtCedulaUsuarioCrearActionPerformed);
 
         btnCrearUsuarioCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCrearUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear.png"))); // NOI18N
+        btnCrearUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear-Photoroom.png"))); // NOI18N
         btnCrearUsuarioCrear.setText("Crear");
 
         btnCancelarUsuarioCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarUsuarioCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarUsuarioCrear.setText("Cancelar");
 
         btnLimpiarUsuarioCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N

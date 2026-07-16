@@ -175,7 +175,7 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         lblCodigoPrestamoBuscar.setFont(new java.awt.Font("Yu Gothic", 3, 14)); // NOI18N
         lblCodigoPrestamoBuscar.setText("Código:");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Bprestamo.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Bprestamo-Photoroom.png"))); // NOI18N
 
         lblOPrestamoBuscar.setText("O");
 
@@ -203,7 +203,7 @@ public class PrestamoBuscarView extends javax.swing.JInternalFrame {
         lblTemaTablaPrestamoBuscar.setText("Prestamos encontrados");
 
         btnCancelarPrestamoBuscar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnCancelarPrestamoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarPrestamoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarPrestamoBuscar.setText("Cancelar");
 
         btnBuscarCodigoPrestamoBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N

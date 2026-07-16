@@ -356,7 +356,7 @@
               <Font name="Segoe UI" size="14" style="3"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ec/edu/ups/imagenes/Crear.png"/>
+              <Image iconType="3" name="/ec/edu/ups/imagenes/Crear-Photoroom.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Crear"/>
           </Properties>
@@ -367,7 +367,7 @@
               <Font name="Segoe UI" size="14" style="3"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ec/edu/ups/imagenes/X.png"/>
+              <Image iconType="3" name="/ec/edu/ups/imagenes/X-.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
@@ -388,7 +388,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ec/edu/ups/imagenes/crearP.png"/>
+              <Image iconType="3" name="/ec/edu/ups/imagenes/crearP-Photoroom.png"/>
             </Property>
           </Properties>
         </Component>

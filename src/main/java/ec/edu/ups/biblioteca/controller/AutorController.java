@@ -246,7 +246,7 @@ public class AutorController {
 
         if (autor != null) {
 
-            int opcion = autorEliminarView.mostrarConfirmacion("mensaje.confirmacion.eliminar");
+            int opcion = autorEliminarView.mostrarConfirmacion("mensaje.confirmacion.eliminar.autor");
 
             if (opcion == 0) {
 

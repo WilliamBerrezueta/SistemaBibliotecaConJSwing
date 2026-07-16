@@ -13,6 +13,7 @@ import ec.edu.ups.biblioteca.view.AutorEliminarView;
 import ec.edu.ups.biblioteca.view.AutorListarView;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -27,6 +28,11 @@ public class AutorController {
     private AutorActualizarView autorActualizarView;
     private AutorEliminarView autorEliminarView;
     private AutorListarView autorListarView;
+    
+    // Bandera para evitar que, mientras se rellenan los combos por código
+    // (removeAllItems + addItem), se disparen búsquedas como si el usuario
+    // hubiese seleccionado algo manualmente.
+    private boolean cargandoCombosAutor = false;
     
     // Referencia opcional al controlador de libros. Se usa únicamente para
     // refrescar el combo box de autores de LibroCrearView cada vez que se
@@ -66,6 +72,7 @@ public class AutorController {
         configurarEventoAutorBuscar();
         configurarEventoAutorActualizar();
         configurarEventoAutorEliminar();
+        cargarNombresCombo();
 
     }
 
@@ -87,6 +94,7 @@ public class AutorController {
         autorDao.crear(autor);
 
         listarAutores();
+        cargarNombresCombo();
         
         actualizarComboAutoresEnLibros();
 
@@ -151,6 +159,20 @@ public class AutorController {
         autorBuscarView.getBtnLimpiar().addActionListener(e -> limpiarAutorBuscar());
 
         autorBuscarView.getBtnCancelar().addActionListener(e -> autorBuscarView.dispose());
+        
+        autorBuscarView.getCbxNombreAutorBuscar().addActionListener(e -> {
+
+    if(cargandoCombosAutor){
+        return;
+    }
+
+    Object seleccionado = autorBuscarView.getCbxNombreAutorBuscar().getSelectedItem();
+
+    if(seleccionado != null){
+        autorBuscarView.getTxtNombre().setText(seleccionado.toString());
+    }
+
+});
 
     }
 
@@ -189,6 +211,7 @@ public class AutorController {
             autorDao.actualizar(autor);
 
             listarAutores();
+            cargarNombresCombo();
             
             actualizarComboAutoresEnLibros();
 
@@ -215,6 +238,20 @@ public class AutorController {
         autorActualizarView.getBtnLimpiar().addActionListener(e -> limpiarAutorActualizar());
 
         autorActualizarView.getBtnCancelar().addActionListener(e -> autorActualizarView.dispose());
+        
+        autorActualizarView.getCbxNombreAutorActualizar().addActionListener(e -> {
+
+    if(cargandoCombosAutor){
+        return;
+    }
+
+    Object seleccionado = autorActualizarView.getCbxNombreAutorActualizar().getSelectedItem();
+
+    if(seleccionado != null){
+        autorActualizarView.getTxtNombre().setText(seleccionado.toString());
+    }
+
+});
 
     }
 
@@ -253,6 +290,7 @@ public class AutorController {
                 autorDao.eliminar(nombre);
 
                 listarAutores();
+                cargarNombresCombo();
                 
                 actualizarComboAutoresEnLibros();
 
@@ -279,7 +317,48 @@ public class AutorController {
         autorEliminarView.getBtnLimpiar().addActionListener(e -> limpiarAutorEliminar());
 
         autorEliminarView.getBtnCancelar().addActionListener(e -> autorEliminarView.dispose());
+        
+        autorEliminarView.getCbxNombreAutorEliminar().addActionListener(e -> {
+
+    if(cargandoCombosAutor){
+        return;
+    }
+
+    Object seleccionado = autorEliminarView.getCbxNombreAutorEliminar().getSelectedItem();
+
+    if(seleccionado != null){
+        autorEliminarView.getTxtNombre().setText(seleccionado.toString());
+    }
+
+});
 
     }
+    
+    public void cargarNombresCombo() {
+
+    cargandoCombosAutor = true;
+
+    java.util.List<Autor> autores = autorDao.listar();
+
+    llenarComboAutores(autorBuscarView.getCbxNombreAutorBuscar(), autores);
+    llenarComboAutores(autorActualizarView.getCbxNombreAutorActualizar(), autores);
+    llenarComboAutores(autorEliminarView.getCbxNombreAutorEliminar(), autores);
+
+    cargandoCombosAutor = false;
+}
+    private void llenarComboAutores(JComboBox<String> combo, java.util.List<Autor> autores) {
+
+    Object seleccionActual = combo.getSelectedItem();
+
+    combo.removeAllItems();
+
+    for (Autor autor : autores) {
+        combo.addItem(autor.getNombre());
+    }
+
+    if (seleccionActual != null) {
+        combo.setSelectedItem(seleccionActual);
+    }
+}
 
 }

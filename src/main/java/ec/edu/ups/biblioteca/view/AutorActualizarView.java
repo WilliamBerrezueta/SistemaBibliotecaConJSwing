@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -47,6 +48,7 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
         btnLimpiarAutorActualizar = new javax.swing.JButton();
         btnActualizarAutorActualizar = new javax.swing.JButton();
         btnCancelarAutorActualizar = new javax.swing.JButton();
+        cbxNombreAutorActualizar = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -70,6 +72,9 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
 
         btnCancelarAutorActualizar.setText("Cancelar");
 
+        cbxNombreAutorActualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxNombreAutorActualizar.addActionListener(this::cbxNombreAutorActualizarActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -84,18 +89,21 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtNombreAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnBuscarAutorActualizar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimpiarAutorActualizar))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnActualizarAutorActualizar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                            .addComponent(btnCancelarAutorActualizar))
-                        .addComponent(txtNacionalidadAutorActualizar, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtYearAutorActualizar, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addComponent(cbxNombreAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnActualizarAutorActualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                                .addComponent(btnCancelarAutorActualizar))
+                            .addComponent(txtNacionalidadAutorActualizar, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtYearAutorActualizar, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(102, 102, 102)
+                        .addComponent(btnBuscarAutorActualizar)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnLimpiarAutorActualizar)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,13 +112,15 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreAutorActualizar)
                     .addComponent(txtNombreAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarAutorActualizar)
-                    .addComponent(btnLimpiarAutorActualizar))
-                .addGap(34, 34, 34)
+                    .addComponent(cbxNombreAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblYearAutorActualizar)
-                    .addComponent(txtYearAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtYearAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarAutorActualizar)
+                        .addComponent(btnLimpiarAutorActualizar)))
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNacionalidadAutorActualizar)
                     .addComponent(txtNacionalidadAutorActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,6 +144,10 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbxNombreAutorActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNombreAutorActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxNombreAutorActualizarActionPerformed
 
     public JTextField getTxtNombre() {
         return txtNombreAutorActualizar;
@@ -163,6 +177,15 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
         return btnBuscarAutorActualizar;
     }
 
+    public JComboBox<String> getCbxNombreAutorActualizar() {
+        return cbxNombreAutorActualizar;
+    }
+
+    public void setCbxNombreAutorActualizar(JComboBox<String> cbxNombreAutorActualizar) {
+        this.cbxNombreAutorActualizar = cbxNombreAutorActualizar;
+    }
+    
+
     public void cambiarIdioma(Locale locale) {
         this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
         lblNacionalidadAutorActualizar.setText(bundle.getString("autor.nacionalidad"));
@@ -186,6 +209,7 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarAutorActualizar;
     private javax.swing.JButton btnCancelarAutorActualizar;
     private javax.swing.JButton btnLimpiarAutorActualizar;
+    private javax.swing.JComboBox<String> cbxNombreAutorActualizar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNacionalidadAutorActualizar;
     private javax.swing.JLabel lblNombreAutorActualizar;

@@ -7,6 +7,7 @@ package ec.edu.ups.biblioteca.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -44,6 +45,7 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
         btnLimpiarAutorEliminar = new javax.swing.JButton();
         btnEliminarAutorEliminar = new javax.swing.JButton();
         btnCancelarAutorEliminar = new javax.swing.JButton();
+        cbxNombreAutorEliminar = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -73,6 +75,8 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
 
         btnCancelarAutorEliminar.setText("Cancelar");
 
+        cbxNombreAutorEliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -88,17 +92,20 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtNombreAutorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(cbxNombreAutorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnEliminarAutorEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(btnCancelarAutorEliminar))
+                            .addComponent(txtNacionalidadAutorEliminar, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtYearAutorEliminar, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(153, 153, 153)
                         .addComponent(btnBuscarAutorEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpiarAutorEliminar))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnEliminarAutorEliminar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                            .addComponent(btnCancelarAutorEliminar))
-                        .addComponent(txtNacionalidadAutorEliminar, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtYearAutorEliminar, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiarAutorEliminar)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,12 +114,18 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreAutorEliminar)
                     .addComponent(txtNombreAutorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarAutorEliminar)
-                    .addComponent(btnLimpiarAutorEliminar))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblYearAutorEliminar)
-                    .addComponent(txtYearAutorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxNombreAutorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblYearAutorEliminar)
+                            .addComponent(txtYearAutorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscarAutorEliminar)
+                            .addComponent(btnLimpiarAutorEliminar))))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNacionalidadAutorEliminar)
@@ -121,7 +134,7 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarAutorEliminar)
                     .addComponent(btnCancelarAutorEliminar))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,6 +182,15 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
         return btnLimpiarAutorEliminar;
     }
 
+    public JComboBox<String> getCbxNombreAutorEliminar() {
+        return cbxNombreAutorEliminar;
+    }
+
+    public void setCbxNombreAutorEliminar(JComboBox<String> cbxNombreAutorEliminar) {
+        this.cbxNombreAutorEliminar = cbxNombreAutorEliminar;
+    }
+    
+
     public void mostrarMensaje(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
@@ -195,6 +217,7 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelarAutorEliminar;
     private javax.swing.JButton btnEliminarAutorEliminar;
     private javax.swing.JButton btnLimpiarAutorEliminar;
+    private javax.swing.JComboBox<String> cbxNombreAutorEliminar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNacionalidadAutorEliminar;
     private javax.swing.JLabel lblNombreAutorEliminar;

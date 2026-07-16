@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -44,6 +45,7 @@ public class AutorBuscarView extends javax.swing.JInternalFrame {
         btnBuscarAutorBuscar = new javax.swing.JButton();
         btnLimpiarAutorBuscar = new javax.swing.JButton();
         btnCancelarAutorBuscar = new javax.swing.JButton();
+        cbxNombreAutorBuscar = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -71,35 +73,37 @@ public class AutorBuscarView extends javax.swing.JInternalFrame {
 
         btnCancelarAutorBuscar.setText("Cancelar");
 
+        cbxNombreAutorBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblNacionalidadAutorBuscar)
+                    .addComponent(lblYearAutorBuscar)
+                    .addComponent(lblNombreAutorBuscar))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNacionalidadAutorBuscar)
-                            .addComponent(lblYearAutorBuscar)
-                            .addComponent(lblNombreAutorBuscar))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnBuscarAutorBuscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnLimpiarAutorBuscar))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtNacionalidadAutorBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                        .addComponent(txtYearAutorBuscar, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(0, 205, Short.MAX_VALUE))))
+                        .addComponent(txtNombreAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(cbxNombreAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 28, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(btnCancelarAutorBuscar)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtNacionalidadAutorBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(txtYearAutorBuscar, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscarAutorBuscar)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnLimpiarAutorBuscar)
+                        .addGap(61, 61, 61))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(btnCancelarAutorBuscar)
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,13 +113,14 @@ public class AutorBuscarView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreAutorBuscar)
                     .addComponent(txtNombreAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpiarAutorBuscar)
-                    .addComponent(btnBuscarAutorBuscar))
-                .addGap(25, 25, 25)
+                    .addComponent(cbxNombreAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblYearAutorBuscar)
-                    .addComponent(txtYearAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(txtYearAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarAutorBuscar)
+                    .addComponent(btnLimpiarAutorBuscar))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNacionalidadAutorBuscar)
                     .addComponent(txtNacionalidadAutorBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,6 +166,15 @@ public JTextField getTxtNombre() {
         return btnLimpiarAutorBuscar;
     }
 
+    public JComboBox<String> getCbxNombreAutorBuscar() {
+        return cbxNombreAutorBuscar;
+    }
+
+    public void setCbxNombreAutorBuscar(JComboBox<String> cbxNombreAutorBuscar) {
+        this.cbxNombreAutorBuscar = cbxNombreAutorBuscar;
+    }
+    
+
     public void mostrarMensaje(String llaveMensaje) {
 
         String mensaje = this.bundle.getString(llaveMensaje);
@@ -201,6 +215,7 @@ public JTextField getTxtNombre() {
     private javax.swing.JButton btnBuscarAutorBuscar;
     private javax.swing.JButton btnCancelarAutorBuscar;
     private javax.swing.JButton btnLimpiarAutorBuscar;
+    private javax.swing.JComboBox<String> cbxNombreAutorBuscar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNacionalidadAutorBuscar;
     private javax.swing.JLabel lblNombreAutorBuscar;

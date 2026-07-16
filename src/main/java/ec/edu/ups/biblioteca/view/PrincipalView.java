@@ -9,12 +9,16 @@ import ec.edu.ups.biblioteca.controller.LibroController;
 import ec.edu.ups.biblioteca.controller.PrestamoController;
 import ec.edu.ups.biblioteca.controller.UsuarioController;
 import ec.edu.ups.biblioteca.dao.AutorDao;
+import ec.edu.ups.biblioteca.dao.AutorDaoArchivo;
 import ec.edu.ups.biblioteca.dao.AutorDaoMemoria;
 import ec.edu.ups.biblioteca.dao.LibroDao;
+import ec.edu.ups.biblioteca.dao.LibroDaoArchivo;
 import ec.edu.ups.biblioteca.dao.LibroDaoMemoria;
 import ec.edu.ups.biblioteca.dao.PrestamoDao;
+import ec.edu.ups.biblioteca.dao.PrestamoDaoArchivo;
 import ec.edu.ups.biblioteca.dao.PrestamoDaoMemoria;
 import ec.edu.ups.biblioteca.dao.UsuarioDao;
+import ec.edu.ups.biblioteca.dao.UsuarioDaoArchivo;
 import ec.edu.ups.biblioteca.dao.UsuarioDaoMemoria;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -62,23 +66,24 @@ public class PrincipalView extends javax.swing.JFrame {
      */
     public PrincipalView() {
         initComponents();
-
+        
+        autorActualizarView = new AutorActualizarView();
+        autorBuscarView = new AutorBuscarView();
+        autorCrearView = new AutorCrearView();
+        autorEliminarView = new AutorEliminarView();
+        autorListarView = new AutorListarView();
+        autorDao = new AutorDaoArchivo("C:/carpeta2/autor.dat");
+        autorController = new AutorController(autorActualizarView, autorBuscarView, autorCrearView, autorEliminarView, autorListarView, autorDao);
+        
+        autorController.listarAutores();
+        
         libroActualizarView = new LibroActualizarView();
         libroBuscarView = new LibroBuscarView();
         libroCrearView = new LibroCrearView();
         libroEliminarView = new LibroEliminarView();
         libroListarView = new LibroListarView();
-        libroDao = new LibroDaoMemoria();
-        AutorDao autorDao = new AutorDaoMemoria();
-        libroController = new LibroController(
-                libroActualizarView,
-                libroBuscarView,
-                libroCrearView,
-                libroEliminarView,
-                libroListarView,
-                libroDao,
-                autorDao
-        );
+        libroDao = new LibroDaoArchivo("C:/carpeta2/libro.dat", autorDao);
+        libroController = new LibroController(libroActualizarView,libroBuscarView,libroCrearView,libroEliminarView,libroListarView,libroDao,autorDao);
 
         libroController.listarLibros();
 
@@ -87,7 +92,7 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioCrearView = new UsuarioCrearView();
         usuarioEliminarView = new UsuarioEliminarView();
         usuarioListarView = new UsuarioListarView();
-        usuarioDao = new UsuarioDaoMemoria();
+        usuarioDao = new UsuarioDaoArchivo("C:/carpeta2/usuario.dat");
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
         usuarioController.listarUsuarios();
@@ -98,20 +103,11 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoListarView = new PrestamoListarView();
-        prestamoDao = new PrestamoDaoMemoria();
+        prestamoDao = new  PrestamoDaoArchivo("C:/carpeta2/prestamo.dat", libroDao, usuarioDao);
         prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, prestamoEliminarView, prestamoListarView, usuarioDao, libroDao, prestamoBuscarView,libroController);
     
         prestamoController.listarPrestamos();
         
-        autorActualizarView = new AutorActualizarView();
-        autorBuscarView = new AutorBuscarView();
-        autorCrearView = new AutorCrearView();
-        autorEliminarView = new AutorEliminarView();
-        autorListarView = new AutorListarView();
-        autorDao = new AutorDaoMemoria();
-        autorController = new AutorController(autorActualizarView, autorBuscarView, autorCrearView, autorEliminarView, autorListarView, autorDao);
-        
-        autorController.listarAutores();
     }
 
     public void cambiarIdioma(Locale locale) {

@@ -77,6 +77,16 @@ public class Prestamo {
     public void agregarLibro(Libro libro){
         this.libros.add(libro);
     }
+
+    public void setPedidoHecho(boolean pedidoHecho) {
+        this.pedidoHecho = pedidoHecho;
+    }
+
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
+    }
+    
+    
     
     
     // este toString sirve para imprimir bien lo que necesita ver el usuario 

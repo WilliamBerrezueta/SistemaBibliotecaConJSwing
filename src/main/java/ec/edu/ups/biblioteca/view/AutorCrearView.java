@@ -5,6 +5,8 @@
 package ec.edu.ups.biblioteca.view;
 
 import java.awt.event.ActionListener;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -148,6 +150,18 @@ public JButton getBtnCancelar() {
 public void mostrarMensaje(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
+public void cambiarIdioma(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+    lblNacionalidadAutorCrear.setText(bundle.getString("autor.nacionalidad"));
+    lblNombreAutorCrear.setText(bundle.getString("usuario.nombre"));
+    lblYearAutorCrear.setText(bundle.getString("autor.anio"));
+
+    btnCrearAutorCrear.setText(bundle.getString("boton.crear"));
+    btnLimpiarAutorCrear.setText(bundle.getString("boton.limpiar"));
+    btnCancelarAutorCrear.setText(bundle.getString("boton.cancelar"));
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarAutorCrear;
     private javax.swing.JButton btnCrearAutorCrear;

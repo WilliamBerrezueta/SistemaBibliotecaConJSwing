@@ -140,12 +140,19 @@ public class PrincipalView extends javax.swing.JFrame {
 
         menuItemPrestamoCrear.setText(bundle.getString("menu.crear"));
         menuItemPrestamoBuscar.setText(bundle.getString("menu.buscar"));
-        menuItemPrestamoActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemPrestamoActualizar.setText(bundle.getString("menu.devolver"));
         menuItemPrestamoEliminar.setText(bundle.getString("menu.eliminar"));
         menuItemPrestamoListar.setText(bundle.getString("menu.listar"));
 
         menuItemIdiomaEspañol.setText(bundle.getString("menu.idioma.espanol"));
         menuItemIdiomaIngles.setText(bundle.getString("menu.idioma.ingles"));
+        
+        menuItemAutor.setText(bundle.getString("autor"));
+        menuItemAutorCrear.setText(bundle.getString("menu.crear"));
+        menuItemAutorBuscar.setText(bundle.getString("menu.buscar"));
+        menuItemAutorActualizar.setText(bundle.getString("menu.actualizar"));
+        menuItemAutorEliminar.setText(bundle.getString("menu.eliminar"));
+        menuItemAutorListar.setText(bundle.getString("menu.listar"));
     }
 
     /**
@@ -523,6 +530,13 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoCrearView.cambiarIdioma(locale);
         prestamoEliminarView.cambiarIdioma(locale);
         prestamoListarView.cambiarIdioma(locale);
+        
+        autorActualizarView.cambiarIdioma(locale);
+        autorBuscarView.cambiarIdioma(locale);
+        autorCrearView.cambiarIdioma(locale);
+        autorEliminarView.cambiarIdioma(locale);
+        autorListarView.cambiarIdioma(locale);
+                
     }//GEN-LAST:event_menuItemIdiomaInglesActionPerformed
 
     private void menuItemIdiomaEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaEspañolActionPerformed
@@ -545,6 +559,12 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoCrearView.cambiarIdioma(locale);
         prestamoEliminarView.cambiarIdioma(locale);
         prestamoListarView.cambiarIdioma(locale);
+        
+        autorActualizarView.cambiarIdioma(locale);
+        autorBuscarView.cambiarIdioma(locale);
+        autorCrearView.cambiarIdioma(locale);
+        autorEliminarView.cambiarIdioma(locale);
+        autorListarView.cambiarIdioma(locale);
     }//GEN-LAST:event_menuItemIdiomaEspañolActionPerformed
 
     private void menuItemSistemaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSistemaSalirActionPerformed

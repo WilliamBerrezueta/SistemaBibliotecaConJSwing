@@ -5,8 +5,11 @@
 package ec.edu.ups.biblioteca.view;
 
 import java.awt.event.ActionListener;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -21,6 +24,8 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
     public AutorActualizarView() {
         initComponents();
     }
+
+    private ResourceBundle bundle; // para poder cambiar el mensaje del metodo y no romper con el MVC
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,12 +162,25 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
     public JButton getBtnBuscarAutorActualizar() {
         return btnBuscarAutorActualizar;
     }
-    
 
-    public void mostrarMensaje(String mensaje) {
-        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    public void cambiarIdioma(Locale locale) {
+        this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        lblNacionalidadAutorActualizar.setText(bundle.getString("autor.nacionalidad"));
+        lblNombreAutorActualizar.setText(bundle.getString("usuario.nombre"));
+        lblYearAutorActualizar.setText(bundle.getString("autor.anio"));
+
+        btnBuscarAutorActualizar.setText(bundle.getString("boton.buscar"));
+        btnActualizarAutorActualizar.setText(bundle.getString("boton.actualizar"));
+        btnLimpiarAutorActualizar.setText(bundle.getString("boton.limpiar"));
+        btnCancelarAutorActualizar.setText(bundle.getString("boton.cancelar"));
     }
 
+  public void mostrarMensaje(String llaveMensaje) {
+    
+    String mensaje = this.bundle.getString(llaveMensaje);
+
+    javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarAutorActualizar;
     private javax.swing.JButton btnBuscarAutorActualizar;

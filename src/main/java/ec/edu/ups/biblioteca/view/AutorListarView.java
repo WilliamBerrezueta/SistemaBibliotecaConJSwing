@@ -6,6 +6,8 @@ package ec.edu.ups.biblioteca.view;
 
 import ec.edu.ups.biblioteca.models.Autor;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -122,6 +124,18 @@ public void cargarDatos(List<Autor> listaAutores) {
         }
 
     }
+public void cambiarIdioma(Locale locale) {
+
+    ResourceBundle bundle = ResourceBundle.getBundle(
+            "ec.edu.ups.biblioteca.i18n.mensajes", locale);
+
+    modelo.setColumnIdentifiers(new Object[]{
+        bundle.getString("usuario.nombre"),
+        bundle.getString("autor.nacionalidad"),
+        bundle.getString("autor.anio"),
+    });
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

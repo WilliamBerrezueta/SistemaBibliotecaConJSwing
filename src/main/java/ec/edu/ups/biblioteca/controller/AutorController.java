@@ -11,6 +11,8 @@ import ec.edu.ups.biblioteca.view.AutorBuscarView;
 import ec.edu.ups.biblioteca.view.AutorCrearView;
 import ec.edu.ups.biblioteca.view.AutorEliminarView;
 import ec.edu.ups.biblioteca.view.AutorListarView;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -74,7 +76,7 @@ public class AutorController {
         String nacionalidad = autorCrearView.getTxtNacionalidad().getText();
 
         if (nombre.isEmpty() || yearTexto.isEmpty() || nacionalidad.isEmpty()) {
-            autorCrearView.mostrarMensaje("Debe llenar todos los campos");
+            autorActualizarView.mostrarMensaje("mensaje.rellenar");
             return;
         }
 
@@ -88,7 +90,7 @@ public class AutorController {
         
         actualizarComboAutoresEnLibros();
 
-        autorCrearView.mostrarMensaje("Autor creado correctamente");
+        autorActualizarView.mostrarMensaje("mensaje.autor.creado");
 
     }
 
@@ -128,7 +130,7 @@ public class AutorController {
 
         } else {
 
-            autorBuscarView.mostrarMensaje("Autor no encontrado");
+            autorActualizarView.mostrarMensaje("mensaje.error.noencontrado");
 
         }
 
@@ -166,7 +168,7 @@ public class AutorController {
 
         } else {
 
-            autorActualizarView.mostrarMensaje("Autor no encontrado");
+            autorActualizarView.mostrarMensaje("mensaje.error.noencontrado");
 
         }
 
@@ -190,7 +192,7 @@ public class AutorController {
             
             actualizarComboAutoresEnLibros();
 
-            autorActualizarView.mostrarMensaje("Autor actualizado");
+            autorActualizarView.mostrarMensaje("mensaje.autor.actualizado");
 
         }
 
@@ -230,7 +232,7 @@ public class AutorController {
 
         } else {
 
-            autorEliminarView.mostrarMensaje("Autor no encontrado");
+            autorActualizarView.mostrarMensaje("mensaje.error.noencontrado");
 
         }
 
@@ -244,7 +246,7 @@ public class AutorController {
 
         if (autor != null) {
 
-            int opcion = autorEliminarView.mostrarConfirmacion("¿Desea eliminar este autor?");
+            int opcion = autorEliminarView.mostrarConfirmacion("mensaje.confirmacion.eliminar");
 
             if (opcion == 0) {
 

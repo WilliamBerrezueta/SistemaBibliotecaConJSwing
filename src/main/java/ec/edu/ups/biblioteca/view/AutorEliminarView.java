@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -19,6 +21,8 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
     public AutorEliminarView() {
         initComponents();
     }
+    
+    private ResourceBundle bundle;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,8 +173,21 @@ public class AutorEliminarView extends javax.swing.JInternalFrame {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
 
-    public int mostrarConfirmacion(String mensaje) {
+    public int mostrarConfirmacion(String llaveMensaje) {
+        String mensaje = this.bundle.getString(llaveMensaje);
         return javax.swing.JOptionPane.showConfirmDialog(this, mensaje);
+    }
+    public void cambiarIdioma(Locale locale) {
+        this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        
+    lblNacionalidadAutorEliminar.setText(bundle.getString("autor.nacionalidad"));
+    lblNombreAutorEliminar.setText(bundle.getString("usuario.nombre"));
+    lblYearAutorEliminar.setText(bundle.getString("autor.anio"));
+
+    btnBuscarAutorEliminar.setText(bundle.getString("boton.buscar"));
+    btnEliminarAutorEliminar.setText(bundle.getString("boton.eliminar"));
+    btnLimpiarAutorEliminar.setText(bundle.getString("boton.limpiar"));
+    btnCancelarAutorEliminar.setText(bundle.getString("boton.cancelar"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

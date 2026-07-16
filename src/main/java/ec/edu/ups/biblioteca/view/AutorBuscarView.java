@@ -5,6 +5,8 @@
 package ec.edu.ups.biblioteca.view;
 
 import java.awt.event.ActionListener;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -20,6 +22,8 @@ public class AutorBuscarView extends javax.swing.JInternalFrame {
     public AutorBuscarView() {
         initComponents();
     }
+
+    private ResourceBundle bundle;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,7 +161,9 @@ public JTextField getTxtNombre() {
         return btnLimpiarAutorBuscar;
     }
 
-    public void mostrarMensaje(String mensaje) {
+    public void mostrarMensaje(String llaveMensaje) {
+
+        String mensaje = this.bundle.getString(llaveMensaje);
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
 
@@ -179,7 +185,17 @@ public JTextField getTxtNombre() {
     private void txtNacionalidadAutorBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacionalidadAutorBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNacionalidadAutorBuscarActionPerformed
-    
+    public void cambiarIdioma(Locale locale) {
+        this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+
+        lblNacionalidadAutorBuscar.setText(bundle.getString("autor.nacionalidad"));
+        lblNombreAutorBuscar.setText(bundle.getString("usuario.nombre"));
+        lblYearAutorBuscar.setText(bundle.getString("autor.anio"));
+
+        btnBuscarAutorBuscar.setText(bundle.getString("boton.buscar"));
+        btnLimpiarAutorBuscar.setText(bundle.getString("boton.limpiar"));
+        btnCancelarAutorBuscar.setText(bundle.getString("boton.cancelar"));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarAutorBuscar;

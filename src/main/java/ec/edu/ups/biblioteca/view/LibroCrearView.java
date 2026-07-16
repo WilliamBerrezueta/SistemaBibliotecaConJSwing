@@ -107,6 +107,9 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
 
         txtTituloLibroCrear.addActionListener(this::txtTituloLibroCrearActionPerformed);
 
+        txtGeneroLibroCrear.setEditable(false);
+        txtGeneroLibroCrear.setEnabled(false);
+
         btnCrearLibroCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnCrearLibroCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear-Photoroom.png"))); // NOI18N
         btnCrearLibroCrear.setText("Crear");
@@ -121,6 +124,9 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
 
         lblDisponibleLibroCrear.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         lblDisponibleLibroCrear.setText("Disponible");
+
+        txtAutorLibroCrear.setEditable(false);
+        txtAutorLibroCrear.setEnabled(false);
 
         rbtnDisponibleLibroCrear.addActionListener(this::rbtnDisponibleLibroCrearActionPerformed);
 

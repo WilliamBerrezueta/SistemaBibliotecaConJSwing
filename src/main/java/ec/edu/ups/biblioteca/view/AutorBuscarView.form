@@ -70,13 +70,13 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbxNombreAutorBuscar" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="btnBuscarAutorBuscar" min="-2" pref="115" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="btnLimpiarAutorBuscar" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="cbxNombreAutorBuscar" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">

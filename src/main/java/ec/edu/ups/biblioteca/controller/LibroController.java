@@ -137,6 +137,32 @@ public class LibroController {
                 limpiarLibroCrear();
             }
         });
+        libroCrearView.getCbxAutorLibroCrear().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosIsbn) {
+                    return;
+                }
+                Object seleccionado = libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
+                if (seleccionado != null) {
+                    String isbnSeleccionado = seleccionado.toString();
+                    libroCrearView.getTxtAutorLibroCrear().setText(isbnSeleccionado);
+                }
+            }
+        });
+        libroCrearView.getCbxGeneroLibroCrear().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cargandoCombosIsbn) {
+                    return;
+                }
+                Object seleccionado = libroCrearView.getCbxGeneroLibroCrear().getSelectedItem();
+                if (seleccionado != null) {
+                    String isbnSeleccionado = seleccionado.toString();
+                    libroCrearView.getTxtGeneroLibroCrear().setText(isbnSeleccionado);
+                }
+            }
+        });
     }
     // METODO PARA BUSCAR
 

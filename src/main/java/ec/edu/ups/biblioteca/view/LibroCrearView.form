@@ -254,6 +254,10 @@
         <Component class="javax.swing.JTextField" name="txtYearLibroCrear">
         </Component>
         <Component class="javax.swing.JTextField" name="txtGeneroLibroCrear">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEditorialLibroCrear">
         </Component>
@@ -299,6 +303,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAutorLibroCrear">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbtnDisponibleLibroCrear">
           <Events>

@@ -20,6 +20,7 @@ import ec.edu.ups.biblioteca.dao.PrestamoDaoMemoria;
 import ec.edu.ups.biblioteca.dao.UsuarioDao;
 import ec.edu.ups.biblioteca.dao.UsuarioDaoArchivo;
 import ec.edu.ups.biblioteca.dao.UsuarioDaoMemoria;
+import ec.edu.ups.biblioteca.models.TipoDeGuardado;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -60,11 +61,18 @@ public class PrincipalView extends javax.swing.JFrame {
     private AutorEliminarView autorEliminarView;
     private AutorActualizarView autorActualizarView;
     private AutorListarView autorListarView;
+    
+    // Carpeta donde se guardan los .ups cuando se elige persistencia por archivo.
+    private static final String CARPETA_DATOS = "C:/carpeta2";
 
-    /**
+    public PrincipalView() {
+        this(TipoDeGuardado.MEMORIA);
+    }
+
+     /**
      * Creates new form Principal
      */
-    public PrincipalView() {
+    public PrincipalView(TipoDeGuardado tipoDeGuardado) {
         initComponents();
         
         autorActualizarView = new AutorActualizarView();
@@ -72,7 +80,11 @@ public class PrincipalView extends javax.swing.JFrame {
         autorCrearView = new AutorCrearView();
         autorEliminarView = new AutorEliminarView();
         autorListarView = new AutorListarView();
-        autorDao = new AutorDaoArchivo("C:/carpeta2/autor.dat");
+        if (tipoDeGuardado == TipoDeGuardado.ARCHIVO) {
+            autorDao = new AutorDaoArchivo(CARPETA_DATOS + "/autor.dat");
+        } else {
+            autorDao = new AutorDaoMemoria();
+        }
         autorController = new AutorController(autorActualizarView, autorBuscarView, autorCrearView, autorEliminarView, autorListarView, autorDao);
         
         autorController.listarAutores();
@@ -82,7 +94,11 @@ public class PrincipalView extends javax.swing.JFrame {
         libroCrearView = new LibroCrearView();
         libroEliminarView = new LibroEliminarView();
         libroListarView = new LibroListarView();
-        libroDao = new LibroDaoArchivo("C:/carpeta2/libro.dat", autorDao);
+        if (tipoDeGuardado == TipoDeGuardado.ARCHIVO) {
+            libroDao = new LibroDaoArchivo(CARPETA_DATOS + "/libro.dat", autorDao);
+        } else {
+            libroDao = new LibroDaoMemoria();
+        }
         libroController = new LibroController(libroActualizarView,libroBuscarView,libroCrearView,libroEliminarView,libroListarView,libroDao,autorDao);
 
         libroController.listarLibros();
@@ -97,7 +113,11 @@ public class PrincipalView extends javax.swing.JFrame {
         usuarioCrearView = new UsuarioCrearView();
         usuarioEliminarView = new UsuarioEliminarView();
         usuarioListarView = new UsuarioListarView();
-        usuarioDao = new UsuarioDaoArchivo("C:/carpeta2/usuario.dat");
+        if (tipoDeGuardado == TipoDeGuardado.ARCHIVO) {
+            usuarioDao = new UsuarioDaoArchivo(CARPETA_DATOS + "/usuario.dat");
+        } else {
+            usuarioDao = new UsuarioDaoMemoria();
+        }
         usuarioController = new UsuarioController(usuarioActualizarView, usuarioBuscarView, usuarioCrearView, usuarioEliminarView, usuarioListarView, usuarioDao);
 
         usuarioController.listarUsuarios();
@@ -108,11 +128,51 @@ public class PrincipalView extends javax.swing.JFrame {
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoEliminarView = new PrestamoEliminarView();
         prestamoListarView = new PrestamoListarView();
-        prestamoDao = new  PrestamoDaoArchivo("C:/carpeta2/prestamo.dat", libroDao, usuarioDao);
+        if (tipoDeGuardado == TipoDeGuardado.ARCHIVO) {
+            prestamoDao = new PrestamoDaoArchivo(CARPETA_DATOS + "/prestamo.dat", libroDao, usuarioDao);
+        } else {
+            prestamoDao = new PrestamoDaoMemoria();
+        }
         prestamoController = new PrestamoController(prestamoCrearView, prestamoDao, prestamoActualizarView, prestamoEliminarView, prestamoListarView, usuarioDao, libroDao, prestamoBuscarView,libroController);
     
         prestamoController.listarPrestamos();
-        
+
+        // Idioma por defecto: sin esto, el ResourceBundle de cada vista
+        // queda null hasta que el usuario abre el menú Idioma, y cualquier
+        // mensaje de validación (mostrarMensaje) explota con NullPointerException.
+        cambiarIdiomaEnTodasLasVistas(new Locale("es", "EC"));
+    }
+    
+    // Aplica el idioma a la ventana principal y a todas las subventanas
+    // (Libro, Usuario, Préstamo, Autor). Se reutiliza tanto para cuando el
+    // usuario cambia el idioma desde el menú como para fijar un idioma por
+    // defecto al arrancar, de forma que el "bundle" de cada vista nunca
+    // quede null (si queda null, mostrarMensaje(...) revienta con NPE).
+    private void cambiarIdiomaEnTodasLasVistas(Locale locale) {
+        this.cambiarIdioma(locale);
+        usuarioCrearView.cambiarIdioma(locale);
+        usuarioBuscarView.cambiarIdioma(locale);
+        usuarioActualizarView.cambiarIdioma(locale);
+        usuarioEliminarView.cambiarIdioma(locale);
+        usuarioListarView.cambiarIdioma(locale);
+
+        libroActualizarView.cambiarIdioma(locale);
+        libroBuscarView.cambiarIdioma(locale);
+        libroCrearView.cambiarIdioma(locale);
+        libroEliminarView.cambiarIdioma(locale);
+        libroListarView.cambiarIdioma(locale);
+
+        prestamoActualizarView.cambiarIdioma(locale);
+        prestamoBuscarView.cambiarIdioma(locale);
+        prestamoCrearView.cambiarIdioma(locale);
+        prestamoEliminarView.cambiarIdioma(locale);
+        prestamoListarView.cambiarIdioma(locale);
+
+        autorActualizarView.cambiarIdioma(locale);
+        autorBuscarView.cambiarIdioma(locale);
+        autorCrearView.cambiarIdioma(locale);
+        autorEliminarView.cambiarIdioma(locale);
+        autorListarView.cambiarIdioma(locale);
     }
 
     public void cambiarIdioma(Locale locale) {
@@ -511,60 +571,11 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemPrestamoListarActionPerformed
 
     private void menuItemIdiomaInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaInglesActionPerformed
-        Locale locale = new Locale("en", "US");
-        this.cambiarIdioma(locale);
-        usuarioCrearView.cambiarIdioma(locale);
-        usuarioBuscarView.cambiarIdioma(locale);
-        usuarioActualizarView.cambiarIdioma(locale);
-        usuarioEliminarView.cambiarIdioma(locale);
-        usuarioListarView.cambiarIdioma(locale);
-
-        libroActualizarView.cambiarIdioma(locale);
-        libroBuscarView.cambiarIdioma(locale);
-        libroCrearView.cambiarIdioma(locale);
-        libroEliminarView.cambiarIdioma(locale);
-        libroListarView.cambiarIdioma(locale);
-
-        prestamoActualizarView.cambiarIdioma(locale);
-        prestamoBuscarView.cambiarIdioma(locale);
-        prestamoCrearView.cambiarIdioma(locale);
-        prestamoEliminarView.cambiarIdioma(locale);
-        prestamoListarView.cambiarIdioma(locale);
-        
-        autorActualizarView.cambiarIdioma(locale);
-        autorBuscarView.cambiarIdioma(locale);
-        autorCrearView.cambiarIdioma(locale);
-        autorEliminarView.cambiarIdioma(locale);
-        autorListarView.cambiarIdioma(locale);
-                
+        cambiarIdiomaEnTodasLasVistas(new Locale("en", "US"));      
     }//GEN-LAST:event_menuItemIdiomaInglesActionPerformed
 
     private void menuItemIdiomaEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIdiomaEspañolActionPerformed
-        Locale locale = new Locale("es", "EC");
-        this.cambiarIdioma(locale);
-        usuarioCrearView.cambiarIdioma(locale);
-        usuarioBuscarView.cambiarIdioma(locale);
-        usuarioActualizarView.cambiarIdioma(locale);
-        usuarioEliminarView.cambiarIdioma(locale);
-        usuarioListarView.cambiarIdioma(locale);
-
-        libroActualizarView.cambiarIdioma(locale);
-        libroBuscarView.cambiarIdioma(locale);
-        libroCrearView.cambiarIdioma(locale);
-        libroEliminarView.cambiarIdioma(locale);
-        libroListarView.cambiarIdioma(locale);
-
-        prestamoActualizarView.cambiarIdioma(locale);
-        prestamoBuscarView.cambiarIdioma(locale);
-        prestamoCrearView.cambiarIdioma(locale);
-        prestamoEliminarView.cambiarIdioma(locale);
-        prestamoListarView.cambiarIdioma(locale);
-        
-        autorActualizarView.cambiarIdioma(locale);
-        autorBuscarView.cambiarIdioma(locale);
-        autorCrearView.cambiarIdioma(locale);
-        autorEliminarView.cambiarIdioma(locale);
-        autorListarView.cambiarIdioma(locale);
+        cambiarIdiomaEnTodasLasVistas(new Locale("es", "EC"));
     }//GEN-LAST:event_menuItemIdiomaEspañolActionPerformed
 
     private void menuItemSistemaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSistemaSalirActionPerformed
@@ -644,12 +655,39 @@ public class PrincipalView extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        // Preguntar al usuario qué mecanismo de persistencia usar */
+        final TipoDeGuardado tipoDeGuardado = elegirTipoGuardado();
+
+        // Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalView().setVisible(true);
+                new PrincipalView(tipoDeGuardado).setVisible(true);
             }
         });
+    }
+
+    
+//      Muestra un diálogo para que el usuario elija cómo se va a persistir la
+//      información: en memoria (se pierde al cerrar la aplicación) o en
+//      archivos binarios (persiste entre ejecuciones). Si el usuario cierra
+//      el diálogo sin elegir, se usa MEMORIA por defecto.
+     
+    private static TipoDeGuardado elegirTipoGuardado() {
+        String[] opciones = {"Archivo (persistente)", "Memoria (temporal)"};
+        int seleccion = javax.swing.JOptionPane.showOptionDialog(
+                null,
+                "Seleccione el mecanismo de almacenamiento a utilizar:",
+                "Biblioteca - Persistencia",
+                javax.swing.JOptionPane.DEFAULT_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]);
+
+        if (seleccion == 0) {
+            return TipoDeGuardado.ARCHIVO;
+        }
+        return TipoDeGuardado.MEMORIA;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -83,7 +83,7 @@ public class LibroController {
             int año;
             try {
                 año = Integer.parseInt(añoTexto);
-            } catch (ClassCastException e) {
+            } catch (NumberFormatException e) {
                 libroCrearView.mostrarMensaje("mensaje.error.numero.libro");
                 return;
             }

@@ -44,6 +44,7 @@ public class AutorCrearView extends javax.swing.JInternalFrame {
         btnCrearAutorCrear = new javax.swing.JButton();
         btnCancelarAutorCrear = new javax.swing.JButton();
         btnLimpiarAutorCrear = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -53,64 +54,86 @@ public class AutorCrearView extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(207, 162, 124));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
+        lblNombreAutorCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNombreAutorCrear.setText("Nombre");
 
+        lblYearAutorCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblYearAutorCrear.setText("Año de Nacimiento");
 
+        lblNacionalidadAutorCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         lblNacionalidadAutorCrear.setText("Nacionalidad");
 
+        btnCrearAutorCrear.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnCrearAutorCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear-Photoroom.png"))); // NOI18N
         btnCrearAutorCrear.setText("Crear");
 
+        btnCancelarAutorCrear.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnCancelarAutorCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarAutorCrear.setText("Cancelar");
 
+        btnLimpiarAutorCrear.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        btnLimpiarAutorCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarAutorCrear.setText("Limpiar");
+        btnLimpiarAutorCrear.addActionListener(this::btnLimpiarAutorCrearActionPerformed);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Acrear-Photoroom.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNacionalidadAutorCrear)
-                    .addComponent(lblYearAutorCrear)
-                    .addComponent(lblNombreAutorCrear))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCrearAutorCrear)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnCancelarAutorCrear)
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtNombreAutorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                        .addComponent(txtYearAutorCrear)
-                        .addComponent(txtNacionalidadAutorCrear)))
-                .addGap(54, 54, 54)
-                .addComponent(btnLimpiarAutorCrear)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNacionalidadAutorCrear)
+                            .addComponent(lblYearAutorCrear)
+                            .addComponent(lblNombreAutorCrear))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(btnCrearAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCancelarAutorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtNombreAutorCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtYearAutorCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNacionalidadAutorCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addComponent(btnLimpiarAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(180, 180, 180))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreAutorCrear)
-                    .addComponent(txtNombreAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblYearAutorCrear)
-                    .addComponent(txtYearAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpiarAutorCrear))
-                .addGap(22, 22, 22)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreAutorCrear)
+                            .addComponent(txtNombreAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblYearAutorCrear)
+                            .addComponent(txtYearAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(btnLimpiarAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNacionalidadAutorCrear)
                     .addComponent(txtNacionalidadAutorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarAutorCrear)
-                    .addComponent(btnCrearAutorCrear))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCrearAutorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCancelarAutorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,6 +149,10 @@ public class AutorCrearView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLimpiarAutorCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarAutorCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarAutorCrearActionPerformed
 public JTextField getTxtNombre() {
         return txtNombreAutorCrear;
     }
@@ -173,6 +200,7 @@ public JTextField getTxtNombre() {
     private javax.swing.JButton btnCancelarAutorCrear;
     private javax.swing.JButton btnCrearAutorCrear;
     private javax.swing.JButton btnLimpiarAutorCrear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNacionalidadAutorCrear;
     private javax.swing.JLabel lblNombreAutorCrear;

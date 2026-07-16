@@ -24,9 +24,10 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
     public LibroActualizarView() {
         initComponents();
     }
+    private ResourceBundle bundle;
     
     public void cambiarIdioma(Locale locale) {
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
         
     lblIsbnLibroActualizar.setText(bundle.getString("libro.isbn"));
     lblTituloLibroActualizar.setText(bundle.getString("libro.titulo"));
@@ -322,9 +323,12 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGeneroLibroActualizarActionPerformed
 
-    public void mostarMensaje(String mensaje){
-        JOptionPane.showMessageDialog(this, mensaje);
-    }
+   public void mostrarMensaje(String llaveMensaje) {
+    
+    String mensaje = this.bundle.getString(llaveMensaje);
+
+    javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+}
     public JButton getBtnActualizarLibroActualizar() {
         return btnActualizarLibroActualizar;
     }

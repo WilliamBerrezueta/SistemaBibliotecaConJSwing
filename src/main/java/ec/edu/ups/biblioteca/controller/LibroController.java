@@ -79,21 +79,18 @@ public class LibroController {
         }
         if (libroDao.buscar(isbn) != null) {
             libroCrearView.mostrarMensaje("mensaje.error.doble.libro");
-        } 
-        else {
+        } else {
             int año;
-            try{
-            año = Integer.parseInt(añoTexto);
+            try {
+                año = Integer.parseInt(añoTexto);
+            } catch (ClassCastException e) {
+                libroCrearView.mostrarMensaje("mensaje.error.numero.libro");
+                return;
             }
-            catch(ClassCastException e){
-            libroCrearView.mostrarMensaje("mensaje.error.numero.libro");
-            return;
-            }
-            if(año > 2026 || año < 0 ){
+            if (año > 2026 || año < 0) {
                 libroCrearView.mostrarMensaje("mensaje.error.fecha.valida.libro");
                 return;
             }
-            
 
             Libro libro = new Libro(isbn, titulo, año, genero, disponible, editorial, autor);
             libroDao.crear(libro);
@@ -302,37 +299,54 @@ public class LibroController {
 
     // METODOS ACTUALIZAR
     public void actualizarLibro() {
-
         String isbn = libroActualizarView.getTxtIsbnLibroActualizar().getText();
-
         Libro libro = libroDao.buscar(isbn);
-
-        if (libro != null) {
-
-            Genero genero;
-            try {
-                genero = Genero.fromTexto(libroActualizarView.getTxtGeneroLibroActualizar().getText());
-            } catch (IllegalArgumentException ex) {
-                libroActualizarView.mostarMensaje("Use uno de los géneros existentes");
-                return;
-            }
-
-            libro.setTitulo(libroActualizarView.getTxtTituloLibroActualizar().getText());
-            libro.setEditorial(libroActualizarView.getTxtEditorialLibroActualizar().getText());
-            libro.setGenero(genero);
-            libro.setAñoDePublicacion(Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText()));
-            libro.setDisponible(libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected());
-            libroActualizarView.getTxtDisponibleLibroActualizar().setText(libro.isDisponible() ? "Sí" : "No");
-
-            libroDao.actualizar(libro);
-
-            listarLibros();
-            cargarIsbnsCombo();
-
-            libroActualizarView.mostarMensaje("Libro actualizado");
-
+        if (libro == null) {
+            libroActualizarView.mostrarMensaje("mensaje.error.isbn.no.libro");
+            return;
         }
 
+        String titulo = libroActualizarView.getTxtTituloLibroActualizar().getText();
+        String editorial = libroActualizarView.getTxtEditorialLibroActualizar().getText();
+        String yearTexto = libroActualizarView.getTxtYearLibroActualizar().getText();
+
+        if (titulo.isEmpty() || editorial.isEmpty() || yearTexto.isEmpty()) {
+            libroActualizarView.mostrarMensaje("mensaje.error.llenarcampos.libro");
+            return;
+        }
+
+        Genero genero;
+        try {
+            genero = Genero.fromTexto(libroActualizarView.getTxtGeneroLibroActualizar().getText());
+        } catch (IllegalArgumentException ex) {
+            libroActualizarView.mostrarMensaje("mensaje.error.genero.libro");
+            return;
+        }
+
+        int year;
+        try {
+            year = Integer.parseInt(yearTexto);
+        } catch (NumberFormatException ex) {
+            libroActualizarView.mostrarMensaje("mensaje.error.numero.libro");
+            return;
+        }
+
+        if (year > 2026 || year < 0) {
+            libroActualizarView.mostrarMensaje("mensaje.error.fecha.valida.libro");
+            return;
+        }
+
+        libro.setTitulo(titulo);
+        libro.setEditorial(editorial);
+        libro.setGenero(genero);
+        libro.setAñoDePublicacion(year);
+        libro.setDisponible(libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected());
+        libroActualizarView.getTxtDisponibleLibroActualizar().setText(libro.isDisponible() ? "Sí" : "No");
+
+        libroDao.actualizar(libro);
+        listarLibros();
+        cargarIsbnsCombo();
+        libroActualizarView.mostrarMensaje("libro.actulizado.yes");
     }
 
     public void buscarLibroActualizar() {
@@ -403,7 +417,7 @@ public class LibroController {
                 }
             }
         });
-        
+
         libroActualizarView.getCbxAutorLibroActualizar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -502,21 +516,22 @@ public class LibroController {
             combo.setSelectedItem(seleccionActual);
         }
     }
-    
+
     public void cargarAutoresActualizar() {
 
-    libroActualizarView.getCbxAutorLibroActualizar().removeAllItems();
+        libroActualizarView.getCbxAutorLibroActualizar().removeAllItems();
 
-    for (Autor autor : autorDao.listar()) {
-        libroActualizarView.getCbxAutorLibroActualizar().addItem(autor.getNombre());
+        for (Autor autor : autorDao.listar()) {
+            libroActualizarView.getCbxAutorLibroActualizar().addItem(autor.getNombre());
+        }
     }
-}
+
     public void cargarGenerosActualizar() {
 
-    libroActualizarView.getCbxGeneroLibroActualizar().removeAllItems();
+        libroActualizarView.getCbxGeneroLibroActualizar().removeAllItems();
 
-    for (Genero genero : Genero.values()) {
-        libroActualizarView.getCbxGeneroLibroActualizar().addItem(genero.toString());
+        for (Genero genero : Genero.values()) {
+            libroActualizarView.getCbxGeneroLibroActualizar().addItem(genero.toString());
+        }
     }
-}
 }

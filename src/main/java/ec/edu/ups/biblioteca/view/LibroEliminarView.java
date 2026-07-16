@@ -87,6 +87,8 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         lblIsbnLibroEliminar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroEliminar.setText("ISBN");
 
+        txtIsbnLibroEliminar.setEditable(false);
+        txtIsbnLibroEliminar.setEnabled(false);
         txtIsbnLibroEliminar.addActionListener(this::txtIsbnLibroEliminarActionPerformed);
 
         lblTituloLibroEliminar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N

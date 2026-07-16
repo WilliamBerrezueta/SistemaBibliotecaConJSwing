@@ -88,6 +88,8 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         lblIsbnLibroActualizar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         lblIsbnLibroActualizar.setText("ISBN");
 
+        txtIsbnLibroActualizar.setEditable(false);
+        txtIsbnLibroActualizar.setEnabled(false);
         txtIsbnLibroActualizar.addActionListener(this::txtIsbnLibroActualizarActionPerformed);
 
         lblTituloLibroActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
@@ -106,6 +108,10 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
 
         txtYearLibroActualizar.addActionListener(this::txtYearLibroActualizarActionPerformed);
 
+        txtGeneroLibroActualizar.setEditable(false);
+        txtGeneroLibroActualizar.setEnabled(false);
+        txtGeneroLibroActualizar.addActionListener(this::txtGeneroLibroActualizarActionPerformed);
+
         btnActualizarLibroActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         btnActualizarLibroActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizar.png"))); // NOI18N
         btnActualizarLibroActualizar.setText("Actualizar");
@@ -121,6 +127,9 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
 
         lblDisponibleLibroActualizar.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         lblDisponibleLibroActualizar.setText("Disponible");
+
+        txtAutorLibroActualizar.setEditable(false);
+        txtAutorLibroActualizar.setEnabled(false);
 
         rbtnDisponibleLibroActualizar.addActionListener(this::rbtnDisponibleLibroActualizarActionPerformed);
 
@@ -217,7 +226,6 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
                     .addGroup(panelLibroActualizarLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelLibroActualizarLayout.createSequentialGroup()
                                 .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -297,6 +305,10 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
     private void txtYearLibroActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYearLibroActualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtYearLibroActualizarActionPerformed
+
+    private void txtGeneroLibroActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroLibroActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGeneroLibroActualizarActionPerformed
 
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);

@@ -26,9 +26,10 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
     public LibroCrearView() {
         initComponents();
     }
+    private ResourceBundle bundle;
     
     public void cambiarIdioma(Locale locale) {
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+        this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
         lblIsbnLibroCrear.setText(bundle.getString("libro.isbn"));
         lblTituloLibroCrear.setText(bundle.getString("libro.titulo"));
         lblAutorLibroCrear.setText(bundle.getString("libro.autor"));
@@ -373,9 +374,12 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         return txtDisponibleLibroCrear;
     }
 
-    public void mostarMensaje(String mensaje){
-        JOptionPane.showMessageDialog(this, mensaje);
-    }
+    public void mostrarMensaje(String llaveMensaje) {
+    
+    String mensaje = this.bundle.getString(llaveMensaje);
+
+    javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarLibroCrear;

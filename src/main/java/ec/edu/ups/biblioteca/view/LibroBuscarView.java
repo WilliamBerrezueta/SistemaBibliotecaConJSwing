@@ -89,6 +89,8 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         lblIsbnLibroBuscar.setText("ISBN");
         lblIsbnLibroBuscar.setToolTipText("");
 
+        txtIsbnLibroBuscar.setEditable(false);
+        txtIsbnLibroBuscar.setEnabled(false);
         txtIsbnLibroBuscar.addActionListener(this::txtIsbnLibroBuscarActionPerformed);
 
         lblTituloLibroBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N

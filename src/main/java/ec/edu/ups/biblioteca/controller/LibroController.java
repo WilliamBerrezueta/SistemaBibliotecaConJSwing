@@ -16,6 +16,7 @@ import ec.edu.ups.biblioteca.view.LibroEliminarView;
 import ec.edu.ups.biblioteca.view.LibroListarView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 import javax.swing.JTextField;
 
 /**
@@ -23,7 +24,7 @@ import javax.swing.JTextField;
  * @author USER
  */
 public class LibroController {
-    
+
     private LibroDao libroDao;
     private AutorDao autorDao;
     private LibroActualizarView libroActualizarView;
@@ -31,14 +32,14 @@ public class LibroController {
     private LibroCrearView libroCrearView;
     private LibroEliminarView libroEliminarView;
     private LibroListarView libroListarView;
-    
+
     // Bandera para evitar que, mientras se rellenan los combos de ISBN por
     // código (removeAllItems + addItem), se disparen búsquedas como si el
     // usuario hubiese seleccionado algo manualmente.
     private boolean cargandoCombosIsbn = false;
-    
-    public LibroController(LibroActualizarView libroActualizarView,LibroBuscarView libroBuscarView, LibroCrearView libroCrearView, LibroEliminarView libroEliminarView,LibroListarView libroListarView, LibroDao libroDao, AutorDao autorDao){
-        
+
+    public LibroController(LibroActualizarView libroActualizarView, LibroBuscarView libroBuscarView, LibroCrearView libroCrearView, LibroEliminarView libroEliminarView, LibroListarView libroListarView, LibroDao libroDao, AutorDao autorDao) {
+
         this.libroActualizarView = libroActualizarView;
         this.libroBuscarView = libroBuscarView;
         this.libroCrearView = libroCrearView;
@@ -46,7 +47,7 @@ public class LibroController {
         this.libroListarView = libroListarView;
         this.libroDao = libroDao;
         this.autorDao = autorDao;
-        
+
         configurarEventoLibroCrear();
         configurarEventoLibroBuscar();
         configurarEventoLibroEliminar();
@@ -55,10 +56,9 @@ public class LibroController {
         cargarGenerosCombo();
         cargarIsbnsCombo();
     }
-    
-    
+
     // METODOS PARA CONFIGURARCREAR
-    public void crearLibro(){
+    public void crearLibro() {
         String isbn = libroCrearView.getTxtIsbnLibroCrear().getText();
         String titulo = libroCrearView.getTxtTituloLibroCrear().getText();
         String añoTexto = libroCrearView.getTxtYearLibroCrear().getText();
@@ -66,43 +66,58 @@ public class LibroController {
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
         Autor autor = (Autor) libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
-        
-        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero == null || editorial.isEmpty() || autor == null) {
-        libroCrearView.mostarMensaje("Debe llenar todos los campos");
-        if(isbn.length()!=13){
-        libroCrearView.mostarMensaje("Ingrese los 13 numeros del codigo ISBN");
-        return;
-        }
-        
-        return;
-    }
-        else{
-        int año = Integer.parseInt(añoTexto);
 
-        Libro libro = new Libro(isbn,titulo,año,genero,disponible,editorial,autor);
-        libroDao.crear(libro);
-        listarLibros();
-        cargarIsbnsCombo();
-        libroCrearView.mostarMensaje("Se ha creado su libro");
+        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero == null || editorial.isEmpty() || autor == null) {
+            libroCrearView.mostrarMensaje("mensaje.error.llenarcampos.libro");
+            return;
+        }
+        if (isbn.length() != 13) {
+            libroCrearView.mostrarMensaje("mensaje.error.isbn.libro");
+            return;
+        }
+        if (libroDao.buscar(isbn) != null) {
+            libroCrearView.mostrarMensaje("mensaje.error.doble.libro");
+        } 
+        else {
+            int año;
+            try{
+            año = Integer.parseInt(añoTexto);
+            }
+            catch(ClassCastException e){
+            libroCrearView.mostrarMensaje("mensaje.error.numero.libro");
+            return;
+            }
+            if(año > 2026 || año < 0 ){
+                libroCrearView.mostrarMensaje("mensaje.error.fecha.valida.libro");
+                return;
+            }
+            
+
+            Libro libro = new Libro(isbn, titulo, año, genero, disponible, editorial, autor);
+            libroDao.crear(libro);
+            listarLibros();
+            cargarIsbnsCombo();
+            libroCrearView.mostrarMensaje("mensaje.libro.creado.libro");
         }
     }
-    
-    public void limpiarLibroCrear(){
-    libroCrearView.getTxtAutorLibroCrear().setText("");
-    libroCrearView.getTxtEditorialLibroCrear().setText("");
-    libroCrearView.getTxtGeneroLibroCrear().setText("");
-    libroCrearView.getTxtIsbnLibroCrear().setText("");
-    libroCrearView.getTxtTituloLibroCrear().setText("");
-    libroCrearView.getTxtYearLibroCrear().setText("");
-    libroCrearView.getRbtnDisponibleLibroCrear().setSelected(false);
-    libroCrearView.getTxtDisponibleLibroCrear().setText("No");
-    if (libroCrearView.getCbxGeneroLibroCrear().getItemCount() > 0) {
-        libroCrearView.getCbxGeneroLibroCrear().setSelectedIndex(0);
+
+    public void limpiarLibroCrear() {
+        libroCrearView.getTxtAutorLibroCrear().setText("");
+        libroCrearView.getTxtEditorialLibroCrear().setText("");
+        libroCrearView.getTxtGeneroLibroCrear().setText("");
+        libroCrearView.getTxtIsbnLibroCrear().setText("");
+        libroCrearView.getTxtTituloLibroCrear().setText("");
+        libroCrearView.getTxtYearLibroCrear().setText("");
+        libroCrearView.getRbtnDisponibleLibroCrear().setSelected(false);
+        libroCrearView.getTxtDisponibleLibroCrear().setText("No");
+        if (libroCrearView.getCbxGeneroLibroCrear().getItemCount() > 0) {
+            libroCrearView.getCbxGeneroLibroCrear().setSelectedIndex(0);
+        }
+        if (libroCrearView.getCbxAutorLibroCrear().getItemCount() > 0) {
+            libroCrearView.getCbxAutorLibroCrear().setSelectedIndex(0);
+        }
     }
-    if (libroCrearView.getCbxAutorLibroCrear().getItemCount() > 0) {
-        libroCrearView.getCbxAutorLibroCrear().setSelectedIndex(0);
-    }
-}
+
     // CONFIGURAR
     public void configurarEventoLibroCrear() {
         libroCrearView.getBtnCrearLibroCrear().addActionListener(new ActionListener() { //clase anonima
@@ -125,8 +140,8 @@ public class LibroController {
         });
     }
     // METODO PARA BUSCAR
-    
-    public void buscarLibro(){
+
+    public void buscarLibro() {
         if (libroBuscarView != null) {
 
             JTextField codigoJ = libroBuscarView.getTxtIsbnLibroBuscar();
@@ -145,17 +160,18 @@ public class LibroController {
             }
         }
     }
-    
-    public void limpiarLibroBuscar(){
-    libroBuscarView.getTxtAutorLibroBuscar().setText("");
-    libroBuscarView.getTxtEditorialLibroBuscar().setText("");
-    libroBuscarView.getTxtGeneroLibroBuscar().setText("");
-    libroBuscarView.getTxtIsbnLibroBuscar().setText("");
-    libroBuscarView.getTxtTituloLibroBuscar().setText("");
-    libroBuscarView.getTxtYearLibroBuscar().setText("");
-    libroBuscarView.getRbtnDisponibleLibroBuscar().setSelected(false);
-    libroBuscarView.getTxtDisponibleLibroBuscar().setText("No");
-}
+
+    public void limpiarLibroBuscar() {
+        libroBuscarView.getTxtAutorLibroBuscar().setText("");
+        libroBuscarView.getTxtEditorialLibroBuscar().setText("");
+        libroBuscarView.getTxtGeneroLibroBuscar().setText("");
+        libroBuscarView.getTxtIsbnLibroBuscar().setText("");
+        libroBuscarView.getTxtTituloLibroBuscar().setText("");
+        libroBuscarView.getTxtYearLibroBuscar().setText("");
+        libroBuscarView.getRbtnDisponibleLibroBuscar().setSelected(false);
+        libroBuscarView.getTxtDisponibleLibroBuscar().setText("No");
+    }
+
     public void configurarEventoLibroBuscar() {
         libroBuscarView.getBtnCrearLibroBuscar().addActionListener(new ActionListener() { //clase anonima
             @Override
@@ -189,9 +205,10 @@ public class LibroController {
             }
         });
     }
+
     // METODOS ELIMINAR
-    public void eliminarLibro(){
-    if (libroEliminarView != null) {
+    public void eliminarLibro() {
+        if (libroEliminarView != null) {
             JTextField codigoJ = libroEliminarView.getTxtIsbnLibroEliminar();
 
             String isbn = codigoJ.getText();
@@ -209,16 +226,18 @@ public class LibroController {
 
         }
     }
-    public void limpiarLibroEliminar(){
-    libroEliminarView.getTxtAutorLibroEliminar().setText("");
-    libroEliminarView.getTxtEditorialLibroEliminar().setText("");
-    libroEliminarView.getTxtGeneroLibroEliminar().setText("");
-    libroEliminarView.getTxtIsbnLibroEliminar().setText("");
-    libroEliminarView.getTxtTituloLibroEliminar().setText("");
-    libroEliminarView.getTxtYearLibroEliminar().setText("");
-    libroEliminarView.getRbtnDisponibleLibroEliminar().setSelected(false);
-    libroEliminarView.getTxtDisponibleLibroEliminar().setText("No");
-}
+
+    public void limpiarLibroEliminar() {
+        libroEliminarView.getTxtAutorLibroEliminar().setText("");
+        libroEliminarView.getTxtEditorialLibroEliminar().setText("");
+        libroEliminarView.getTxtGeneroLibroEliminar().setText("");
+        libroEliminarView.getTxtIsbnLibroEliminar().setText("");
+        libroEliminarView.getTxtTituloLibroEliminar().setText("");
+        libroEliminarView.getTxtYearLibroEliminar().setText("");
+        libroEliminarView.getRbtnDisponibleLibroEliminar().setSelected(false);
+        libroEliminarView.getTxtDisponibleLibroEliminar().setText("No");
+    }
+
     public void eliminarLibroBuscar() {
         if (libroEliminarView != null) {
 
@@ -238,6 +257,7 @@ public class LibroController {
             }
         }
     }
+
     public void configurarEventoLibroEliminar() {
         libroEliminarView.getBtnCrearLibroBuscar().addActionListener(new ActionListener() { //clase anonima
             @Override
@@ -277,43 +297,41 @@ public class LibroController {
             }
         });
     }
-    
+
     // METODOS ACTUALIZAR
-    
     public void actualizarLibro() {
 
-    String isbn = libroActualizarView.getTxtIsbnLibroActualizar().getText();
+        String isbn = libroActualizarView.getTxtIsbnLibroActualizar().getText();
 
-    Libro libro = libroDao.buscar(isbn);
+        Libro libro = libroDao.buscar(isbn);
 
-    if(libro != null){
+        if (libro != null) {
 
-        Genero genero;
-        try {
-            genero = Genero.fromTexto(libroActualizarView.getTxtGeneroLibroActualizar().getText());
-        } catch (IllegalArgumentException ex) {
-            libroActualizarView.mostarMensaje("Use uno de los géneros existentes");
-            return;
+            Genero genero;
+            try {
+                genero = Genero.fromTexto(libroActualizarView.getTxtGeneroLibroActualizar().getText());
+            } catch (IllegalArgumentException ex) {
+                libroActualizarView.mostarMensaje("Use uno de los géneros existentes");
+                return;
+            }
+
+            libro.setTitulo(libroActualizarView.getTxtTituloLibroActualizar().getText());
+            libro.setEditorial(libroActualizarView.getTxtEditorialLibroActualizar().getText());
+            libro.setGenero(genero);
+            libro.setAñoDePublicacion(Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText()));
+            libro.setDisponible(libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected());
+            libroActualizarView.getTxtDisponibleLibroActualizar().setText(libro.isDisponible() ? "Sí" : "No");
+
+            libroDao.actualizar(libro);
+
+            listarLibros();
+            cargarIsbnsCombo();
+
+            libroActualizarView.mostarMensaje("Libro actualizado");
+
         }
 
-        libro.setTitulo(libroActualizarView.getTxtTituloLibroActualizar().getText());
-        libro.setEditorial(libroActualizarView.getTxtEditorialLibroActualizar().getText());
-        libro.setGenero(genero);
-        libro.setAñoDePublicacion(Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText()));
-        libro.setDisponible(libroActualizarView.getRbtnDisponibleLibroActualizar().isSelected());
-        libroActualizarView.getTxtDisponibleLibroActualizar().setText(libro.isDisponible() ? "Sí" : "No");
-
-        libroDao.actualizar(libro);
-
-        listarLibros();
-        cargarIsbnsCombo();
-
-        libroActualizarView.mostarMensaje("Libro actualizado");
-        
-        
     }
-
-}
 
     public void buscarLibroActualizar() {
         if (libroActualizarView != null) {
@@ -333,16 +351,18 @@ public class LibroController {
             }
         }
     }
-    public void limpiarLibroActualizar(){
-    libroActualizarView.getTxtAutorLibroActualizar().setText("");
-    libroActualizarView.getTxtEditorialLibroActualizar().setText("");
-    libroActualizarView.getTxtGeneroLibroActualizar().setText("");
-    libroActualizarView.getTxtIsbnLibroActualizar().setText("");
-    libroActualizarView.getTxtTituloLibroActualizar().setText("");
-    libroActualizarView.getTxtYearLibroActualizar().setText("");
-    libroActualizarView.getRbtnDisponibleLibroActualizar().setSelected(false);
-    libroActualizarView.getTxtDisponibleLibroActualizar().setText("No");
-}
+
+    public void limpiarLibroActualizar() {
+        libroActualizarView.getTxtAutorLibroActualizar().setText("");
+        libroActualizarView.getTxtEditorialLibroActualizar().setText("");
+        libroActualizarView.getTxtGeneroLibroActualizar().setText("");
+        libroActualizarView.getTxtIsbnLibroActualizar().setText("");
+        libroActualizarView.getTxtTituloLibroActualizar().setText("");
+        libroActualizarView.getTxtYearLibroActualizar().setText("");
+        libroActualizarView.getRbtnDisponibleLibroActualizar().setSelected(false);
+        libroActualizarView.getTxtDisponibleLibroActualizar().setText("No");
+    }
+
     public void configurarEventoLibroActualizar() {
         libroActualizarView.getBtnActualizarLibroActualizar().addActionListener(new ActionListener() { //clase anonima
             @Override
@@ -381,13 +401,15 @@ public class LibroController {
                 }
             }
         });
-        
+
     }
+
     // METODOS LISTAR
     public void listarLibros() {
         libroListarView.cargarDatos(libroDao.listar());
-        
+
     }
+
     //// METODOS PARA RELLENAR LOS COMBO BOX
 
     
@@ -411,10 +433,8 @@ public class LibroController {
         }
     }
 
-    
 //      Rellena el combo de género del formulario de creación de libros con
 //      todos los valores de la enumeración
-     
     public void cargarGenerosCombo() {
 
         libroCrearView.getCbxGeneroLibroCrear().removeAllItems();
@@ -423,12 +443,11 @@ public class LibroController {
             libroCrearView.getCbxGeneroLibroCrear().addItem(genero);
         }
     }
-    
+
 //      Rellena los combos de ISBN de las vistas Buscar, Actualizar y Eliminar
 //      con "isbn - titulo" de cada libro registrado. Debe volver a ejecutarse
 //      cada vez que se crea, actualiza o elimina un libro para que los combos
 //      siempre reflejen la lista más reciente.
-     
     public void cargarIsbnsCombo() {
 
         cargandoCombosIsbn = true;

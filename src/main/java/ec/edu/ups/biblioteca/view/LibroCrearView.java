@@ -108,12 +108,12 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         txtTituloLibroCrear.addActionListener(this::txtTituloLibroCrearActionPerformed);
 
         btnCrearLibroCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCrearLibroCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear.png"))); // NOI18N
+        btnCrearLibroCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Crear-Photoroom.png"))); // NOI18N
         btnCrearLibroCrear.setText("Crear");
         btnCrearLibroCrear.addActionListener(this::btnCrearLibroCrearActionPerformed);
 
         btnCancelarLibroCrear.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarLibroCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarLibroCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarLibroCrear.setText("Cancelar");
 
         lblAutorLibroCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
@@ -128,7 +128,7 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         btnLimpiarLibroCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Escoba.png"))); // NOI18N
         btnLimpiarLibroCrear.setText("Limpiar");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearLibro.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/crearLibro-Photoroom.png"))); // NOI18N
 
         txtDisponibleLibroCrear.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         txtDisponibleLibroCrear.setText("No");

@@ -120,7 +120,7 @@ public class LibroBuscarView extends javax.swing.JInternalFrame {
         btnCrearLibroBuscar.addActionListener(this::btnCrearLibroBuscarActionPerformed);
 
         btnCancelarLibroBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarLibroBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarLibroBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarLibroBuscar.setText("Cancelar");
 
         lblAutorLibroBuscar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N

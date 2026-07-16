@@ -115,12 +115,12 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         txtGeneroLibroActualizar.addActionListener(this::txtGeneroLibroActualizarActionPerformed);
 
         btnActualizarLibroActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        btnActualizarLibroActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizar.png"))); // NOI18N
+        btnActualizarLibroActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizar (2).png"))); // NOI18N
         btnActualizarLibroActualizar.setText("Actualizar");
         btnActualizarLibroActualizar.addActionListener(this::btnActualizarLibroActualizarActionPerformed);
 
         btnCancelarLibroActualizar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        btnCancelarLibroActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarLibroActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarLibroActualizar.setText("Cancelar");
         btnCancelarLibroActualizar.addActionListener(this::btnCancelarLibroActualizarActionPerformed);
 
@@ -147,7 +147,7 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
         jLabel2.setText("Datos de el Libro");
 
         jLabel3.setBackground(new java.awt.Color(204, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarLibro.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizarLibro (2).png"))); // NOI18N
 
         txtDisponibleLibroActualizar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         txtDisponibleLibroActualizar.setText("No");
@@ -172,7 +172,7 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
                 .addComponent(btnLimpiarLibroActualizar)
                 .addGap(110, 110, 110))
             .addGroup(panelLibroActualizarLayout.createSequentialGroup()
-                .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLibroActualizarLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(lblIsbnLibroActualizar)
@@ -202,26 +202,25 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
                                     .addComponent(lblAutorLibroActualizar)
                                     .addComponent(lblEditorialLibroActualizar))))
                         .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelLibroActualizarLayout.createSequentialGroup()
-                                .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelLibroActualizarLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelLibroActualizarLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelLibroActualizarLayout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(rbtnDisponibleLibroActualizar)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtDisponibleLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panelLibroActualizarLayout.createSequentialGroup()
-                                            .addGap(34, 34, 34)
-                                            .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtYearLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtEditorialLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbtnDisponibleLibroActualizar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtDisponibleLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelLibroActualizarLayout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtYearLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtEditorialLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(panelLibroActualizarLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addComponent(txtGeneroLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLibroActualizarLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
@@ -268,11 +267,12 @@ public class LibroActualizarView extends javax.swing.JInternalFrame {
                                 .addComponent(lblGeneroLibroActualizar)
                                 .addComponent(txtGeneroLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                            .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxAutorLibroActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelLibroActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroActualizarLayout.createSequentialGroup()

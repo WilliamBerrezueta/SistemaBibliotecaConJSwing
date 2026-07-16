@@ -118,7 +118,7 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         btnCrearLibroBuscar.addActionListener(this::btnCrearLibroBuscarActionPerformed);
 
         btnCancelarLibroEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarLibroEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarLibroEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarLibroEliminar.setText("Cancelar");
 
         lblAutorLibroEliminar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -141,7 +141,7 @@ public class LibroEliminarView extends javax.swing.JInternalFrame {
         btnEliminarLibroEliminar.setText("Eliminar");
         btnEliminarLibroEliminar.addActionListener(this::btnEliminarLibroEliminarActionPerformed);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminarLibro.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminarLibro-Photoroom.png"))); // NOI18N
 
         txtDisponibleLibroEliminar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         txtDisponibleLibroEliminar.setText("No");

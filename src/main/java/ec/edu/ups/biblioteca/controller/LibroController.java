@@ -4,7 +4,9 @@
  */
 package ec.edu.ups.biblioteca.controller;
 
+import ec.edu.ups.biblioteca.dao.AutorDao;
 import ec.edu.ups.biblioteca.dao.LibroDao;
+import ec.edu.ups.biblioteca.models.Autor;
 import ec.edu.ups.biblioteca.models.Libro;
 import ec.edu.ups.biblioteca.view.LibroActualizarView;
 import ec.edu.ups.biblioteca.view.LibroBuscarView;
@@ -22,13 +24,14 @@ import javax.swing.JTextField;
 public class LibroController {
     
     private LibroDao libroDao;
+    private AutorDao autorDao;
     private LibroActualizarView libroActualizarView;
     private LibroBuscarView libroBuscarView;
     private LibroCrearView libroCrearView;
     private LibroEliminarView libroEliminarView;
     private LibroListarView libroListarView;
     
-    public LibroController(LibroActualizarView libroActualizarView,LibroBuscarView libroBuscarView, LibroCrearView libroCrearView, LibroEliminarView libroEliminarView,LibroListarView libroListarView, LibroDao libroDao){
+    public LibroController(LibroActualizarView libroActualizarView,LibroBuscarView libroBuscarView, LibroCrearView libroCrearView, LibroEliminarView libroEliminarView,LibroListarView libroListarView, LibroDao libroDao, AutorDao autorDao){
         
         this.libroActualizarView = libroActualizarView;
         this.libroBuscarView = libroBuscarView;
@@ -36,11 +39,13 @@ public class LibroController {
         this.libroEliminarView = libroEliminarView;
         this.libroListarView = libroListarView;
         this.libroDao = libroDao;
+        this.autorDao = autorDao;
         
         configurarEventoLibroCrear();
         configurarEventoLibroBuscar();
         configurarEventoLibroEliminar();
         configurarEventoLibroActualizar();
+        cargarAutoresCombo();
     }
     
     
@@ -52,9 +57,10 @@ public class LibroController {
         String genero = libroCrearView.getTxtGeneroLibroCrear().getText();
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
-        String autor = libroCrearView.getTxtAutorLibroCrear().getText();
+        Autor autor =
+        (Autor) libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
         
-        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero.isEmpty() || editorial.isEmpty() || autor.isEmpty()) {
+        if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero.isEmpty() || editorial.isEmpty() || autor == null) {
         libroCrearView.mostarMensaje("Debe llenar todos los campos");
         return;
     }
@@ -108,7 +114,7 @@ public class LibroController {
             Libro libroBuscar = libroDao.buscar(codigoInt);
 
             if (libroBuscar != null) {
-                libroBuscarView.getTxtAutorLibroBuscar().setText(libroBuscar.getAutor());
+                libroBuscarView.getTxtAutorLibroBuscar().setText(libroBuscar.getAutor().getNombre());
                 libroBuscarView.getTxtEditorialLibroBuscar().setText(libroBuscar.getEditorial());
                 libroBuscarView.getTxtGeneroLibroBuscar().setText(libroBuscar.getGenero());
                 libroBuscarView.getTxtIsbnLibroBuscar().setText(libroBuscar.getIsbn());
@@ -184,7 +190,7 @@ public class LibroController {
             Libro libroBuscar = libroDao.buscar(codigoInt);
 
             if (libroBuscar != null) {
-                libroEliminarView.getTxtAutorLibroEliminar().setText(libroBuscar.getAutor());
+                libroEliminarView.getTxtAutorLibroEliminar().setText(libroBuscar.getAutor().getNombre());
                 libroEliminarView.getTxtEditorialLibroEliminar().setText(libroBuscar.getEditorial());
                 libroEliminarView.getTxtGeneroLibroEliminar().setText(libroBuscar.getGenero());
                 libroEliminarView.getTxtIsbnLibroEliminar().setText(libroBuscar.getIsbn());
@@ -232,7 +238,6 @@ public class LibroController {
     if(libro != null){
 
         libro.setTitulo(libroActualizarView.getTxtTituloLibroActualizar().getText());
-        libro.setAutor(libroActualizarView.getTxtAutorLibroActualizar().getText());
         libro.setEditorial(libroActualizarView.getTxtEditorialLibroActualizar().getText());
         libro.setGenero(libroActualizarView.getTxtGeneroLibroActualizar().getText());
         libro.setAñoDePublicacion(Integer.parseInt(libroActualizarView.getTxtYearLibroActualizar().getText()));
@@ -257,7 +262,7 @@ public class LibroController {
             Libro libroBuscar = libroDao.buscar(isbn);
 
             if (libroBuscar != null) {
-                libroActualizarView.getTxtAutorLibroActualizar().setText(libroBuscar.getAutor());
+                libroActualizarView.getTxtAutorLibroActualizar().setText(libroBuscar.getAutor().getNombre());
                 libroActualizarView.getTxtEditorialLibroActualizar().setText(libroBuscar.getEditorial());
                 libroActualizarView.getTxtGeneroLibroActualizar().setText(libroBuscar.getGenero());
                 libroActualizarView.getTxtTituloLibroActualizar().setText(libroBuscar.getTitulo());
@@ -306,4 +311,13 @@ public class LibroController {
         libroListarView.cargarDatos(libroDao.listar());
         
     }
+    public void cargarAutoresCombo() {
+
+    libroCrearView.getCbxAutorLibroCrear().removeAllItems();
+
+    for (Autor autor : autorDao.listar()) {
+        libroCrearView.getCbxAutorLibroCrear().addItem(autor);
+    }
+
+}
 }

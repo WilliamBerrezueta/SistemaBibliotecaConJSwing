@@ -157,6 +157,7 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
     public JButton getBtnBuscarAutorActualizar() {
         return btnBuscarAutorActualizar;
     }
+    
 
     public void mostrarMensaje(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje);

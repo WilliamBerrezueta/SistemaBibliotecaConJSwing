@@ -19,13 +19,13 @@ public class Libro {
     private String genero;
     private boolean disponible;
     private String editorial;
-    private String autor;
+    private Autor autor;
     
     public Libro(){
     }
     
 
-    public Libro(String isbn, String titulo, int añoDePublicacion, String genero, boolean disponible, String editorial, String autor) {
+    public Libro(String isbn, String titulo, int añoDePublicacion, String genero, boolean disponible, String editorial, Autor autor) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.añoDePublicacion = añoDePublicacion;
@@ -83,11 +83,11 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
-    }
+    } 
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 

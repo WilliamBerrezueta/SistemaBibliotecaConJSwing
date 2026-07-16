@@ -4,9 +4,11 @@
  */
 package ec.edu.ups.biblioteca.view;
 
+import ec.edu.ups.biblioteca.models.Autor;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -131,6 +133,7 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         txtDisponibleLibroCrear.setEnabled(false);
 
         cbxGeneroLibroCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxGeneroLibroCrear.addActionListener(this::cbxGeneroLibroCrearActionPerformed);
 
         cbxAutorLibroCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -173,7 +176,6 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
                                     .addComponent(lblYearLibroCrear)
                                     .addComponent(lblGeneroLibroCrear)
                                     .addComponent(lblAutorLibroCrear))))
-                        .addGap(18, 18, 18)
                         .addGroup(panelLibroCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtGeneroLibroCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                             .addComponent(txtYearLibroCrear, javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,6 +274,10 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnDisponibleLibroCrearActionPerformed
 
+    private void cbxGeneroLibroCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxGeneroLibroCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxGeneroLibroCrearActionPerformed
+
     public JButton getBtnCancelarLibroCrear() {
         return btnCancelarLibroCrear;
     }
@@ -351,8 +357,11 @@ public class LibroCrearView extends javax.swing.JInternalFrame {
     public void setTxtYearLibroCrear(JTextField txtYearLibroCrear) {
         this.txtYearLibroCrear = txtYearLibroCrear;
     }
-    
-           
+
+    @SuppressWarnings("unchecked")
+    public javax.swing.JComboBox<Autor> getCbxAutorLibroCrear() {
+        return (javax.swing.JComboBox<Autor>) (javax.swing.JComboBox<?>) cbxAutorLibroCrear;
+    } 
     
     public void mostarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);

@@ -69,7 +69,16 @@ public class PrincipalView extends javax.swing.JFrame {
         libroEliminarView = new LibroEliminarView();
         libroListarView = new LibroListarView();
         libroDao = new LibroDaoMemoria();
-        libroController = new LibroController(libroActualizarView, libroBuscarView, libroCrearView, libroEliminarView, libroListarView, libroDao);
+        AutorDao autorDao = new AutorDaoMemoria();
+        libroController = new LibroController(
+                libroActualizarView,
+                libroBuscarView,
+                libroCrearView,
+                libroEliminarView,
+                libroListarView,
+                libroDao,
+                autorDao
+        );
 
         libroController.listarLibros();
 

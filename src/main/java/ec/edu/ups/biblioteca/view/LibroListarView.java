@@ -93,7 +93,7 @@ public class LibroListarView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        tblListarLibro.setBackground(new java.awt.Color(255, 255, 204));
+        tblListarLibro.setBackground(new java.awt.Color(207, 162, 124));
         tblListarLibro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblListarLibro.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         tblListarLibro.setModel(new javax.swing.table.DefaultTableModel(

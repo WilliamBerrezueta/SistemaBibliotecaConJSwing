@@ -22,6 +22,8 @@ public class AutorCrearView extends javax.swing.JInternalFrame {
     public AutorCrearView() {
         initComponents();
     }
+    
+    private ResourceBundle bundle;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -125,41 +127,46 @@ public class AutorCrearView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 public JTextField getTxtNombre() {
-    return txtNombreAutorCrear;
-}
-
-public JTextField getTxtYear() {
-    return txtYearAutorCrear;
-}
-
-public JTextField getTxtNacionalidad() {
-    return txtNacionalidadAutorCrear;
-}
-
-public JButton getBtnCrear() {
-    return btnCrearAutorCrear;
-}
-
-public JButton getBtnLimpiar() {
-    return btnLimpiarAutorCrear;
-}
-
-public JButton getBtnCancelar() {
-    return btnCancelarAutorCrear;
-}
-public void mostrarMensaje(String mensaje) {
-        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+        return txtNombreAutorCrear;
     }
-public void cambiarIdioma(Locale locale) {
-        ResourceBundle bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
-        
-    lblNacionalidadAutorCrear.setText(bundle.getString("autor.nacionalidad"));
-    lblNombreAutorCrear.setText(bundle.getString("usuario.nombre"));
-    lblYearAutorCrear.setText(bundle.getString("autor.anio"));
 
-    btnCrearAutorCrear.setText(bundle.getString("boton.crear"));
-    btnLimpiarAutorCrear.setText(bundle.getString("boton.limpiar"));
-    btnCancelarAutorCrear.setText(bundle.getString("boton.cancelar"));
+    public JTextField getTxtYear() {
+        return txtYearAutorCrear;
+    }
+
+    public JTextField getTxtNacionalidad() {
+        return txtNacionalidadAutorCrear;
+    }
+
+    public JButton getBtnCrear() {
+        return btnCrearAutorCrear;
+    }
+
+    public JButton getBtnLimpiar() {
+        return btnLimpiarAutorCrear;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelarAutorCrear;
+    }
+
+    public void cambiarIdioma(Locale locale) {
+        this.bundle = ResourceBundle.getBundle("ec.edu.ups.biblioteca.i18n.mensajes", locale);
+
+        lblNacionalidadAutorCrear.setText(bundle.getString("autor.nacionalidad"));
+        lblNombreAutorCrear.setText(bundle.getString("usuario.nombre"));
+        lblYearAutorCrear.setText(bundle.getString("autor.anio"));
+
+        btnCrearAutorCrear.setText(bundle.getString("boton.crear"));
+        btnLimpiarAutorCrear.setText(bundle.getString("boton.limpiar"));
+        btnCancelarAutorCrear.setText(bundle.getString("boton.cancelar"));
+    }
+
+    public void mostrarMensaje(String llaveMensaje) {
+
+        String mensaje = this.bundle.getString(llaveMensaje);
+
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

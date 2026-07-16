@@ -28,12 +28,12 @@ public class AutorController {
     private AutorActualizarView autorActualizarView;
     private AutorEliminarView autorEliminarView;
     private AutorListarView autorListarView;
-    
+
     // Bandera para evitar que, mientras se rellenan los combos por código
     // (removeAllItems + addItem), se disparen búsquedas como si el usuario
     // hubiese seleccionado algo manualmente.
     private boolean cargandoCombosAutor = false;
-    
+
     // Referencia opcional al controlador de libros. Se usa únicamente para
     // refrescar el combo box de autores de LibroCrearView cada vez que se
     // crea, actualiza o elimina un autor, sin que ambos controladores
@@ -86,8 +86,17 @@ public class AutorController {
             autorActualizarView.mostrarMensaje("mensaje.rellenar");
             return;
         }
-
-        int year = Integer.parseInt(yearTexto);
+        int year;
+        try {
+            year = Integer.parseInt(yearTexto);
+        } catch (ClassCastException ex) {
+            autorActualizarView.mostrarMensaje("mensaje.error.numero.libro");
+            return;
+        }
+        if (year > 2026 || year < 0) {
+            autorActualizarView.mostrarMensaje("mensaje.error.fecha.valida.libro");
+            return;
+        }
 
         Autor autor = new Autor(nombre, year, nacionalidad);
 
@@ -95,7 +104,7 @@ public class AutorController {
 
         listarAutores();
         cargarNombresCombo();
-        
+
         actualizarComboAutoresEnLibros();
 
         autorActualizarView.mostrarMensaje("mensaje.autor.creado");
@@ -159,24 +168,29 @@ public class AutorController {
         autorBuscarView.getBtnLimpiar().addActionListener(e -> limpiarAutorBuscar());
 
         autorBuscarView.getBtnCancelar().addActionListener(e -> autorBuscarView.dispose());
-        
+
         autorBuscarView.getCbxNombreAutorBuscar().addActionListener(e -> {
 
-    if(cargandoCombosAutor){
-        return;
-    }
+            if (cargandoCombosAutor) {
+                return;
+            }
 
-    Object seleccionado = autorBuscarView.getCbxNombreAutorBuscar().getSelectedItem();
+            Object seleccionado = autorBuscarView.getCbxNombreAutorBuscar().getSelectedItem();
 
-    if(seleccionado != null){
-        autorBuscarView.getTxtNombre().setText(seleccionado.toString());
-    }
+            if (seleccionado != null) {
+                autorBuscarView.getTxtNombre().setText(seleccionado.toString());
+            }
 
-});
+        });
 
     }
 
     public void buscarAutorActualizar() {
+        
+        if(autorActualizarView.getTxtYear().getText()==""|| autorActualizarView.getTxtNacionalidad().getText()==""){
+            autorActualizarView.mostrarMensaje("mensaje.error.llenarcampos");
+            return;
+        }
 
         String nombre = autorActualizarView.getTxtNombre().getText();
 
@@ -197,22 +211,42 @@ public class AutorController {
     }
 
     public void actualizarAutor() {
+        
+        if(autorActualizarView.getTxtYear().getText()==""|| autorActualizarView.getTxtNacionalidad().getText()==""){
+            autorActualizarView.mostrarMensaje("mensaje.error.llenarcampos");
+            return;
+        }
 
         String nombre = autorActualizarView.getTxtNombre().getText();
 
         Autor autor = autorDao.buscar(nombre);
 
         if (autor != null) {
-
+            int year;
+            try{
+                year = Integer.parseInt(autorActualizarView.getTxtYear().getText());
+           }
+            catch (ClassCastException ex) {
+                autorActualizarView.mostrarMensaje("mensaje.error.numero.libro");
+                return;
+            }
+            if(year>2026||year<0){
+                autorActualizarView.mostrarMensaje("mensaje.error.fecha.valida.libro");
+                return;
+            }
+            if(autorActualizarView.getTxtNacionalidad().getText()==null ||autorActualizarView.getTxtNacionalidad().getText()==""){
+                autorActualizarView.mostrarMensaje("mensaje.error.llenarcampos");
+                return;
+            }
             autor.setNombre(autorActualizarView.getTxtNombre().getText());
-            autor.setYearDeNacimiento(Integer.parseInt(autorActualizarView.getTxtYear().getText()));
+            autor.setYearDeNacimiento(year);
             autor.setNacionalidad(autorActualizarView.getTxtNacionalidad().getText());
 
             autorDao.actualizar(autor);
 
             listarAutores();
             cargarNombresCombo();
-            
+
             actualizarComboAutoresEnLibros();
 
             autorActualizarView.mostrarMensaje("mensaje.autor.actualizado");
@@ -238,20 +272,20 @@ public class AutorController {
         autorActualizarView.getBtnLimpiar().addActionListener(e -> limpiarAutorActualizar());
 
         autorActualizarView.getBtnCancelar().addActionListener(e -> autorActualizarView.dispose());
-        
+
         autorActualizarView.getCbxNombreAutorActualizar().addActionListener(e -> {
 
-    if(cargandoCombosAutor){
-        return;
-    }
+            if (cargandoCombosAutor) {
+                return;
+            }
 
-    Object seleccionado = autorActualizarView.getCbxNombreAutorActualizar().getSelectedItem();
+            Object seleccionado = autorActualizarView.getCbxNombreAutorActualizar().getSelectedItem();
 
-    if(seleccionado != null){
-        autorActualizarView.getTxtNombre().setText(seleccionado.toString());
-    }
+            if (seleccionado != null) {
+                autorActualizarView.getTxtNombre().setText(seleccionado.toString());
+            }
 
-});
+        });
 
     }
 
@@ -291,7 +325,7 @@ public class AutorController {
 
                 listarAutores();
                 cargarNombresCombo();
-                
+
                 actualizarComboAutoresEnLibros();
 
             }
@@ -317,48 +351,49 @@ public class AutorController {
         autorEliminarView.getBtnLimpiar().addActionListener(e -> limpiarAutorEliminar());
 
         autorEliminarView.getBtnCancelar().addActionListener(e -> autorEliminarView.dispose());
-        
+
         autorEliminarView.getCbxNombreAutorEliminar().addActionListener(e -> {
 
-    if(cargandoCombosAutor){
-        return;
+            if (cargandoCombosAutor) {
+                return;
+            }
+
+            Object seleccionado = autorEliminarView.getCbxNombreAutorEliminar().getSelectedItem();
+
+            if (seleccionado != null) {
+                autorEliminarView.getTxtNombre().setText(seleccionado.toString());
+            }
+
+        });
+
     }
 
-    Object seleccionado = autorEliminarView.getCbxNombreAutorEliminar().getSelectedItem();
-
-    if(seleccionado != null){
-        autorEliminarView.getTxtNombre().setText(seleccionado.toString());
-    }
-
-});
-
-    }
-    
     public void cargarNombresCombo() {
 
-    cargandoCombosAutor = true;
+        cargandoCombosAutor = true;
 
-    java.util.List<Autor> autores = autorDao.listar();
+        java.util.List<Autor> autores = autorDao.listar();
 
-    llenarComboAutores(autorBuscarView.getCbxNombreAutorBuscar(), autores);
-    llenarComboAutores(autorActualizarView.getCbxNombreAutorActualizar(), autores);
-    llenarComboAutores(autorEliminarView.getCbxNombreAutorEliminar(), autores);
+        llenarComboAutores(autorBuscarView.getCbxNombreAutorBuscar(), autores);
+        llenarComboAutores(autorActualizarView.getCbxNombreAutorActualizar(), autores);
+        llenarComboAutores(autorEliminarView.getCbxNombreAutorEliminar(), autores);
 
-    cargandoCombosAutor = false;
-}
+        cargandoCombosAutor = false;
+    }
+
     private void llenarComboAutores(JComboBox<String> combo, java.util.List<Autor> autores) {
 
-    Object seleccionActual = combo.getSelectedItem();
+        Object seleccionActual = combo.getSelectedItem();
 
-    combo.removeAllItems();
+        combo.removeAllItems();
 
-    for (Autor autor : autores) {
-        combo.addItem(autor.getNombre());
+        for (Autor autor : autores) {
+            combo.addItem(autor.getNombre());
+        }
+
+        if (seleccionActual != null) {
+            combo.setSelectedItem(seleccionActual);
+        }
     }
-
-    if (seleccionActual != null) {
-        combo.setSelectedItem(seleccionActual);
-    }
-}
 
 }

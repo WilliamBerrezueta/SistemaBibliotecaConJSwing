@@ -64,6 +64,9 @@ public class AutorActualizarView extends javax.swing.JInternalFrame {
 
         lblNacionalidadAutorActualizar.setText("Nacionalidad");
 
+        txtNombreAutorActualizar.setEditable(false);
+        txtNombreAutorActualizar.setEnabled(false);
+
         btnBuscarAutorActualizar.setText("Buscar");
 
         btnLimpiarAutorActualizar.setText("Limpiar");

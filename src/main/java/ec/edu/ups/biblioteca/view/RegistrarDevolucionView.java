@@ -155,10 +155,10 @@ public class RegistrarDevolucionView extends javax.swing.JInternalFrame {
         btnDevolverRegistrarDevolucion.setText("Devolver");
 
         btnCancelarRegistrarDevolucion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnCancelarRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X.png"))); // NOI18N
+        btnCancelarRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/X-.png"))); // NOI18N
         btnCancelarRegistrarDevolucion.setText("Cancelar");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/devolucion.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/devolucion-Photoroom.png"))); // NOI18N
 
         cbxCodigoRegistrarDevolucion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 

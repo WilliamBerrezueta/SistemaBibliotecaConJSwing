@@ -57,11 +57,15 @@ public class LibroController {
         String genero = libroCrearView.getTxtGeneroLibroCrear().getText();
         boolean disponible = libroCrearView.getRbtnDisponibleLibroCrear().isSelected();
         String editorial = libroCrearView.getTxtEditorialLibroCrear().getText();
-        Autor autor =
-        (Autor) libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
+        Autor autor = (Autor) libroCrearView.getCbxAutorLibroCrear().getSelectedItem();
         
         if (isbn.isEmpty() || titulo.isEmpty() || añoTexto.isEmpty() || genero.isEmpty() || editorial.isEmpty() || autor == null) {
         libroCrearView.mostarMensaje("Debe llenar todos los campos");
+        if(isbn.length()!=13){
+        libroCrearView.mostarMensaje("Ingrese los 13 numeros del codigo ISBN");
+        return;
+        }
+        
         return;
     }
         else{
